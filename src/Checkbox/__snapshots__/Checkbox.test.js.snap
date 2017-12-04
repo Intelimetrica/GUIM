@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Checkbox /> is false after two clicks 1`] = `
+<input
+  checked={true}
+  name={undefined}
+  onChange={[Function]}
+  type="checkbox"
+/>
+`;
+
+exports[`<Checkbox /> match snapshot 1`] = `
+<input
+  checked={false}
+  name={undefined}
+  onChange={[Function]}
+  type="checkbox"
+/>
+`;
