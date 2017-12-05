@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Checkbox from 'guim';
-
-console.log('Checkbox', Checkbox)
+import  { Checkbox } from 'guim';
 
 class App extends Component {
   constructor(props) {
@@ -12,13 +10,18 @@ class App extends Component {
   }
 
   onChange() {
+    console.log('onChange', !this.state.checked)
     this.setState({checked: !this.state.checked});
   }
 
   render() {
     return (
       <div className="App">
-        <Checkbox name="checkbox" checked={this.state.checked} onChange={this.onChange.bind(this)} />
+        <span>Clik me</span>
+        <Checkbox
+          name="checkbox"
+          checked={this.state.checked}
+          onChange={this.onChange.bind(this)} />
       </div>
     );
   }
