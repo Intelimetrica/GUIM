@@ -4,6 +4,8 @@ module.exports = {
   entry: './src/index.js',
   output: {
     filename: './index.js',
+    library: 'guim',
+    libraryTarget: 'commonjs2',
     path: path.resolve(__dirname, 'dist')
   },
   module: {

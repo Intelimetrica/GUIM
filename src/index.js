@@ -1,1 +1,2 @@
-export { default as Checkbox } from './Checkbox';
+import Checkbox from './Checkbox';
+module.exports.Checkbox = Checkbox;
