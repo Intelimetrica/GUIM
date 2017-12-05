@@ -2,14 +2,16 @@
   "name": "guim",
   "version": "1.0.0",
   "description": "React Components for Intelimetrica",
-  "main": "./src/index.js",
+  "main": "./dist/index.js",
   "directories": {
     "doc": "docs",
     "example": "examples",
     "test": "test"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "webpack",
+    "watch": "webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -27,12 +29,14 @@
   "homepage": "https://github.com/Rantelo/GUIM#readme",
   "devDependencies": {
     "babel-jest": "^21.2.0",
+    "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.0",
     "jest": "^21.2.1",
-    "react-test-renderer": "^16.2.0"
+    "react-test-renderer": "^16.2.0",
+    "webpack": "^3.10.0"
   },
   "dependencies": {
     "react": "^16.2.0",
