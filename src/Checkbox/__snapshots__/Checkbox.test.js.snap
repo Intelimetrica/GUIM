@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Checkbox /> is false after two clicks 1`] = `
+exports[`<Checkbox /> behaviour tests is false after two clicks 1`] = `
 <input
   checked={true}
   name={undefined}
@@ -9,7 +9,7 @@ exports[`<Checkbox /> is false after two clicks 1`] = `
 />
 `;
 
-exports[`<Checkbox /> match snapshot 1`] = `
+exports[`<Checkbox /> behaviour tests match snapshot 1`] = `
 <input
   checked={false}
   name={undefined}
