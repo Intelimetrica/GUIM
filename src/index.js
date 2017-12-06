@@ -1,2 +1,7 @@
 import Checkbox from './Checkbox';
-module.exports.Checkbox = Checkbox;
+import Button from './Button';
+
+module.exports = {
+  Checkbox: Checkbox,
+  Button: Button
+};
