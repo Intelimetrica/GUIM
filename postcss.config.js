@@ -1,7 +1,9 @@
 module.exports = {
   plugins: [
-    require('precss'),
-    require('autoprefixer'),
-    require('postcss-import')
+    require('postcss-import'),
+    require('postcss-pseudo-classes'),
+    require('postcss-cssnext'),
+    require('postcss-input-style'),
+    require('precss')
   ]
 }

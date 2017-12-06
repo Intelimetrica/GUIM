@@ -16,7 +16,7 @@ Checkbox.defaultProps = {
   onChange: () => console.log('Checkbox onChange()'),
   checked: false,
   styles: {},
-  className: ''
+  className: 'GUIMCheckbox'
 
 }
 

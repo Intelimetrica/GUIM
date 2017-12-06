@@ -36,8 +36,11 @@
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.0",
     "jest": "^21.2.1",
+    "postcss-cssnext": "^3.0.2",
     "postcss-import": "^11.0.0",
+    "postcss-input-style": "^1.0.0",
     "postcss-loader": "^2.0.9",
+    "postcss-pseudo-classes": "^0.2.0",
     "precss": "^2.0.0",
     "react-test-renderer": "^16.2.0",
     "webpack": "^3.10.0"
