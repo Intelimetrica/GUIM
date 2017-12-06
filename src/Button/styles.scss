@@ -1,0 +1,24 @@
+@import '../styles/themes.scss';
+
+.GUIMButton {
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: all ease 0.3s;
+  font-size: 0.8em;
+  font-weight: 300;
+  user-select: none;
+  text-align: center;
+  text-decoration: none;
+  &:hover, &:focus{
+    opacity: 0.75;
+  };
+}
+
+.GUIMButtonBlue {
+  @apply --blue-theme;
+}
+
+.GUIMButtonGRAY {
+  @apply --gray-theme;
+}
