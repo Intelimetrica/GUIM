@@ -1,6 +1,6 @@
-@import '../styles/variables.scss';
+@import '../styles/themes.scss';
 
-.GUIMButton{
+.GUIMButton {
   border-radius: 5px;
   padding: 10px 15px;
   cursor: pointer;
@@ -10,9 +10,15 @@
   user-select: none;
   text-align: center;
   text-decoration: none;
-  color: $main-blue;
-  background-color: $dark-blue;
   &:hover, &:focus{
-    opacity: 0.85;
-  }
+    opacity: 0.75;
+  };
+}
+
+.GUIMButtonBlue {
+  @apply --blue-theme;
+}
+
+.GUIMButtonGRAY {
+  @apply --gray-theme;
 }

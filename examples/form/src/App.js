@@ -19,6 +19,11 @@ class App extends Component {
       <div className="App">
         <span>Clik me</span>
         <Button
+          onClick={() => alert('blue')}
+          label="button" />
+        <Button
+          onClick={() => alert('gray')}
+          color='gray'
           label="button" />
         <Checkbox
           name="checkbox"
