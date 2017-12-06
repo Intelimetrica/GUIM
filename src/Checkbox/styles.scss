@@ -1,0 +1,33 @@
+@import '../styles/colors.scss';
+
+.GUIMCheckbox {
+  -webkit-appearance: none;
+  background-color: var(--white);
+  border: 2px solid var(--medium-gray);
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
+  outline: none;
+  width: 16px;
+  height: 16px;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+.GUIMCheckbox:checked{
+  background-color: var(--main-blue);
+  border: 2px solid var(--main-blue);
+  &::before{
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 4px;
+    display: table;
+    width: 2px;
+    height: 10px;
+    border: 2px solid #fff;
+    border-top-width: 0;
+    border-left-width: 0;
+  }
+}

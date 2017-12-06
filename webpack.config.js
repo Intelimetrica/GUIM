@@ -9,10 +9,30 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
   },
   module: {
-    rules: [{
-      test: /\.js$/,
-      exclude: ["node_modules", /.*\.spec\.js$/],
-      use: ["babel-loader"]
-    }]
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: ["node_modules", /.*\.spec\.js$/],
+        use: ["babel-loader"]
+      },
+      {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+            }
+          },
+          {
+            loader: 'postcss-loader'
+          }
+        ]
+      }
+    ]
   }
 };
