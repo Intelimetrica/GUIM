@@ -10,6 +10,7 @@ describe('<Button />', () => {
   let clicked = false;
   let tree;
   let reRender;
+  let component;
   const makeRenderer = component =>
     () => tree = component.toJSON();
 
