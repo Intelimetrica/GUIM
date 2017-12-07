@@ -18,7 +18,8 @@ Button.defaultProps = {
 
 const themes = {
   blue: 'GUIMButtonBlue',
-  gray: 'GUIMButtonGRAY'
+  gray: 'GUIMButtonGray',
+  green: 'GUIMButtonGreen'
 };
 
 export default Button;

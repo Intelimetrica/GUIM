@@ -24,9 +24,13 @@ class App extends Component {
         <Button
           onClick={() => alert('blue')}
           label="button" />
-        <Button
+         <Button
           onClick={() => alert('gray')}
           color='gray'
+          label="button" />
+       <Button
+          onClick={() => alert('green')}
+          color='green'
           label="button" />
         <Checkbox
           name="checkbox"
