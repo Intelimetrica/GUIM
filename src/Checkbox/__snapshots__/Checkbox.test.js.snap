@@ -3,8 +3,10 @@
 exports[`<Checkbox /> behaviour tests is false after two clicks 1`] = `
 <input
   checked={true}
-  name={undefined}
+  className="GUIMCheckbox"
+  name="checkbox"
   onChange={[Function]}
+  style={Object {}}
   type="checkbox"
 />
 `;
@@ -12,8 +14,10 @@ exports[`<Checkbox /> behaviour tests is false after two clicks 1`] = `
 exports[`<Checkbox /> behaviour tests match snapshot 1`] = `
 <input
   checked={false}
-  name={undefined}
+  className="GUIMCheckbox"
+  name="checkbox"
   onChange={[Function]}
+  style={Object {}}
   type="checkbox"
 />
 `;

@@ -1,3 +1,5 @@
+@import '../styles/colors.scss';
+
 .GUIPicker {
   display: flex;
   align-items: center;
@@ -5,9 +7,31 @@
   cursor: pointer;
   height: 30px;
   & a {
-    color: red;
+    border: 1px solid var(--medium-gray);
+    display: flex;
+    background-color: var(--white);
+    width: calc(51% - 1px);
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    height: 100%;
+    &:last-child{
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+    }
+    &:first-child{
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+    }
+    &:hover {
+      color: var(--white);
+      background-color: color(var(--main-blue) alpha(65%));
+      border-color: color(var(--main-blue) alpha(15%));
+    }
   }
   & .active {
-    color: blue;
+    background-color: var(--main-blue);
+    color: var(--white);
+    border: 1px solid var(--main-blue);
   }
 }

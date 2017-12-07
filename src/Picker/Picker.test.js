@@ -1,14 +1,14 @@
 import React from 'react';
 import Picker from './Picker';
 import renderer from 'react-test-renderer';
-import { shallow, configure } from 'enzyme';
+import { mount, shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
 
 describe('<Picker />', () => {
   describe('behaviour tests', () => {
-    let checked = false;
+    let active = 1;
     let component;
     let tree;
     let reRender;
@@ -17,9 +17,14 @@ describe('<Picker />', () => {
 
     beforeEach(() => {
       component = renderer.create(
-        <Checkbox
-          onChange={_e => checked = !checked}
-          checked={checked}
+        <Picker
+          onChange={(label, value) => {active = value}}
+          options={[
+            {label: 'Uno', value: 1},
+            {label: 'Dos', value: 2},
+            {label: 'Tres', value: 3},
+          ]}
+          active={active}
         />);
       reRender = makeRenderer(component);
       reRender();
@@ -30,41 +35,40 @@ describe('<Picker />', () => {
     });
 
 
-    it('is true after a click', () => {
-      tree.props.onChange();
+    it('selects the right element', () => {
+      tree.children[1].props.onClick();
       reRender();
-      expect(checked).toBe(true);
-    });
+      expect(active).toBe(2);
 
-    it('is false after two clicks', () => {
-      tree.props.onChange();
-      tree.props.onChange();
+      tree.children[2].props.onClick();
       reRender();
-      expect(tree).toMatchSnapshot();
+      expect(active).toBe(3);
     });
   });
 
   describe('dom tests', () => {
-    let checked = false;
+    let active = 1;
     let component;
-
+    let update = () => {
+      component = mount(
+        <Picker
+          onChange={(label, value) => {active = value}}
+          options={[
+            {label: 'Uno', value: 1},
+            {label: 'Dos', value: 2},
+            {label: 'Tres', value: 3},
+          ]}
+          active={active}
+        />);
+    }
     beforeEach(() => {
-      component = shallow(
-        <Checkbox
-          name='test_checkbox'
-          onChange={_e => checked = !checked}
-          checked={checked}
-        />
-      );
-    })
-
-    it('renders an input', () => {
-      expect(component.name()).toBe("input");
+      update();
     });
 
-    it('name is test_checkbox', () => {
-      expect(component.prop('name')).toBe("test_checkbox");
+    it('changes the active className to the selected pill', () => {
+      component.find('a').at(2).simulate('click');
+      update();
+      expect(component.find('.active').key()).toBe('3');
     });
   });
-
 });
