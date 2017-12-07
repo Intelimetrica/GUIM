@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import  { Checkbox, Button } from 'guim';
+import  { Checkbox, Picker, Button } from 'guim';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {checked: false};
+    this.state = {
+      checked: false,
+      active: 1
+    };
   }
 
   onChange() {
@@ -16,7 +19,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App" style={{padding: "30px"}}>
         <span>Clik me</span>
         <Button
           onClick={() => alert('blue')}
@@ -29,6 +32,15 @@ class App extends Component {
           name="checkbox"
           checked={this.state.checked}
           onChange={this.onChange.bind(this)} />
+        <Picker
+          onChange={(label, value) => {this.setState({active: value})}}
+          options={[
+            {label: 'Uno', value: 1},
+            {label: 'Dos', value: 2},
+            {label: 'Tres', value: 3},
+          ]}
+          active={this.state.active}
+        />
       </div>
     );
   }

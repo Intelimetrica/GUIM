@@ -17,7 +17,6 @@ Checkbox.defaultProps = {
   checked: false,
   styles: {},
   className: 'GUIMCheckbox'
-
 };
 
 export default Checkbox;
