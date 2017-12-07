@@ -2,7 +2,7 @@
 
 exports[`<Button /> match snapshot 1`] = `
 <a
-  className="GUIMButton  GUIMButtonGRAY"
+  className="GUIMButton  GUIMButtonGray"
   onClick={[Function]}
 >
   Click me
