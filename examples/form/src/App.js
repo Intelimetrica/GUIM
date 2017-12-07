@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Checkbox, Picker } from 'guim';
+import  { Checkbox, Picker, Button } from 'guim';
 
 class App extends Component {
   constructor(props) {
@@ -21,6 +21,13 @@ class App extends Component {
     return (
       <div className="App" style={{padding: "30px"}}>
         <span>Clik me</span>
+        <Button
+          onClick={() => alert('blue')}
+          label="button" />
+        <Button
+          onClick={() => alert('gray')}
+          color='gray'
+          label="button" />
         <Checkbox
           name="checkbox"
           checked={this.state.checked}
