@@ -1,0 +1,13 @@
+.GUIPicker {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  height: 30px;
+  & a {
+    color: red;
+  }
+  & .active {
+    color: blue;
+  }
+}

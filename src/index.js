@@ -1,2 +1,7 @@
 import Checkbox from './Checkbox';
-module.exports.Checkbox = Checkbox;
+import Picker from './Picker';
+
+module.exports = {
+  Checkbox: Checkbox,
+  Picker: Picker
+};

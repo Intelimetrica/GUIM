@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './styles.scss';
 
 const Checkbox = props => (
@@ -17,7 +17,6 @@ Checkbox.defaultProps = {
   checked: false,
   styles: {},
   className: 'GUIMCheckbox'
-
-}
+};
 
 export default Checkbox;
