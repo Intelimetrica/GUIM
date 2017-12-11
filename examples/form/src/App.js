@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import  { Checkbox, Button } from 'guim';
+import {
+  Form,
+  Checkbox,
+  Button
+} from 'guim';
 
 class App extends Component {
   constructor(props) {
@@ -17,22 +20,24 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <span>Clik me</span>
-        <Button
-          onClick={() => alert('blue')}
-          label="button" />
-         <Button
-          onClick={() => alert('gray')}
-          color='gray'
-          label="button" />
-       <Button
-          onClick={() => alert('green')}
-          color='green'
-          label="button" />
-        <Checkbox
-          name="checkbox"
-          checked={this.state.checked}
-          onChange={this.onChange.bind(this)} />
+        <Form>
+          <span>Clik me</span>
+          <Button
+            onClick={() => alert('blue')}
+            label="button" />
+          <Button
+            onClick={() => alert('gray')}
+            color='gray'
+            label="button" />
+          <Button
+            onClick={() => alert('green')}
+            color='green'
+            label="button" />
+          <Checkbox
+            name="checkbox"
+            checked={this.state.checked}
+            onChange={this.onChange.bind(this)} />
+        </Form>
       </div>
     );
   }
