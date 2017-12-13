@@ -20,24 +20,48 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Form>
-          <span>Clik me</span>
-          <Button
-            onClick={() => alert('blue')}
-            label="button" />
-          <Button
-            onClick={() => alert('gray')}
-            color='gray'
-            label="button" />
-          <Button
-            onClick={() => alert('green')}
-            color='green'
-            label="button" />
-          <Checkbox
-            name="checkbox"
-            checked={this.state.checked}
-            onChange={this.onChange.bind(this)} />
-        </Form>
+        <div className='form'>
+          <span>{"<Form>"}</span>
+            <Form>
+              <div>
+                <span>Clik me to show alert</span>
+                <Button
+                  onClick={() => alert('blue')}
+                  label="button" />
+              </div>
+              <div>
+                <span>I do nothing, I'm just gray</span>
+                <Button
+                  onClick={() => console.log('doin nothing')}
+                  color='gray'
+                  label="button" />
+              </div>
+              <div>
+                <span>Clik me to change checkbox</span>
+                <Button
+                  onClick={this.onChange.bind(this)}
+                  color='green'
+                  label="button" />
+              </div>
+              <div>
+                <span>Clik me change checkbox</span>
+                <Checkbox
+                  name="checkbox"
+                  checked={this.state.checked}
+                  onChange={this.onChange.bind(this)} />
+              </div>
+            </Form>
+            <span>{"</Form>"}</span>
+        </div>
+        <div className='outside-form'>
+          <div>
+            <span>I'm outside the form</span>
+            <Button
+              onClick={this.onChange.bind(this)}
+              color='green'
+              label="button" />
+          </div>
+        </div>
       </div>
     );
   }

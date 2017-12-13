@@ -1,7 +1,8 @@
 import React, {
   Component,
   Children,
-  cloneElement
+  cloneElement,
+  isValidElement
 } from 'react';
 
 const connectInput = (parent, child) => {
@@ -28,25 +29,33 @@ class Form extends Component {
 
   componentWillMount() {
     const {children} = this.props;
-    this.children = proccesChildren(children);
+    Children.map(children, child => {
+      console.log(child);
+    });
+    //this.children = this.proccesChildren(children);
   }
 
   proccesChildren(children) {
     return Children.map(children, child => {
-      if(child.props.guimInput)
+      console.log(child,isValidElement(child));
+      /*if(child.props.guimInput)
         return connectInput(this, child);
       else
-        return child;
+      return child;*/
     });
   }
 
   render() {
-    return(
-      <div>
-        {this.children}
+    return (
+      <div className={this.props.className}>
+        {this.props.children}
       </div>
     );
   }
+}
+
+Form.defaultProps = {
+  className: 'GUIMForm'
 }
 
 export default Form;
