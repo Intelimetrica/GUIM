@@ -6,6 +6,7 @@ import {
   Button,
   Picker
 } from "guim";
+import logo from './logo.svg';
 
 class App extends Component {
   constructor(props) {
@@ -14,18 +15,24 @@ class App extends Component {
       checked: false,
       checked2: true,
       formData: {},
-      active: 1
+      picker_active: 2
     };
     this.clickButton = this.clickButton.bind(this);
     this.onChangeCheckbox1 = this.onChangeCheckbox1.bind(this);
     this.onChangeCheckbox2 = this.onChangeCheckbox2.bind(this);
+    this.onChangePicker = this.onChangePicker.bind(this);
   }
 
   onChangeCheckbox1() {
-    this.setState({checked: !this.state.checked});
+    this.setState({ checked: !this.state.checked });
   }
+
   onChangeCheckbox2() {
-    this.setState({checked2: !this.state.checked2});
+    this.setState({ checked2: !this.state.checked2 });
+  }
+
+  onChangePicker(label, value) {
+    this.setState({ picker_active: value });
   }
 
   clickButton() {
@@ -72,6 +79,18 @@ class App extends Component {
                 name="checkbox2"
                 checked={this.state.checked2}
                 onChange={this.onChangeCheckbox2} />
+            </div>
+            <div>
+              <span>A picker</span>
+              <Picker
+                onChange={this.onChangePicker}
+                options={[
+                  {label: <img src={logo} width="30px"/>, value: 'react'},
+                  {label: "Pill 2", value: 2},
+                  {label: "Pill 3", value: 3},
+                ]}
+                active={this.state.picker_active}
+              />
             </div>
           </Form>
           <span>{"</Form>"}</span>

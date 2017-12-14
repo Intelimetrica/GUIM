@@ -53,3 +53,7 @@
 .outside-form > div > * {
   margin: 5px;
 }
+
+.GUIMPicker > a {
+  padding: 3px 7px;
+}
