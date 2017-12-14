@@ -1,5 +1,5 @@
-import React from 'react';
-import './styles.scss';
+import React from "react";
+import "./styles.scss";
 
 const Checkbox = props => (
   <input
@@ -12,12 +12,12 @@ const Checkbox = props => (
 );
 
 Checkbox.defaultProps = {
-  name: 'checkbox',
-  onChange: () => console.log('Checkbox onChange()'),
+  name: "checkbox",
+  onChange: () => console.log("Checkbox onChange()"),
   checked: false,
   styles: {},
-  className: 'GUIMCheckbox',
-  guimInput: 'checkbox'
+  className: "GUIMCheckbox",
+  guimInput: "checkbox"
 };
 
 export default Checkbox;
