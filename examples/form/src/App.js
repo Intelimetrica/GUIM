@@ -3,7 +3,8 @@ import "./App.css";
 import {
   Form,
   Checkbox,
-  Button
+  Button,
+  Picker
 } from "guim";
 
 class App extends Component {
@@ -13,6 +14,7 @@ class App extends Component {
       checked: false,
       checked2: true,
       formData: {},
+      active: 1
     };
     this.clickButton = this.clickButton.bind(this);
     this.onChangeCheckbox1 = this.onChangeCheckbox1.bind(this);

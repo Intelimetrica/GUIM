@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Picker /> behaviour tests match snapshot 1`] = `
+<div
+  className="GUIPicker"
+>
+  <a
+    className="active"
+    onClick={[Function]}
+  >
+    Uno
+  </a>
+  <a
+    className=""
+    onClick={[Function]}
+  >
+    Dos
+  </a>
+  <a
+    className=""
+    onClick={[Function]}
+  >
+    Tres
+  </a>
+</div>
+`;
