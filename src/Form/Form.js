@@ -7,6 +7,9 @@ import React, {
 const extractContent = child => {
   let response = {};
   switch (child.props.guimInput) {
+    case "picker":
+      response[child.props.name] = child.props.active;
+      break;
     case "checkbox":
       response[child.props.name] = child.props.checked;
       break;
