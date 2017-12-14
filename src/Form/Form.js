@@ -1,53 +1,50 @@
 import React, {
   Component,
   Children,
-  cloneElement,
   isValidElement
-} from 'react';
+} from "react";
 
-const connectInput = (parent, child) => {
-  switch(child.props.guimInput) {
-    case 'checkbox':
-      name = 'checkbox';
-      return cloneElement(child, {
-        onChange: () => parent.setState({[name]: !parent.state[name]}),
-        checked: parent.state[name]
-      });
-    default:
-      return child
+const extractContent = child => {
+  let response = {};
+  switch (child.props.guimInput) {
+    case "checkbox":
+      response[child.props.name] = child.props.checked;
+      break;
   }
-};
+  return response;
+}
 
-const initState = children => {
-};
 
 class Form extends Component {
   constructor(props) {
     super(props);
-    this.state = initState(props.children);
+    this.grabFormData = this.grabFormData.bind(this);
   }
 
-  componentWillMount() {
-    const {children} = this.props;
-    Children.map(children, child => {
-      console.log(child);
-    });
-    //this.children = this.proccesChildren(children);
-  }
+  grabFormData() {
+    let formData = {};
 
-  proccesChildren(children) {
-    return Children.map(children, child => {
-      console.log(child,isValidElement(child));
-      /*if(child.props.guimInput)
-        return connectInput(this, child);
-      else
-      return child;*/
-    });
+    const traverseChildren = childrenTraverse => {
+      Children.forEach(childrenTraverse, childTraverse => {
+        if (isValidElement(childTraverse)) {
+          traverseChildren(childTraverse.props.children);
+          if (childTraverse.props.hasOwnProperty("guimInput")) {
+            formData = {...formData, ...extractContent(childTraverse)};
+          }
+        }
+      });
+    }
+
+    traverseChildren(this.props.children);
+    return formData;
   }
 
   render() {
     return (
-      <div className={this.props.className}>
+      <div
+        className={this.props.className}
+        style={this.props.styles}
+        name={this.props.name} >
         {this.props.children}
       </div>
     );
@@ -55,7 +52,10 @@ class Form extends Component {
 }
 
 Form.defaultProps = {
-  className: 'GUIMForm'
+  className: "GUIMForm",
+  styles: {},
+  name: "form",
+  guimInput: "form"
 }
 
 export default Form;
