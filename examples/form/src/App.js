@@ -1,65 +1,90 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 import {
   Form,
   Checkbox,
   Button
-} from 'guim';
+} from "guim";
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {checked: false};
+    this.state = {
+      checked: false,
+      checked2: true,
+      formData: {},
+    };
+    this.clickButton = this.clickButton.bind(this);
+    this.onChangeCheckbox1 = this.onChangeCheckbox1.bind(this);
+    this.onChangeCheckbox2 = this.onChangeCheckbox2.bind(this);
   }
 
-  onChange() {
-    console.log('onChange', !this.state.checked)
+  onChangeCheckbox1() {
     this.setState({checked: !this.state.checked});
+  }
+  onChangeCheckbox2() {
+    this.setState({checked2: !this.state.checked2});
+  }
+
+  clickButton() {
+    let form_data = this.form.grabFormData();
+    this.setState({formData: form_data});
   }
 
   render() {
     return (
       <div className="App">
-        <div className='form'>
+        <div className="form">
           <span>{"<Form>"}</span>
-            <Form>
-              <div>
-                <span>Clik me to show alert</span>
-                <Button
-                  onClick={() => alert('blue')}
-                  label="button" />
-              </div>
-              <div>
-                <span>I do nothing, I'm just gray</span>
-                <Button
-                  onClick={() => console.log('doin nothing')}
-                  color='gray'
-                  label="button" />
-              </div>
-              <div>
-                <span>Clik me to change checkbox</span>
-                <Button
-                  onClick={this.onChange.bind(this)}
-                  color='green'
-                  label="button" />
-              </div>
-              <div>
-                <span>Clik me change checkbox</span>
-                <Checkbox
-                  name="checkbox"
-                  checked={this.state.checked}
-                  onChange={this.onChange.bind(this)} />
-              </div>
-            </Form>
-            <span>{"</Form>"}</span>
+          <Form ref={ref => (this.form = ref)} >
+            <div>
+              <span>Clik me to show alert</span>
+              <Button
+                onClick={() => alert("blue")}
+                label="Show alert" />
+            </div>
+            <div>
+              <span>Click me to SEND Form</span>
+              <Button
+                onClick={this.clickButton}
+                color="gray"
+                label="Send Form" />
+            </div>
+            <div>
+              <span>Clik me to change first checkbox</span>
+              <Button
+                onClick={this.onChangeCheckbox1}
+                color="green"
+                label="Change first checkbox" />
+            </div>
+            <div>
+              <span>Clik me to change this checkbox</span>
+              <Checkbox
+                name="checked"
+                checked={this.state.checked}
+                onChange={this.onChangeCheckbox1} />
+            </div>
+            <div>
+              <span>Clik me to change this checkbox</span>
+              <Checkbox
+                name="checkbox2"
+                checked={this.state.checked2}
+                onChange={this.onChangeCheckbox2} />
+            </div>
+          </Form>
+          <span>{"</Form>"}</span>
         </div>
-        <div className='outside-form'>
+        <div className="outside-form">
           <div>
-            <span>I'm outside the form</span>
+            <span>I"m outside the form and can change form data (imagine using this with url)</span>
             <Button
-              onClick={this.onChange.bind(this)}
-              color='green'
-              label="button" />
+              onClick={this.onChangeCheckbox2}
+              color="green"
+              label="Change second checkbox" />
+          </div>
+          <div>
+            <div>data to send: </div>
+            <div>{`${JSON.stringify(this.state.formData)}`}</div>
           </div>
         </div>
       </div>
