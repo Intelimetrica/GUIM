@@ -97,7 +97,7 @@ class App extends Component {
         </div>
         <div className="outside-form">
           <div>
-            <span>I'm outside the form and can change form data (imagine using this with url)</span>
+            <span>{"I'm outside the form and can change form data (imagine using this with url)"}</span>
             <Button
               onClick={this.onChangeCheckbox2}
               color="green"
