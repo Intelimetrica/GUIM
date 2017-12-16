@@ -13,7 +13,8 @@ Button.defaultProps = {
   label: 'Click me',
   onClick: () => console.log('Click on button'),
   className: '',
-  color: 'blue'
+  color: 'blue',
+  guimInput: 'button'
 };
 
 const themes = {

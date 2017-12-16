@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Form /> match dom snapshot 1`] = `
+<Form
+  className="GUIMForm"
+  guimInput="form"
+  name="form"
+  styles={Object {}}
+>
+  <div
+    className="GUIMForm"
+    name="form"
+    style={Object {}}
+  >
+    <Checkbox
+      checked={false}
+      className="GUIMCheckbox"
+      guimInput="checkbox"
+      name="checkbox"
+      onChange={[Function]}
+      styles={Object {}}
+    >
+      <input
+        checked={false}
+        className="GUIMCheckbox"
+        name="checkbox"
+        onChange={[Function]}
+        style={Object {}}
+        type="checkbox"
+      />
+    </Checkbox>
+    <Picker
+      active={1}
+      className="GUIMPicker"
+      guimInput="picker"
+      name="picker"
+      onChange={[Function]}
+      options={
+        Array [
+          Object {
+            "label": "p1",
+            "value": 1,
+          },
+          Object {
+            "label": "p2",
+            "value": 2,
+          },
+        ]
+      }
+    >
+      <div
+        className="GUIMPicker"
+        name="picker"
+      >
+        <Pill
+          active={true}
+          key="1"
+          label="p1"
+          select={[Function]}
+          value={1}
+        >
+          <a
+            className="active"
+            key="1"
+            onClick={[Function]}
+          >
+            p1
+          </a>
+        </Pill>
+        <Pill
+          active={false}
+          key="2"
+          label="p2"
+          select={[Function]}
+          value={2}
+        >
+          <a
+            className=""
+            key="2"
+            onClick={[Function]}
+          >
+            p2
+          </a>
+        </Pill>
+      </div>
+    </Picker>
+  </div>
+</Form>
+`;
+
+exports[`<Form /> returns children data 1`] = `
+Object {
+  "checkbox": false,
+  "picker": 1,
+}
+`;
+
+exports[`<Form /> returns children data updated after click 1`] = `
+Object {
+  "checkbox": true,
+  "picker": 1,
+}
+`;
