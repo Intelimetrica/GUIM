@@ -2,7 +2,8 @@
 
 exports[`<Picker /> behaviour tests match snapshot 1`] = `
 <div
-  className="GUIPicker"
+  className="GUIMPicker  GUIMPickerBlue"
+  name="picker"
 >
   <a
     className="active"

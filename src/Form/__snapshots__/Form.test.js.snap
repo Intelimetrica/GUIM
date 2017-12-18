@@ -14,7 +14,8 @@ exports[`<Form /> match dom snapshot 1`] = `
   >
     <Checkbox
       checked={false}
-      className="GUIMCheckbox"
+      className=""
+      color="blue"
       guimInput="checkbox"
       name="checkbox"
       onChange={[Function]}
@@ -22,7 +23,7 @@ exports[`<Form /> match dom snapshot 1`] = `
     >
       <input
         checked={false}
-        className="GUIMCheckbox"
+        className="GUIMCheckbox  GUIMCheckboxBlue"
         name="checkbox"
         onChange={[Function]}
         style={Object {}}
@@ -31,7 +32,8 @@ exports[`<Form /> match dom snapshot 1`] = `
     </Checkbox>
     <Picker
       active={1}
-      className="GUIMPicker"
+      className=""
+      color="blue"
       guimInput="picker"
       name="picker"
       onChange={[Function]}
@@ -49,7 +51,7 @@ exports[`<Form /> match dom snapshot 1`] = `
       }
     >
       <div
-        className="GUIMPicker"
+        className="GUIMPicker  GUIMPickerBlue"
         name="picker"
       >
         <Pill
