@@ -50,6 +50,7 @@ class App extends Component {
               <span>Clik me to show alert</span>
               <Button
                 onClick={() => alert("blue")}
+                color="gray"
                 label="Show alert" />
             </div>
             <div>
@@ -70,6 +71,7 @@ class App extends Component {
               <span>Clik me to change this checkbox</span>
               <Checkbox
                 name="checked"
+                color="green"
                 checked={this.state.checked}
                 onChange={this.onChangeCheckbox1} />
             </div>
@@ -77,6 +79,7 @@ class App extends Component {
               <span>Clik me to change this checkbox</span>
               <Checkbox
                 name="checkbox2"
+                color="blue"
                 checked={this.state.checked2}
                 onChange={this.onChangeCheckbox2} />
             </div>
@@ -84,6 +87,7 @@ class App extends Component {
               <span>A picker</span>
               <Picker
                 onChange={this.onChangePicker}
+                color="gray"
                 options={[
                   {label: <img src={logo} width="30px"/>, value: 'react'},
                   {label: "Pill 2", value: 2},
@@ -100,7 +104,7 @@ class App extends Component {
             <span>{"I'm outside the form and can change form data (imagine using this with url)"}</span>
             <Button
               onClick={this.onChangeCheckbox2}
-              color="green"
+              color="blue"
               label="Change second checkbox" />
           </div>
           <div>

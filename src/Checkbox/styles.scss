@@ -1,9 +1,10 @@
 @import '../styles/colors.scss';
+@import '../styles/themes.scss';
 
 .GUIMCheckbox {
   -webkit-appearance: none;
   background-color: var(--white);
-  border: 2px solid var(--medium-gray);
+  border: 2px solid var(--main-gray);
   border-radius: 3px;
   display: inline-block;
   position: relative;
@@ -14,15 +15,13 @@
   cursor: pointer;
 }
 .GUIMCheckbox:checked{
-  background-color: var(--main-blue);
-  border: 2px solid var(--main-blue);
   &::before{
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
     content: "";
     position: absolute;
-    top: -1px;
-    left: 4px;
+    top: 0px;
+    left: 5px;
     display: table;
     width: 2px;
     height: 10px;
@@ -30,4 +29,14 @@
     border-top-width: 0;
     border-left-width: 0;
   }
+}
+
+.GUIMCheckboxBlue:checked {
+  @apply --blue-theme;
+}
+.GUIMCheckboxGray:checked {
+  @apply --gray-theme;
+}
+.GUIMCheckboxGreen:checked {
+  @apply --green-theme;
 }

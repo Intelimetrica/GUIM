@@ -14,7 +14,7 @@
   }
 
   --green-theme: {
-    color: var(--dark-green);
+    color: var(--white);
     background-color: var(--main-green);
     border: 1px solid var(--main-green);
   }
@@ -32,7 +32,7 @@
   }
 
   --green-theme-hover: {
-    color: var(--dark-green);
+    color: var(--white);
     background-color: color(var(--main-green) alpha(65%));
     border-color: color(var(--main-green) alpha(15%));
   }
