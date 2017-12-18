@@ -16,13 +16,22 @@
 }
 
 .GUIMButtonBlue {
+  &:hover, &:focus {
+    @apply --blue-theme-hover;
+  }
   @apply --blue-theme;
 }
 
 .GUIMButtonGray {
+  &:hover, &:focus {
+    @apply --gray-theme-hover;
+  }
   @apply --gray-theme;
 }
 
 .GUIMButtonGreen {
+  &:hover, &:focus {
+    @apply --green-theme-hover;
+  }
   @apply --green-theme;
 }
