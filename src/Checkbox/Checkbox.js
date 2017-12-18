@@ -3,7 +3,7 @@ import "./styles.scss";
 
 const Checkbox = props => (
   <input
-    className={props.className}
+    className={`GUIMCheckbox ${props.className} ${themes[props.color] || themes["blue"]}`}
     style={props.styles}
     type="checkbox"
     name={props.name}
@@ -16,8 +16,15 @@ Checkbox.defaultProps = {
   onChange: () => console.log("Checkbox onChange()"),
   checked: false,
   styles: {},
-  className: "GUIMCheckbox",
+  className: "",
+  color: "blue",
   guimInput: "checkbox"
+};
+
+const themes = {
+  blue: "GUIMCheckboxBlue",
+  gray: "GUIMCheckboxGray",
+  green: "GUIMCheckboxGreen"
 };
 
 export default Checkbox;

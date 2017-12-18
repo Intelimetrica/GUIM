@@ -1,4 +1,5 @@
 @import '../styles/colors.scss';
+@import '../styles/themes.scss';
 
 .GUIMPicker {
   display: flex;
@@ -7,7 +8,8 @@
   cursor: pointer;
   height: 30px;
   & a {
-    border: 1px solid var(--medium-gray);
+    border: 1px solid var(--main-gray);
+    color: var(--dark-gray);
     display: flex;
     background-color: var(--white);
     width: calc(51% - 1px);
@@ -23,15 +25,30 @@
       border-top-left-radius: 3px;
       border-bottom-left-radius: 3px;
     }
-    &:hover {
-      color: var(--white);
-      background-color: color(var(--main-blue) alpha(65%));
-      border-color: color(var(--main-blue) alpha(15%));
-    }
+  }
+}
+
+.GUIMPickerBlue {
+  & a:hover {
+    @apply --blue-theme-hover;
   }
   & .active {
-    background-color: var(--main-blue);
-    color: var(--white);
-    border: 1px solid var(--main-blue);
+    @apply --blue-theme;
+  }
+}
+.GUIMPickerGray {
+  & a:hover {
+    @apply --gray-theme-hover;
+  }
+  & .active {
+    @apply --gray-theme;
+  }
+}
+.GUIMPickerGreen {
+  & a:hover {
+    @apply --green-theme-hover;
+  }
+  & .active {
+    @apply --green-theme;
   }
 }
