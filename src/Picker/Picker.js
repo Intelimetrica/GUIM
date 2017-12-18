@@ -13,7 +13,7 @@ const Pill = props => (
 const Picker = props => (
   <div
     name={props.name}
-    className={props.className} >
+    className={`GUIMPicker ${props.className} ${themes[props.color] || themes["blue"]}`} >
     {
       props.options.map(e =>
         <Pill
@@ -35,9 +35,16 @@ Picker.defaultProps = {
     {label: "Uno", value: 1},
     {label: "Dos", value: 2}
   ],
-  className: "GUIMPicker",
+  className: "",
+  color: "blue",
   guimInput: "picker",
   active: 1
+};
+
+const themes = {
+  blue: "GUIMPickerBlue",
+  gray: "GUIMPickerGray",
+  green: "GUIMPickerGreen"
 };
 
 export default Picker;

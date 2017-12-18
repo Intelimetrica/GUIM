@@ -2,17 +2,39 @@
 
 :root {
   --blue-theme: {
-    color: var(--dark-blue);
-    background-color: var(--light-blue);
+    color: var(--white);
+    background-color: var(--main-blue);
+    border: 1px solid var(--main-blue);
   };
 
   --gray-theme: {
-    color: var(--dark-gray);
-    background-color: var(--light-gray);
+    color: var(--white);
+    background-color: var(--main-gray);
+    border: 1px solid var(--main-gray);
   }
 
   --green-theme: {
-    color: var(--dark-green);
-    background-color: var(--light-green);
+    color: var(--white);
+    background-color: var(--main-green);
+    border: 1px solid var(--main-green);
+  }
+
+  --blue-theme-hover: {
+    color: var(--white);
+    background-color: color(var(--main-blue) alpha(65%));
+    border-color: color(var(--main-blue) alpha(15%));
+  }
+
+  --gray-theme-hover: {
+    color: var(--white);
+    background-color: color(var(--main-gray) alpha(65%));
+    border-color: color(var(--main-gray) alpha(15%));
+  }
+
+  --green-theme-hover: {
+    color: var(--white);
+    background-color: color(var(--main-green) alpha(65%));
+    border-color: color(var(--main-green) alpha(15%));
   }
 }
+
