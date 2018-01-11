@@ -101,12 +101,12 @@ class Navbar extends Component {
       <div className="GUIMNavigation" >
         <nav
           style={{width: '100%'}}
-          className="MaxWidthContainer"
+          className="MaxWidthContainer FullHeight"
           onClick={this._stopPropagation}>
           <div>
             <a href="/">{this.props.logo}</a>
           </div>
-          <div style={{height: '40px'}}>
+          <div>
             {headers}
           </div>
         </nav>
