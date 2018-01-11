@@ -4,7 +4,8 @@ import {
   Form,
   Checkbox,
   Button,
-  Picker
+  Picker,
+  Navbar
 } from "guim";
 import logo from './logo.svg';
 
@@ -43,6 +44,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Navbar />
+        <div style={{height: "15px"}}></div>
         <div className="form">
           <span>{"<Form>"}</span>
           <Form ref={ref => (this.form = ref)} >
