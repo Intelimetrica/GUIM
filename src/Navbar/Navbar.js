@@ -15,8 +15,8 @@ const Dropdown = (props) => {
     <li className="dropdown">
       <a href="#">{props.name}</a>
       <div className="dd-container">
-        <ul className="navbar-sublist">
-          {props.submodules.map((submod) => <Link key={submod.name} {...submod}/>)}
+        <ul className="dd-list">
+          {props.submodules.map((submod) => <Link className="dd-element" key={submod.name} {...submod}/>)}
         </ul>
       </div>
     </li>
@@ -45,19 +45,20 @@ class Navbar extends Component {
         if ( "submodules" in module ) {
           return <Dropdown key={module.name} {...module}/>;
         }
-        return <Link key={module.name} {...module}/>;
+        return <Link className="navbar-element" key={module.name} {...module}/>;
       });
   }
 
   render() {
+    const props = this.props;
     const headers = (
-      <ul>
+      <ul className="something">
         { this._buildHeaders() }
       </ul>
     );
 
     return (
-      <div className="GUIMNavigation" >
+      <div className={`GUIMNavigation ${props.className} ${themes[props.theme] || themes["dark"]}`} >
         <nav onClick={e => e.stopPropagation()}>
           <div className="logo">
             <a href="/">{this.props.logo}</a>
@@ -74,6 +75,8 @@ class Navbar extends Component {
 Navbar.defaultProps = {
   logo: "Logo",
   fixed_top: false,
+  className: "",
+  theme: "light",
   modules: [
     {
       name: "Home",
@@ -105,6 +108,11 @@ Navbar.defaultProps = {
       ]
     }
   ]
+}
+
+const themes = {
+  dark: "GUIMNavbarDark",
+  light: "GUIMNavbarLight"
 }
 
 export default Navbar;

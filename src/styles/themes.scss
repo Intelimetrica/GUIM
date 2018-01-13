@@ -36,5 +36,52 @@
     background-color: color(var(--main-green) alpha(65%));
     border-color: color(var(--main-green) alpha(15%));
   }
+
+  --navbar-dark: {
+    background-color: black;
+    & a {
+      color: white;
+    }
+    & .navbar-element:hover a {
+      color: var(--main-gray);
+    }
+    & .dropdown:hover {
+      background-color: white;
+    }
+    & .dropdown:hover a {
+      color: black;
+    }
+    & .dd-list .dd-element {
+      background-color: white;
+    }
+    & .dd-list .dd-element:hover a {
+      color: var(--dark-gray) !important;
+    }
+  }
+
+  --navbar-light: {
+    background-color: white;
+    -webkit-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.5);
+    & a {
+      color: var(--dark-gray);
+    }
+    & .navbar-element:hover a {
+      color: var(--main-gray);
+    }
+    & .dropdown:hover {
+      background-color: var(--light-gray);
+    }
+    & .dropdown:hover a {
+      color: var(--dark-gray);
+    }
+    & .dd-list .dd-element {
+      background-color: var(--light-gray);
+    }
+    & .dd-list .dd-element:hover a {
+      color: var(--main-gray) !important;
+    }
+  }
 }
 
