@@ -3,12 +3,19 @@ import "./styles.scss";
 
 const Link = (props) => {
   return <li className={`${props.className || ""}`}>
-    <a href={props.link}
-      target={`${props.target || "_self"}`}>
+    <a href={props.to}
+      target={props.target}>
       {props.name}
     </a>
   </li>;
 };
+
+Link.defaultProps = {
+  className: "",
+  to: "#",
+  target: "_self",
+  name: "Link"
+}
 
 const Dropdown = (props) => {
   return (
@@ -22,6 +29,22 @@ const Dropdown = (props) => {
     </li>
   );
 };
+
+Dropdown.defaultProps = {
+  name: "Dropdown",
+  submodules: [
+    {
+      name: "GUIMDevTeam",
+      to: "https://github.com/Intelimetrica/GUIM",
+      permission: "default"
+    },
+    {
+      name: "Intelimetrica",
+      to: "http://intelimetrica.com",
+      permission: "default"
+    }
+  ]
+}
 
 class Navbar extends Component {
   constructor(props) {
@@ -80,28 +103,28 @@ Navbar.defaultProps = {
   modules: [
     {
       name: "Home",
-      link: "?home=yeap",
+      to: "?home=yeap",
       permission: "default",
     },
     {
       name: "About us",
-      link: "?about-us=guim",
+      to: "?about-us=guim",
       permission: "default"
     },
     {
       name: "Contact",
-      link: "#",
+      to: "#",
       permission: "default",
       mobile: false,
       submodules: [
         {
           name: "GUIMDevTeam",
-          link: "https://github.com/Intelimetrica/GUIM",
+          to: "https://github.com/Intelimetrica/GUIM",
           permission: "default"
         },
         {
           name: "Intelimetrica",
-          link: "http://intelimetrica.com",
+          to: "http://intelimetrica.com",
           permission: "default",
           mobile: true
         }

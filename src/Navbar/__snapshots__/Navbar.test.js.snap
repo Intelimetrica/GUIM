@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Navbar /> match dom snapshot 1`] = `
+<div
+  className="GUIMNavigation  GUIMNavbarLight"
+>
+  <nav
+    onClick={[Function]}
+  >
+    <div
+      className="logo"
+    >
+      <a
+        href="/"
+      >
+        Logo
+      </a>
+    </div>
+    <div>
+      <ul
+        className="something"
+      >
+        <li
+          className="navbar-element"
+        >
+          <a
+            href="#menu1"
+            target="_self"
+          >
+            menu1
+          </a>
+        </li>
+        <li
+          className="dropdown"
+        >
+          <a
+            href="#"
+          >
+            menu2
+          </a>
+          <div
+            className="dd-container"
+          >
+            <ul
+              className="dd-list"
+            >
+              <li
+                className="dd-element"
+              >
+                <a
+                  href="#submenu1"
+                  target="_self"
+                >
+                  submenu1
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+`;
