@@ -8,13 +8,13 @@ configure({ adapter: new Adapter() });
 
 describe('<Navbar />', () => {
   let component;
-  const reRender = () => {
+  const reRender = (theme = "light") => {
     component = renderer.create(
       <Navbar
         logo="Logo"
         fixed_top={false}
         className=""
-        theme="light"
+        theme={theme}
         modules={[
           {
             name: "menu1",
@@ -35,9 +35,34 @@ describe('<Navbar />', () => {
       />
     )};
 
-  it('match dom snapshot', () => {
+  it("match dom snapshot", () => {
     reRender();
     let tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("renders navbar with dark theme", () => {
+    reRender("dark");
+    let tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('toggle display when hover', () => {
+    reRender();
+    let tree = component.toJSON();
+
+    //MouseEnter into dropdown
+    tree.children[0]
+      .children[1].children[0]
+      .children[1].props.onMouseEnter()
+    tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+
+    //MouseLeave out of dropdown
+    tree.children[0]
+      .children[1].children[0]
+      .children[1].props.onMouseLeave()
+    tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

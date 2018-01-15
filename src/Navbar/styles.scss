@@ -23,7 +23,7 @@
     margin-right: auto;
     margin-left: auto;
     height: 100%;
-    & ul.something {
+    & ul.navbar-modules {
       list-style-type: none;
       margin: 0;
       height: 100%;
@@ -50,21 +50,6 @@
     padding: 0 5px;
     white-space: nowrap;
     font-weight: 300;
-  }
-  & .dropdown {
-    position: relative;
-  }
-  & .dropdown:hover {
-    & a {
-      -webkit-transition: all .5s ease;
-      transition: all .5s ease;
-    }
-    & .dd-list {
-      display: block;
-    }
-    & .dd-container {
-      display: block;
-    }
   }
   & .dd-container {
     height: 100%;
@@ -95,6 +80,21 @@
         -webkit-transition: all .5s ease;
         transition: all .5s ease;
       }
+    }
+  }
+  & .dropdown {
+    position: relative;
+  }
+  & .dropdown.active {
+    & a {
+      -webkit-transition: all .5s ease;
+      transition: all .5s ease;
+    }
+    & .dd-list {
+      display: block;
+    }
+    & .dd-container {
+      display: block;
     }
   }
 }

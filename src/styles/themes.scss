@@ -45,10 +45,10 @@
     & .navbar-element:hover a {
       color: var(--main-gray);
     }
-    & .dropdown:hover {
+    & .dropdown.active {
       background-color: white;
     }
-    & .dropdown:hover a {
+    & .dropdown.active a {
       color: black;
     }
     & .dd-list .dd-element {
@@ -70,10 +70,10 @@
     & .navbar-element:hover a {
       color: var(--main-gray);
     }
-    & .dropdown:hover {
+    & .dropdown.active {
       background-color: var(--light-gray);
     }
-    & .dropdown:hover a {
+    & .dropdown.active a {
       color: var(--dark-gray);
     }
     & .dd-list .dd-element {

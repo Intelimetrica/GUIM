@@ -17,17 +17,32 @@ Link.defaultProps = {
   name: "Link"
 }
 
-const Dropdown = (props) => {
-  return (
-    <li className="dropdown">
-      <a href="#">{props.name}</a>
-      <div className="dd-container">
-        <ul className="dd-list">
-          {props.submodules.map((submod) => <Link className="dd-element" key={submod.name} {...submod}/>)}
-        </ul>
-      </div>
-    </li>
-  );
+class Dropdown extends Component {
+  constructor(props) {
+    super(props);
+    this.activate = this.activate.bind(this);
+    this.state = { dd_className: "dropdown"};
+  }
+ 
+  activate(classes) {
+    this.setState({dd_className: classes.join(" ")});
+  };
+
+  render() {
+    let {state, props} = this;
+    return (
+      <li className={state.dd_className}
+        onMouseEnter={this.activate.bind(null, ["dropdown", "active"])}
+        onMouseLeave={this.activate.bind(null, ["dropdown"])} >
+        <a href="#">{props.name}</a>
+        <div className="dd-container">
+          <ul className="dd-list">
+            {props.submodules.map((submod) => <Link className="dd-element" key={submod.name} {...submod}/>)}
+          </ul>
+        </div>
+      </li>
+    );
+  }
 };
 
 Dropdown.defaultProps = {
@@ -75,7 +90,7 @@ class Navbar extends Component {
   render() {
     const props = this.props;
     const headers = (
-      <ul className="something">
+      <ul className="navbar-modules">
         { this._buildHeaders() }
       </ul>
     );
