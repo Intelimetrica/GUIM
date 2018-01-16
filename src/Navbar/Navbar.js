@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import "./styles.scss";
+import React, { Component } from 'react'; import "./styles.scss";
 
 const Link = (props) => {
   return <li className={`${props.className || ""}`}>
@@ -15,7 +14,7 @@ Link.defaultProps = {
   to: "#",
   target: "_self",
   name: "Link"
-}
+};
 
 class Dropdown extends Component {
   constructor(props) {
@@ -26,7 +25,7 @@ class Dropdown extends Component {
  
   activate(classes) {
     this.setState({dd_className: classes.join(" ")});
-  };
+  }
 
   render() {
     let {state, props} = this;
@@ -59,7 +58,7 @@ Dropdown.defaultProps = {
       permission: "default"
     }
   ]
-}
+};
 
 class Navbar extends Component {
   constructor(props) {
@@ -78,8 +77,8 @@ class Navbar extends Component {
       return;
     }
     return modules.filter((module) => this._havePermission(this.state.permissions, module.permission))
+      .filter(module => !module.mobile)
       .map((module) => {
-        if(module.mobile === true) return;
         if ( "submodules" in module ) {
           return <Dropdown key={module.name} {...module}/>;
         }
@@ -146,11 +145,11 @@ Navbar.defaultProps = {
       ]
     }
   ]
-}
+};
 
 const themes = {
   dark: "GUIMNavbarDark",
   light: "GUIMNavbarLight"
-}
+};
 
 export default Navbar;
