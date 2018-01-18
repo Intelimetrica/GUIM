@@ -1,0 +1,261 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Navbar /> match dom snapshot 1`] = `
+<div
+  className="GUIMNavigation  GUIMNavbarLight"
+>
+  <nav
+    onClick={[Function]}
+  >
+    <div
+      className="logo"
+    >
+      <a
+        href="/"
+      >
+        Logo
+      </a>
+    </div>
+    <div>
+      <ul
+        className="navbar-modules"
+      >
+        <li
+          className="navbar-element"
+        >
+          <a
+            href="#menu1"
+            target="_self"
+          >
+            menu1
+          </a>
+        </li>
+        <li
+          className="dropdown"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <a
+            href="#"
+          >
+            menu2
+          </a>
+          <div
+            className="dd-container"
+          >
+            <ul
+              className="dd-list"
+            >
+              <li
+                className="dd-element"
+              >
+                <a
+                  href="#submenu1"
+                  target="_self"
+                >
+                  submenu1
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+`;
+
+exports[`<Navbar /> renders navbar with dark theme 1`] = `
+<div
+  className="GUIMNavigation  GUIMNavbarDark"
+>
+  <nav
+    onClick={[Function]}
+  >
+    <div
+      className="logo"
+    >
+      <a
+        href="/"
+      >
+        Logo
+      </a>
+    </div>
+    <div>
+      <ul
+        className="navbar-modules"
+      >
+        <li
+          className="navbar-element"
+        >
+          <a
+            href="#menu1"
+            target="_self"
+          >
+            menu1
+          </a>
+        </li>
+        <li
+          className="dropdown"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <a
+            href="#"
+          >
+            menu2
+          </a>
+          <div
+            className="dd-container"
+          >
+            <ul
+              className="dd-list"
+            >
+              <li
+                className="dd-element"
+              >
+                <a
+                  href="#submenu1"
+                  target="_self"
+                >
+                  submenu1
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+`;
+
+exports[`<Navbar /> toggle display when hover 1`] = `
+<div
+  className="GUIMNavigation  GUIMNavbarLight"
+>
+  <nav
+    onClick={[Function]}
+  >
+    <div
+      className="logo"
+    >
+      <a
+        href="/"
+      >
+        Logo
+      </a>
+    </div>
+    <div>
+      <ul
+        className="navbar-modules"
+      >
+        <li
+          className="navbar-element"
+        >
+          <a
+            href="#menu1"
+            target="_self"
+          >
+            menu1
+          </a>
+        </li>
+        <li
+          className="dropdown active"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <a
+            href="#"
+          >
+            menu2
+          </a>
+          <div
+            className="dd-container"
+          >
+            <ul
+              className="dd-list"
+            >
+              <li
+                className="dd-element"
+              >
+                <a
+                  href="#submenu1"
+                  target="_self"
+                >
+                  submenu1
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+`;
+
+exports[`<Navbar /> toggle display when hover 2`] = `
+<div
+  className="GUIMNavigation  GUIMNavbarLight"
+>
+  <nav
+    onClick={[Function]}
+  >
+    <div
+      className="logo"
+    >
+      <a
+        href="/"
+      >
+        Logo
+      </a>
+    </div>
+    <div>
+      <ul
+        className="navbar-modules"
+      >
+        <li
+          className="navbar-element"
+        >
+          <a
+            href="#menu1"
+            target="_self"
+          >
+            menu1
+          </a>
+        </li>
+        <li
+          className="dropdown"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <a
+            href="#"
+          >
+            menu2
+          </a>
+          <div
+            className="dd-container"
+          >
+            <ul
+              className="dd-list"
+            >
+              <li
+                className="dd-element"
+              >
+                <a
+                  href="#submenu1"
+                  target="_self"
+                >
+                  submenu1
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+`;
