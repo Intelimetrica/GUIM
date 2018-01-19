@@ -17,12 +17,15 @@ class App extends Component {
       checked: false,
       checked2: true,
       formData: {},
-      picker_active: 2
+      picker_active: 2,
+      highlighted: -1
     };
     this.clickButton = this.clickButton.bind(this);
     this.onChangeCheckbox1 = this.onChangeCheckbox1.bind(this);
     this.onChangeCheckbox2 = this.onChangeCheckbox2.bind(this);
     this.onChangePicker = this.onChangePicker.bind(this);
+    this.onMouseLeaveRow = this.onMouseLeaveRow.bind(this);
+    this.onMouseEnterRow = this.onMouseEnterRow.bind(this);
   }
 
   onChangeCheckbox1() {
@@ -40,6 +43,14 @@ class App extends Component {
   clickButton() {
     let form_data = this.form.grabFormData();
     this.setState({formData: form_data});
+  }
+
+  onMouseEnterRow(i) {
+    this.setState({highlighted: i});
+  }
+
+  onMouseLeaveRow() {
+    this.setState({highlighted: -1});
   }
 
   render() {
@@ -117,7 +128,11 @@ class App extends Component {
           </div>
         </div>
         <div className="form">
-          <Table />
+          <Table
+            row_mouseEnter={this.onMouseEnterRow}
+            row_mouseLeave={this.onMouseLeaveRow}
+            row_hovered={this.state.highlighted}
+          />
         </div>
       </div>
     );

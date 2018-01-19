@@ -1,0 +1,19 @@
+@import '../styles/colors.scss';
+
+.GUIMTable {
+  width: 100%;
+  border-collapse: collapse;
+  & tr {
+    height: 100%;
+  }
+  & .striped tr.trow:nth-child(odd) {
+    background: var(--light-gray);
+  }
+  & tr.theader {
+    background: var(--white);
+    border-bottom: 2px solid var(--dark-gray);
+  }
+  & tr.highlighted {
+    background: var(--light-blue);
+  }
+}
