@@ -69,6 +69,20 @@ module.exports =
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(12);
+} else {
+  module.exports = __webpack_require__(13);
+}
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 
 
 // shim for using process in browser
@@ -256,20 +270,6 @@ process.chdir = function (dir) {
 process.umask = function () {
     return 0;
 };
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(12);
-} else {
-  module.exports = __webpack_require__(13);
-}
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 2 */
@@ -885,7 +885,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = emptyObject;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 7 */
@@ -945,7 +945,7 @@ function invariant(condition, format, a, b, c, d, e, f) {
 }
 
 module.exports = invariant;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 8 */
@@ -1014,7 +1014,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = warning;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 9 */
@@ -1023,34 +1023,39 @@ module.exports = warning;
 "use strict";
 
 
-var _Checkbox = __webpack_require__(10);
-
-var _Checkbox2 = _interopRequireDefault(_Checkbox);
-
-var _Picker = __webpack_require__(19);
-
-var _Picker2 = _interopRequireDefault(_Picker);
-
-var _Button = __webpack_require__(23);
+var _Button = __webpack_require__(10);
 
 var _Button2 = _interopRequireDefault(_Button);
 
-var _Form = __webpack_require__(27);
+var _Checkbox = __webpack_require__(19);
+
+var _Checkbox2 = _interopRequireDefault(_Checkbox);
+
+var _Form = __webpack_require__(23);
 
 var _Form2 = _interopRequireDefault(_Form);
 
-var _Navbar = __webpack_require__(29);
+var _Navbar = __webpack_require__(25);
 
 var _Navbar2 = _interopRequireDefault(_Navbar);
+
+var _Picker = __webpack_require__(29);
+
+var _Picker2 = _interopRequireDefault(_Picker);
+
+var _Table = __webpack_require__(33);
+
+var _Table2 = _interopRequireDefault(_Table);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 module.exports = {
-  Checkbox: _Checkbox2.default,
   Button: _Button2.default,
-  Picker: _Picker2.default,
+  Checkbox: _Checkbox2.default,
   Form: _Form2.default,
-  Navbar: _Navbar2.default
+  Navbar: _Navbar2.default,
+  Picker: _Picker2.default,
+  Table: _Table2.default
 };
 
 /***/ }),
@@ -1064,13 +1069,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _Checkbox = __webpack_require__(11);
+var _Button = __webpack_require__(11);
 
-var _Checkbox2 = _interopRequireDefault(_Checkbox);
+var _Button2 = _interopRequireDefault(_Button);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = _Checkbox2.default;
+exports.default = _Button2.default;
 
 /***/ }),
 /* 11 */
@@ -1083,7 +1088,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -1091,35 +1096,33 @@ __webpack_require__(16);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Checkbox = function Checkbox(props) {
-  return _react2.default.createElement("input", {
-    className: "GUIMCheckbox " + props.className + " " + (themes[props.color] || themes["blue"]),
-    style: props.styles,
-    type: "checkbox",
-    name: props.name,
-    onChange: props.onChange,
-    checked: props.checked });
+var Button = function Button(props) {
+  return _react2.default.createElement(
+    "a",
+    {
+      onClick: props.onClick,
+      className: "GUIMButton " + props.className + " " + (themes[props.color] || themes["blue"]) },
+    props.label
+  );
 };
 
-Checkbox.defaultProps = {
-  name: "checkbox",
-  onChange: function onChange() {
-    return console.log("Checkbox onChange()");
+Button.defaultProps = {
+  label: "Click me",
+  onClick: function onClick() {
+    return console.log("Click on button");
   },
-  checked: false,
-  styles: {},
   className: "",
   color: "blue",
-  guimInput: "checkbox"
+  guimInput: "button"
 };
 
 var themes = {
-  blue: "GUIMCheckboxBlue",
-  gray: "GUIMCheckboxGray",
-  green: "GUIMCheckboxGreen"
+  blue: "GUIMButtonBlue",
+  gray: "GUIMButtonGray",
+  green: "GUIMButtonGreen"
 };
 
-exports.default = Checkbox;
+exports.default = Button;
 
 /***/ }),
 /* 12 */
@@ -2608,7 +2611,7 @@ if (process.env.NODE_ENV !== "production") {
     module.exports = react;
   })();
 }
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 14 */
@@ -2676,7 +2679,7 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 }
 
 module.exports = checkPropTypes;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 15 */
@@ -2736,7 +2739,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, "/* colors */\n\n.GUIMCheckbox {\n  -webkit-appearance: none;\n  background-color: white;\n  border: 2px solid #bbbbbb;\n  border-radius: 3px;\n  display: inline-block;\n  position: relative;\n  outline: none;\n  width: 16px;\n  height: 16px;\n  -webkit-transition: all 0.5s ease;\n  transition: all 0.5s ease;\n  cursor: pointer;\n}\n\n.GUIMCheckbox:checked::before {\n  -webkit-transform: rotate(45deg);\n  transform: rotate(45deg);\n  content: \"\";\n  position: absolute;\n  top: 0px;\n  left: 5px;\n  display: table;\n  width: 2px;\n  height: 10px;\n  border: 2px solid #fff;\n  border-top-width: 0;\n  border-left-width: 0;\n}\n\n.GUIMCheckboxBlue:checked {\n  color: white;\n  background-color: #74b9db;\n  border: 1px solid #74b9db;\n}\n\n.GUIMCheckboxGray:checked {\n  color: white;\n  background-color: #bbbbbb;\n  border: 1px solid #bbbbbb;\n}\n\n.GUIMCheckboxGreen:checked {\n  color: white;\n  background-color: #74db94;\n  border: 1px solid #74db94;\n}\n", ""]);
+exports.push([module.i, "/* colors */\n\n.GUIMButton {\n  border-radius: 5px;\n  padding: 10px 15px;\n  cursor: pointer;\n  -webkit-transition: all ease 0.3s;\n  transition: all ease 0.3s;\n  font-size: 0.8em;\n  font-weight: 300;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  text-align: center;\n  text-decoration: none\n}\n\n.GUIMButton:hover, .GUIMButton:focus {\n  opacity: 0.75;\n}\n\n.GUIMButtonBlue:hover, .GUIMButtonBlue:focus {\n  color: white;\n  background-color: rgba(116, 185, 219, 0.65);\n  border-color: rgba(116, 185, 219, 0.15);\n}\n\n.GUIMButtonBlue {\n  color: white;\n  background-color: #74b9db;\n  border: 1px solid #74b9db;\n}\n\n.GUIMButtonGray:hover, .GUIMButtonGray:focus {\n  color: white;\n  background-color: rgba(187, 187, 187, 0.65);\n  border-color: rgba(187, 187, 187, 0.15);\n}\n\n.GUIMButtonGray {\n  color: white;\n  background-color: #bbbbbb;\n  border: 1px solid #bbbbbb;\n}\n\n.GUIMButtonGreen:hover, .GUIMButtonGreen:focus {\n  color: white;\n  background-color: rgba(116, 219, 148, 0.65);\n  border-color: rgba(116, 219, 148, 0.15);\n}\n\n.GUIMButtonGreen {\n  color: white;\n  background-color: #74db94;\n  border: 1px solid #74db94;\n}\n", ""]);
 
 // exports
 
@@ -2847,13 +2850,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _Picker = __webpack_require__(20);
+var _Checkbox = __webpack_require__(20);
 
-var _Picker2 = _interopRequireDefault(_Picker);
+var _Checkbox2 = _interopRequireDefault(_Checkbox);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = _Picker2.default;
+exports.default = _Checkbox2.default;
 
 /***/ }),
 /* 20 */
@@ -2866,7 +2869,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -2874,54 +2877,35 @@ __webpack_require__(21);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Pill = function Pill(props) {
-  return _react2.default.createElement(
-    "a",
-    {
-      onClick: props.select,
-      className: props.active ? "active" : "",
-      key: props.value },
-    props.label
-  );
+var Checkbox = function Checkbox(props) {
+  return _react2.default.createElement("input", {
+    className: "GUIMCheckbox " + props.className + " " + (themes[props.color] || themes["blue"]),
+    style: props.styles,
+    type: "checkbox",
+    name: props.name,
+    onChange: props.onChange,
+    checked: props.checked });
 };
 
-var Picker = function Picker(props) {
-  return _react2.default.createElement(
-    "div",
-    {
-      name: props.name,
-      className: "GUIMPicker " + props.className + " " + (themes[props.color] || themes["blue"]) },
-    props.options.map(function (e) {
-      return _react2.default.createElement(Pill, {
-        key: e.value,
-        select: props.onChange.bind(null, e.label, e.value),
-        active: props.active === e.value,
-        value: e.value,
-        label: e.label
-      });
-    })
-  );
-};
-
-Picker.defaultProps = {
-  name: "picker",
-  onChange: function onChange(label, value) {
-    return console.log("Picker:active => label: " + label + ", value: " + value);
+Checkbox.defaultProps = {
+  name: "checkbox",
+  onChange: function onChange() {
+    return console.log("Checkbox onChange()");
   },
-  options: [{ label: "Uno", value: 1 }, { label: "Dos", value: 2 }],
+  checked: false,
+  styles: {},
   className: "",
   color: "blue",
-  guimInput: "picker",
-  active: 1
+  guimInput: "checkbox"
 };
 
 var themes = {
-  blue: "GUIMPickerBlue",
-  gray: "GUIMPickerGray",
-  green: "GUIMPickerGreen"
+  blue: "GUIMCheckboxBlue",
+  gray: "GUIMCheckboxGray",
+  green: "GUIMCheckboxGreen"
 };
 
-exports.default = Picker;
+exports.default = Checkbox;
 
 /***/ }),
 /* 21 */
@@ -2963,7 +2947,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, "/* colors */\n\n.GUIMPicker {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  text-align: center;\n  cursor: pointer;\n  height: 30px\n}\n\n.GUIMPicker a {\n  border: 1px solid #bbbbbb;\n  color: #8e8e8e;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  background-color: white;\n  width: calc(51% - 1px);\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease;\n  height: 100%\n}\n\n.GUIMPicker a:last-child {\n  border-top-right-radius: 3px;\n  border-bottom-right-radius: 3px;\n}\n\n.GUIMPicker a:first-child {\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n\n.GUIMPickerBlue a:hover {\n  color: white;\n  background-color: rgba(116, 185, 219, 0.65);\n  border-color: rgba(116, 185, 219, 0.15);\n}\n\n.GUIMPickerBlue .active {\n  color: white;\n  background-color: #74b9db;\n  border: 1px solid #74b9db;\n}\n\n.GUIMPickerGray a:hover {\n  color: white;\n  background-color: rgba(187, 187, 187, 0.65);\n  border-color: rgba(187, 187, 187, 0.15);\n}\n\n.GUIMPickerGray .active {\n  color: white;\n  background-color: #bbbbbb;\n  border: 1px solid #bbbbbb;\n}\n\n.GUIMPickerGreen a:hover {\n  color: white;\n  background-color: rgba(116, 219, 148, 0.65);\n  border-color: rgba(116, 219, 148, 0.15);\n}\n\n.GUIMPickerGreen .active {\n  color: white;\n  background-color: #74db94;\n  border: 1px solid #74db94;\n}\n", ""]);
+exports.push([module.i, "/* colors */\n\n.GUIMCheckbox {\n  -webkit-appearance: none;\n  background-color: white;\n  border: 2px solid #bbbbbb;\n  border-radius: 3px;\n  display: inline-block;\n  position: relative;\n  outline: none;\n  width: 16px;\n  height: 16px;\n  -webkit-transition: all 0.5s ease;\n  transition: all 0.5s ease;\n  cursor: pointer;\n}\n\n.GUIMCheckbox:checked::before {\n  -webkit-transform: rotate(45deg);\n  transform: rotate(45deg);\n  content: \"\";\n  position: absolute;\n  top: 0px;\n  left: 5px;\n  display: table;\n  width: 2px;\n  height: 10px;\n  border: 2px solid #fff;\n  border-top-width: 0;\n  border-left-width: 0;\n}\n\n.GUIMCheckboxBlue:checked {\n  color: white;\n  background-color: #74b9db;\n  border: 1px solid #74b9db;\n}\n\n.GUIMCheckboxGray:checked {\n  color: white;\n  background-color: #bbbbbb;\n  border: 1px solid #bbbbbb;\n}\n\n.GUIMCheckboxGreen:checked {\n  color: white;\n  background-color: #74db94;\n  border: 1px solid #74db94;\n}\n", ""]);
 
 // exports
 
@@ -2979,118 +2963,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _Button = __webpack_require__(24);
-
-var _Button2 = _interopRequireDefault(_Button);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _Button2.default;
-
-/***/ }),
-/* 24 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-__webpack_require__(25);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Button = function Button(props) {
-  return _react2.default.createElement(
-    "a",
-    {
-      onClick: props.onClick,
-      className: "GUIMButton " + props.className + " " + (themes[props.color] || themes["blue"]) },
-    props.label
-  );
-};
-
-Button.defaultProps = {
-  label: "Click me",
-  onClick: function onClick() {
-    return console.log("Click on button");
-  },
-  className: "",
-  color: "blue",
-  guimInput: "button"
-};
-
-var themes = {
-  blue: "GUIMButtonBlue",
-  gray: "GUIMButtonGray",
-  green: "GUIMButtonGreen"
-};
-
-exports.default = Button;
-
-/***/ }),
-/* 25 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(26);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {"hmr":true}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(3)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../node_modules/css-loader/index.js??ref--1-1!../../node_modules/postcss-loader/lib/index.js!./styles.scss", function() {
-			var newContent = require("!!../../node_modules/css-loader/index.js??ref--1-1!../../node_modules/postcss-loader/lib/index.js!./styles.scss");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 26 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(2)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, "/* colors */\n\n.GUIMButton {\n  border-radius: 5px;\n  padding: 10px 15px;\n  cursor: pointer;\n  -webkit-transition: all ease 0.3s;\n  transition: all ease 0.3s;\n  font-size: 0.8em;\n  font-weight: 300;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  text-align: center;\n  text-decoration: none\n}\n\n.GUIMButton:hover, .GUIMButton:focus {\n  opacity: 0.75;\n}\n\n.GUIMButtonBlue:hover, .GUIMButtonBlue:focus {\n  color: white;\n  background-color: rgba(116, 185, 219, 0.65);\n  border-color: rgba(116, 185, 219, 0.15);\n}\n\n.GUIMButtonBlue {\n  color: white;\n  background-color: #74b9db;\n  border: 1px solid #74b9db;\n}\n\n.GUIMButtonGray:hover, .GUIMButtonGray:focus {\n  color: white;\n  background-color: rgba(187, 187, 187, 0.65);\n  border-color: rgba(187, 187, 187, 0.15);\n}\n\n.GUIMButtonGray {\n  color: white;\n  background-color: #bbbbbb;\n  border: 1px solid #bbbbbb;\n}\n\n.GUIMButtonGreen:hover, .GUIMButtonGreen:focus {\n  color: white;\n  background-color: rgba(116, 219, 148, 0.65);\n  border-color: rgba(116, 219, 148, 0.15);\n}\n\n.GUIMButtonGreen {\n  color: white;\n  background-color: #74db94;\n  border: 1px solid #74db94;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 27 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _Form = __webpack_require__(28);
+var _Form = __webpack_require__(24);
 
 var _Form2 = _interopRequireDefault(_Form);
 
@@ -3099,7 +2972,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = _Form2.default;
 
 /***/ }),
-/* 28 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3113,7 +2986,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -3196,7 +3069,7 @@ Form.defaultProps = {
 exports.default = Form;
 
 /***/ }),
-/* 29 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3206,7 +3079,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _Navbar = __webpack_require__(30);
+var _Navbar = __webpack_require__(26);
 
 var _Navbar2 = _interopRequireDefault(_Navbar);
 
@@ -3215,7 +3088,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = _Navbar2.default;
 
 /***/ }),
-/* 30 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3229,11 +3102,11 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(31);
+__webpack_require__(27);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3360,8 +3233,9 @@ var Navbar = function (_Component2) {
       }
       return modules.filter(function (module) {
         return _this3._havePermission(_this3.state.permissions, module.permission);
+      }).filter(function (module) {
+        return !module.mobile;
       }).map(function (module) {
-        if (module.mobile === true) return;
         if ("submodules" in module) {
           return _react2.default.createElement(Dropdown, _extends({ key: module.name }, module));
         }
@@ -3447,6 +3321,138 @@ var themes = {
 exports.default = Navbar;
 
 /***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(28);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {"hmr":true}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(3)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../node_modules/css-loader/index.js??ref--1-1!../../node_modules/postcss-loader/lib/index.js!./styles.scss", function() {
+			var newContent = require("!!../../node_modules/css-loader/index.js??ref--1-1!../../node_modules/postcss-loader/lib/index.js!./styles.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "/* colors */\n\n.GUIMNavigation {\n  width: 100%;\n  height: 51px\n}\n\n.GUIMNavigation nav > div.logo {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n\n.GUIMNavigation nav > div {\n  height: 100%;\n}\n\n.GUIMNavigation nav {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  width: 100%;\n  max-width: 1440px;\n  padding-right: 20px;\n  padding-left: 20px;\n  margin-right: auto;\n  margin-left: auto;\n  height: 100%\n}\n\n.GUIMNavigation nav ul.navbar-modules {\n  list-style-type: none;\n  margin: 0;\n  height: 100%;\n}\n\n.GUIMNavigation nav li {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  float: left;\n  padding: 0px 8px;\n  position: relative;\n  cursor: pointer;\n  height: 100%;\n}\n\n.GUIMNavigation .navbar-element:hover a {\n  -webkit-transition: all .5s ease;\n  transition: all .5s ease;\n}\n\n.GUIMNavigation a {\n  text-decoration: none;\n  font-size: .9em;\n  padding: 0 5px;\n  white-space: nowrap;\n  font-weight: 300;\n}\n\n.GUIMNavigation .dd-container {\n  height: 100%;\n  width: 100%;\n  position: absolute;\n  top: 28px;\n  right: 0px;\n  display: none;\n}\n\n.GUIMNavigation .dd-list {\n  top: 23px;\n  right: 0px;\n  display:none;\n  position: absolute;\n  padding: 0;\n  cursor: pointer;\n  z-index: 1;\n  -webkit-box-shadow: -1px 1px 6px 0px rgba(0, 0, 0, .5);\n  box-shadow: -1px 1px 6px 0px rgba(0, 0, 0, .5)\n}\n\n.GUIMNavigation .dd-list .dd-element {\n  width: 100%;\n  padding: 0px 8px;\n  height: 50px;\n}\n\n.GUIMNavigation .dd-list .dd-element:hover a {\n  -webkit-transition: all .5s ease;\n  transition: all .5s ease;\n}\n\n.GUIMNavigation .dropdown {\n  position: relative;\n}\n\n.GUIMNavigation .dropdown.active a {\n  -webkit-transition: all .5s ease;\n  transition: all .5s ease;\n}\n\n.GUIMNavigation .dropdown.active .dd-list {\n  display: block;\n}\n\n.GUIMNavigation .dropdown.active .dd-container {\n  display: block;\n}\n\n.GUIMNavigation.GUIMNavbarDark {\n  background-color: black;\n}\n\n.GUIMNavigation.GUIMNavbarDark a {\n  color: white;\n}\n\n.GUIMNavigation.GUIMNavbarDark .navbar-element:hover a {\n  color: #bbbbbb;\n}\n\n.GUIMNavigation.GUIMNavbarDark .dropdown.active {\n  background-color: white;\n}\n\n.GUIMNavigation.GUIMNavbarDark .dropdown.active a {\n  color: black;\n}\n\n.GUIMNavigation.GUIMNavbarDark .dd-list .dd-element {\n  background-color: white;\n}\n\n.GUIMNavigation.GUIMNavbarDark .dd-list .dd-element:hover a {\n  color: #8e8e8e !important;\n}\n\n.GUIMNavigation.GUIMNavbarLight {\n  background-color: white;\n  -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, .5);\n  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, .5);\n}\n\n.GUIMNavigation.GUIMNavbarLight a {\n  color: #8e8e8e;\n}\n\n.GUIMNavigation.GUIMNavbarLight .navbar-element:hover a {\n  color: #bbbbbb;\n}\n\n.GUIMNavigation.GUIMNavbarLight .dropdown.active {\n  background-color: #f5f5f7;\n}\n\n.GUIMNavigation.GUIMNavbarLight .dropdown.active a {\n  color: #8e8e8e;\n}\n\n.GUIMNavigation.GUIMNavbarLight .dd-list .dd-element {\n  background-color: #f5f5f7;\n}\n\n.GUIMNavigation.GUIMNavbarLight .dd-list .dd-element:hover a {\n  color: #bbbbbb !important;\n}\n\n/* MOBILE STUFF - work in progress*/\n\n/*.MobileSublistWidth{\n  width: 160px;\n}\n\n.whole-page {\n  position: fixed;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  background-color: $transparent-gray;\n  z-index: 1;\n}\n.SublistWidth{\n  width: 180px;\n}\n.navigation-yals-mobile {\n  position: fixed;\n  background-color: $color_christmas;\n  opacity: 1;\n  z-index: 100;\n  ul {\n    list-style-type: none;\n    margin: 0;\n    height: 100%;\n    width: 100%;\n    min-width: 120px;\n    li {\n      display: flex;\n      align-items: center;\n      float: left;\n      padding: 8px;\n      position: relative;\n      cursor: pointer;\n      height: 100%;\n      &:hover {\n        a{\n          color: $main-blue;\n          -webkit-transition: all .5s ease;\n          transition: all .5s ease;\n        }\n      }\n    }\n  }\n  a{\n    text-decoration: none;\n    color: $white;\n    font-size: .9em;\n    padding: 0 5px;\n    white-space: nowrap;\n    font-weight: 300;\n  }\n}\n.navbar-mobile-container {\n  width: 100%;\n  position: absolute;\n  top: 28px;\n  right: 0px;\n  display: block;\n}\n.navbar-mobile-sublist {\n  top: 10px;\n  bottom: 10px;\n  right: 0px;\n  display: block;\n  position: absolute;\n  padding: 0;\n  cursor: pointer;\n  z-index: 1;\n  li {\n    width: 100%;\n    background-color: $color_christmas;\n    border-left: 1px solid $chart-gray;\n    border-right: 1px solid $chart-gray;\n    padding: 15px 8px !important;\n    border-bottom: 1px solid $chart-gray;\n    &:last-child{\n      border-bottom: 1px solid $dark-blue;\n    }\n    a{\n      width: 100%;\n      color: $white !important;\n    }\n  }\n}\n*/\n\n/* REVERSE */\n\n/*.navbar-reverse-sublist-container{\n  height: 100%;\n  position: absolute;\n  top: 40px;\n  right: 0px;\n  display: none;\n  .triangle-down{\n    display: none;\n    width: 0;\n    height: 0;\n    border-left: 12px solid transparent;\n    border-right: 12px solid transparent;\n    border-top: 9px solid $chart-gray;\n    position: absolute;\n    bottom: 92px;\n    margin-top: 5px;\n    z-index: 1;\n    &:after{\n      content: '';\n      width: 0;\n      height: 0;\n      border-left: 11px solid transparent;\n      border-right: 11px solid transparent;\n      border-top: 8px solid $light-gray;\n      position: absolute;\n      bottom: 1px;\n      right: -11px;\n    }\n  }\n}\n.triangle-left {\n  right: 104px;\n}\n.triangle-right {\n  right: 16px;\n}\n.navbar-reverse-sublist {\n  right: 0px;\n  display: none;\n  position: absolute;\n  bottom: 100px;\n  padding: 0;\n  cursor: pointer;\n  z-index: 1;\n  li {\n    width: 100%;\n    background-color: $light-gray;\n    border-left: 1px solid $chart-gray;\n    border-right: 1px solid $chart-gray;\n    padding: 15px 8px ;\n    &:first-child{\n      border-top: 1px solid $chart-gray;\n      -webkit-border-top-left-radius: 4px;\n      -webkit-border-top-right-radius: 4px;\n      -moz-border-radius-topleft: 4px;\n      -moz-border-radius-topright: 4px;\n      border-top-left-radius: 4px;\n      border-top-right-radius: 4px;\n    }\n    &:last-child{\n      border-bottom: 1px solid $chart-gray;\n      -webkit-border-bottom-left-radius: 4px;\n      -webkit-border-bottom-right-radius: 4px;\n      -moz-border-radius-bottomleft: 4px;\n      -moz-border-radius-bottomright: 4px;\n      border-bottom-left-radius: 4px;\n      border-bottom-right-radius: 4px;\n    }\n    a{\n      color: $dark-blue !important;\n    }\n    &:hover{\n      a{\n        color: $main-blue !important;\n      }\n    }\n  }\n}\n.navbar-reverse-list {\n  position: relative;\n  &:hover {\n    .navbar-reverse-sublist, .triangle-down, .navbar-reverse-sublist-container {\n      display: block;\n    }\n  }\n}\n*/\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _Picker = __webpack_require__(30);
+
+var _Picker2 = _interopRequireDefault(_Picker);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _Picker2.default;
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+__webpack_require__(31);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Pill = function Pill(props) {
+  return _react2.default.createElement(
+    "a",
+    {
+      onClick: props.select,
+      className: props.active ? "active" : "",
+      key: props.value },
+    props.label
+  );
+};
+
+var Picker = function Picker(props) {
+  return _react2.default.createElement(
+    "div",
+    {
+      name: props.name,
+      className: "GUIMPicker " + props.className + " " + (themes[props.color] || themes["blue"]) },
+    props.options.map(function (e) {
+      return _react2.default.createElement(Pill, {
+        key: e.value,
+        select: props.onChange.bind(null, e.label, e.value),
+        active: props.active === e.value,
+        value: e.value,
+        label: e.label
+      });
+    })
+  );
+};
+
+Picker.defaultProps = {
+  name: "picker",
+  onChange: function onChange(label, value) {
+    return console.log("Picker:active => label: " + label + ", value: " + value);
+  },
+  options: [{ label: "Uno", value: 1 }, { label: "Dos", value: 2 }],
+  className: "",
+  color: "blue",
+  guimInput: "picker",
+  active: 1
+};
+
+var themes = {
+  blue: "GUIMPickerBlue",
+  gray: "GUIMPickerGray",
+  green: "GUIMPickerGreen"
+};
+
+exports.default = Picker;
+
+/***/ }),
 /* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3486,7 +3492,149 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, "/* colors */\n\n.GUIMNavigation {\n  width: 100%;\n  height: 51px\n}\n\n.GUIMNavigation nav > div.logo {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n\n.GUIMNavigation nav > div {\n  height: 100%;\n}\n\n.GUIMNavigation nav {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  width: 100%;\n  max-width: 1440px;\n  padding-right: 20px;\n  padding-left: 20px;\n  margin-right: auto;\n  margin-left: auto;\n  height: 100%\n}\n\n.GUIMNavigation nav ul.navbar-modules {\n  list-style-type: none;\n  margin: 0;\n  height: 100%;\n}\n\n.GUIMNavigation nav li {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  float: left;\n  padding: 0px 8px;\n  position: relative;\n  cursor: pointer;\n  height: 100%;\n}\n\n.GUIMNavigation .navbar-element:hover a {\n  -webkit-transition: all .5s ease;\n  transition: all .5s ease;\n}\n\n.GUIMNavigation a {\n  text-decoration: none;\n  font-size: .9em;\n  padding: 0 5px;\n  white-space: nowrap;\n  font-weight: 300;\n}\n\n.GUIMNavigation .dd-container {\n  height: 100%;\n  width: 100%;\n  position: absolute;\n  top: 28px;\n  right: 0px;\n  display: none;\n}\n\n.GUIMNavigation .dd-list {\n  top: 23px;\n  right: 0px;\n  display:none;\n  position: absolute;\n  padding: 0;\n  cursor: pointer;\n  z-index: 1;\n  -webkit-box-shadow: -1px 1px 6px 0px rgba(0, 0, 0, .5);\n  box-shadow: -1px 1px 6px 0px rgba(0, 0, 0, .5)\n}\n\n.GUIMNavigation .dd-list .dd-element {\n  width: 100%;\n  padding: 0px 8px;\n  height: 50px;\n}\n\n.GUIMNavigation .dd-list .dd-element:hover a {\n  -webkit-transition: all .5s ease;\n  transition: all .5s ease;\n}\n\n.GUIMNavigation .dropdown {\n  position: relative;\n}\n\n.GUIMNavigation .dropdown.active a {\n  -webkit-transition: all .5s ease;\n  transition: all .5s ease;\n}\n\n.GUIMNavigation .dropdown.active .dd-list {\n  display: block;\n}\n\n.GUIMNavigation .dropdown.active .dd-container {\n  display: block;\n}\n\n.GUIMNavigation.GUIMNavbarDark {\n  background-color: black;\n}\n\n.GUIMNavigation.GUIMNavbarDark a {\n  color: white;\n}\n\n.GUIMNavigation.GUIMNavbarDark .navbar-element:hover a {\n  color: #bbbbbb;\n}\n\n.GUIMNavigation.GUIMNavbarDark .dropdown.active {\n  background-color: white;\n}\n\n.GUIMNavigation.GUIMNavbarDark .dropdown.active a {\n  color: black;\n}\n\n.GUIMNavigation.GUIMNavbarDark .dd-list .dd-element {\n  background-color: white;\n}\n\n.GUIMNavigation.GUIMNavbarDark .dd-list .dd-element:hover a {\n  color: #8e8e8e !important;\n}\n\n.GUIMNavigation.GUIMNavbarLight {\n  background-color: white;\n  -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, .5);\n  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, .5);\n}\n\n.GUIMNavigation.GUIMNavbarLight a {\n  color: #8e8e8e;\n}\n\n.GUIMNavigation.GUIMNavbarLight .navbar-element:hover a {\n  color: #bbbbbb;\n}\n\n.GUIMNavigation.GUIMNavbarLight .dropdown.active {\n  background-color: #f5f5f7;\n}\n\n.GUIMNavigation.GUIMNavbarLight .dropdown.active a {\n  color: #8e8e8e;\n}\n\n.GUIMNavigation.GUIMNavbarLight .dd-list .dd-element {\n  background-color: #f5f5f7;\n}\n\n.GUIMNavigation.GUIMNavbarLight .dd-list .dd-element:hover a {\n  color: #bbbbbb !important;\n}\n\n/* MOBILE STUFF - work in progress*/\n\n/*.MobileSublistWidth{\n  width: 160px;\n}\n\n.whole-page {\n  position: fixed;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  background-color: $transparent-gray;\n  z-index: 1;\n}\n.SublistWidth{\n  width: 180px;\n}\n.navigation-yals-mobile {\n  position: fixed;\n  background-color: $color_christmas;\n  opacity: 1;\n  z-index: 100;\n  ul {\n    list-style-type: none;\n    margin: 0;\n    height: 100%;\n    width: 100%;\n    min-width: 120px;\n    li {\n      display: flex;\n      align-items: center;\n      float: left;\n      padding: 8px;\n      position: relative;\n      cursor: pointer;\n      height: 100%;\n      &:hover {\n        a{\n          color: $main-blue;\n          -webkit-transition: all .5s ease;\n          transition: all .5s ease;\n        }\n      }\n    }\n  }\n  a{\n    text-decoration: none;\n    color: $white;\n    font-size: .9em;\n    padding: 0 5px;\n    white-space: nowrap;\n    font-weight: 300;\n  }\n}\n.navbar-mobile-container {\n  width: 100%;\n  position: absolute;\n  top: 28px;\n  right: 0px;\n  display: block;\n}\n.navbar-mobile-sublist {\n  top: 10px;\n  bottom: 10px;\n  right: 0px;\n  display: block;\n  position: absolute;\n  padding: 0;\n  cursor: pointer;\n  z-index: 1;\n  li {\n    width: 100%;\n    background-color: $color_christmas;\n    border-left: 1px solid $chart-gray;\n    border-right: 1px solid $chart-gray;\n    padding: 15px 8px !important;\n    border-bottom: 1px solid $chart-gray;\n    &:last-child{\n      border-bottom: 1px solid $dark-blue;\n    }\n    a{\n      width: 100%;\n      color: $white !important;\n    }\n  }\n}\n*/\n\n/* REVERSE */\n\n/*.navbar-reverse-sublist-container{\n  height: 100%;\n  position: absolute;\n  top: 40px;\n  right: 0px;\n  display: none;\n  .triangle-down{\n    display: none;\n    width: 0;\n    height: 0;\n    border-left: 12px solid transparent;\n    border-right: 12px solid transparent;\n    border-top: 9px solid $chart-gray;\n    position: absolute;\n    bottom: 92px;\n    margin-top: 5px;\n    z-index: 1;\n    &:after{\n      content: '';\n      width: 0;\n      height: 0;\n      border-left: 11px solid transparent;\n      border-right: 11px solid transparent;\n      border-top: 8px solid $light-gray;\n      position: absolute;\n      bottom: 1px;\n      right: -11px;\n    }\n  }\n}\n.triangle-left {\n  right: 104px;\n}\n.triangle-right {\n  right: 16px;\n}\n.navbar-reverse-sublist {\n  right: 0px;\n  display: none;\n  position: absolute;\n  bottom: 100px;\n  padding: 0;\n  cursor: pointer;\n  z-index: 1;\n  li {\n    width: 100%;\n    background-color: $light-gray;\n    border-left: 1px solid $chart-gray;\n    border-right: 1px solid $chart-gray;\n    padding: 15px 8px ;\n    &:first-child{\n      border-top: 1px solid $chart-gray;\n      -webkit-border-top-left-radius: 4px;\n      -webkit-border-top-right-radius: 4px;\n      -moz-border-radius-topleft: 4px;\n      -moz-border-radius-topright: 4px;\n      border-top-left-radius: 4px;\n      border-top-right-radius: 4px;\n    }\n    &:last-child{\n      border-bottom: 1px solid $chart-gray;\n      -webkit-border-bottom-left-radius: 4px;\n      -webkit-border-bottom-right-radius: 4px;\n      -moz-border-radius-bottomleft: 4px;\n      -moz-border-radius-bottomright: 4px;\n      border-bottom-left-radius: 4px;\n      border-bottom-right-radius: 4px;\n    }\n    a{\n      color: $dark-blue !important;\n    }\n    &:hover{\n      a{\n        color: $main-blue !important;\n      }\n    }\n  }\n}\n.navbar-reverse-list {\n  position: relative;\n  &:hover {\n    .navbar-reverse-sublist, .triangle-down, .navbar-reverse-sublist-container {\n      display: block;\n    }\n  }\n}\n*/\n", ""]);
+exports.push([module.i, "/* colors */\n\n.GUIMPicker {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  text-align: center;\n  cursor: pointer;\n  height: 30px\n}\n\n.GUIMPicker a {\n  border: 1px solid #bbbbbb;\n  color: #8e8e8e;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  background-color: white;\n  width: calc(51% - 1px);\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease;\n  height: 100%\n}\n\n.GUIMPicker a:last-child {\n  border-top-right-radius: 3px;\n  border-bottom-right-radius: 3px;\n}\n\n.GUIMPicker a:first-child {\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n\n.GUIMPickerBlue a:hover {\n  color: white;\n  background-color: rgba(116, 185, 219, 0.65);\n  border-color: rgba(116, 185, 219, 0.15);\n}\n\n.GUIMPickerBlue .active {\n  color: white;\n  background-color: #74b9db;\n  border: 1px solid #74b9db;\n}\n\n.GUIMPickerGray a:hover {\n  color: white;\n  background-color: rgba(187, 187, 187, 0.65);\n  border-color: rgba(187, 187, 187, 0.15);\n}\n\n.GUIMPickerGray .active {\n  color: white;\n  background-color: #bbbbbb;\n  border: 1px solid #bbbbbb;\n}\n\n.GUIMPickerGreen a:hover {\n  color: white;\n  background-color: rgba(116, 219, 148, 0.65);\n  border-color: rgba(116, 219, 148, 0.15);\n}\n\n.GUIMPickerGreen .active {\n  color: white;\n  background-color: #74db94;\n  border: 1px solid #74db94;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _Table = __webpack_require__(34);
+
+var _Table2 = _interopRequireDefault(_Table);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _Table2.default;
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+__webpack_require__(35);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Table = function Table(props) {
+  var body = props.body,
+      headers = props.headers;
+
+
+  return _react2.default.createElement(
+    "table",
+    { className: "YalsTable" },
+    _react2.default.createElement(
+      "tbody",
+      null,
+      _react2.default.createElement(
+        "tr",
+        { className: "hidden-xs" },
+        headers.map(function (el, index) {
+          return _react2.default.createElement(
+            "td",
+            { key: "header-" + index },
+            el
+          );
+        })
+      ),
+      body.map(function (el, index) {
+        return _react2.default.createElement(
+          "tr",
+          { key: "row-" + index,
+            className: props.row_hovered === index ? 'highlighted' : '',
+            onMouseEnter: props.row_mouseEnter.bind(undefined, index),
+            onMouseLeave: props.row_mouseLeave.bind(undefined, index) },
+          el.map(function (td, i) {
+            return _react2.default.createElement(
+              "td",
+              { key: "td-" + index + "-" + i },
+              td
+            );
+          })
+        );
+      })
+    )
+  );
+};
+
+Table.defaultProps = {
+  striped: false,
+  sticky_header: {
+    active: false,
+    height: 0
+  },
+  headers: [1, 2, 3],
+  body: [[1, 2, 3], [1, 2, 3], [1, 2, 3]],
+  row_mouseEnter: function row_mouseEnter(i) {},
+  row_mouseLeave: function row_mouseLeave(i) {},
+  className: "",
+  row_className: "",
+  row_hovered: -1 //This one will set the given row's className to highlighted
+};
+
+exports.default = Table;
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(36);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {"hmr":true}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(3)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../node_modules/css-loader/index.js??ref--1-1!../../node_modules/postcss-loader/lib/index.js!./styles.scss", function() {
+			var newContent = require("!!../../node_modules/css-loader/index.js??ref--1-1!../../node_modules/postcss-loader/lib/index.js!./styles.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
 
 // exports
 

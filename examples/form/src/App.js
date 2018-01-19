@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
 import {
-  Form,
-  Checkbox,
   Button,
+  Checkbox,
+  Form,
+  Navbar,
   Picker,
-  Navbar
+  Table
 } from "guim";
 import logo from './logo.svg';
 
@@ -114,6 +115,9 @@ class App extends Component {
             <div>data to send: </div>
             <div>{`${JSON.stringify(this.state.formData)}`}</div>
           </div>
+        </div>
+        <div className="form">
+          <Table />
         </div>
       </div>
     );
