@@ -3518,10 +3518,216 @@ exports.default = _Table2.default;
 
 /***/ }),
 /* 34 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-throw new Error("Module build failed: SyntaxError: Unexpected token, expected , (46:2)\n\n\u001b[0m \u001b[90m 44 | \u001b[39m  row_className\u001b[33m:\u001b[39m \u001b[32m\"\"\u001b[39m\u001b[33m,\u001b[39m \u001b[90m// ✓\u001b[39m\n \u001b[90m 45 | \u001b[39m  row_hovered\u001b[33m:\u001b[39m \u001b[33m-\u001b[39m\u001b[35m1\u001b[39m \u001b[90m// ✓ This one will set the given row's className to highlighted\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 46 | \u001b[39m  theme\u001b[33m:\u001b[39m \u001b[32m\"light\"\u001b[39m \u001b[90m// ✗\u001b[39m\n \u001b[90m    | \u001b[39m  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 47 | \u001b[39m}\u001b[33m;\u001b[39m\n \u001b[90m 48 | \u001b[39m\n \u001b[90m 49 | \u001b[39m\u001b[36mexport\u001b[39m \u001b[36mdefault\u001b[39m \u001b[33mTable\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n");
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+__webpack_require__(35);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var StickyHeader = function (_Component) {
+  _inherits(StickyHeader, _Component);
+
+  function StickyHeader(props) {
+    _classCallCheck(this, StickyHeader);
+
+    var _this = _possibleConstructorReturn(this, (StickyHeader.__proto__ || Object.getPrototypeOf(StickyHeader)).call(this, props));
+
+    _this.state = { active: false };
+    _this.handleScroll = _this.handleScroll.bind(_this);
+    return _this;
+  }
+
+  _createClass(StickyHeader, [{
+    key: "handleScroll",
+    value: function handleScroll(e) {
+      var originalHeaderTop = this.originalHeader ? this.originalHeader.getBoundingClientRect().top : Number.POSITIVE_INFINITY;
+
+      if (originalHeaderTop <= this.props.top && !this.state.active) {
+        this.setState({ active: true });
+      } else if (originalHeaderTop > this.props.top && this.state.active) {
+        this.setState({ active: false });
+      }
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      console.log('DidMount');
+      window.addEventListener('scroll', this.handleScroll);
+      this.originalHeader = document.getElementById(this.props.id);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      window.removeEventListener('scroll', this.handleScroll);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var style = this.state.active ? {
+        top: this.props.top + "px",
+        display: 'block',
+        position: 'fixed'
+      } : {};
+      return _react2.default.createElement(
+        "div",
+        { id: "ticky", style: style },
+        _react2.default.createElement(
+          "table",
+          { className: "GUIMTable" },
+          _react2.default.createElement(
+            "tbody",
+            null,
+            _react2.default.createElement(
+              "tr",
+              { className: "theader" },
+              this.props.headers.map(function (el, index) {
+                return _react2.default.createElement(
+                  "th",
+                  { key: "header-" + index },
+                  el
+                );
+              })
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return StickyHeader;
+}(_react.Component);
+
+var Table = function Table(props) {
+  var body = props.body,
+      headers = props.headers;
+
+  var head_id = "head-" + Math.round(Math.random() * 10000);
+  var sticky_header = props.sticky_header.active ? _react2.default.createElement(StickyHeader, { id: head_id, headers: headers, top: props.sticky_header.top }) : '';
+
+  return _react2.default.createElement(
+    _react.Fragment,
+    null,
+    sticky_header,
+    _react2.default.createElement(
+      "table",
+      { className: "GUIMTable " + props.className },
+      _react2.default.createElement(
+        "tbody",
+        { className: "" + (props.striped ? "striped" : "") },
+        _react2.default.createElement(
+          "tr",
+          { id: head_id, className: "theader " },
+          headers.map(function (el, index) {
+            return _react2.default.createElement(
+              "td",
+              { key: "header-" + index },
+              el
+            );
+          })
+        ),
+        body.map(function (el, index) {
+          return _react2.default.createElement(
+            "tr",
+            { key: "row-" + index,
+              className: "trow " + (props.row_hovered === index ? 'highlighted' : '') + " " + props.row_className,
+              onMouseEnter: props.row_mouseEnter.bind(undefined, index),
+              onMouseLeave: props.row_mouseLeave.bind(undefined, index) },
+            el.map(function (td, i) {
+              return _react2.default.createElement(
+                "td",
+                { key: "td-" + index + "-" + i },
+                td
+              );
+            })
+          );
+        })
+      )
+    )
+  );
+};
+
+Table.defaultProps = {
+  striped: false, // ✓
+  sticky_header: { // ✗
+    active: true,
+    top: 0
+  },
+  headers: ["First Name", "Last Name", "Email", "Actions"], // ✓
+  body: [// ✓
+  ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["Roberto", "Doe", "roberto@doe.com", "View - Edit"]],
+  row_mouseEnter: function row_mouseEnter(i) {}, // ✓
+  row_mouseLeave: function row_mouseLeave(i) {}, // ✓
+  className: "", // ✓
+  row_className: "", // ✓
+  row_hovered: -1, // ✓ This one will set the given row's className to highlighted
+  theme: "light" // ✗
+};
+
+exports.default = Table;
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(36);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {"hmr":true}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(3)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../node_modules/css-loader/index.js??ref--1-1!../../node_modules/postcss-loader/lib/index.js!./styles.scss", function() {
+			var newContent = require("!!../../node_modules/css-loader/index.js??ref--1-1!../../node_modules/postcss-loader/lib/index.js!./styles.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "/* colors */\n\n.GUIMTable {\n  width: 100%;\n  border-collapse: collapse;\n  table-layout: fixed\n}\n\n.GUIMTable tr {\n  height: 100%;\n}\n\n.GUIMTable .striped tr.trow:nth-child(odd) {\n  background: #f5f5f7;\n}\n\n.GUIMTable tr.theader {\n  background: white;\n  border-bottom: 2px solid #8e8e8e;\n}\n\n.GUIMTable tr.highlighted {\n  background: #c8edff;\n}\n\n#ticky {\n    display: none;\n    width: inherit;\n  }\n", ""]);
+
+// exports
+
 
 /***/ })
 /******/ ]);

@@ -3,6 +3,7 @@
 .GUIMTable {
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
   & tr {
     height: 100%;
   }
@@ -17,3 +18,8 @@
     background: var(--light-blue);
   }
 }
+  
+  #ticky {
+    display: none;
+    width: inherit;
+  }
