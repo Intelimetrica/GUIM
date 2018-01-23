@@ -1,0 +1,1218 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Table /> handles a sticky header yo 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <StickyHeader
+    headers={
+      Array [
+        "Product",
+        "Product Name",
+        "Product Quality",
+        "Product Quantity",
+      ]
+    }
+    id="head-id"
+    top={0}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <table
+        className="GUIMTable"
+      >
+        <tbody>
+          <tr
+            className="theader"
+          >
+            <th>
+              Product
+            </th>
+            <th>
+              Product Name
+            </th>
+            <th>
+              Product Quality
+            </th>
+            <th>
+              Product Quantity
+            </th>
+          </tr>
+        </tbody>
+      </table>,
+      "id": "ticky",
+      "style": Object {},
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <tbody>
+          <tr
+            className="theader"
+          >
+            <th>
+              Product
+            </th>
+            <th>
+              Product Name
+            </th>
+            <th>
+              Product Quality
+            </th>
+            <th>
+              Product Quantity
+            </th>
+          </tr>
+        </tbody>,
+        "className": "GUIMTable",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <tr
+            className="theader"
+          >
+            <th>
+              Product
+            </th>
+            <th>
+              Product Name
+            </th>
+            <th>
+              Product Quality
+            </th>
+            <th>
+              Product Quantity
+            </th>
+          </tr>,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <th>
+                Product
+              </th>,
+              <th>
+                Product Name
+              </th>,
+              <th>
+                Product Quality
+              </th>,
+              <th>
+                Product Quantity
+              </th>,
+            ],
+            "className": "theader",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "header-0",
+              "nodeType": "host",
+              "props": Object {
+                "children": "Product",
+              },
+              "ref": null,
+              "rendered": "Product",
+              "type": "th",
+            },
+            Object {
+              "instance": null,
+              "key": "header-1",
+              "nodeType": "host",
+              "props": Object {
+                "children": "Product Name",
+              },
+              "ref": null,
+              "rendered": "Product Name",
+              "type": "th",
+            },
+            Object {
+              "instance": null,
+              "key": "header-2",
+              "nodeType": "host",
+              "props": Object {
+                "children": "Product Quality",
+              },
+              "ref": null,
+              "rendered": "Product Quality",
+              "type": "th",
+            },
+            Object {
+              "instance": null,
+              "key": "header-3",
+              "nodeType": "host",
+              "props": Object {
+                "children": "Product Quantity",
+              },
+              "ref": null,
+              "rendered": "Product Quantity",
+              "type": "th",
+            },
+          ],
+          "type": "tr",
+        },
+        "type": "tbody",
+      },
+      "type": "table",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <table
+          className="GUIMTable"
+        >
+          <tbody>
+            <tr
+              className="theader"
+            >
+              <th>
+                Product
+              </th>
+              <th>
+                Product Name
+              </th>
+              <th>
+                Product Quality
+              </th>
+              <th>
+                Product Quantity
+              </th>
+            </tr>
+          </tbody>
+        </table>,
+        "id": "ticky",
+        "style": Object {},
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <tbody>
+            <tr
+              className="theader"
+            >
+              <th>
+                Product
+              </th>
+              <th>
+                Product Name
+              </th>
+              <th>
+                Product Quality
+              </th>
+              <th>
+                Product Quantity
+              </th>
+            </tr>
+          </tbody>,
+          "className": "GUIMTable",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <tr
+              className="theader"
+            >
+              <th>
+                Product
+              </th>
+              <th>
+                Product Name
+              </th>
+              <th>
+                Product Quality
+              </th>
+              <th>
+                Product Quantity
+              </th>
+            </tr>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <th>
+                  Product
+                </th>,
+                <th>
+                  Product Name
+                </th>,
+                <th>
+                  Product Quality
+                </th>,
+                <th>
+                  Product Quantity
+                </th>,
+              ],
+              "className": "theader",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": "header-0",
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Product",
+                },
+                "ref": null,
+                "rendered": "Product",
+                "type": "th",
+              },
+              Object {
+                "instance": null,
+                "key": "header-1",
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Product Name",
+                },
+                "ref": null,
+                "rendered": "Product Name",
+                "type": "th",
+              },
+              Object {
+                "instance": null,
+                "key": "header-2",
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Product Quality",
+                },
+                "ref": null,
+                "rendered": "Product Quality",
+                "type": "th",
+              },
+              Object {
+                "instance": null,
+                "key": "header-3",
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Product Quantity",
+                },
+                "ref": null,
+                "rendered": "Product Quantity",
+                "type": "th",
+              },
+            ],
+            "type": "tr",
+          },
+          "type": "tbody",
+        },
+        "type": "table",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`<Table /> handles a sticky header yo 2`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <StickyHeader
+    headers={
+      Array [
+        "Product",
+        "Product Name",
+        "Product Quality",
+        "Product Quantity",
+      ]
+    }
+    id="head-id"
+    top={0}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <table
+        className="GUIMTable"
+      >
+        <tbody>
+          <tr
+            className="theader"
+          >
+            <th>
+              Product
+            </th>
+            <th>
+              Product Name
+            </th>
+            <th>
+              Product Quality
+            </th>
+            <th>
+              Product Quantity
+            </th>
+          </tr>
+        </tbody>
+      </table>,
+      "id": "ticky",
+      "style": Object {
+        "display": "block",
+        "position": "fixed",
+        "top": "0px",
+      },
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <tbody>
+          <tr
+            className="theader"
+          >
+            <th>
+              Product
+            </th>
+            <th>
+              Product Name
+            </th>
+            <th>
+              Product Quality
+            </th>
+            <th>
+              Product Quantity
+            </th>
+          </tr>
+        </tbody>,
+        "className": "GUIMTable",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <tr
+            className="theader"
+          >
+            <th>
+              Product
+            </th>
+            <th>
+              Product Name
+            </th>
+            <th>
+              Product Quality
+            </th>
+            <th>
+              Product Quantity
+            </th>
+          </tr>,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <th>
+                Product
+              </th>,
+              <th>
+                Product Name
+              </th>,
+              <th>
+                Product Quality
+              </th>,
+              <th>
+                Product Quantity
+              </th>,
+            ],
+            "className": "theader",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "header-0",
+              "nodeType": "host",
+              "props": Object {
+                "children": "Product",
+              },
+              "ref": null,
+              "rendered": "Product",
+              "type": "th",
+            },
+            Object {
+              "instance": null,
+              "key": "header-1",
+              "nodeType": "host",
+              "props": Object {
+                "children": "Product Name",
+              },
+              "ref": null,
+              "rendered": "Product Name",
+              "type": "th",
+            },
+            Object {
+              "instance": null,
+              "key": "header-2",
+              "nodeType": "host",
+              "props": Object {
+                "children": "Product Quality",
+              },
+              "ref": null,
+              "rendered": "Product Quality",
+              "type": "th",
+            },
+            Object {
+              "instance": null,
+              "key": "header-3",
+              "nodeType": "host",
+              "props": Object {
+                "children": "Product Quantity",
+              },
+              "ref": null,
+              "rendered": "Product Quantity",
+              "type": "th",
+            },
+          ],
+          "type": "tr",
+        },
+        "type": "tbody",
+      },
+      "type": "table",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <table
+          className="GUIMTable"
+        >
+          <tbody>
+            <tr
+              className="theader"
+            >
+              <th>
+                Product
+              </th>
+              <th>
+                Product Name
+              </th>
+              <th>
+                Product Quality
+              </th>
+              <th>
+                Product Quantity
+              </th>
+            </tr>
+          </tbody>
+        </table>,
+        "id": "ticky",
+        "style": Object {
+          "display": "block",
+          "position": "fixed",
+          "top": "0px",
+        },
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <tbody>
+            <tr
+              className="theader"
+            >
+              <th>
+                Product
+              </th>
+              <th>
+                Product Name
+              </th>
+              <th>
+                Product Quality
+              </th>
+              <th>
+                Product Quantity
+              </th>
+            </tr>
+          </tbody>,
+          "className": "GUIMTable",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <tr
+              className="theader"
+            >
+              <th>
+                Product
+              </th>
+              <th>
+                Product Name
+              </th>
+              <th>
+                Product Quality
+              </th>
+              <th>
+                Product Quantity
+              </th>
+            </tr>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <th>
+                  Product
+                </th>,
+                <th>
+                  Product Name
+                </th>,
+                <th>
+                  Product Quality
+                </th>,
+                <th>
+                  Product Quantity
+                </th>,
+              ],
+              "className": "theader",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": "header-0",
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Product",
+                },
+                "ref": null,
+                "rendered": "Product",
+                "type": "th",
+              },
+              Object {
+                "instance": null,
+                "key": "header-1",
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Product Name",
+                },
+                "ref": null,
+                "rendered": "Product Name",
+                "type": "th",
+              },
+              Object {
+                "instance": null,
+                "key": "header-2",
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Product Quality",
+                },
+                "ref": null,
+                "rendered": "Product Quality",
+                "type": "th",
+              },
+              Object {
+                "instance": null,
+                "key": "header-3",
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Product Quantity",
+                },
+                "ref": null,
+                "rendered": "Product Quantity",
+                "type": "th",
+              },
+            ],
+            "type": "tr",
+          },
+          "type": "tbody",
+        },
+        "type": "table",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`<Table /> handles striped and non striped rows 1`] = `
+Array [
+  "",
+  <table
+    className="GUIMTable "
+  >
+    <tbody
+      className="striped"
+    >
+      <tr
+        className="theader "
+        id="head-1234"
+      >
+        <td>
+          Product
+        </td>
+        <td>
+          Product Name
+        </td>
+        <td>
+          Product Quality
+        </td>
+        <td>
+          Product Quantity
+        </td>
+      </tr>
+      <tr
+        className="trow  "
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <td>
+          1
+        </td>
+        <td>
+          Wheat
+        </td>
+        <td>
+          Good
+        </td>
+        <td>
+          200 Bags
+        </td>
+      </tr>
+      <tr
+        className="trow  "
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <td>
+          2
+        </td>
+        <td>
+          Rice
+        </td>
+        <td>
+          Regular
+        </td>
+        <td>
+          300 Bags
+        </td>
+      </tr>
+      <tr
+        className="trow  "
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <td>
+          3
+        </td>
+        <td>
+          Sugar
+        </td>
+        <td>
+          Bad
+        </td>
+        <td>
+          100 Bags
+        </td>
+      </tr>
+      <tr
+        className="trow  "
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <td>
+          4
+        </td>
+        <td>
+          Meat
+        </td>
+        <td>
+          Good
+        </td>
+        <td>
+          200 Kgs
+        </td>
+      </tr>
+    </tbody>
+  </table>,
+]
+`;
+
+exports[`<Table /> handles striped and non striped rows 2`] = `
+Array [
+  "",
+  <table
+    className="GUIMTable "
+  >
+    <tbody
+      className=""
+    >
+      <tr
+        className="theader "
+        id="head-1234"
+      >
+        <td>
+          Product
+        </td>
+        <td>
+          Product Name
+        </td>
+        <td>
+          Product Quality
+        </td>
+        <td>
+          Product Quantity
+        </td>
+      </tr>
+      <tr
+        className="trow  "
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <td>
+          1
+        </td>
+        <td>
+          Wheat
+        </td>
+        <td>
+          Good
+        </td>
+        <td>
+          200 Bags
+        </td>
+      </tr>
+      <tr
+        className="trow  "
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <td>
+          2
+        </td>
+        <td>
+          Rice
+        </td>
+        <td>
+          Regular
+        </td>
+        <td>
+          300 Bags
+        </td>
+      </tr>
+      <tr
+        className="trow  "
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <td>
+          3
+        </td>
+        <td>
+          Sugar
+        </td>
+        <td>
+          Bad
+        </td>
+        <td>
+          100 Bags
+        </td>
+      </tr>
+      <tr
+        className="trow  "
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <td>
+          4
+        </td>
+        <td>
+          Meat
+        </td>
+        <td>
+          Good
+        </td>
+        <td>
+          200 Kgs
+        </td>
+      </tr>
+    </tbody>
+  </table>,
+]
+`;
+
+exports[`<Table /> highlights row when hover 1`] = `
+Array [
+  "",
+  <table
+    className="GUIMTable "
+  >
+    <tbody
+      className=""
+    >
+      <tr
+        className="theader "
+        id="head-1234"
+      >
+        <td>
+          Product
+        </td>
+        <td>
+          Product Name
+        </td>
+        <td>
+          Product Quality
+        </td>
+        <td>
+          Product Quantity
+        </td>
+      </tr>
+      <tr
+        className="trow  "
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <td>
+          1
+        </td>
+        <td>
+          Wheat
+        </td>
+        <td>
+          Good
+        </td>
+        <td>
+          200 Bags
+        </td>
+      </tr>
+      <tr
+        className="trow highlighted "
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <td>
+          2
+        </td>
+        <td>
+          Rice
+        </td>
+        <td>
+          Regular
+        </td>
+        <td>
+          300 Bags
+        </td>
+      </tr>
+      <tr
+        className="trow  "
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <td>
+          3
+        </td>
+        <td>
+          Sugar
+        </td>
+        <td>
+          Bad
+        </td>
+        <td>
+          100 Bags
+        </td>
+      </tr>
+      <tr
+        className="trow  "
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <td>
+          4
+        </td>
+        <td>
+          Meat
+        </td>
+        <td>
+          Good
+        </td>
+        <td>
+          200 Kgs
+        </td>
+      </tr>
+    </tbody>
+  </table>,
+]
+`;
+
+exports[`<Table /> highlights row when hover 2`] = `
+Array [
+  "",
+  <table
+    className="GUIMTable "
+  >
+    <tbody
+      className=""
+    >
+      <tr
+        className="theader "
+        id="head-1234"
+      >
+        <td>
+          Product
+        </td>
+        <td>
+          Product Name
+        </td>
+        <td>
+          Product Quality
+        </td>
+        <td>
+          Product Quantity
+        </td>
+      </tr>
+      <tr
+        className="trow  "
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <td>
+          1
+        </td>
+        <td>
+          Wheat
+        </td>
+        <td>
+          Good
+        </td>
+        <td>
+          200 Bags
+        </td>
+      </tr>
+      <tr
+        className="trow  "
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <td>
+          2
+        </td>
+        <td>
+          Rice
+        </td>
+        <td>
+          Regular
+        </td>
+        <td>
+          300 Bags
+        </td>
+      </tr>
+      <tr
+        className="trow  "
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <td>
+          3
+        </td>
+        <td>
+          Sugar
+        </td>
+        <td>
+          Bad
+        </td>
+        <td>
+          100 Bags
+        </td>
+      </tr>
+      <tr
+        className="trow  "
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <td>
+          4
+        </td>
+        <td>
+          Meat
+        </td>
+        <td>
+          Good
+        </td>
+        <td>
+          200 Kgs
+        </td>
+      </tr>
+    </tbody>
+  </table>,
+]
+`;
+
+exports[`<Table /> match dom snapshot 1`] = `
+Array [
+  "",
+  <table
+    className="GUIMTable "
+  >
+    <tbody
+      className=""
+    >
+      <tr
+        className="theader "
+        id="head-1234"
+      >
+        <td>
+          Product
+        </td>
+        <td>
+          Product Name
+        </td>
+        <td>
+          Product Quality
+        </td>
+        <td>
+          Product Quantity
+        </td>
+      </tr>
+      <tr
+        className="trow  "
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <td>
+          1
+        </td>
+        <td>
+          Wheat
+        </td>
+        <td>
+          Good
+        </td>
+        <td>
+          200 Bags
+        </td>
+      </tr>
+      <tr
+        className="trow  "
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <td>
+          2
+        </td>
+        <td>
+          Rice
+        </td>
+        <td>
+          Regular
+        </td>
+        <td>
+          300 Bags
+        </td>
+      </tr>
+      <tr
+        className="trow  "
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <td>
+          3
+        </td>
+        <td>
+          Sugar
+        </td>
+        <td>
+          Bad
+        </td>
+        <td>
+          100 Bags
+        </td>
+      </tr>
+      <tr
+        className="trow  "
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <td>
+          4
+        </td>
+        <td>
+          Meat
+        </td>
+        <td>
+          Good
+        </td>
+        <td>
+          200 Kgs
+        </td>
+      </tr>
+    </tbody>
+  </table>,
+]
+`;
