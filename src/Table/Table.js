@@ -1,7 +1,7 @@
 import React, { Component, Fragment} from "react";
 import "./styles.scss";
 
-class StickyHeader extends Component {
+export class StickyHeader extends Component {
   constructor(props) {
     super(props);
     this.state = { active: false };
@@ -21,7 +21,6 @@ class StickyHeader extends Component {
   }
 
   componentDidMount() {
-    console.log('DidMount');
     window.addEventListener('scroll', this.handleScroll);
     this.originalHeader = document.getElementById(this.props.id);
   }
@@ -80,85 +79,25 @@ const Table = props => {
   );
 }
 
+//TODO: Implement themes
 Table.defaultProps = {
-  striped: false, // ✓
-  sticky_header: { // ✗
-    active: true,
+  striped: false,
+  sticky_header: {
+    active: false,
     top: 0
   },
-  headers: ["First Name","Last Name","Email", "Actions"], // ✓
-  body: [ // ✓
+  headers: ["First Name","Last Name","Email", "Actions"],
+  body: [
     ["John","Doe","john@doe.com", "View - Edit"],
     ["Jane","Doe","jane@doe.com", "View - Edit"],
-    ["Josue","Doe","josue@doe.com", "View - Edit"],
-    ["John","Doe","john@doe.com", "View - Edit"],
-    ["Jane","Doe","jane@doe.com", "View - Edit"],
-    ["Josue","Doe","josue@doe.com", "View - Edit"],
-    ["John","Doe","john@doe.com", "View - Edit"],
-    ["Jane","Doe","jane@doe.com", "View - Edit"],
-    ["Josue","Doe","josue@doe.com", "View - Edit"],
-    ["John","Doe","john@doe.com", "View - Edit"],
-    ["Jane","Doe","jane@doe.com", "View - Edit"],
-    ["Josue","Doe","josue@doe.com", "View - Edit"],
-    ["John","Doe","john@doe.com", "View - Edit"],
-    ["Jane","Doe","jane@doe.com", "View - Edit"],
-    ["Josue","Doe","josue@doe.com", "View - Edit"],
-    ["John","Doe","john@doe.com", "View - Edit"],
-    ["Jane","Doe","jane@doe.com", "View - Edit"],
-    ["Josue","Doe","josue@doe.com", "View - Edit"],
-    ["John","Doe","john@doe.com", "View - Edit"],
-    ["Jane","Doe","jane@doe.com", "View - Edit"],
-    ["Josue","Doe","josue@doe.com", "View - Edit"],
-    ["John","Doe","john@doe.com", "View - Edit"],
-    ["Jane","Doe","jane@doe.com", "View - Edit"],
-    ["Josue","Doe","josue@doe.com", "View - Edit"],
-    ["John","Doe","john@doe.com", "View - Edit"],
-    ["Jane","Doe","jane@doe.com", "View - Edit"],
-    ["Josue","Doe","josue@doe.com", "View - Edit"],
-    ["John","Doe","john@doe.com", "View - Edit"],
-    ["Jane","Doe","jane@doe.com", "View - Edit"],
-    ["Josue","Doe","josue@doe.com", "View - Edit"],
-    ["John","Doe","john@doe.com", "View - Edit"],
-    ["Jane","Doe","jane@doe.com", "View - Edit"],
-    ["Josue","Doe","josue@doe.com", "View - Edit"],
-    ["John","Doe","john@doe.com", "View - Edit"],
-    ["Jane","Doe","jane@doe.com", "View - Edit"],
-    ["Josue","Doe","josue@doe.com", "View - Edit"],
-    ["John","Doe","john@doe.com", "View - Edit"],
-    ["Jane","Doe","jane@doe.com", "View - Edit"],
-    ["Josue","Doe","josue@doe.com", "View - Edit"],
-    ["John","Doe","john@doe.com", "View - Edit"],
-    ["Jane","Doe","jane@doe.com", "View - Edit"],
-    ["Josue","Doe","josue@doe.com", "View - Edit"],
-    ["John","Doe","john@doe.com", "View - Edit"],
-    ["Jane","Doe","jane@doe.com", "View - Edit"],
-    ["Josue","Doe","josue@doe.com", "View - Edit"],
-    ["John","Doe","john@doe.com", "View - Edit"],
-    ["Jane","Doe","jane@doe.com", "View - Edit"],
-    ["Josue","Doe","josue@doe.com", "View - Edit"],
-    ["John","Doe","john@doe.com", "View - Edit"],
-    ["Jane","Doe","jane@doe.com", "View - Edit"],
-    ["Josue","Doe","josue@doe.com", "View - Edit"],
-    ["John","Doe","john@doe.com", "View - Edit"],
-    ["Jane","Doe","jane@doe.com", "View - Edit"],
-    ["Josue","Doe","josue@doe.com", "View - Edit"],
-    ["John","Doe","john@doe.com", "View - Edit"],
-    ["Jane","Doe","jane@doe.com", "View - Edit"],
-    ["Josue","Doe","josue@doe.com", "View - Edit"],
-    ["John","Doe","john@doe.com", "View - Edit"],
-    ["Jane","Doe","jane@doe.com", "View - Edit"],
-    ["Josue","Doe","josue@doe.com", "View - Edit"],
-    ["John","Doe","john@doe.com", "View - Edit"],
-    ["Jane","Doe","jane@doe.com", "View - Edit"],
-    ["Josue","Doe","josue@doe.com", "View - Edit"],
-    ["Roberto","Doe","roberto@doe.com", "View - Edit"]
+    ["Josue","Doe","josue@doe.com", "View - Edit"]
   ],
-  row_mouseEnter: (i) => {}, // ✓
-  row_mouseLeave: (i) => {}, // ✓
-  className: "", // ✓
-  row_className: "", // ✓
-  row_hovered: -1, // ✓ This one will set the given row's className to highlighted
-  theme: "light" // ✗
+  row_mouseEnter: (i) => {},
+  row_mouseLeave: (i) => {},
+  className: "",
+  row_className: "",
+  row_hovered: -1, //  This one will set the given row's className to highlighted
+  theme: "light"
 };
 
 export default Table;

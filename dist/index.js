@@ -3526,6 +3526,7 @@ exports.default = _Table2.default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.StickyHeader = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -3543,7 +3544,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var StickyHeader = function (_Component) {
+var StickyHeader = exports.StickyHeader = function (_Component) {
   _inherits(StickyHeader, _Component);
 
   function StickyHeader(props) {
@@ -3570,7 +3571,6 @@ var StickyHeader = function (_Component) {
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      console.log('DidMount');
       window.addEventListener('scroll', this.handleScroll);
       this.originalHeader = document.getElementById(this.props.id);
     }
@@ -3665,21 +3665,21 @@ var Table = function Table(props) {
   );
 };
 
+//TODO: Implement themes
 Table.defaultProps = {
-  striped: false, // ✓
-  sticky_header: { // ✗
-    active: true,
+  striped: false,
+  sticky_header: {
+    active: false,
     top: 0
   },
-  headers: ["First Name", "Last Name", "Email", "Actions"], // ✓
-  body: [// ✓
-  ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"], ["Roberto", "Doe", "roberto@doe.com", "View - Edit"]],
-  row_mouseEnter: function row_mouseEnter(i) {}, // ✓
-  row_mouseLeave: function row_mouseLeave(i) {}, // ✓
-  className: "", // ✓
-  row_className: "", // ✓
-  row_hovered: -1, // ✓ This one will set the given row's className to highlighted
-  theme: "light" // ✗
+  headers: ["First Name", "Last Name", "Email", "Actions"],
+  body: [["John", "Doe", "john@doe.com", "View - Edit"], ["Jane", "Doe", "jane@doe.com", "View - Edit"], ["Josue", "Doe", "josue@doe.com", "View - Edit"]],
+  row_mouseEnter: function row_mouseEnter(i) {},
+  row_mouseLeave: function row_mouseLeave(i) {},
+  className: "",
+  row_className: "",
+  row_hovered: -1, //  This one will set the given row's className to highlighted
+  theme: "light"
 };
 
 exports.default = Table;
