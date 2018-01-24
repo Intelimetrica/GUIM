@@ -7,7 +7,7 @@
   & tr {
     height: 100%;
   }
-  & .striped tr.trow:nth-child(odd) {
+  & .striped tr.trow:nth-child(even) {
     background: var(--light-gray);
   }
   & tr.theader {
@@ -18,8 +18,8 @@
     background: var(--light-blue);
   }
 }
-  
-  #ticky {
-    display: none;
-    width: inherit;
-  }
+
+#ticky {
+  display: none;
+  width: inherit;
+}

@@ -3594,7 +3594,7 @@ var StickyHeader = exports.StickyHeader = function (_Component) {
           "table",
           { className: "GUIMTable" },
           _react2.default.createElement(
-            "tbody",
+            "thead",
             null,
             _react2.default.createElement(
               "tr",
@@ -3631,19 +3631,23 @@ var Table = function Table(props) {
       "table",
       { className: "GUIMTable " + props.className },
       _react2.default.createElement(
-        "tbody",
-        { className: "" + (props.striped ? "striped" : "") },
+        "thead",
+        null,
         _react2.default.createElement(
           "tr",
           { id: head_id, className: "theader " },
           headers.map(function (el, index) {
             return _react2.default.createElement(
-              "td",
+              "th",
               { key: "header-" + index },
               el
             );
           })
-        ),
+        )
+      ),
+      _react2.default.createElement(
+        "tbody",
+        { className: "" + (props.striped ? "striped" : "") },
         body.map(function (el, index) {
           return _react2.default.createElement(
             "tr",
@@ -3724,7 +3728,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, "/* colors */\n\n.GUIMTable {\n  width: 100%;\n  border-collapse: collapse;\n  table-layout: fixed\n}\n\n.GUIMTable tr {\n  height: 100%;\n}\n\n.GUIMTable .striped tr.trow:nth-child(odd) {\n  background: #f5f5f7;\n}\n\n.GUIMTable tr.theader {\n  background: white;\n  border-bottom: 2px solid #8e8e8e;\n}\n\n.GUIMTable tr.highlighted {\n  background: #c8edff;\n}\n\n#ticky {\n    display: none;\n    width: inherit;\n  }\n", ""]);
+exports.push([module.i, "/* colors */\n\n.GUIMTable {\n  width: 100%;\n  border-collapse: collapse;\n  table-layout: fixed\n}\n\n.GUIMTable tr {\n  height: 100%;\n}\n\n.GUIMTable .striped tr.trow:nth-child(even) {\n  background: #f5f5f7;\n}\n\n.GUIMTable tr.theader {\n  background: white;\n  border-bottom: 2px solid #8e8e8e;\n}\n\n.GUIMTable tr.highlighted {\n  background: #c8edff;\n}\n\n#ticky {\n  display: none;\n  width: inherit;\n}\n", ""]);
 
 // exports
 

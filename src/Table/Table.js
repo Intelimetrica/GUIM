@@ -38,11 +38,11 @@ export class StickyHeader extends Component {
     return (
       <div id="ticky" style={style}>
         <table className={`GUIMTable`}>
-          <tbody>
+          <thead>
             <tr className={`theader`} >
               { this.props.headers.map((el, index) => <th key={`header-${index}`}>{el}</th>) }
             </tr>
-          </tbody>
+          </thead>
         </table>
       </div>
     )
@@ -59,10 +59,12 @@ const Table = props => {
     <Fragment>
       {sticky_header}
       <table className={`GUIMTable ${props.className}`}>
-        <tbody className={`${props.striped ? "striped" : ""}`}>
+        <thead>
           <tr id={head_id} className={`theader `}>
-            { headers.map((el, index) => <td key={`header-${index}`}>{el}</td>) }
+            { headers.map((el, index) => <th key={`header-${index}`}>{el}</th>) }
           </tr>
+        </thead>
+        <tbody className={`${props.striped ? "striped" : ""}`}>
           {
             body.map((el, index) => (
               <tr key={`row-${index}`}
