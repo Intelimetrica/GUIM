@@ -53,7 +53,7 @@ describe('<Table />', () => {
 
     // Mouse enter on row
     tree[1]
-      .children[0]
+      .children[1]
       .children[2].props.onMouseEnter(2);
 
     reRender();
@@ -61,7 +61,7 @@ describe('<Table />', () => {
 
     // Mouse leave row
     tree[1]
-      .children[0]
+      .children[1]
       .children[2].props.onMouseLeave();
 
     reRender();
@@ -80,6 +80,12 @@ describe('<Table />', () => {
 
 describe('<Table />', () => {
   let component;
+  // This div thing is for the getElementById in componentDidMount
+  // it is used to assign a width for the sticky header
+  let div = document.createElement('div');
+  div.setAttribute("id", "head-id");
+  document.body.appendChild(div);
+
   it('handles a sticky header yo', () => {
     component = shallow(
       <StickyHeader

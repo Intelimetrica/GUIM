@@ -31,7 +31,7 @@ ShallowWrapper {
       "children": <table
         className="GUIMTable"
       >
-        <tbody>
+        <thead>
           <tr
             className="theader"
           >
@@ -48,7 +48,7 @@ ShallowWrapper {
               Product Quantity
             </th>
           </tr>
-        </tbody>
+        </thead>
       </table>,
       "id": "ticky",
       "style": Object {},
@@ -59,7 +59,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": <tbody>
+        "children": <thead>
           <tr
             className="theader"
           >
@@ -76,7 +76,7 @@ ShallowWrapper {
               Product Quantity
             </th>
           </tr>
-        </tbody>,
+        </thead>,
         "className": "GUIMTable",
       },
       "ref": null,
@@ -173,7 +173,7 @@ ShallowWrapper {
           ],
           "type": "tr",
         },
-        "type": "tbody",
+        "type": "thead",
       },
       "type": "table",
     },
@@ -188,7 +188,7 @@ ShallowWrapper {
         "children": <table
           className="GUIMTable"
         >
-          <tbody>
+          <thead>
             <tr
               className="theader"
             >
@@ -205,7 +205,7 @@ ShallowWrapper {
                 Product Quantity
               </th>
             </tr>
-          </tbody>
+          </thead>
         </table>,
         "id": "ticky",
         "style": Object {},
@@ -216,7 +216,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <tbody>
+          "children": <thead>
             <tr
               className="theader"
             >
@@ -233,7 +233,7 @@ ShallowWrapper {
                 Product Quantity
               </th>
             </tr>
-          </tbody>,
+          </thead>,
           "className": "GUIMTable",
         },
         "ref": null,
@@ -330,7 +330,7 @@ ShallowWrapper {
             ],
             "type": "tr",
           },
-          "type": "tbody",
+          "type": "thead",
         },
         "type": "table",
       },
@@ -378,7 +378,7 @@ ShallowWrapper {
       "children": <table
         className="GUIMTable"
       >
-        <tbody>
+        <thead>
           <tr
             className="theader"
           >
@@ -395,13 +395,14 @@ ShallowWrapper {
               Product Quantity
             </th>
           </tr>
-        </tbody>
+        </thead>
       </table>,
       "id": "ticky",
       "style": Object {
         "display": "block",
         "position": "fixed",
-        "top": "0px",
+        "top": 0,
+        "width": 0,
       },
     },
     "ref": null,
@@ -410,7 +411,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": <tbody>
+        "children": <thead>
           <tr
             className="theader"
           >
@@ -427,7 +428,7 @@ ShallowWrapper {
               Product Quantity
             </th>
           </tr>
-        </tbody>,
+        </thead>,
         "className": "GUIMTable",
       },
       "ref": null,
@@ -524,7 +525,7 @@ ShallowWrapper {
           ],
           "type": "tr",
         },
-        "type": "tbody",
+        "type": "thead",
       },
       "type": "table",
     },
@@ -539,7 +540,7 @@ ShallowWrapper {
         "children": <table
           className="GUIMTable"
         >
-          <tbody>
+          <thead>
             <tr
               className="theader"
             >
@@ -556,13 +557,14 @@ ShallowWrapper {
                 Product Quantity
               </th>
             </tr>
-          </tbody>
+          </thead>
         </table>,
         "id": "ticky",
         "style": Object {
           "display": "block",
           "position": "fixed",
-          "top": "0px",
+          "top": 0,
+          "width": 0,
         },
       },
       "ref": null,
@@ -571,7 +573,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <tbody>
+          "children": <thead>
             <tr
               className="theader"
             >
@@ -588,7 +590,7 @@ ShallowWrapper {
                 Product Quantity
               </th>
             </tr>
-          </tbody>,
+          </thead>,
           "className": "GUIMTable",
         },
         "ref": null,
@@ -685,7 +687,7 @@ ShallowWrapper {
             ],
             "type": "tr",
           },
-          "type": "tbody",
+          "type": "thead",
         },
         "type": "table",
       },
@@ -708,26 +710,28 @@ Array [
   <table
     className="GUIMTable "
   >
-    <tbody
-      className="striped"
-    >
+    <thead>
       <tr
         className="theader "
         id="head-1234"
       >
-        <td>
+        <th>
           Product
-        </td>
-        <td>
+        </th>
+        <th>
           Product Name
-        </td>
-        <td>
+        </th>
+        <th>
           Product Quality
-        </td>
-        <td>
+        </th>
+        <th>
           Product Quantity
-        </td>
+        </th>
       </tr>
+    </thead>
+    <tbody
+      className="striped"
+    >
       <tr
         className="trow  "
         onMouseEnter={[Function]}
@@ -811,26 +815,28 @@ Array [
   <table
     className="GUIMTable "
   >
-    <tbody
-      className=""
-    >
+    <thead>
       <tr
         className="theader "
         id="head-1234"
       >
-        <td>
+        <th>
           Product
-        </td>
-        <td>
+        </th>
+        <th>
           Product Name
-        </td>
-        <td>
+        </th>
+        <th>
           Product Quality
-        </td>
-        <td>
+        </th>
+        <th>
           Product Quantity
-        </td>
+        </th>
       </tr>
+    </thead>
+    <tbody
+      className=""
+    >
       <tr
         className="trow  "
         onMouseEnter={[Function]}
@@ -914,26 +920,28 @@ Array [
   <table
     className="GUIMTable "
   >
-    <tbody
-      className=""
-    >
+    <thead>
       <tr
         className="theader "
         id="head-1234"
       >
-        <td>
+        <th>
           Product
-        </td>
-        <td>
+        </th>
+        <th>
           Product Name
-        </td>
-        <td>
+        </th>
+        <th>
           Product Quality
-        </td>
-        <td>
+        </th>
+        <th>
           Product Quantity
-        </td>
+        </th>
       </tr>
+    </thead>
+    <tbody
+      className=""
+    >
       <tr
         className="trow  "
         onMouseEnter={[Function]}
@@ -953,7 +961,7 @@ Array [
         </td>
       </tr>
       <tr
-        className="trow highlighted "
+        className="trow  "
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
@@ -971,7 +979,7 @@ Array [
         </td>
       </tr>
       <tr
-        className="trow  "
+        className="trow highlighted "
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
@@ -1017,26 +1025,28 @@ Array [
   <table
     className="GUIMTable "
   >
-    <tbody
-      className=""
-    >
+    <thead>
       <tr
         className="theader "
         id="head-1234"
       >
-        <td>
+        <th>
           Product
-        </td>
-        <td>
+        </th>
+        <th>
           Product Name
-        </td>
-        <td>
+        </th>
+        <th>
           Product Quality
-        </td>
-        <td>
+        </th>
+        <th>
           Product Quantity
-        </td>
+        </th>
       </tr>
+    </thead>
+    <tbody
+      className=""
+    >
       <tr
         className="trow  "
         onMouseEnter={[Function]}
@@ -1120,26 +1130,28 @@ Array [
   <table
     className="GUIMTable "
   >
-    <tbody
-      className=""
-    >
+    <thead>
       <tr
         className="theader "
         id="head-1234"
       >
-        <td>
+        <th>
           Product
-        </td>
-        <td>
+        </th>
+        <th>
           Product Name
-        </td>
-        <td>
+        </th>
+        <th>
           Product Quality
-        </td>
-        <td>
+        </th>
+        <th>
           Product Quantity
-        </td>
+        </th>
       </tr>
+    </thead>
+    <tbody
+      className=""
+    >
       <tr
         className="trow  "
         onMouseEnter={[Function]}

@@ -3552,7 +3552,7 @@ var StickyHeader = exports.StickyHeader = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (StickyHeader.__proto__ || Object.getPrototypeOf(StickyHeader)).call(this, props));
 
-    _this.state = { active: false };
+    _this.state = { active: false, width: '100%' };
     _this.handleScroll = _this.handleScroll.bind(_this);
     return _this;
   }
@@ -3573,6 +3573,7 @@ var StickyHeader = exports.StickyHeader = function (_Component) {
     value: function componentDidMount() {
       window.addEventListener('scroll', this.handleScroll);
       this.originalHeader = document.getElementById(this.props.id);
+      this.setState({ width: this.originalHeader.getBoundingClientRect().width });
     }
   }, {
     key: "componentWillUnmount",
@@ -3583,9 +3584,10 @@ var StickyHeader = exports.StickyHeader = function (_Component) {
     key: "render",
     value: function render() {
       var style = this.state.active ? {
-        top: this.props.top + "px",
+        top: this.props.top,
         display: 'block',
-        position: 'fixed'
+        position: 'fixed',
+        width: this.state.width
       } : {};
       return _react2.default.createElement(
         "div",

@@ -4,7 +4,7 @@ import "./styles.scss";
 export class StickyHeader extends Component {
   constructor(props) {
     super(props);
-    this.state = { active: false };
+    this.state = { active: false, width: '100%'};
     this.handleScroll = this.handleScroll.bind(this);
   }
 
@@ -23,6 +23,7 @@ export class StickyHeader extends Component {
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
     this.originalHeader = document.getElementById(this.props.id);
+    this.setState({width: this.originalHeader.getBoundingClientRect().width});
   }
 
   componentWillUnmount() {
@@ -31,9 +32,10 @@ export class StickyHeader extends Component {
 
   render() {
     const style = (this.state.active) ? {
-      top: `${this.props.top}px`,
+      top: this.props.top,
       display: 'block',
-      position: 'fixed'
+      position: 'fixed',
+      width: this.state.width
     } : {}
     return (
       <div id="ticky" style={style}>
