@@ -6,6 +6,7 @@ import {
   Form,
   Navbar,
   Picker,
+  Slider,
   Table
 } from "guim";
 import logo from './logo.svg';
@@ -109,6 +110,11 @@ class App extends Component {
                   {label: "Pill 3", value: 3},
                 ]}
                 active={this.state.picker_active}
+              />
+            </div>
+            <div>
+              <span>A slider</span>
+              <Slider
               />
             </div>
           </Form>

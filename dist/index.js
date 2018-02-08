@@ -1043,7 +1043,11 @@ var _Picker = __webpack_require__(29);
 
 var _Picker2 = _interopRequireDefault(_Picker);
 
-var _Table = __webpack_require__(33);
+var _Slider = __webpack_require__(33);
+
+var _Slider2 = _interopRequireDefault(_Slider);
+
+var _Table = __webpack_require__(37);
 
 var _Table2 = _interopRequireDefault(_Table);
 
@@ -1055,6 +1059,7 @@ module.exports = {
   Form: _Form2.default,
   Navbar: _Navbar2.default,
   Picker: _Picker2.default,
+  Slider: _Slider2.default,
   Table: _Table2.default
 };
 
@@ -3001,11 +3006,14 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var extractContent = function extractContent(child) {
   var response = {};
   switch (child.props.guimInput) {
+    case "checkbox":
+      response[child.props.name] = child.props.checked;
+      break;
     case "picker":
       response[child.props.name] = child.props.active;
       break;
-    case "checkbox":
-      response[child.props.name] = child.props.checked;
+    case "slider":
+      response[child.props.name] = child.props.selected_range;
       break;
   }
   return response;
@@ -3508,7 +3516,117 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _Table = __webpack_require__(34);
+var _Slider = __webpack_require__(34);
+
+var _Slider2 = _interopRequireDefault(_Slider);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _Slider2.default;
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+__webpack_require__(35);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Slider = function Slider(props) {
+  return _react2.default.createElement(
+    "div",
+    null,
+    "Slider"
+  );
+};
+Slider.defaultProps = {
+  name: "slider",
+  onChange: function onChange() {
+    return console.log("onChange");
+  },
+  range: {
+    min: 0,
+    max: 1
+  },
+  selected_range: {
+    min: 0.25,
+    max: 0.75
+  },
+  guimInput: "slider"
+};
+
+var themes = {};
+
+exports.default = Slider;
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(36);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {"hmr":true}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(3)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../node_modules/css-loader/index.js??ref--1-1!../../node_modules/postcss-loader/lib/index.js!./styles.scss", function() {
+			var newContent = require("!!../../node_modules/css-loader/index.js??ref--1-1!../../node_modules/postcss-loader/lib/index.js!./styles.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _Table = __webpack_require__(38);
 
 var _Table2 = _interopRequireDefault(_Table);
 
@@ -3517,7 +3635,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = _Table2.default;
 
 /***/ }),
-/* 34 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3534,7 +3652,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(35);
+__webpack_require__(39);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3691,13 +3809,13 @@ Table.defaultProps = {
 exports.default = Table;
 
 /***/ }),
-/* 35 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(36);
+var content = __webpack_require__(40);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -3722,7 +3840,7 @@ if(false) {
 }
 
 /***/ }),
-/* 36 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(undefined);
