@@ -3535,6 +3535,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
@@ -3543,28 +3547,161 @@ __webpack_require__(35);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 var Bar = function Bar(props) {
   var position = "left";
 
   if (props.inner) position = "inner";
   if (props.right) position = "right";
 
+  // Variable: width
   return _react2.default.createElement("div", {
     style: { width: props.width, height: 10 },
     className: "bar " + position
   });
 };
-var Slider = function Slider(props) {
-  return _react2.default.createElement(
-    "div",
-    { className: "GUIMSlider" },
-    _react2.default.createElement(Bar, { width: 45, left: true }),
-    _react2.default.createElement(Bar, { width: 50, inner: true }),
-    _react2.default.createElement(Bar, { width: 5, right: true }),
-    "hey"
-  );
+
+var Handler = function Handler(props) {
+  var min = props.min;
+
+  // Variable left-position
+
+  return _react2.default.createElement("div", {
+    draggable: true,
+    style: { width: 10, height: 10, left: props.position },
+    onDrag: function onDrag(e) {
+      return props.onDrag(e.clientX, min);
+    },
+    onDragEnter: function onDragEnter(e) {
+      return console.log(e, "Drag enter!!");
+    },
+    onDragStart: function onDragStart(e) {
+      return console.log(e, "Drag start!!");
+    },
+    onClick: function onClick(e) {
+      return console.log(e, "onClick");
+    },
+    className: "handler"
+  });
 };
+
+var Slider = function (_Component) {
+  _inherits(Slider, _Component);
+
+  function Slider(props) {
+    _classCallCheck(this, Slider);
+
+    var _this = _possibleConstructorReturn(this, (Slider.__proto__ || Object.getPrototypeOf(Slider)).call(this, props));
+
+    _this.state = {
+      width: 10,
+      start: 0,
+      end: 10
+    };
+
+    _this._onDrag = _this._onDrag.bind(_this);
+    return _this;
+  }
+
+  _createClass(Slider, [{
+    key: "_onDrag",
+    value: function _onDrag(clientX, is_min) {
+      if (clientX > 0) {
+        var current = clientX - this.state.start;
+        var new_position = void 0;
+
+        if (current > 0 && current < this.state.width) {
+          new_position = current; // position in pixels
+        } else if (current <= 0) {
+          new_position = 0;
+        } else if (current >= this.state.width) {
+          new_position = this.state.width;
+        }
+
+        // convert pixels into a point inside range
+        new_position = this.props.range.max * new_position / this.state.width;
+
+        // what if min is bigger than max?
+        // what if max is smaller than min
+        var _props$selected_range = this.props.selected_range,
+            min = _props$selected_range.min,
+            max = _props$selected_range.max;
+
+        var flag = false;
+        if (is_min) {
+          if (new_position >= max) {
+            flag = true;
+          }
+        } else {
+          if (new_position <= min) {
+            flag = true;
+          }
+        }
+
+        // create new range
+        var new_range = _extends({}, this.props.selected_range);
+        new_range[is_min ? "min" : "max"] = new_position.toFixed(2);
+        if (flag) {
+          new_range[is_min ? "max" : "min"] = new_position.toFixed(2);
+        }
+        this.props.onChange(new_range);
+      }
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.slider = document.getElementById(this.props.id);
+
+      var _slider$getBoundingCl = this.slider.getBoundingClientRect(),
+          left = _slider$getBoundingCl.left,
+          right = _slider$getBoundingCl.right,
+          width = _slider$getBoundingCl.width;
+
+      this.setState({ width: width, start: left, end: right });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _props = this.props,
+          range = _props.range,
+          id = _props.id;
+      var _props$selected_range2 = this.props.selected_range,
+          min = _props$selected_range2.min,
+          max = _props$selected_range2.max;
+
+
+      var left_bar_width = min * this.state.width / range.max;
+      var inner_bar_width = (max - min) * this.state.width / range.max;
+      var right_bar_width = (range.max - max) * this.state.width / range.max;
+
+      return _react2.default.createElement(
+        "div",
+        { id: id, className: "GUIMSlider" },
+        _react2.default.createElement(Bar, { width: left_bar_width, left: true }),
+        _react2.default.createElement(Bar, { width: inner_bar_width, inner: true }),
+        _react2.default.createElement(Bar, { width: right_bar_width, right: true }),
+        _react2.default.createElement(Handler, {
+          onDrag: this._onDrag,
+          position: left_bar_width - 5,
+          min: true }),
+        _react2.default.createElement(Handler, {
+          onDrag: this._onDrag,
+          position: left_bar_width + inner_bar_width - 5,
+          max: true })
+      );
+    }
+  }]);
+
+  return Slider;
+}(_react.Component);
+
 Slider.defaultProps = {
+  id: "slider",
   name: "slider",
   onChange: function onChange() {
     return console.log("onChange");
@@ -3624,7 +3761,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, ".GUIMSlider {\n  width: 100px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex\n}\n.GUIMSlider .left {\n  background: gray;\n}\n.GUIMSlider .right  {\n  background: gray;\n}\n.GUIMSlider .inner {\n  background: red;\n}\n", ""]);
+exports.push([module.i, ".GUIMSlider {\n  width: 100px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: relative;\n  border: 1px solid black\n}\n.GUIMSlider .left {\n  background: gray;\n}\n.GUIMSlider .right  {\n  background: gray;\n}\n.GUIMSlider .inner {\n  background: red;\n}\n.GUIMSlider .handler {\n  background: white;\n  border-radius: 5px;\n  border: 1px solid black;\n  position: absolute;\n  z-index: 1;\n  top: 0px;\n  cursor: pointer;\n}\n", ""]);
 
 // exports
 

@@ -19,7 +19,11 @@ class App extends Component {
       checked2: true,
       formData: {},
       picker_active: 2,
-      highlighted: -1
+      highlighted: -1,
+      selected_range: {
+        min: 0.25,
+        max: 0.5
+      }
     };
     this.clickButton = this.clickButton.bind(this);
     this.onChangeCheckbox1 = this.onChangeCheckbox1.bind(this);
@@ -27,6 +31,7 @@ class App extends Component {
     this.onChangePicker = this.onChangePicker.bind(this);
     this.onMouseLeaveRow = this.onMouseLeaveRow.bind(this);
     this.onMouseEnterRow = this.onMouseEnterRow.bind(this);
+    this.setSliderHandleChange = this.setSliderHandleChange.bind(this);
   }
 
   onChangeCheckbox1() {
@@ -52,6 +57,10 @@ class App extends Component {
 
   onMouseLeaveRow() {
     this.setState({highlighted: -1});
+  }
+
+  setSliderHandleChange(newSelectedRange) {
+    this.setState({ selected_range: newSelectedRange });
   }
 
   render() {
@@ -115,6 +124,9 @@ class App extends Component {
             <div>
               <span>A slider</span>
               <Slider
+                range={{min: 1, max: 100}}
+                selected_range={this.state.selected_range}
+                onChange={this.setSliderHandleChange}
               />
             </div>
           </Form>
