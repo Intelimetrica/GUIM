@@ -1,0 +1,13 @@
+.GUIMSlider {
+  width: 100px;
+  display: flex;
+  & .left{
+    background: gray;
+  }
+  & .right  {
+    background: gray;
+  }
+  & .inner {
+    background: red;
+  }
+}

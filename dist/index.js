@@ -3543,11 +3543,25 @@ __webpack_require__(35);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var Bar = function Bar(props) {
+  var position = "left";
+
+  if (props.inner) position = "inner";
+  if (props.right) position = "right";
+
+  return _react2.default.createElement("div", {
+    style: { width: props.width, height: 10 },
+    className: "bar " + position
+  });
+};
 var Slider = function Slider(props) {
   return _react2.default.createElement(
     "div",
-    null,
-    "Slider"
+    { className: "GUIMSlider" },
+    _react2.default.createElement(Bar, { width: 45, left: true }),
+    _react2.default.createElement(Bar, { width: 50, inner: true }),
+    _react2.default.createElement(Bar, { width: 5, right: true }),
+    "hey"
   );
 };
 Slider.defaultProps = {
@@ -3610,7 +3624,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".GUIMSlider {\n  width: 100px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex\n}\n.GUIMSlider .left {\n  background: gray;\n}\n.GUIMSlider .right  {\n  background: gray;\n}\n.GUIMSlider .inner {\n  background: red;\n}\n", ""]);
 
 // exports
 

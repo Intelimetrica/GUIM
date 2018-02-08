@@ -1,9 +1,27 @@
 import React from "react";
 import "./styles.scss";
 
+const Bar = props => {
+  let position = "left";
+
+  if (props.inner) position = "inner";
+  if (props.right) position = "right";
+
+  return (
+    <div
+      style={{width: props.width, height: 10}}
+      className={`bar ${position}`}
+    />
+  );
+}
 const Slider = props => {
   return (
-    <div>Slider</div>
+    <div className="GUIMSlider">
+      <Bar width={45} left />
+      <Bar width={50} inner />
+      <Bar width={5} right />
+      hey
+    </div>
   );
 }
 Slider.defaultProps = {
