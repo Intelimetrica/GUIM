@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import "./styles.scss";
 
 const Bar = props => {
@@ -21,17 +21,22 @@ const Handler = props => {
 
   // Variable left-position
   return (
-    <div
-      draggable={true}
-      style={{width: 10, height: 10, left: props.position}}
-      onDrag={(e) => props.onDrag(e.clientX, min)}
-      onDragStart={e => { //this is to hide the element been dragged
-        let a = document.createElement('div');
-        document.body.appendChild(a)
-        e.dataTransfer.setDragImage(a,0,0);
-      }}
-      className={`handler`}
-    />
+    <Fragment>
+      <div
+        draggable={true}
+        style={{width: 10, height: 10, left: props.position}}
+        onDrag={(e) => props.onDrag(e.clientX, min)}
+        onDragStart={e => { //this is to hide the element been dragged
+          let a = document.createElement('div');
+          document.body.appendChild(a)
+          e.dataTransfer.setDragImage(a,0,0);
+        }}
+        className='handler'
+      />
+      <span
+        style={{left: props.position}}
+        className='handler-label'>{props.value}</span>
+    </Fragment>
   );
 };
 

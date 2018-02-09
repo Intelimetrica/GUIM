@@ -3571,20 +3571,31 @@ var Handler = function Handler(props) {
 
   // Variable left-position
 
-  return _react2.default.createElement("div", {
-    draggable: true,
-    style: { width: 10, height: 10, left: props.position },
-    onDrag: function onDrag(e) {
-      return props.onDrag(e.clientX, min);
-    },
-    onDragStart: function onDragStart(e) {
-      //this is to hide the element been dragged
-      var a = document.createElement('div');
-      document.body.appendChild(a);
-      e.dataTransfer.setDragImage(a, 0, 0);
-    },
-    className: "handler"
-  });
+  return _react2.default.createElement(
+    _react.Fragment,
+    null,
+    _react2.default.createElement("div", {
+      draggable: true,
+      style: { width: 10, height: 10, left: props.position },
+      onDrag: function onDrag(e) {
+        return props.onDrag(e.clientX, min);
+      },
+      onDragStart: function onDragStart(e) {
+        //this is to hide the element been dragged
+        var a = document.createElement('div');
+        document.body.appendChild(a);
+        e.dataTransfer.setDragImage(a, 0, 0);
+      },
+      className: "handler"
+    }),
+    _react2.default.createElement(
+      "span",
+      {
+        style: { left: props.position },
+        className: "handler-label" },
+      props.value
+    )
+  );
 };
 
 var Slider = function (_Component) {
@@ -3760,7 +3771,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, ".GUIMSlider {\n  width: 100px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: relative;\n  border: 1px solid black\n}\n.GUIMSlider .left {\n  background: gray;\n}\n.GUIMSlider .right  {\n  background: gray;\n}\n.GUIMSlider .inner {\n  background: red;\n}\n.GUIMSlider .handler {\n  background: white;\n  border-radius: 5px;\n  border: 1px solid black;\n  position: absolute;\n  z-index: 1;\n  top: 0px;\n  cursor: pointer;\n}\n", ""]);
+exports.push([module.i, ".GUIMSlider {\n  width: 100px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: relative;\n  border: 1px solid black\n}\n.GUIMSlider .left {\n  background: gray;\n}\n.GUIMSlider .right  {\n  background: gray;\n}\n.GUIMSlider .inner {\n  background: red;\n}\n.GUIMSlider .handler {\n  background: white;\n  border-radius: 5px;\n  border: 1px solid black;\n  position: absolute;\n  z-index: 1;\n  top: 0px;\n  cursor: pointer;\n}\n.GUIMSlider .handler-label {\n  position: absolute;\n  top: -13px;\n  font-size: 0.6em;\n}\n", ""]);
 
 // exports
 

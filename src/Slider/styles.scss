@@ -21,4 +21,9 @@
     top: 0px;
     cursor: pointer;
   }
+  & .handler-label {
+    position: absolute;
+    top: -13px;
+    font-size: 0.6em;
+  }
 }
