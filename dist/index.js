@@ -3577,14 +3577,11 @@ var Handler = function Handler(props) {
     onDrag: function onDrag(e) {
       return props.onDrag(e.clientX, min);
     },
-    onDragEnter: function onDragEnter(e) {
-      return console.log(e, "Drag enter!!");
-    },
     onDragStart: function onDragStart(e) {
-      return console.log(e, "Drag start!!");
-    },
-    onClick: function onClick(e) {
-      return console.log(e, "onClick");
+      //this is to hide the element been dragged
+      var a = document.createElement('div');
+      document.body.appendChild(a);
+      e.dataTransfer.setDragImage(a, 0, 0);
     },
     className: "handler"
   });
@@ -3688,10 +3685,12 @@ var Slider = function (_Component) {
         _react2.default.createElement(Handler, {
           onDrag: this._onDrag,
           position: left_bar_width - 5,
+          value: min,
           min: true }),
         _react2.default.createElement(Handler, {
           onDrag: this._onDrag,
           position: left_bar_width + inner_bar_width - 5,
+          value: max,
           max: true })
       );
     }

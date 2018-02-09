@@ -25,9 +25,11 @@ const Handler = props => {
       draggable={true}
       style={{width: 10, height: 10, left: props.position}}
       onDrag={(e) => props.onDrag(e.clientX, min)}
-      onDragEnter={e => console.log(e, "Drag enter!!")}
-      onDragStart={e => console.log(e, "Drag start!!")}
-      onClick={e => console.log(e, "onClick")}
+      onDragStart={e => { //this is to hide the element been dragged
+        let a = document.createElement('div');
+        document.body.appendChild(a)
+        e.dataTransfer.setDragImage(a,0,0);
+      }}
       className={`handler`}
     />
   );
@@ -109,10 +111,12 @@ class Slider extends Component {
         <Handler
           onDrag={this._onDrag}
           position={left_bar_width - 5}
+          value={min}
           min />
         <Handler
           onDrag={this._onDrag}
           position={left_bar_width + inner_bar_width - 5}
+          value={max}
           max />
       </div>
     );

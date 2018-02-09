@@ -21,8 +21,8 @@ class App extends Component {
       picker_active: 2,
       highlighted: -1,
       selected_range: {
-        min: 0.25,
-        max: 0.5
+        min: 5,
+        max: 25
       }
     };
     this.clickButton = this.clickButton.bind(this);
