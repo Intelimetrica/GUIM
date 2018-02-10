@@ -3555,38 +3555,32 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var Bar = function Bar(props) {
   var position = "left";
-
   if (props.inner) position = "inner";
   if (props.right) position = "right";
 
-  // Variable: width
   return _react2.default.createElement("div", {
-    style: { width: props.width, height: 10 },
+    style: { width: props.width },
     className: "bar " + position
   });
 };
 
 var Handler = function Handler(props) {
-  var min = props.min;
-
-  // Variable left-position
-
   return _react2.default.createElement(
     _react.Fragment,
     null,
     _react2.default.createElement("div", {
       draggable: true,
-      style: { width: 10, height: 10, left: props.position },
+      className: "handler",
+      style: { left: props.position },
       onDrag: function onDrag(e) {
-        return props.onDrag(e.clientX, min);
+        return props.onDrag(e.clientX, props.min);
       },
       onDragStart: function onDragStart(e) {
         //this is to hide the element been dragged
         var a = document.createElement('div');
         document.body.appendChild(a);
         e.dataTransfer.setDragImage(a, 0, 0);
-      },
-      className: "handler"
+      }
     }),
     _react2.default.createElement(
       "span",
@@ -3596,6 +3590,24 @@ var Handler = function Handler(props) {
       props.value
     )
   );
+};
+
+var setPointInsideRange = function setPointInsideRange(current, lower, upper) {
+  var new_position = void 0;
+
+  if (current > lower && current < upper) {
+    new_position = current;
+  } else if (current <= lower) {
+    new_position = lower;
+  } else if (current >= upper) {
+    new_position = upper;
+  }
+  return new_position;
+};
+
+var hasCarriage = function hasCarriage(_ref) {
+  var min = _ref.min,
+      max = _ref.max;
 };
 
 var Slider = function (_Component) {
@@ -3619,46 +3631,42 @@ var Slider = function (_Component) {
   _createClass(Slider, [{
     key: "_onDrag",
     value: function _onDrag(clientX, is_min) {
-      if (clientX > 0) {
-        var current = clientX - this.state.start;
-        var new_position = void 0;
+      if (clientX <= 0) return false;
 
-        if (current > 0 && current < this.state.width) {
-          new_position = current; // position in pixels
-        } else if (current <= 0) {
-          new_position = 0;
-        } else if (current >= this.state.width) {
-          new_position = this.state.width;
+      // Force position in pixels to be inside slider
+      var _state = this.state,
+          start = _state.start,
+          width = _state.width;
+
+      var new_position = setPointInsideRange(clientX - start, 0, width);
+
+      // Scale pixels into a point inside range
+      new_position = this.props.range.max * new_position / width;
+
+      // Carriage - min cant be bigger than max, neither the other way
+      var _props$selected_range = this.props.selected_range,
+          min = _props$selected_range.min,
+          max = _props$selected_range.max;
+
+      var flag = false;
+      if (is_min) {
+        if (new_position >= max) {
+          flag = true;
         }
-
-        // convert pixels into a point inside range
-        new_position = this.props.range.max * new_position / this.state.width;
-
-        // what if min is bigger than max?
-        // what if max is smaller than min
-        var _props$selected_range = this.props.selected_range,
-            min = _props$selected_range.min,
-            max = _props$selected_range.max;
-
-        var flag = false;
-        if (is_min) {
-          if (new_position >= max) {
-            flag = true;
-          }
-        } else {
-          if (new_position <= min) {
-            flag = true;
-          }
+      } else {
+        if (new_position <= min) {
+          flag = true;
         }
-
-        // create new range
-        var new_range = _extends({}, this.props.selected_range);
-        new_range[is_min ? "min" : "max"] = new_position.toFixed(2);
-        if (flag) {
-          new_range[is_min ? "max" : "min"] = new_position.toFixed(2);
-        }
-        this.props.onChange(new_range);
       }
+
+      // create new range
+      var new_range = _extends({}, this.props.selected_range);
+      new_range[is_min ? "min" : "max"] = new_position.toFixed(2);
+      if (flag) {
+        new_range[is_min ? "max" : "min"] = new_position.toFixed(2);
+      }
+
+      this.props.onChange(new_range);
     }
   }, {
     key: "componentDidMount",
@@ -3713,8 +3721,8 @@ var Slider = function (_Component) {
 Slider.defaultProps = {
   id: "slider",
   name: "slider",
-  onChange: function onChange() {
-    return console.log("onChange");
+  onChange: function onChange(new_range) {
+    return console.log("onChange", new_range);
   },
   range: {
     min: 0,
@@ -3771,7 +3779,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, ".GUIMSlider {\n  width: 100px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: relative;\n  border: 1px solid black\n}\n.GUIMSlider .left {\n  background: gray;\n}\n.GUIMSlider .right  {\n  background: gray;\n}\n.GUIMSlider .inner {\n  background: red;\n}\n.GUIMSlider .handler {\n  background: white;\n  border-radius: 5px;\n  border: 1px solid black;\n  position: absolute;\n  z-index: 1;\n  top: 0px;\n  cursor: pointer;\n}\n.GUIMSlider .handler-label {\n  position: absolute;\n  top: -13px;\n  font-size: 0.6em;\n}\n", ""]);
+exports.push([module.i, ".GUIMSlider {\n  width: 100px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: relative;\n  margin-top: 17px !important\n}\n.GUIMSlider .bar {\n  height: 6px;\n}\n.GUIMSlider .left {\n  background: gray;\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n.GUIMSlider .right  {\n  background: gray;\n  border-top-right-radius: 3px;\n  border-bottom-right-radius: 3px;\n}\n.GUIMSlider .inner {\n  background: red;\n}\n.GUIMSlider .handler {\n  background: red;\n  border-radius: 6px;\n  position: absolute;\n  z-index: 1;\n  top: -3px;\n  width: 12px;\n  height: 12px;\n  cursor: pointer;\n}\n.GUIMSlider .handler-label {\n  position: absolute;\n  top: -14px;\n  font-size: 0.6em;\n}\n", ""]);
 
 // exports
 

@@ -3,42 +3,52 @@ import "./styles.scss";
 
 const Bar = props => {
   let position = "left";
-
   if (props.inner) position = "inner";
   if (props.right) position = "right";
 
-  // Variable: width
   return (
     <div
-      style={{width: props.width, height: 10}}
+      style={{width: props.width}}
       className={`bar ${position}`}
     />
   );
 };
 
-const Handler = props => {
-  const { min } = props;
+const Handler = props => (
+  <Fragment>
+    <div
+      draggable={true}
+      className='handler'
+      style={{left: props.position}}
+      onDrag={(e) => props.onDrag(e.clientX, props.min)}
+      onDragStart={e => { //this is to hide the element been dragged
+        let a = document.createElement('div');
+        document.body.appendChild(a)
+        e.dataTransfer.setDragImage(a,0,0);
+      }}
+    />
+    <span
+      style={{left: props.position}}
+      className='handler-label'>{props.value}</span>
+  </Fragment>
+);
 
-  // Variable left-position
-  return (
-    <Fragment>
-      <div
-        draggable={true}
-        style={{width: 10, height: 10, left: props.position}}
-        onDrag={(e) => props.onDrag(e.clientX, min)}
-        onDragStart={e => { //this is to hide the element been dragged
-          let a = document.createElement('div');
-          document.body.appendChild(a)
-          e.dataTransfer.setDragImage(a,0,0);
-        }}
-        className='handler'
-      />
-      <span
-        style={{left: props.position}}
-        className='handler-label'>{props.value}</span>
-    </Fragment>
-  );
+const setPointInsideRange = (current, lower, upper) => {
+  let new_position;
+
+  if (current > lower && current < upper) {
+    new_position = current;
+  } else if (current <= lower) {
+    new_position = lower;
+  } else if (current >= upper) {
+    new_position = upper;
+  }
+  return new_position;
 };
+
+const hasCarriage = ({min, max}) => {
+
+}
 
 class Slider extends Component {
   constructor(props) {
@@ -53,44 +63,36 @@ class Slider extends Component {
   }
 
   _onDrag(clientX, is_min) {
-    if (clientX > 0) {
-      const current = clientX - this.state.start;
-      let new_position;
+    if (clientX <= 0) return false;
 
-      if (current > 0 && current < this.state.width) {
-        new_position = current; // position in pixels
-      } else if (current <= 0) {
-        new_position = 0;
-      } else if (current >= this.state.width) {
-        new_position = this.state.width;
+    // Force position in pixels to be inside slider
+    const { start, width } = this.state;
+    let new_position = setPointInsideRange(clientX - start, 0, width);
+
+    // Scale pixels into a point inside range
+    new_position = (this.props.range.max * new_position)/width;
+
+    // Carriage - min cant be bigger than max, neither the other way
+    let {min, max} = this.props.selected_range;
+    let flag = false;
+    if (is_min) {
+      if (new_position >= max) {
+        flag = true;
       }
-
-      // convert pixels into a point inside range
-      new_position = (this.props.range.max * new_position)/this.state.width;
-
-      // what if min is bigger than max?
-      // what if max is smaller than min
-      let {min, max} = this.props.selected_range;
-      let flag = false;
-      if (is_min) {
-        if (new_position >= max) {
-          flag = true;
-        }
-      } else {
-        if (new_position <= min) {
-          flag = true;
-        }
+    } else {
+      if (new_position <= min) {
+        flag = true;
       }
-
-
-      // create new range
-      let new_range = {...this.props.selected_range};
-      new_range[(is_min) ? "min" : "max"] = new_position.toFixed(2);
-      if (flag) {
-        new_range[(is_min) ? "max" : "min"] = new_position.toFixed(2)
-      }
-      this.props.onChange(new_range);
     }
+
+    // create new range
+    let new_range = {...this.props.selected_range};
+    new_range[(is_min) ? "min" : "max"] = new_position.toFixed(2);
+    if (flag) {
+      new_range[(is_min) ? "max" : "min"] = new_position.toFixed(2)
+    }
+
+    this.props.onChange(new_range);
   }
 
   componentDidMount() {
@@ -130,7 +132,7 @@ class Slider extends Component {
 Slider.defaultProps = {
   id: "slider",
   name: "slider",
-  onChange: () => console.log("onChange"),
+  onChange: (new_range) => console.log("onChange", new_range),
   range: {
     min: 0,
     max: 1
