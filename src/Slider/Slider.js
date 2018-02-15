@@ -29,7 +29,7 @@ const Handler = props => (
     />
     <span
       style={{left: props.position}}
-      className='handler-label'>{props.value}</span>
+      className='handler-label'>{props.formatter(props.value)}</span>
   </Fragment>
 );
 
@@ -62,7 +62,7 @@ class Slider extends Component {
       width: 10,
       start: 0,
       end: 10,
-      steps: [0, 0.5, 1]
+      steps: this.props.steps.map(e => e.toFixed(this.props.floating_points))
     };
 
     this._onDrag = this._onDrag.bind(this);
@@ -90,7 +90,6 @@ class Slider extends Component {
       new_range[(is_min) ? "max" : "min"] = new_position;
     }
 
-    // set new range
     if (steps.includes(new_position)) {
       this.props.onChange(new_range);
     }
@@ -99,17 +98,12 @@ class Slider extends Component {
   componentDidMount() {
     this.slider = document.getElementById(this.props.id);
     const {left, right, width} = this.slider.getBoundingClientRect();
-    const {floating_points, steps, range} = this.props;
-    const wrange = range.max - range.min;
 
-    const new_steps = new Array(steps).fill("").map((e, i) =>
-      ((i+1) * wrange/steps).toFixed(floating_points));
-
-    this.setState({ steps: new_steps, width, start: left, end: right });
+    this.setState({ width, start: left, end: right });
   }
 
   render () {
-    const { range, id } = this.props;
+    const { range, id, steps, label_formatter } = this.props;
     const { min, max } = this.props.selected_range;
 
     const left_bar_width = (min * this.state.width)/range.max;
@@ -125,11 +119,13 @@ class Slider extends Component {
           onDrag={this._onDrag}
           position={left_bar_width - 5}
           value={min}
+          formatter={label_formatter}
           min />
         <Handler
           onDrag={this._onDrag}
           position={left_bar_width + inner_bar_width - 5}
           value={max}
+          formatter={label_formatter}
           max />
       </div>
     );
@@ -145,10 +141,11 @@ Slider.defaultProps = {
     max: 1
   },
   selected_range: {
-    min: 0.25,
-    max: 0.75
+    min: 0.2,
+    max: 0.6
   },
-  steps: 5,
+  label_formatter: (e) => `${e}%`,
+  steps: [0,0.2, 0.4,0.6,0.8,1],
   floating_points: 2,
   guimInput: "slider"
 };

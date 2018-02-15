@@ -21,9 +21,10 @@ class App extends Component {
       picker_active: 2,
       highlighted: -1,
       selected_range: {
-        min: 0.5,
-        max: 0.85
-      }
+        min: 0.25,
+        max: 0.75
+      },
+      steps: new Array(21).fill().map((e,i) => i * 0.05)
     };
     this.clickButton = this.clickButton.bind(this);
     this.onChangeCheckbox1 = this.onChangeCheckbox1.bind(this);
@@ -124,9 +125,7 @@ class App extends Component {
             <div>
               <span>A slider</span>
               <Slider
-                range={{min: 0, max: 1}}
-                steps={20}
-                floating_points={2}
+                steps={this.state.steps}
                 selected_range={this.state.selected_range}
                 onChange={this.setSliderHandleChange}
               />

@@ -3587,7 +3587,7 @@ var Handler = function Handler(props) {
       {
         style: { left: props.position },
         className: "handler-label" },
-      props.value
+      props.formatter(props.value)
     )
   );
 };
@@ -3629,7 +3629,9 @@ var Slider = function (_Component) {
       width: 10,
       start: 0,
       end: 10,
-      steps: [0, 0.5, 1]
+      steps: _this.props.steps.map(function (e) {
+        return e.toFixed(_this.props.floating_points);
+      })
     };
 
     _this._onDrag = _this._onDrag.bind(_this);
@@ -3668,7 +3670,6 @@ var Slider = function (_Component) {
         new_range[is_min ? "max" : "min"] = new_position;
       }
 
-      // set new range
       if (steps.includes(new_position)) {
         this.props.onChange(new_range);
       }
@@ -3683,25 +3684,16 @@ var Slider = function (_Component) {
           right = _slider$getBoundingCl.right,
           width = _slider$getBoundingCl.width;
 
-      var _props2 = this.props,
-          floating_points = _props2.floating_points,
-          steps = _props2.steps,
-          range = _props2.range;
-
-      var wrange = range.max - range.min;
-
-      var new_steps = new Array(steps).fill("").map(function (e, i) {
-        return ((i + 1) * wrange / steps).toFixed(floating_points);
-      });
-
-      this.setState({ steps: new_steps, width: width, start: left, end: right });
+      this.setState({ width: width, start: left, end: right });
     }
   }, {
     key: "render",
     value: function render() {
-      var _props3 = this.props,
-          range = _props3.range,
-          id = _props3.id;
+      var _props2 = this.props,
+          range = _props2.range,
+          id = _props2.id,
+          steps = _props2.steps,
+          label_formatter = _props2.label_formatter;
       var _props$selected_range = this.props.selected_range,
           min = _props$selected_range.min,
           max = _props$selected_range.max;
@@ -3721,11 +3713,13 @@ var Slider = function (_Component) {
           onDrag: this._onDrag,
           position: left_bar_width - 5,
           value: min,
+          formatter: label_formatter,
           min: true }),
         _react2.default.createElement(Handler, {
           onDrag: this._onDrag,
           position: left_bar_width + inner_bar_width - 5,
           value: max,
+          formatter: label_formatter,
           max: true })
       );
     }
@@ -3745,10 +3739,13 @@ Slider.defaultProps = {
     max: 1
   },
   selected_range: {
-    min: 0.25,
-    max: 0.75
+    min: 0.2,
+    max: 0.6
   },
-  steps: 5,
+  label_formatter: function label_formatter(e) {
+    return e + "%";
+  },
+  steps: [0, 0.2, 0.4, 0.6, 0.8, 1],
   floating_points: 2,
   guimInput: "slider"
 };
