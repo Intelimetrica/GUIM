@@ -21,8 +21,8 @@ class App extends Component {
       picker_active: 2,
       highlighted: -1,
       selected_range: {
-        min: 5,
-        max: 25
+        min: 0.5,
+        max: 0.85
       }
     };
     this.clickButton = this.clickButton.bind(this);
@@ -124,7 +124,9 @@ class App extends Component {
             <div>
               <span>A slider</span>
               <Slider
-                range={{min: 1, max: 100}}
+                range={{min: 0, max: 1}}
+                steps={20}
+                floating_points={2}
                 selected_range={this.state.selected_range}
                 onChange={this.setSliderHandleChange}
               />

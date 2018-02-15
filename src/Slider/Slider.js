@@ -46,8 +46,13 @@ const setPointInsideRange = (current, lower, upper) => {
   return new_position;
 };
 
-const hasCarriage = ({min, max}) => {
-
+const hasCarriage = (position, is_min, {min, max}) => {
+  if (is_min) {
+    if (position >= max) return true;
+  } else {
+    if (position <= min) return true
+  }
+  return false;
 }
 
 class Slider extends Component {
@@ -56,7 +61,8 @@ class Slider extends Component {
     this.state = {
       width: 10,
       start: 0,
-      end: 10
+      end: 10,
+      steps: [0, 0.5, 1]
     };
 
     this._onDrag = this._onDrag.bind(this);
@@ -66,40 +72,40 @@ class Slider extends Component {
     if (clientX <= 0) return false;
 
     // Force position in pixels to be inside slider
-    const { start, width } = this.state;
+    const { start, width, steps } = this.state;
+    const { range, selected_range, floating_points } = this.props;
     let new_position = setPointInsideRange(clientX - start, 0, width);
 
     // Scale pixels into a point inside range
-    new_position = (this.props.range.max * new_position)/width;
+    new_position = ((range.max * new_position)/width);
 
     // Carriage - min cant be bigger than max, neither the other way
-    let {min, max} = this.props.selected_range;
-    let flag = false;
-    if (is_min) {
-      if (new_position >= max) {
-        flag = true;
-      }
-    } else {
-      if (new_position <= min) {
-        flag = true;
-      }
-    }
+    const carriage = hasCarriage(new_position, is_min, selected_range)
+    new_position = new_position.toFixed(floating_points);
 
     // create new range
-    let new_range = {...this.props.selected_range};
-    new_range[(is_min) ? "min" : "max"] = new_position.toFixed(2);
-    if (flag) {
-      new_range[(is_min) ? "max" : "min"] = new_position.toFixed(2)
+    let new_range = {...selected_range};
+    new_range[(is_min) ? "min" : "max"] = new_position;
+    if (carriage) { // add carriage to new range
+      new_range[(is_min) ? "max" : "min"] = new_position;
     }
 
-    this.props.onChange(new_range);
+    // set new range
+    if (steps.includes(new_position)) {
+      this.props.onChange(new_range);
+    }
   }
 
   componentDidMount() {
     this.slider = document.getElementById(this.props.id);
     const {left, right, width} = this.slider.getBoundingClientRect();
+    const {floating_points, steps, range} = this.props;
+    const wrange = range.max - range.min;
 
-    this.setState({ width, start: left, end: right });
+    const new_steps = new Array(steps).fill("").map((e, i) =>
+      ((i+1) * wrange/steps).toFixed(floating_points));
+
+    this.setState({ steps: new_steps, width, start: left, end: right });
   }
 
   render () {
@@ -129,6 +135,7 @@ class Slider extends Component {
     );
   }
 }
+
 Slider.defaultProps = {
   id: "slider",
   name: "slider",
@@ -141,6 +148,8 @@ Slider.defaultProps = {
     min: 0.25,
     max: 0.75
   },
+  steps: 5,
+  floating_points: 2,
   guimInput: "slider"
 };
 

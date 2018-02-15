@@ -3605,9 +3605,16 @@ var setPointInsideRange = function setPointInsideRange(current, lower, upper) {
   return new_position;
 };
 
-var hasCarriage = function hasCarriage(_ref) {
+var hasCarriage = function hasCarriage(position, is_min, _ref) {
   var min = _ref.min,
       max = _ref.max;
+
+  if (is_min) {
+    if (position >= max) return true;
+  } else {
+    if (position <= min) return true;
+  }
+  return false;
 };
 
 var Slider = function (_Component) {
@@ -3621,7 +3628,8 @@ var Slider = function (_Component) {
     _this.state = {
       width: 10,
       start: 0,
-      end: 10
+      end: 10,
+      steps: [0, 0.5, 1]
     };
 
     _this._onDrag = _this._onDrag.bind(_this);
@@ -3636,37 +3644,34 @@ var Slider = function (_Component) {
       // Force position in pixels to be inside slider
       var _state = this.state,
           start = _state.start,
-          width = _state.width;
+          width = _state.width,
+          steps = _state.steps;
+      var _props = this.props,
+          range = _props.range,
+          selected_range = _props.selected_range,
+          floating_points = _props.floating_points;
 
       var new_position = setPointInsideRange(clientX - start, 0, width);
 
       // Scale pixels into a point inside range
-      new_position = this.props.range.max * new_position / width;
+      new_position = range.max * new_position / width;
 
       // Carriage - min cant be bigger than max, neither the other way
-      var _props$selected_range = this.props.selected_range,
-          min = _props$selected_range.min,
-          max = _props$selected_range.max;
-
-      var flag = false;
-      if (is_min) {
-        if (new_position >= max) {
-          flag = true;
-        }
-      } else {
-        if (new_position <= min) {
-          flag = true;
-        }
-      }
+      var carriage = hasCarriage(new_position, is_min, selected_range);
+      new_position = new_position.toFixed(floating_points);
 
       // create new range
-      var new_range = _extends({}, this.props.selected_range);
-      new_range[is_min ? "min" : "max"] = new_position.toFixed(2);
-      if (flag) {
-        new_range[is_min ? "max" : "min"] = new_position.toFixed(2);
+      var new_range = _extends({}, selected_range);
+      new_range[is_min ? "min" : "max"] = new_position;
+      if (carriage) {
+        // add carriage to new range
+        new_range[is_min ? "max" : "min"] = new_position;
       }
 
-      this.props.onChange(new_range);
+      // set new range
+      if (steps.includes(new_position)) {
+        this.props.onChange(new_range);
+      }
     }
   }, {
     key: "componentDidMount",
@@ -3678,17 +3683,28 @@ var Slider = function (_Component) {
           right = _slider$getBoundingCl.right,
           width = _slider$getBoundingCl.width;
 
-      this.setState({ width: width, start: left, end: right });
+      var _props2 = this.props,
+          floating_points = _props2.floating_points,
+          steps = _props2.steps,
+          range = _props2.range;
+
+      var wrange = range.max - range.min;
+
+      var new_steps = new Array(steps).fill("").map(function (e, i) {
+        return ((i + 1) * wrange / steps).toFixed(floating_points);
+      });
+
+      this.setState({ steps: new_steps, width: width, start: left, end: right });
     }
   }, {
     key: "render",
     value: function render() {
-      var _props = this.props,
-          range = _props.range,
-          id = _props.id;
-      var _props$selected_range2 = this.props.selected_range,
-          min = _props$selected_range2.min,
-          max = _props$selected_range2.max;
+      var _props3 = this.props,
+          range = _props3.range,
+          id = _props3.id;
+      var _props$selected_range = this.props.selected_range,
+          min = _props$selected_range.min,
+          max = _props$selected_range.max;
 
 
       var left_bar_width = min * this.state.width / range.max;
@@ -3732,6 +3748,8 @@ Slider.defaultProps = {
     min: 0.25,
     max: 0.75
   },
+  steps: 5,
+  floating_points: 2,
   guimInput: "slider"
 };
 
