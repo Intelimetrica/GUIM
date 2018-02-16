@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import "./styles.scss";
 
-const Bar = props => {
+export const Bar = props => {
   let position = "left";
   if (props.inner) position = "inner";
   if (props.right) position = "right";
@@ -14,7 +14,7 @@ const Bar = props => {
   );
 };
 
-const Handler = props => (
+export const Handler = props => (
   <Fragment>
     <div
       draggable={true}
