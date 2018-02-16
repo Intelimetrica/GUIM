@@ -5,6 +5,7 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Slider
+    className=""
     floating_points={2}
     guimInput="slider"
     id="slider-tests"
@@ -32,6 +33,7 @@ ShallowWrapper {
         5,
       ]
     }
+    theme="blue"
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -73,7 +75,7 @@ ShallowWrapper {
           value={4}
         />,
       ],
-      "className": "GUIMSlider",
+      "className": "GUIMSlider  GUIMSliderBlue",
       "id": "slider-tests",
     },
     "ref": null,
@@ -181,7 +183,7 @@ ShallowWrapper {
             value={4}
           />,
         ],
-        "className": "GUIMSlider",
+        "className": "GUIMSlider  GUIMSliderBlue",
         "id": "slider-tests",
       },
       "ref": null,
@@ -271,6 +273,7 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Slider
+    className=""
     floating_points={2}
     guimInput="slider"
     id="slider-tests"
@@ -298,6 +301,7 @@ ShallowWrapper {
         5,
       ]
     }
+    theme="blue"
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -339,7 +343,7 @@ ShallowWrapper {
           value={4}
         />,
       ],
-      "className": "GUIMSlider",
+      "className": "GUIMSlider  GUIMSliderBlue",
       "id": "slider-tests",
     },
     "ref": null,
@@ -447,7 +451,7 @@ ShallowWrapper {
             value={4}
           />,
         ],
-        "className": "GUIMSlider",
+        "className": "GUIMSlider  GUIMSliderBlue",
         "id": "slider-tests",
       },
       "ref": null,
@@ -534,7 +538,7 @@ ShallowWrapper {
 
 exports[`<Slider /> Change label when selected_range change 1`] = `
 <div
-  className="GUIMSlider"
+  className="GUIMSlider  GUIMSliderBlue"
   id="slider-tests"
 >
   <div
@@ -608,7 +612,7 @@ exports[`<Slider /> Change label when selected_range change 1`] = `
 
 exports[`<Slider /> Match dom snapshot 1`] = `
 <div
-  className="GUIMSlider"
+  className="GUIMSlider  GUIMSliderBlue"
   id="slider-tests"
 >
   <div
