@@ -29,7 +29,7 @@ describe('<Slider />', () => {
     refreshTree();
   }
 
-  it("match dom snapshot", () => {
+  it("Match dom snapshot", () => {
     reRender();
     expect(component).toMatchSnapshot();
   });
@@ -39,10 +39,6 @@ describe('<Slider />', () => {
     reRender();
     expect(component).toMatchSnapshot();
   });
-
-  // When max handler is pulled further than min handler, it carry min with it
-  // Bars resize as expected
-
 });
 
 import { shallow, configure } from 'enzyme';
@@ -50,7 +46,7 @@ import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 
 
-describe.only("<Slider />", () => {
+describe("<Slider />", () => {
   let wrapper;
   let selected_range = { min: 2, max: 4 };
   const onChange = (new_range) => {
@@ -75,7 +71,7 @@ describe.only("<Slider />", () => {
     );
   }
 
-  it("Change handler's position when selected_range change", () => {
+  it("Change handler's position and bars' length when selected_range change", () => {
     reShallow();
     wrapper.setState({width: 100})
     expect(wrapper).toMatchSnapshot();
@@ -86,16 +82,20 @@ describe.only("<Slider />", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it.only("Carry max with it, when min handler is pulled further than max handler, it carry max with it", () => {
+  it("Carry max with it, when min handler is pulled further than max handler", () => {
     reShallow();
     wrapper.setState({width: 100})
-    expect(wrapper).toMatchSnapshot();
+    wrapper.find(Handler).first().props().onDrag(1005, true);
 
-    //selected_range = { min: 4, max: 5 };
-    console.log(wrapper.instance().props.onChange({min:4, max:3}));
-    wrapper.update();
+    expect(selected_range).toEqual({min: "5.00", max: "5.00"});
+  });
 
-    expect(wrapper).toMatchSnapshot();
+  it("Carry min with it, when max handler is pulled further than min handler", () => {
+    reShallow();
+    wrapper.setState({width: 100})
+    wrapper.find(Handler).last().props().onDrag(20, false);
+
+    expect(selected_range).toEqual({min: "1.00", max: "1.00"});
   });
 
 });
