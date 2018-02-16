@@ -3706,7 +3706,7 @@ var Slider = function (_Component) {
 
       return _react2.default.createElement(
         "div",
-        { id: id, className: "GUIMSlider" },
+        { id: id, className: "GUIMSlider " + this.props.className + " " + (themes[this.props.theme] || themes["green"]) },
         _react2.default.createElement(Bar, { width: left_bar_width, left: true }),
         _react2.default.createElement(Bar, { width: inner_bar_width, inner: true }),
         _react2.default.createElement(Bar, { width: right_bar_width, right: true }),
@@ -3748,10 +3748,16 @@ Slider.defaultProps = {
   },
   steps: [0, 0.2, 0.4, 0.6, 0.8, 1],
   floating_points: 2,
-  guimInput: "slider"
+  guimInput: "slider",
+  className: "",
+  theme: "blue"
 };
 
-var themes = {};
+var themes = {
+  blue: "GUIMSliderBlue",
+  gray: "GUIMSliderGray",
+  green: "GUIMSliderGreen"
+};
 
 exports.default = Slider;
 
@@ -3795,7 +3801,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, ".GUIMSlider {\n  width: 100px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: relative;\n  margin-top: 17px !important\n}\n.GUIMSlider .bar {\n  height: 6px;\n}\n.GUIMSlider .left {\n  background: gray;\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n.GUIMSlider .right  {\n  background: gray;\n  border-top-right-radius: 3px;\n  border-bottom-right-radius: 3px;\n}\n.GUIMSlider .inner {\n  background: red;\n}\n.GUIMSlider .handler {\n  background: red;\n  border-radius: 6px;\n  position: absolute;\n  z-index: 1;\n  top: -3px;\n  width: 12px;\n  height: 12px;\n  cursor: pointer;\n}\n.GUIMSlider .handler-label {\n  position: absolute;\n  top: -14px;\n  font-size: 0.6em;\n}\n", ""]);
+exports.push([module.i, "/* colors */\n\n.GUIMSlider {\n  width: 100px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: relative;\n  margin-top: 17px !important\n}\n\n.GUIMSlider .bar {\n  height: 6px;\n}\n\n.GUIMSlider .left {\n  background: gray;\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n\n.GUIMSlider .right  {\n  background: gray;\n  border-top-right-radius: 3px;\n  border-bottom-right-radius: 3px;\n}\n\n.GUIMSlider .inner {\n  background: red;\n}\n\n.GUIMSlider .handler {\n  background: red;\n  border-radius: 6px;\n  position: absolute;\n  z-index: 1;\n  top: -3px;\n  width: 12px;\n  height: 12px;\n  cursor: pointer\n}\n\n.GUIMSlider .handler:active {\n  border-radius: 7px;\n  top: -4px;\n  width: 14px;\n  height: 14px;\n}\n\n.GUIMSlider .handler:hover {\n  border-radius: 7px;\n  top: -4px;\n  width: 14px;\n  height: 14px;\n}\n\n.GUIMSlider .handler-label {\n  position: absolute;\n  top: -14px;\n  font-size: 0.6em;\n}\n\n.GUIMSliderBlue .handler {\n  color: white;\n  background-color: #74b9db;\n  border: 1px solid #74b9db;\n  border: none;\n}\n\n.GUIMSliderBlue .inner {\n  color: white;\n  background-color: #74b9db;\n  border: 1px solid #74b9db;\n  border: none;\n}\n\n.GUIMSliderGray .handler {\n  color: white;\n  background-color: #bbbbbb;\n  border: 1px solid #bbbbbb;\n  border: none;\n}\n\n.GUIMSliderGray .inner {\n  color: white;\n  background-color: #bbbbbb;\n  border: 1px solid #bbbbbb;\n  border: none;\n}\n\n.GUIMSliderGreen .handler {\n  color: white;\n  background-color: #74db94;\n  border: 1px solid #74db94;\n  border: none;\n}\n\n.GUIMSliderGreen .inner {\n  color: white;\n  background-color: #74db94;\n  border: 1px solid #74db94;\n  border: none;\n}\n", ""]);
 
 // exports
 

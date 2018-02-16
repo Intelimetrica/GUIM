@@ -111,7 +111,7 @@ class Slider extends Component {
     const right_bar_width = ((range.max - max) * this.state.width)/range.max;
 
     return (
-      <div id={id} className="GUIMSlider">
+      <div id={id} className={`GUIMSlider ${this.props.className} ${themes[this.props.theme] || themes["green"]}`}>
         <Bar width={left_bar_width} left />
         <Bar width={inner_bar_width} inner />
         <Bar width={right_bar_width} right />
@@ -147,9 +147,15 @@ Slider.defaultProps = {
   label_formatter: (e) => `${e}%`,
   steps: [0,0.2, 0.4,0.6,0.8,1],
   floating_points: 2,
-  guimInput: "slider"
+  guimInput: "slider",
+  className: "",
+  theme: "blue"
 };
 
-const themes = {};
+const themes = {
+  blue:  "GUIMSliderBlue",
+  gray:  "GUIMSliderGray",
+  green: "GUIMSliderGreen"
+};
 
 export default Slider;

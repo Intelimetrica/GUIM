@@ -1,3 +1,13 @@
+@import '../styles/themes.scss';
+
+:root {
+  --grow: {
+    border-radius: 7px;
+    top: -4px;
+    width: 14px;
+    height: 14px;
+  }
+}
 .GUIMSlider {
   width: 100px;
   display: flex;
@@ -28,10 +38,47 @@
     width: 12px;
     height: 12px;
     cursor: pointer;
+    &:active {
+      @apply --grow;
+    }
+    &:hover {
+      @apply --grow;
+    }
   }
   & .handler-label {
     position: absolute;
     top: -14px;
     font-size: 0.6em;
+  }
+}
+
+.GUIMSliderBlue {
+  & .handler {
+    @apply --blue-theme;
+    @apply --no-border;
+  }
+  & .inner {
+    @apply --blue-theme;
+    @apply --no-border;
+  }
+}
+.GUIMSliderGray {
+  & .handler {
+    @apply --gray-theme;
+    @apply --no-border;
+  }
+  & .inner {
+    @apply --gray-theme;
+    @apply --no-border;
+  }
+}
+.GUIMSliderGreen {
+  & .handler {
+    @apply --green-theme;
+    @apply --no-border;
+  }
+  & .inner {
+    @apply --green-theme;
+    @apply --no-border;
   }
 }
