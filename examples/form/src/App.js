@@ -6,6 +6,7 @@ import {
   Form,
   Navbar,
   Picker,
+  Slider,
   Table
 } from "guim";
 import logo from './logo.svg';
@@ -18,7 +19,12 @@ class App extends Component {
       checked2: true,
       formData: {},
       picker_active: 2,
-      highlighted: -1
+      highlighted: -1,
+      selected_range: {
+        min: 0.25,
+        max: 0.75
+      },
+      steps: new Array(21).fill().map((e,i) => i * 0.05)
     };
     this.clickButton = this.clickButton.bind(this);
     this.onChangeCheckbox1 = this.onChangeCheckbox1.bind(this);
@@ -26,6 +32,7 @@ class App extends Component {
     this.onChangePicker = this.onChangePicker.bind(this);
     this.onMouseLeaveRow = this.onMouseLeaveRow.bind(this);
     this.onMouseEnterRow = this.onMouseEnterRow.bind(this);
+    this.setSliderHandleChange = this.setSliderHandleChange.bind(this);
   }
 
   onChangeCheckbox1() {
@@ -51,6 +58,10 @@ class App extends Component {
 
   onMouseLeaveRow() {
     this.setState({highlighted: -1});
+  }
+
+  setSliderHandleChange(newSelectedRange) {
+    this.setState({ selected_range: newSelectedRange });
   }
 
   render() {
@@ -109,6 +120,14 @@ class App extends Component {
                   {label: "Pill 3", value: 3},
                 ]}
                 active={this.state.picker_active}
+              />
+            </div>
+            <div>
+              <span>A slider</span>
+              <Slider
+                steps={this.state.steps}
+                selected_range={this.state.selected_range}
+                onChange={this.setSliderHandleChange}
               />
             </div>
           </Form>

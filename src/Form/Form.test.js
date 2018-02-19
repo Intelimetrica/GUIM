@@ -2,6 +2,7 @@ import React from 'react';
 import Form from './Form';
 import Checkbox from '../Checkbox';
 import Picker from '../Picker';
+import Slider from '../Slider';
 
 import renderer from 'react-test-renderer';
 
@@ -17,6 +18,11 @@ describe('<Form />', () => {
   let checked = false;
   let component;
   let form;
+  let selected_range = { min: 2, max: 4 };
+
+  let div = document.createElement("div");
+  div.setAttribute("id", "slider-tests");
+  document.body.appendChild(div);
 
   const reRender = () => {
     component = renderer.create(
@@ -32,6 +38,13 @@ describe('<Form />', () => {
             {label: "p2", value: 2}
           ]}
           active={active}
+        />
+        <Slider
+          id={"slider-tests"}
+          range={{min: 1, max: 5}}
+          steps={[1,2,3,4,5]}
+          selected_range={selected_range}
+          onChange={(new_range) => {selected_range = {...selected_range, new_range}}}
         />
       </Form>)
   };

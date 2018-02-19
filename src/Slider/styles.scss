@@ -1,0 +1,84 @@
+@import '../styles/themes.scss';
+
+:root {
+  --grow: {
+    border-radius: 7px;
+    top: -4px;
+    width: 14px;
+    height: 14px;
+  }
+}
+.GUIMSlider {
+  width: 100px;
+  display: flex;
+  position: relative;
+  margin-top: 17px !important;
+  & .bar {
+    height: 6px;
+  }
+  & .left{
+    background: gray;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+  & .right  {
+    background: gray;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+  & .inner {
+    background: red;
+  }
+  & .handler {
+    background: red;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    top: -3px;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+    &:active {
+      @apply --grow;
+    }
+    &:hover {
+      @apply --grow;
+    }
+  }
+  & .handler-label {
+    position: absolute;
+    top: -14px;
+    font-size: 0.6em;
+  }
+}
+
+.GUIMSliderBlue {
+  & .handler {
+    @apply --blue-theme;
+    @apply --no-border;
+  }
+  & .inner {
+    @apply --blue-theme;
+    @apply --no-border;
+  }
+}
+.GUIMSliderGray {
+  & .handler {
+    @apply --gray-theme;
+    @apply --no-border;
+  }
+  & .inner {
+    @apply --gray-theme;
+    @apply --no-border;
+  }
+}
+.GUIMSliderGreen {
+  & .handler {
+    @apply --green-theme;
+    @apply --no-border;
+  }
+  & .inner {
+    @apply --green-theme;
+    @apply --no-border;
+  }
+}

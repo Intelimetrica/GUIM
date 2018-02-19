@@ -94,6 +94,10 @@ exports[`<Form /> returns children data 1`] = `
 Object {
   "checkbox": false,
   "picker": 1,
+  "slider": Object {
+    "max": 4,
+    "min": 2,
+  },
 }
 `;
 
@@ -101,5 +105,9 @@ exports[`<Form /> returns children data updated after click 1`] = `
 Object {
   "checkbox": true,
   "picker": 1,
+  "slider": Object {
+    "max": 4,
+    "min": 2,
+  },
 }
 `;

@@ -1043,7 +1043,11 @@ var _Picker = __webpack_require__(29);
 
 var _Picker2 = _interopRequireDefault(_Picker);
 
-var _Table = __webpack_require__(33);
+var _Slider = __webpack_require__(33);
+
+var _Slider2 = _interopRequireDefault(_Slider);
+
+var _Table = __webpack_require__(37);
 
 var _Table2 = _interopRequireDefault(_Table);
 
@@ -1055,6 +1059,7 @@ module.exports = {
   Form: _Form2.default,
   Navbar: _Navbar2.default,
   Picker: _Picker2.default,
+  Slider: _Slider2.default,
   Table: _Table2.default
 };
 
@@ -3001,11 +3006,14 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var extractContent = function extractContent(child) {
   var response = {};
   switch (child.props.guimInput) {
+    case "checkbox":
+      response[child.props.name] = child.props.checked;
+      break;
     case "picker":
       response[child.props.name] = child.props.active;
       break;
-    case "checkbox":
-      response[child.props.name] = child.props.checked;
+    case "slider":
+      response[child.props.name] = child.props.selected_range;
       break;
   }
   return response;
@@ -3508,7 +3516,308 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _Table = __webpack_require__(34);
+var _Slider = __webpack_require__(34);
+
+var _Slider2 = _interopRequireDefault(_Slider);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _Slider2.default;
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Handler = exports.Bar = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+__webpack_require__(35);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Bar = exports.Bar = function Bar(props) {
+  var position = "left";
+  if (props.inner) position = "inner";
+  if (props.right) position = "right";
+
+  return _react2.default.createElement("div", {
+    style: { width: props.width },
+    className: "bar " + position
+  });
+};
+
+var Handler = exports.Handler = function Handler(props) {
+  return _react2.default.createElement(
+    _react.Fragment,
+    null,
+    _react2.default.createElement("div", {
+      draggable: true,
+      className: "handler",
+      style: { left: props.position },
+      onDrag: function onDrag(e) {
+        return props.onDrag(e.clientX, props.min);
+      },
+      onDragStart: function onDragStart(e) {
+        //this is to hide the element been dragged
+        var a = document.createElement('div');
+        document.body.appendChild(a);
+        e.dataTransfer.setDragImage(a, 0, 0);
+      }
+    }),
+    _react2.default.createElement(
+      "span",
+      {
+        style: { left: props.position },
+        className: "handler-label" },
+      props.formatter(props.value)
+    )
+  );
+};
+
+var setPointInsideRange = function setPointInsideRange(current, lower, upper) {
+  var new_position = void 0;
+
+  if (current > lower && current < upper) {
+    new_position = current;
+  } else if (current <= lower) {
+    new_position = lower;
+  } else if (current >= upper) {
+    new_position = upper;
+  }
+  return new_position;
+};
+
+var hasCarriage = function hasCarriage(position, is_min, _ref) {
+  var min = _ref.min,
+      max = _ref.max;
+
+  if (is_min) {
+    if (position >= max) return true;
+  } else {
+    if (position <= min) return true;
+  }
+  return false;
+};
+
+var Slider = function (_Component) {
+  _inherits(Slider, _Component);
+
+  function Slider(props) {
+    _classCallCheck(this, Slider);
+
+    var _this = _possibleConstructorReturn(this, (Slider.__proto__ || Object.getPrototypeOf(Slider)).call(this, props));
+
+    _this.state = {
+      width: 10,
+      start: 0,
+      end: 10,
+      steps: _this.props.steps.map(function (e) {
+        return e.toFixed(_this.props.floating_points);
+      })
+    };
+
+    _this._onDrag = _this._onDrag.bind(_this);
+    return _this;
+  }
+
+  _createClass(Slider, [{
+    key: "_onDrag",
+    value: function _onDrag(clientX, is_min) {
+      if (clientX <= 0) return false;
+
+      // Force position in pixels to be inside slider
+      var _state = this.state,
+          start = _state.start,
+          width = _state.width,
+          steps = _state.steps;
+      var _props = this.props,
+          range = _props.range,
+          selected_range = _props.selected_range,
+          floating_points = _props.floating_points;
+
+      var new_position = setPointInsideRange(clientX - start, 0, width);
+
+      // Scale pixels into a point inside range
+      new_position = range.max * new_position / width;
+
+      // Carriage - min cant be bigger than max, neither the other way
+      var carriage = hasCarriage(new_position, is_min, selected_range);
+      new_position = new_position.toFixed(floating_points);
+
+      // create new range
+      var new_range = _extends({}, selected_range);
+      new_range[is_min ? "min" : "max"] = new_position;
+      if (carriage) {
+        // add carriage to new range
+        new_range[is_min ? "max" : "min"] = new_position;
+      }
+
+      if (steps.includes(new_position)) {
+        this.props.onChange(new_range);
+      }
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.slider = document.getElementById(this.props.id);
+
+      var _slider$getBoundingCl = this.slider.getBoundingClientRect(),
+          left = _slider$getBoundingCl.left,
+          right = _slider$getBoundingCl.right,
+          width = _slider$getBoundingCl.width;
+
+      this.setState({ width: width, start: left, end: right });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _props2 = this.props,
+          range = _props2.range,
+          id = _props2.id,
+          steps = _props2.steps,
+          label_formatter = _props2.label_formatter;
+      var _props$selected_range = this.props.selected_range,
+          min = _props$selected_range.min,
+          max = _props$selected_range.max;
+
+
+      var left_bar_width = min * this.state.width / range.max;
+      var inner_bar_width = (max - min) * this.state.width / range.max;
+      var right_bar_width = (range.max - max) * this.state.width / range.max;
+
+      return _react2.default.createElement(
+        "div",
+        { id: id, className: "GUIMSlider " + this.props.className + " " + (themes[this.props.theme] || themes["green"]) },
+        _react2.default.createElement(Bar, { width: left_bar_width, left: true }),
+        _react2.default.createElement(Bar, { width: inner_bar_width, inner: true }),
+        _react2.default.createElement(Bar, { width: right_bar_width, right: true }),
+        _react2.default.createElement(Handler, {
+          onDrag: this._onDrag,
+          position: left_bar_width - 5,
+          value: min,
+          formatter: label_formatter,
+          min: true }),
+        _react2.default.createElement(Handler, {
+          onDrag: this._onDrag,
+          position: left_bar_width + inner_bar_width - 5,
+          value: max,
+          formatter: label_formatter,
+          max: true })
+      );
+    }
+  }]);
+
+  return Slider;
+}(_react.Component);
+
+Slider.defaultProps = {
+  id: "slider",
+  name: "slider",
+  onChange: function onChange(new_range) {
+    return console.log("onChange", new_range);
+  },
+  range: {
+    min: 0,
+    max: 1
+  },
+  selected_range: {
+    min: 0.2,
+    max: 0.6
+  },
+  label_formatter: function label_formatter(e) {
+    return e + "%";
+  },
+  steps: [0, 0.2, 0.4, 0.6, 0.8, 1],
+  floating_points: 2,
+  guimInput: "slider",
+  className: "",
+  theme: "blue"
+};
+
+var themes = {
+  blue: "GUIMSliderBlue",
+  gray: "GUIMSliderGray",
+  green: "GUIMSliderGreen"
+};
+
+exports.default = Slider;
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(36);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {"hmr":true}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(3)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../node_modules/css-loader/index.js??ref--1-1!../../node_modules/postcss-loader/lib/index.js!./styles.scss", function() {
+			var newContent = require("!!../../node_modules/css-loader/index.js??ref--1-1!../../node_modules/postcss-loader/lib/index.js!./styles.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "/* colors */\n\n.GUIMSlider {\n  width: 100px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: relative;\n  margin-top: 17px !important\n}\n\n.GUIMSlider .bar {\n  height: 6px;\n}\n\n.GUIMSlider .left {\n  background: gray;\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n\n.GUIMSlider .right  {\n  background: gray;\n  border-top-right-radius: 3px;\n  border-bottom-right-radius: 3px;\n}\n\n.GUIMSlider .inner {\n  background: red;\n}\n\n.GUIMSlider .handler {\n  background: red;\n  border-radius: 6px;\n  position: absolute;\n  z-index: 1;\n  top: -3px;\n  width: 12px;\n  height: 12px;\n  cursor: pointer\n}\n\n.GUIMSlider .handler:active {\n  border-radius: 7px;\n  top: -4px;\n  width: 14px;\n  height: 14px;\n}\n\n.GUIMSlider .handler:hover {\n  border-radius: 7px;\n  top: -4px;\n  width: 14px;\n  height: 14px;\n}\n\n.GUIMSlider .handler-label {\n  position: absolute;\n  top: -14px;\n  font-size: 0.6em;\n}\n\n.GUIMSliderBlue .handler {\n  color: white;\n  background-color: #74b9db;\n  border: 1px solid #74b9db;\n  border: none;\n}\n\n.GUIMSliderBlue .inner {\n  color: white;\n  background-color: #74b9db;\n  border: 1px solid #74b9db;\n  border: none;\n}\n\n.GUIMSliderGray .handler {\n  color: white;\n  background-color: #bbbbbb;\n  border: 1px solid #bbbbbb;\n  border: none;\n}\n\n.GUIMSliderGray .inner {\n  color: white;\n  background-color: #bbbbbb;\n  border: 1px solid #bbbbbb;\n  border: none;\n}\n\n.GUIMSliderGreen .handler {\n  color: white;\n  background-color: #74db94;\n  border: 1px solid #74db94;\n  border: none;\n}\n\n.GUIMSliderGreen .inner {\n  color: white;\n  background-color: #74db94;\n  border: 1px solid #74db94;\n  border: none;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _Table = __webpack_require__(38);
 
 var _Table2 = _interopRequireDefault(_Table);
 
@@ -3517,7 +3826,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = _Table2.default;
 
 /***/ }),
-/* 34 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3534,7 +3843,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(35);
+__webpack_require__(39);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3691,13 +4000,13 @@ Table.defaultProps = {
 exports.default = Table;
 
 /***/ }),
-/* 35 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(36);
+var content = __webpack_require__(40);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -3722,7 +4031,7 @@ if(false) {
 }
 
 /***/ }),
-/* 36 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(undefined);

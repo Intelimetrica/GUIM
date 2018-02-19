@@ -1,0 +1,685 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Slider /> Change handler's position and bars' length when selected_range change 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Slider
+    className=""
+    floating_points={2}
+    guimInput="slider"
+    id="slider-tests"
+    label_formatter={[Function]}
+    name="slider"
+    onChange={[Function]}
+    range={
+      Object {
+        "max": 5,
+        "min": 1,
+      }
+    }
+    selected_range={
+      Object {
+        "max": 4,
+        "min": 2,
+      }
+    }
+    steps={
+      Array [
+        1,
+        2,
+        3,
+        4,
+        5,
+      ]
+    }
+    theme="blue"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Bar
+          left={true}
+          width={40}
+        />,
+        <Bar
+          inner={true}
+          width={40}
+        />,
+        <Bar
+          right={true}
+          width={20}
+        />,
+        <Handler
+          formatter={[Function]}
+          min={true}
+          onDrag={[Function]}
+          position={35}
+          value={2}
+        />,
+        <Handler
+          formatter={[Function]}
+          max={true}
+          onDrag={[Function]}
+          position={75}
+          value={4}
+        />,
+      ],
+      "className": "GUIMSlider  GUIMSliderBlue",
+      "id": "slider-tests",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "left": true,
+          "width": 40,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "inner": true,
+          "width": 40,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "right": true,
+          "width": 20,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "formatter": [Function],
+          "min": true,
+          "onDrag": [Function],
+          "position": 35,
+          "value": 2,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "formatter": [Function],
+          "max": true,
+          "onDrag": [Function],
+          "position": 75,
+          "value": 4,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Bar
+            left={true}
+            width={40}
+          />,
+          <Bar
+            inner={true}
+            width={40}
+          />,
+          <Bar
+            right={true}
+            width={20}
+          />,
+          <Handler
+            formatter={[Function]}
+            min={true}
+            onDrag={[Function]}
+            position={35}
+            value={2}
+          />,
+          <Handler
+            formatter={[Function]}
+            max={true}
+            onDrag={[Function]}
+            position={75}
+            value={4}
+          />,
+        ],
+        "className": "GUIMSlider  GUIMSliderBlue",
+        "id": "slider-tests",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "left": true,
+            "width": 40,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "inner": true,
+            "width": 40,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "right": true,
+            "width": 20,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "formatter": [Function],
+            "min": true,
+            "onDrag": [Function],
+            "position": 35,
+            "value": 2,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "formatter": [Function],
+            "max": true,
+            "onDrag": [Function],
+            "position": 75,
+            "value": 4,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`<Slider /> Change handler's position and bars' length when selected_range change 2`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Slider
+    className=""
+    floating_points={2}
+    guimInput="slider"
+    id="slider-tests"
+    label_formatter={[Function]}
+    name="slider"
+    onChange={[Function]}
+    range={
+      Object {
+        "max": 5,
+        "min": 1,
+      }
+    }
+    selected_range={
+      Object {
+        "max": 4,
+        "min": 3,
+      }
+    }
+    steps={
+      Array [
+        1,
+        2,
+        3,
+        4,
+        5,
+      ]
+    }
+    theme="blue"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Bar
+          left={true}
+          width={60}
+        />,
+        <Bar
+          inner={true}
+          width={20}
+        />,
+        <Bar
+          right={true}
+          width={20}
+        />,
+        <Handler
+          formatter={[Function]}
+          min={true}
+          onDrag={[Function]}
+          position={55}
+          value={3}
+        />,
+        <Handler
+          formatter={[Function]}
+          max={true}
+          onDrag={[Function]}
+          position={75}
+          value={4}
+        />,
+      ],
+      "className": "GUIMSlider  GUIMSliderBlue",
+      "id": "slider-tests",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "left": true,
+          "width": 60,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "inner": true,
+          "width": 20,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "right": true,
+          "width": 20,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "formatter": [Function],
+          "min": true,
+          "onDrag": [Function],
+          "position": 55,
+          "value": 3,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "formatter": [Function],
+          "max": true,
+          "onDrag": [Function],
+          "position": 75,
+          "value": 4,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Bar
+            left={true}
+            width={60}
+          />,
+          <Bar
+            inner={true}
+            width={20}
+          />,
+          <Bar
+            right={true}
+            width={20}
+          />,
+          <Handler
+            formatter={[Function]}
+            min={true}
+            onDrag={[Function]}
+            position={55}
+            value={3}
+          />,
+          <Handler
+            formatter={[Function]}
+            max={true}
+            onDrag={[Function]}
+            position={75}
+            value={4}
+          />,
+        ],
+        "className": "GUIMSlider  GUIMSliderBlue",
+        "id": "slider-tests",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "left": true,
+            "width": 60,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "inner": true,
+            "width": 20,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "right": true,
+            "width": 20,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "formatter": [Function],
+            "min": true,
+            "onDrag": [Function],
+            "position": 55,
+            "value": 3,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "formatter": [Function],
+            "max": true,
+            "onDrag": [Function],
+            "position": 75,
+            "value": 4,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`<Slider /> Change label when selected_range change 1`] = `
+<div
+  className="GUIMSlider  GUIMSliderBlue"
+  id="slider-tests"
+>
+  <div
+    className="bar left"
+    style={
+      Object {
+        "width": 0,
+      }
+    }
+  />
+  <div
+    className="bar inner"
+    style={
+      Object {
+        "width": 0,
+      }
+    }
+  />
+  <div
+    className="bar right"
+    style={
+      Object {
+        "width": 0,
+      }
+    }
+  />
+  <div
+    className="handler"
+    draggable={true}
+    onDrag={[Function]}
+    onDragStart={[Function]}
+    style={
+      Object {
+        "left": -5,
+      }
+    }
+  />
+  <span
+    className="handler-label"
+    style={
+      Object {
+        "left": -5,
+      }
+    }
+  >
+    3%
+  </span>
+  <div
+    className="handler"
+    draggable={true}
+    onDrag={[Function]}
+    onDragStart={[Function]}
+    style={
+      Object {
+        "left": -5,
+      }
+    }
+  />
+  <span
+    className="handler-label"
+    style={
+      Object {
+        "left": -5,
+      }
+    }
+  >
+    4%
+  </span>
+</div>
+`;
+
+exports[`<Slider /> Match dom snapshot 1`] = `
+<div
+  className="GUIMSlider  GUIMSliderBlue"
+  id="slider-tests"
+>
+  <div
+    className="bar left"
+    style={
+      Object {
+        "width": 0,
+      }
+    }
+  />
+  <div
+    className="bar inner"
+    style={
+      Object {
+        "width": 0,
+      }
+    }
+  />
+  <div
+    className="bar right"
+    style={
+      Object {
+        "width": 0,
+      }
+    }
+  />
+  <div
+    className="handler"
+    draggable={true}
+    onDrag={[Function]}
+    onDragStart={[Function]}
+    style={
+      Object {
+        "left": -5,
+      }
+    }
+  />
+  <span
+    className="handler-label"
+    style={
+      Object {
+        "left": -5,
+      }
+    }
+  >
+    2%
+  </span>
+  <div
+    className="handler"
+    draggable={true}
+    onDrag={[Function]}
+    onDragStart={[Function]}
+    style={
+      Object {
+        "left": -5,
+      }
+    }
+  />
+  <span
+    className="handler-label"
+    style={
+      Object {
+        "left": -5,
+      }
+    }
+  >
+    4%
+  </span>
+</div>
+`;

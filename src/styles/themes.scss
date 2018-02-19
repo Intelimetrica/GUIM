@@ -83,5 +83,9 @@
       color: var(--main-gray) !important;
     }
   }
+
+  --no-border: {
+    border: none;
+  }
 }
 
