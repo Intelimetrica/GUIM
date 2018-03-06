@@ -23,7 +23,10 @@ export class StickyHeader extends Component {
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
     this.originalHeader = document.getElementById(this.props.id);
-    this.setState({width: this.originalHeader.getBoundingClientRect().width});
+    this.setState({
+      width: this.originalHeader.getBoundingClientRect().width,
+      zIndex: document.defaultView.getComputedStyle(this.originalHeader, null).zIndex
+    });
   }
 
   componentWillUnmount() {
@@ -35,7 +38,8 @@ export class StickyHeader extends Component {
       top: this.props.top,
       display: 'block',
       position: 'fixed',
-      width: this.state.width
+      width: this.state.width,
+      zIndex: (typeof this.state.zIndex !== "number") ? 1 : this.state.zIndex + 1
     } : {}
     return (
       <div id="ticky" style={style}>
