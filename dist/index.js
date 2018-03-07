@@ -3882,7 +3882,13 @@ var StickyHeader = exports.StickyHeader = function (_Component) {
     value: function componentDidMount() {
       window.addEventListener('scroll', this.handleScroll);
       this.originalHeader = document.getElementById(this.props.id);
-      this.setState({ width: this.originalHeader.getBoundingClientRect().width });
+      var zIndex = parseInt(this.originalHeader.style.zIndex) || 0;
+      zIndex += 1;
+
+      this.setState({
+        width: this.originalHeader.getBoundingClientRect().width,
+        zIndex: zIndex
+      });
     }
   }, {
     key: "componentWillUnmount",
@@ -3896,7 +3902,8 @@ var StickyHeader = exports.StickyHeader = function (_Component) {
         top: this.props.top,
         display: 'block',
         position: 'fixed',
-        width: this.state.width
+        width: this.state.width,
+        zIndex: this.state.zIndex
       } : {};
       return _react2.default.createElement(
         "div",
