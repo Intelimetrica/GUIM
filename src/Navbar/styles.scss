@@ -7,7 +7,7 @@
   & nav > div.logo {
     display: flex;
     align-items: center;
-  } 
+  }
   & nav > div {
     height: 100%;
   }
@@ -23,6 +23,7 @@
     margin-right: auto;
     margin-left: auto;
     height: 100%;
+    box-sizing: border-box;
     & ul.navbar-modules {
       list-style-type: none;
       margin: 0;
