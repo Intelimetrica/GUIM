@@ -7,7 +7,8 @@ import {
   Navbar,
   Picker,
   Slider,
-  Table
+  Table,
+  Textbox
 } from "guim";
 import logo from './logo.svg';
 
@@ -24,22 +25,30 @@ class App extends Component {
         min: 0.25,
         max: 0.75
       },
-      steps: new Array(21).fill().map((e,i) => i * 0.05)
+      steps: new Array(21).fill().map((e,i) => i * 0.05),
+      textbox: ''
     };
     this.clickButton = this.clickButton.bind(this);
     this.onChangeCheckbox1 = this.onChangeCheckbox1.bind(this);
     this.onChangeCheckbox2 = this.onChangeCheckbox2.bind(this);
     this.onChangePicker = this.onChangePicker.bind(this);
+    this.onChangeTextbox = this.onChangeTextbox.bind(this);
     this.onMouseLeaveRow = this.onMouseLeaveRow.bind(this);
     this.onMouseEnterRow = this.onMouseEnterRow.bind(this);
     this.setSliderHandleChange = this.setSliderHandleChange.bind(this);
   }
 
-  onChangeCheckbox1() {
+  // The functions that are called when change directlly
+  // the textbox or checkbox recive an event as param
+  onChangeTextbox(event) {
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
+  onChangeCheckbox1(event) {
     this.setState({ checked: !this.state.checked });
   }
 
-  onChangeCheckbox2() {
+  onChangeCheckbox2(event) {
     this.setState({ checked2: !this.state.checked2 });
   }
 
@@ -92,6 +101,15 @@ class App extends Component {
                 onClick={this.onChangeCheckbox1}
                 color="green"
                 label="Change first checkbox" />
+            </div>
+            <div>
+              <span>Clik me to change this checkbox</span>
+              <Textbox
+                name="textbox"
+                onChange={this.onChangeTextbox}
+                onBlur={() => {}}
+                onFocus={() => {}}
+                value={this.state.textbox}/>
             </div>
             <div>
               <span>Clik me to change this checkbox</span>
