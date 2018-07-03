@@ -18,7 +18,8 @@ class App extends Component {
       checked: false,
       checked2: true,
       formData: {},
-      picker_active: 2,
+      picker_active: [2],
+      multiple_picker_active: [2],
       highlighted: -1,
       selected_range: {
         min: 0.25,
@@ -29,7 +30,8 @@ class App extends Component {
     this.clickButton = this.clickButton.bind(this);
     this.onChangeCheckbox1 = this.onChangeCheckbox1.bind(this);
     this.onChangeCheckbox2 = this.onChangeCheckbox2.bind(this);
-    this.onChangePicker = this.onChangePicker.bind(this);
+    this.onChangeSinglePicker = this.onChangeSinglePicker.bind(this);
+    this.onChangeMultiplePicker = this.onChangeMultiplePicker.bind(this);
     this.onMouseLeaveRow = this.onMouseLeaveRow.bind(this);
     this.onMouseEnterRow = this.onMouseEnterRow.bind(this);
     this.setSliderHandleChange = this.setSliderHandleChange.bind(this);
@@ -43,21 +45,31 @@ class App extends Component {
     this.setState({ checked2: !this.state.checked2 });
   }
 
-  onChangePicker(label, value) {
-    this.setState({ picker_active: value });
+  onChangeSinglePicker(label, value) {
+    this.setState({ picker_active: [value] });
+  }
+
+  onChangeMultiplePicker(label, value) {
+    let actives = this.state.multiple_picker_active;
+    if(actives.indexOf(value) !== -1) {
+      actives.splice(actives.indexOf(value), 1);
+    } else {
+      actives.push(value);
+    }
+    this.setState({ multiple_picker_active: actives });
   }
 
   clickButton() {
-    let form_data = this.form.grabFormData();
-    this.setState({formData: form_data});
+    const formData = this.form.grabFormData();
+    this.setState({ formData });
   }
 
   onMouseEnterRow(i) {
-    this.setState({highlighted: i});
+    this.setState({ highlighted: i });
   }
 
   onMouseLeaveRow() {
-    this.setState({highlighted: -1});
+    this.setState({ highlighted: -1 });
   }
 
   setSliderHandleChange(newSelectedRange) {
@@ -112,7 +124,7 @@ class App extends Component {
             <div>
               <span>A picker</span>
               <Picker
-                onChange={this.onChangePicker}
+                onChange={this.onChangeSinglePicker}
                 color="gray"
                 options={[
                   {label: <img src={logo} width="30px"/>, value: 'react'},
@@ -120,6 +132,19 @@ class App extends Component {
                   {label: "Pill 3", value: 3},
                 ]}
                 active={this.state.picker_active}
+              />
+            </div>
+            <div>
+              <span>A multiple picker</span>
+              <Picker
+                onChange={this.onChangeMultiplePicker}
+                color="gray"
+                options={[
+                  {label: <img src={logo} width="30px"/>, value: 'react'},
+                  {label: "Pill 2", value: 2},
+                  {label: "Pill 3", value: 3},
+                ]}
+                active={this.state.multiple_picker_active}
               />
             </div>
             <div>
