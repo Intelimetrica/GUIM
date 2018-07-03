@@ -14,7 +14,7 @@ expect.addSnapshotSerializer(enzymeSerializer);
 configure({ adapter: new Adapter() });
 
 describe('<Form />', () => {
-  let active = 1;
+  let active = [1];
   let checked = false;
   let component;
   let form;
@@ -32,7 +32,7 @@ describe('<Form />', () => {
           checked={checked}
           onChange={() => checked = !checked} />
         <Picker
-          onChange={(label, value) => active = value}
+          onChange={(label, value) => active = [value]}
           options={[
             {label: "p1", value: 1},
             {label: "p2", value: 2}
@@ -57,7 +57,7 @@ describe('<Form />', () => {
           checked={checked}
           onChange={() => checked = !checked} />
         <Picker
-          onChange={(label, value) => active = value}
+          onChange={(label, value) => active = [value]}
           options={[
             {label: "p1", value: 1},
             {label: "p2", value: 2}
