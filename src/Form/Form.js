@@ -16,6 +16,9 @@ const extractContent = child => {
     case "slider":
       response[child.props.name] = child.props.selected_range;
       break;
+    case "textbox":
+      response[child.props.name] = child.props.value;
+      break;
   }
   return response;
 }

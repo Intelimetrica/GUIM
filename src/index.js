@@ -5,6 +5,7 @@ import Navbar from './Navbar';
 import Picker from './Picker';
 import Slider from './Slider';
 import Table from './Table';
+import Textbox from './Textbox';
 
 module.exports = {
   Button: Button,
@@ -13,5 +14,6 @@ module.exports = {
   Navbar: Navbar,
   Picker: Picker,
   Slider: Slider,
-  Table: Table
+  Table: Table,
+  Textbox: Textbox
 };
