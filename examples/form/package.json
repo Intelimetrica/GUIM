@@ -9,6 +9,7 @@
     "react-scripts": "1.0.17"
   },
   "scripts": {
+    "link_guim": "npm link ../..",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
