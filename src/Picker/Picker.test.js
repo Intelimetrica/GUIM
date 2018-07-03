@@ -7,8 +7,8 @@ import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 
 describe('<Picker />', () => {
-  describe('behaviour tests', () => {
-    let active = 1;
+  describe('tests for normal behaviour', () => {
+    let active = [1];
     let component;
     let tree;
     let reRender;
@@ -18,7 +18,7 @@ describe('<Picker />', () => {
     beforeEach(() => {
       component = renderer.create(
         <Picker
-          onChange={(label, value) => {active = value}}
+          onChange={(label, value) => {active = [value]}}
           options={[
             {label: 'Uno', value: 1},
             {label: 'Dos', value: 2},
@@ -38,21 +38,68 @@ describe('<Picker />', () => {
     it('selects the right element', () => {
       tree.children[1].props.onClick();
       reRender();
-      expect(active).toBe(2);
+      expect(active).toEqual([2]);
 
       tree.children[2].props.onClick();
       reRender();
-      expect(active).toBe(3);
+      expect(active).toEqual([3]);
+    });
+  });
+
+  describe('tests for multiple behaviour', () => {
+    let active = [1];
+    let component;
+    let tree;
+    let reRender;
+    const makeRenderer = component =>
+      () => tree = component.toJSON();
+
+    beforeEach(() => {
+      component = renderer.create(
+        <Picker
+          onChange={(label, value) => {
+            if(active.indexOf(value) !== -1) {
+              active.splice(active.indexOf(value),1);
+            } else {
+              active.push(value);
+            }
+          }}
+          options={[
+            {label: 'Uno', value: 1},
+            {label: 'Dos', value: 2},
+            {label: 'Tres', value: 3},
+          ]}
+          active={active}
+        />);
+      reRender = makeRenderer(component);
+      reRender();
+    })
+
+    it('match snapshot', () => {
+      expect(tree).toMatchSnapshot();
+    });
+
+
+    it('selects the right element', () => {
+      tree.children[1].props.onClick();
+      reRender();
+      expect(active).toEqual([1,2]);
+    });
+
+    it('unselects the first element', () => {
+      tree.children[0].props.onClick();
+      reRender();
+      expect(active).toEqual([2]);
     });
   });
 
   describe('dom tests', () => {
-    let active = 1;
+    let active = [1];
     let component;
     let update = () => {
       component = mount(
         <Picker
-          onChange={(label, value) => {active = value}}
+          onChange={(label, value) => {active = [value]}}
           options={[
             {label: 'Uno', value: 1},
             {label: 'Dos', value: 2},
