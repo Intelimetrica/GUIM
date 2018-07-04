@@ -105,7 +105,9 @@ class App extends Component {
             <div>
               <span>Clik me to change this checkbox</span>
               <Textbox
+                color="blue"
                 name="textbox"
+                className='GUIMTextboxSize'
                 onChange={this.onChangeTextbox}
                 onBlur={() => {}}
                 onFocus={() => {}}

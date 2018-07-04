@@ -57,3 +57,7 @@
 .GUIMPicker > a {
   padding: 3px 7px;
 }
+
+.GUIMTextboxSize {
+  width: 150px;
+}
