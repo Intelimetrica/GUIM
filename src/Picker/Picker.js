@@ -19,7 +19,7 @@ const Picker = props => (
         <Pill
           key={e.value}
           select={props.onChange.bind(null, e.label, e.value)}
-          active={props.active === e.value}
+          active={props.active.indexOf(e.value) !== -1 }
           value={e.value}
           label={e.label}
         />
@@ -38,7 +38,7 @@ Picker.defaultProps = {
   className: "",
   color: "blue",
   guimInput: "picker",
-  active: 1
+  active: [1]
 };
 
 const themes = {

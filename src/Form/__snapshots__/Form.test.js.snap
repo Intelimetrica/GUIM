@@ -31,7 +31,11 @@ exports[`<Form /> match dom snapshot 1`] = `
       />
     </Checkbox>
     <Picker
-      active={1}
+      active={
+        Array [
+          1,
+        ]
+      }
       className=""
       color="blue"
       guimInput="picker"
@@ -93,7 +97,9 @@ exports[`<Form /> match dom snapshot 1`] = `
 exports[`<Form /> returns children data 1`] = `
 Object {
   "checkbox": false,
-  "picker": 1,
+  "picker": Array [
+    1,
+  ],
   "slider": Object {
     "max": 4,
     "min": 2,
@@ -104,7 +110,9 @@ Object {
 exports[`<Form /> returns children data updated after click 1`] = `
 Object {
   "checkbox": true,
-  "picker": 1,
+  "picker": Array [
+    1,
+  ],
   "slider": Object {
     "max": 4,
     "min": 2,
