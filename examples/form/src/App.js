@@ -124,6 +124,7 @@ class App extends Component {
             <div>
               <span>A single picker</span>
               <Picker
+                name="single_picker"
                 onChange={this.onChangeSinglePicker}
                 color="gray"
                 options={[
@@ -137,6 +138,7 @@ class App extends Component {
             <div>
               <span>A multiple picker</span>
               <Picker
+                name="multiple_picker"
                 onChange={this.onChangeMultiplePicker}
                 color="gray"
                 options={[
