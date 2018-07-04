@@ -27,9 +27,9 @@ Textbox.defaultProps = {
 };
 
 const themes = {
-  blue: "GUIMCheckboxBlue",
-  gray: "GUIMCheckboxGray",
-  green: "GUIMCheckboxGreen"
+  blue: "GUIMTextboxBlue",
+  gray: "GUIMTextboxGray",
+  green: "GUIMTextboxGreen"
 };
 
 export default Textbox;

@@ -1,0 +1,27 @@
+@import '../styles/colors.scss';
+@import '../styles/themes.scss';
+
+.GUIMTextbox{
+  -webkit-appearance: none;
+  background-color: var(--white);
+  border: 1px solid var(--main-gray);
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
+  outline: none;
+  padding: 5px 10px;
+  &:focus {
+    outline: none;
+    border: 1px solid var(--dark-gray);
+  }
+}
+
+.GUIMTextboxBlue:focus{
+    @apply --blue-theme-focus;
+}
+.GUIMTextboxGray:focus{
+    @apply --gray-theme-focus;
+}
+.GUIMTextboxGreen:focus{
+    @apply --green-theme-focus;
+}
