@@ -12,6 +12,9 @@ import {
 } from "guim";
 import logo from './logo.svg';
 
+const numberOfSteps = 21;
+const range = 0.05;
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -26,7 +29,7 @@ class App extends Component {
         min: 0.25,
         max: 0.75
       },
-      steps: new Array(21).fill().map((e,i) => i * 0.05),
+      steps: new Array(numberOfSteps).fill().map((e,i) => i * range),
       textbox: ''
     };
     this.clickButton = this.clickButton.bind(this);
@@ -40,8 +43,8 @@ class App extends Component {
     this.setSliderHandleChange = this.setSliderHandleChange.bind(this);
   }
 
-  // The functions that are called when change directlly
-  // the textbox or checkbox recive an event as param
+  // The functions that are called when change directly
+  // the textbox or checkbox receive an event as param
   onChangeTextbox(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
@@ -94,7 +97,7 @@ class App extends Component {
           <span>{"<Form>"}</span>
           <Form ref={ref => (this.form = ref)} >
             <div>
-              <span>Clik me to show alert</span>
+              <span>Click me to show alert</span>
               <Button
                 onClick={() => alert("blue")}
                 color="gray"

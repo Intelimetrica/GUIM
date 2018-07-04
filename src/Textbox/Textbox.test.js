@@ -7,7 +7,7 @@ import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 
 describe('<Textbox />', () => {
-  describe('behaiviour tests', () => {
+  describe('behaviour tests', () => {
     let text = '';
     let component;
     let tree;
