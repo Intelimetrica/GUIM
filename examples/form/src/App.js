@@ -49,11 +49,11 @@ class App extends Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  onChangeCheckbox1(event) {
+  onChangeCheckbox1(_event) {
     this.setState({ checked: !this.state.checked });
   }
 
-  onChangeCheckbox2(event) {
+  onChangeCheckbox2(_event) {
     this.setState({ checked2: !this.state.checked2 });
   }
 
@@ -111,14 +111,14 @@ class App extends Component {
                 label="Send Form" />
             </div>
             <div>
-              <span>Clik me to change first checkbox</span>
+              <span>Click me to change first checkbox</span>
               <Button
                 onClick={this.onChangeCheckbox1}
                 color="green"
                 label="Change first checkbox" />
             </div>
             <div>
-              <span>Clik me to change this checkbox</span>
+              <span>Click me to change this checkbox</span>
               <Textbox
                 color="blue"
                 name="textbox"
@@ -129,7 +129,7 @@ class App extends Component {
                 value={this.state.textbox}/>
             </div>
             <div>
-              <span>Clik me to change this checkbox</span>
+              <span>Click me to change this checkbox</span>
               <Checkbox
                 name="checked"
                 color="green"
@@ -137,7 +137,7 @@ class App extends Component {
                 onChange={this.onChangeCheckbox1} />
             </div>
             <div>
-              <span>Clik me to change this checkbox</span>
+              <span>Click me to change this checkbox</span>
               <Checkbox
                 name="checkbox2"
                 color="blue"
