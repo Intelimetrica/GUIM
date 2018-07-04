@@ -118,7 +118,7 @@ class App extends Component {
                 label="Change first checkbox" />
             </div>
             <div>
-              <span>Click me to change this checkbox</span>
+              <span>Type something into the textbox</span>
               <Textbox
                 color="blue"
                 name="textbox"

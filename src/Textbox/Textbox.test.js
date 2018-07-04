@@ -41,16 +41,20 @@ describe('<Textbox />', () => {
   });
 
   describe('dom tests', () => {
+    const event = {target: {name: "test_textbox", value: "test"}};
     let text = '';
     let component;
-
-    beforeEach(() => {
+    let update = () => {
       component = shallow(
         <Textbox
           name='test_textbox'
-          onChange={(event) => {text = event} }
+          onChange={(event) => {text = event.target.value} }
           value={text} />
       );
+    }
+
+    beforeEach(() => {
+      update();
     });
 
     it('renders an input', () => {
@@ -59,6 +63,12 @@ describe('<Textbox />', () => {
 
     it('name is test_textbox', () => {
       expect(component.prop('name')).toBe('test_textbox');
+    });
+
+    it('registers onChange function into the component tree', () => {
+      component.find('input').simulate('change', event);
+      update();
+      expect(component.prop('value')).toBe('test');
     });
   });
 });
