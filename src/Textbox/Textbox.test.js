@@ -29,7 +29,7 @@ describe('<Textbox />', () => {
       expect(tree).toMatchSnapshot();
     });
 
-    it('write text in the input', () => {
+    it('registers onChange function into the component tree', () => {
       tree.props.onChange('random text');
       reRender();
       expect(text).toBe('random text');
@@ -65,7 +65,7 @@ describe('<Textbox />', () => {
       expect(component.prop('name')).toBe('test_textbox');
     });
 
-    it('registers onChange function into the component tree', () => {
+    it('registers onChange function when the component is mounted', () => {
       component.find('input').simulate('change', event);
       update();
       expect(component.prop('value')).toBe('test');
