@@ -3,7 +3,7 @@ import "./styles.scss";
 
 const Textbox = props => (
   <input
-    className={`GUIMTextbox ${props.chassName} ${themes[props.color] || themes["blue"]}`}
+    className={`GUIMTextbox ${props.className} ${themes[props.color] || themes["blue"]}`}
     style={props.styles}
     type="text"
     name={props.name}
