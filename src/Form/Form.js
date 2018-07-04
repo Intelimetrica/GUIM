@@ -11,7 +11,7 @@ const extractContent = child => {
       response[child.props.name] = child.props.checked;
       break;
     case "picker":
-      response[child.props.name] = child.props.active;
+      response[child.props.name] = [...child.props.active];
       break;
     case "slider":
       response[child.props.name] = child.props.selected_range;
