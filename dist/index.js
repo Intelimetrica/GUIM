@@ -3003,6 +3003,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 var extractContent = function extractContent(child) {
   var response = {};
   switch (child.props.guimInput) {
@@ -3010,7 +3012,7 @@ var extractContent = function extractContent(child) {
       response[child.props.name] = child.props.checked;
       break;
     case "picker":
-      response[child.props.name] = child.props.active;
+      response[child.props.name] = [].concat(_toConsumableArray(child.props.active));
       break;
     case "slider":
       response[child.props.name] = child.props.selected_range;
