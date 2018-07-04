@@ -18,8 +18,8 @@ class App extends Component {
       checked: false,
       checked2: true,
       formData: {},
-      picker_active: [2],
-      multiple_picker_active: [2],
+      single_picker: [2],
+      multiple_picker: [2],
       highlighted: -1,
       selected_range: {
         min: 0.25,
@@ -46,17 +46,17 @@ class App extends Component {
   }
 
   onChangeSinglePicker(label, value) {
-    this.setState({ picker_active: [value] });
+    this.setState({ single_picker: [value] });
   }
 
   onChangeMultiplePicker(label, value) {
-    let actives = this.state.multiple_picker_active;
+    let actives = this.state.multiple_picker;
     if(actives.indexOf(value) !== -1) {
       actives.splice(actives.indexOf(value), 1);
     } else {
       actives.push(value);
     }
-    this.setState({ multiple_picker_active: actives });
+    this.setState({ multiple_picker: actives });
   }
 
   clickButton() {
@@ -122,7 +122,7 @@ class App extends Component {
                 onChange={this.onChangeCheckbox2} />
             </div>
             <div>
-              <span>A picker</span>
+              <span>A single picker</span>
               <Picker
                 onChange={this.onChangeSinglePicker}
                 color="gray"
@@ -131,7 +131,7 @@ class App extends Component {
                   {label: "Pill 2", value: 2},
                   {label: "Pill 3", value: 3},
                 ]}
-                active={this.state.picker_active}
+                active={this.state.single_picker}
               />
             </div>
             <div>
@@ -144,7 +144,7 @@ class App extends Component {
                   {label: "Pill 2", value: 2},
                   {label: "Pill 3", value: 3},
                 ]}
-                active={this.state.multiple_picker_active}
+                active={this.state.multiple_picker}
               />
             </div>
             <div>
