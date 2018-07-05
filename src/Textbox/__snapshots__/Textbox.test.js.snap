@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Textbox /> behaviour tests match snapshot 1`] = `
+<input
+  className="GUIMTextbox  GUIMTextboxBlue"
+  name="textbox"
+  onBlur={[Function]}
+  onChange={[Function]}
+  onFocus={[Function]}
+  style={Object {}}
+  type="text"
+  value=""
+/>
+`;

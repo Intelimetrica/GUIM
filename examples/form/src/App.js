@@ -7,9 +7,13 @@ import {
   Navbar,
   Picker,
   Slider,
-  Table
+  Table,
+  Textbox
 } from "guim";
 import logo from './logo.svg';
+
+const numberOfSteps = 21;
+const range = 0.05;
 
 class App extends Component {
   constructor(props) {
@@ -25,11 +29,13 @@ class App extends Component {
         min: 0.25,
         max: 0.75
       },
-      steps: new Array(21).fill().map((e,i) => i * 0.05)
+      steps: new Array(numberOfSteps).fill().map((e,i) => i * range),
+      textbox: ''
     };
     this.clickButton = this.clickButton.bind(this);
     this.onChangeCheckbox1 = this.onChangeCheckbox1.bind(this);
     this.onChangeCheckbox2 = this.onChangeCheckbox2.bind(this);
+    this.onChangeTextbox = this.onChangeTextbox.bind(this);
     this.onChangeSinglePicker = this.onChangeSinglePicker.bind(this);
     this.onChangeMultiplePicker = this.onChangeMultiplePicker.bind(this);
     this.onMouseLeaveRow = this.onMouseLeaveRow.bind(this);
@@ -37,11 +43,17 @@ class App extends Component {
     this.setSliderHandleChange = this.setSliderHandleChange.bind(this);
   }
 
-  onChangeCheckbox1() {
+  // The functions that are called when change directly
+  // the textbox or checkbox receive an event as param
+  onChangeTextbox(event) {
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
+  onChangeCheckbox1(_event) {
     this.setState({ checked: !this.state.checked });
   }
 
-  onChangeCheckbox2() {
+  onChangeCheckbox2(_event) {
     this.setState({ checked2: !this.state.checked2 });
   }
 
@@ -85,7 +97,7 @@ class App extends Component {
           <span>{"<Form>"}</span>
           <Form ref={ref => (this.form = ref)} >
             <div>
-              <span>Clik me to show alert</span>
+              <span>Click me to show alert</span>
               <Button
                 onClick={() => alert("blue")}
                 color="gray"
@@ -99,14 +111,25 @@ class App extends Component {
                 label="Send Form" />
             </div>
             <div>
-              <span>Clik me to change first checkbox</span>
+              <span>Click me to change first checkbox</span>
               <Button
                 onClick={this.onChangeCheckbox1}
                 color="green"
                 label="Change first checkbox" />
             </div>
             <div>
-              <span>Clik me to change this checkbox</span>
+              <span>Type something into the textbox</span>
+              <Textbox
+                color="blue"
+                name="textbox"
+                className='GUIMTextboxSize'
+                onChange={this.onChangeTextbox}
+                onBlur={() => {}}
+                onFocus={() => {}}
+                value={this.state.textbox}/>
+            </div>
+            <div>
+              <span>Click me to change this checkbox</span>
               <Checkbox
                 name="checked"
                 color="green"
@@ -114,7 +137,7 @@ class App extends Component {
                 onChange={this.onChangeCheckbox1} />
             </div>
             <div>
-              <span>Clik me to change this checkbox</span>
+              <span>Click me to change this checkbox</span>
               <Checkbox
                 name="checkbox2"
                 color="blue"

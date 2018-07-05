@@ -37,6 +37,21 @@
     border-color: color(var(--main-green) alpha(15%));
   }
 
+  --blue-theme-focus: {
+    background-color: color(var(--white));
+    border-color: color(var(--main-blue));
+  }
+
+  --gray-theme-focus: {
+    background-color: color(var(--white));
+    border-color: color(var(--dark-gray));
+  }
+
+  --green-theme-focus: {
+    background-color: color(var(--white));
+    border-color: color(var(--main-green));
+  }
+
   --navbar-dark: {
     background-color: black;
     & a {
