@@ -6,15 +6,15 @@ module.exports = {
     filename: './index.js',
     library: 'guim',
     libraryTarget: 'commonjs2',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
   },
   devtool: 'eval-source-map',
   module: {
     rules: [
       {
         test: /\.js$/,
-        exclude: ["node_modules", /.*\.spec\.js$/],
-        use: ["babel-loader"]
+        exclude: ['node_modules', /.*\.spec\.js$/],
+        use: ['babel-loader'],
       },
       {
         test: /\.scss$/,
@@ -27,13 +27,13 @@ module.exports = {
             loader: 'css-loader',
             options: {
               importLoaders: 1,
-            }
+            },
           },
           {
-            loader: 'postcss-loader'
-          }
-        ]
-      }
-    ]
-  }
+            loader: 'postcss-loader',
+          },
+        ],
+      },
+    ],
+  },
 };

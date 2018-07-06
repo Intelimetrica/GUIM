@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import "./App.css";
+import React, { Component } from 'react';
+import './App.css';
 import {
   Button,
   Checkbox,
@@ -8,8 +8,8 @@ import {
   Picker,
   Slider,
   Table,
-  Textbox
-} from "guim";
+  Textbox,
+} from 'guim';
 import logo from './logo.svg';
 
 const numberOfSteps = 21;
@@ -27,10 +27,10 @@ class App extends Component {
       highlighted: -1,
       selected_range: {
         min: 0.25,
-        max: 0.75
+        max: 0.75,
       },
-      steps: new Array(numberOfSteps).fill().map((e,i) => i * range),
-      textbox: ''
+      steps: new Array(numberOfSteps).fill().map((e, i) => i * range),
+      textbox: '',
     };
     this.clickButton = this.clickButton.bind(this);
     this.onChangeCheckbox1 = this.onChangeCheckbox1.bind(this);
@@ -62,8 +62,8 @@ class App extends Component {
   }
 
   onChangeMultiplePicker(label, value) {
-    let actives = this.state.multiple_picker;
-    if(actives.indexOf(value) !== -1) {
+    const actives = this.state.multiple_picker;
+    if (actives.indexOf(value) !== -1) {
       actives.splice(actives.indexOf(value), 1);
     } else {
       actives.push(value);
@@ -92,41 +92,45 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar />
-        <div style={{height: "15px"}}></div>
+        <div style={{ height: '15px' }} />
         <div className="form">
-          <span>{"<Form>"}</span>
+          <span>{'<Form>'}</span>
           <Form ref={ref => (this.form = ref)} >
             <div>
               <span>Click me to show alert</span>
               <Button
-                onClick={() => alert("blue")}
+                onClick={() => alert('blue')}
                 color="gray"
-                label="Show alert" />
+                label="Show alert"
+              />
             </div>
             <div>
               <span>Click me to SEND Form</span>
               <Button
                 onClick={this.clickButton}
                 color="gray"
-                label="Send Form" />
+                label="Send Form"
+              />
             </div>
             <div>
               <span>Click me to change first checkbox</span>
               <Button
                 onClick={this.onChangeCheckbox1}
                 color="green"
-                label="Change first checkbox" />
+                label="Change first checkbox"
+              />
             </div>
             <div>
               <span>Type something into the textbox</span>
               <Textbox
                 color="blue"
                 name="textbox"
-                className='GUIMTextboxSize'
+                className="GUIMTextboxSize"
                 onChange={this.onChangeTextbox}
                 onBlur={() => {}}
                 onFocus={() => {}}
-                value={this.state.textbox}/>
+                value={this.state.textbox}
+              />
             </div>
             <div>
               <span>Click me to change this checkbox</span>
@@ -134,7 +138,8 @@ class App extends Component {
                 name="checked"
                 color="green"
                 checked={this.state.checked}
-                onChange={this.onChangeCheckbox1} />
+                onChange={this.onChangeCheckbox1}
+              />
             </div>
             <div>
               <span>Click me to change this checkbox</span>
@@ -142,7 +147,8 @@ class App extends Component {
                 name="checkbox2"
                 color="blue"
                 checked={this.state.checked2}
-                onChange={this.onChangeCheckbox2} />
+                onChange={this.onChangeCheckbox2}
+              />
             </div>
             <div>
               <span>A single picker</span>
@@ -151,9 +157,9 @@ class App extends Component {
                 onChange={this.onChangeSinglePicker}
                 color="gray"
                 options={[
-                  {label: <img src={logo} width="30px"/>, value: 'react'},
-                  {label: "Pill 2", value: 2},
-                  {label: "Pill 3", value: 3},
+                  { label: <img src={logo} width="30px" />, value: 'react' },
+                  { label: 'Pill 2', value: 2 },
+                  { label: 'Pill 3', value: 3 },
                 ]}
                 active={this.state.single_picker}
               />
@@ -165,9 +171,9 @@ class App extends Component {
                 onChange={this.onChangeMultiplePicker}
                 color="gray"
                 options={[
-                  {label: <img src={logo} width="30px"/>, value: 'react'},
-                  {label: "Pill 2", value: 2},
-                  {label: "Pill 3", value: 3},
+                  { label: <img src={logo} width="30px" />, value: 'react' },
+                  { label: 'Pill 2', value: 2 },
+                  { label: 'Pill 3', value: 3 },
                 ]}
                 active={this.state.multiple_picker}
               />
@@ -181,15 +187,16 @@ class App extends Component {
               />
             </div>
           </Form>
-          <span>{"</Form>"}</span>
+          <span>{'</Form>'}</span>
         </div>
         <div className="outside-form">
           <div>
-            <span>{"I'm outside the form and can change form data (imagine using this with url)"}</span>
+            <span>I'm outside the form and can change form data (imagine using this with url)</span>
             <Button
               onClick={this.onChangeCheckbox2}
               color="blue"
-              label="Change second checkbox" />
+              label="Change second checkbox"
+            />
           </div>
           <div>
             <div>data to send: </div>

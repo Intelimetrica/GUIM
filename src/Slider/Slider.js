@@ -1,14 +1,14 @@
-import React, { Component, Fragment } from "react";
-import "./styles.scss";
+import React, { Component, Fragment } from 'react';
+import './styles.scss';
 
-export const Bar = props => {
-  let position = "left";
-  if (props.inner) position = "inner";
-  if (props.right) position = "right";
+export const Bar = (props) => {
+  let position = 'left';
+  if (props.inner) position = 'inner';
+  if (props.right) position = 'right';
 
   return (
     <div
-      style={{width: props.width}}
+      style={{ width: props.width }}
       className={`bar ${position}`}
     />
   );
@@ -17,19 +17,21 @@ export const Bar = props => {
 export const Handler = props => (
   <Fragment>
     <div
-      draggable={true}
-      className='handler'
-      style={{left: props.position}}
-      onDrag={(e) => props.onDrag(e.clientX, props.min)}
-      onDragStart={e => { //this is to hide the element been dragged
-        let a = document.createElement('div');
-        document.body.appendChild(a)
-        e.dataTransfer.setDragImage(a,0,0);
+      draggable
+      className="handler"
+      style={{ left: props.position }}
+      onDrag={e => props.onDrag(e.clientX, props.min)}
+      onDragStart={(e) => { // this is to hide the element been dragged
+        const a = document.createElement('div');
+        document.body.appendChild(a);
+        e.dataTransfer.setDragImage(a, 0, 0);
       }}
     />
     <span
-      style={{left: props.position}}
-      className='handler-label'>{props.formatter(props.value)}</span>
+      style={{ left: props.position }}
+      className="handler-label"
+    >{props.formatter(props.value)}
+    </span>
   </Fragment>
 );
 
@@ -46,14 +48,12 @@ const setPointInsideRange = (current, lower, upper) => {
   return new_position;
 };
 
-const hasCarriage = (position, is_min, {min, max}) => {
+const hasCarriage = (position, is_min, { min, max }) => {
   if (is_min) {
     if (position >= max) return true;
-  } else {
-    if (position <= min) return true
-  }
+  } else if (position <= min) return true;
   return false;
-}
+};
 
 class Slider extends Component {
   constructor(props) {
@@ -62,7 +62,7 @@ class Slider extends Component {
       width: 10,
       start: 0,
       end: 10,
-      steps: this.props.steps.map(e => e.toFixed(this.props.floating_points))
+      steps: this.props.steps.map(e => e.toFixed(this.props.floating_points)),
     };
 
     this._onDrag = this._onDrag.bind(this);
@@ -77,17 +77,17 @@ class Slider extends Component {
     let new_position = setPointInsideRange(clientX - start, 0, width);
 
     // Scale pixels into a point inside range
-    new_position = ((range.max * new_position)/width);
+    new_position = ((range.max * new_position) / width);
 
     // Carriage - min cant be bigger than max, neither the other way
-    const carriage = hasCarriage(new_position, is_min, selected_range)
+    const carriage = hasCarriage(new_position, is_min, selected_range);
     new_position = new_position.toFixed(floating_points);
 
     // create new range
-    let new_range = {...selected_range};
-    new_range[(is_min) ? "min" : "max"] = new_position;
+    const new_range = { ...selected_range };
+    new_range[(is_min) ? 'min' : 'max'] = new_position;
     if (carriage) { // add carriage to new range
-      new_range[(is_min) ? "max" : "min"] = new_position;
+      new_range[(is_min) ? 'max' : 'min'] = new_position;
     }
 
     if (steps.includes(new_position)) {
@@ -97,21 +97,23 @@ class Slider extends Component {
 
   componentDidMount() {
     this.slider = document.getElementById(this.props.id);
-    const {left, right, width} = this.slider.getBoundingClientRect();
+    const { left, right, width } = this.slider.getBoundingClientRect();
 
     this.setState({ width, start: left, end: right });
   }
 
-  render () {
-    const { range, id, steps, label_formatter } = this.props;
+  render() {
+    const {
+      range, id, steps, label_formatter,
+    } = this.props;
     const { min, max } = this.props.selected_range;
 
-    const left_bar_width = (min * this.state.width)/range.max;
-    const inner_bar_width = ((max - min) * this.state.width)/range.max;
-    const right_bar_width = ((range.max - max) * this.state.width)/range.max;
+    const left_bar_width = (min * this.state.width) / range.max;
+    const inner_bar_width = ((max - min) * this.state.width) / range.max;
+    const right_bar_width = ((range.max - max) * this.state.width) / range.max;
 
     return (
-      <div id={id} className={`GUIMSlider ${this.props.className} ${themes[this.props.theme] || themes["green"]}`}>
+      <div id={id} className={`GUIMSlider ${this.props.className} ${themes[this.props.theme] || themes.green}`}>
         <Bar width={left_bar_width} left />
         <Bar width={inner_bar_width} inner />
         <Bar width={right_bar_width} right />
@@ -120,42 +122,44 @@ class Slider extends Component {
           position={left_bar_width - 5}
           value={min}
           formatter={label_formatter}
-          min />
+          min
+        />
         <Handler
           onDrag={this._onDrag}
           position={left_bar_width + inner_bar_width - 5}
           value={max}
           formatter={label_formatter}
-          max />
+          max
+        />
       </div>
     );
   }
 }
 
 Slider.defaultProps = {
-  id: "slider",
-  name: "slider",
-  onChange: (new_range) => console.log("onChange", new_range),
+  id: 'slider',
+  name: 'slider',
+  onChange: new_range => console.log('onChange', new_range),
   range: {
     min: 0,
-    max: 1
+    max: 1,
   },
   selected_range: {
     min: 0.2,
-    max: 0.6
+    max: 0.6,
   },
-  label_formatter: (e) => `${e}%`,
-  steps: [0,0.2, 0.4,0.6,0.8,1],
+  label_formatter: e => `${e}%`,
+  steps: [0, 0.2, 0.4, 0.6, 0.8, 1],
   floating_points: 2,
-  guimInput: "slider",
-  className: "",
-  theme: "blue"
+  guimInput: 'slider',
+  className: '',
+  theme: 'blue',
 };
 
 const themes = {
-  blue:  "GUIMSliderBlue",
-  gray:  "GUIMSliderGray",
-  green: "GUIMSliderGreen"
+  blue: 'GUIMSliderBlue',
+  gray: 'GUIMSliderGray',
+  green: 'GUIMSliderGreen',
 };
 
 export default Slider;

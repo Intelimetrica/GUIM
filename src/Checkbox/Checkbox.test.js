@@ -16,14 +16,13 @@ describe('<Checkbox />', () => {
       () => tree = component.toJSON();
 
     beforeEach(() => {
-      component = renderer.create(
-        <Checkbox
-          onChange={_e => checked = !checked}
-          checked={checked}
-        />);
+      component = renderer.create(<Checkbox
+        onChange={_e => checked = !checked}
+        checked={checked}
+      />);
       reRender = makeRenderer(component);
       reRender();
-    })
+    });
 
     it('match snapshot', () => {
       expect(tree).toMatchSnapshot();
@@ -49,22 +48,19 @@ describe('<Checkbox />', () => {
     let component;
 
     beforeEach(() => {
-      component = shallow(
-        <Checkbox
-          name='test_checkbox'
-          onChange={_e => checked = !checked}
-          checked={checked}
-        />
-      );
-    })
+      component = shallow(<Checkbox
+        name="test_checkbox"
+        onChange={_e => checked = !checked}
+        checked={checked}
+      />);
+    });
 
     it('renders an input', () => {
-      expect(component.name()).toBe("input");
+      expect(component.name()).toBe('input');
     });
 
     it('name is test_checkbox', () => {
-      expect(component.prop('name')).toBe("test_checkbox");
+      expect(component.prop('name')).toBe('test_checkbox');
     });
   });
-
 });

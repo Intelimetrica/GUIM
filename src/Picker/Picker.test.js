@@ -16,19 +16,18 @@ describe('<Picker />', () => {
       () => tree = component.toJSON();
 
     beforeEach(() => {
-      component = renderer.create(
-        <Picker
-          onChange={(label, value) => {active = [value]}}
-          options={[
-            {label: 'Uno', value: 1},
-            {label: 'Dos', value: 2},
-            {label: 'Tres', value: 3},
+      component = renderer.create(<Picker
+        onChange={(label, value) => { active = [value]; }}
+        options={[
+            { label: 'Uno', value: 1 },
+            { label: 'Dos', value: 2 },
+            { label: 'Tres', value: 3 },
           ]}
-          active={active}
-        />);
+        active={active}
+      />);
       reRender = makeRenderer(component);
       reRender();
-    })
+    });
 
     it('match snapshot', () => {
       expect(tree).toMatchSnapshot();
@@ -47,7 +46,7 @@ describe('<Picker />', () => {
   });
 
   describe('tests for multiple behaviour', () => {
-    let active = [1];
+    const active = [1];
     let component;
     let tree;
     let reRender;
@@ -55,25 +54,24 @@ describe('<Picker />', () => {
       () => tree = component.toJSON();
 
     beforeEach(() => {
-      component = renderer.create(
-        <Picker
-          onChange={(label, value) => {
-            if(active.indexOf(value) !== -1) {
-              active.splice(active.indexOf(value),1);
+      component = renderer.create(<Picker
+        onChange={(label, value) => {
+            if (active.indexOf(value) !== -1) {
+              active.splice(active.indexOf(value), 1);
             } else {
               active.push(value);
             }
           }}
-          options={[
-            {label: 'Uno', value: 1},
-            {label: 'Dos', value: 2},
-            {label: 'Tres', value: 3},
+        options={[
+            { label: 'Uno', value: 1 },
+            { label: 'Dos', value: 2 },
+            { label: 'Tres', value: 3 },
           ]}
-          active={active}
-        />);
+        active={active}
+      />);
       reRender = makeRenderer(component);
       reRender();
-    })
+    });
 
     it('match snapshot', () => {
       expect(tree).toMatchSnapshot();
@@ -83,7 +81,7 @@ describe('<Picker />', () => {
     it('selects the right element', () => {
       tree.children[1].props.onClick();
       reRender();
-      expect(active).toEqual([1,2]);
+      expect(active).toEqual([1, 2]);
     });
 
     it('unselects the first element', () => {
@@ -96,18 +94,17 @@ describe('<Picker />', () => {
   describe('dom tests', () => {
     let active = [1];
     let component;
-    let update = () => {
-      component = mount(
-        <Picker
-          onChange={(label, value) => {active = [value]}}
-          options={[
-            {label: 'Uno', value: 1},
-            {label: 'Dos', value: 2},
-            {label: 'Tres', value: 3},
+    const update = () => {
+      component = mount(<Picker
+        onChange={(label, value) => { active = [value]; }}
+        options={[
+            { label: 'Uno', value: 1 },
+            { label: 'Dos', value: 2 },
+            { label: 'Tres', value: 3 },
           ]}
-          active={active}
-        />);
-    }
+        active={active}
+      />);
+    };
     beforeEach(() => {
       update();
     });

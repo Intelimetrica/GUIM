@@ -1,11 +1,12 @@
-import React from "react";
-import "./styles.scss";
+import React from 'react';
+import './styles.scss';
 
 const Pill = props => (
   <a
     onClick={props.select}
-    className={props.active ? "active" : ""}
-    key={props.value}>
+    className={props.active ? 'active' : ''}
+    key={props.value}
+  >
     {props.label}
   </a>
 );
@@ -13,38 +14,38 @@ const Pill = props => (
 const Picker = props => (
   <div
     name={props.name}
-    className={`GUIMPicker ${props.className} ${themes[props.color] || themes["blue"]}`} >
+    className={`GUIMPicker ${props.className} ${themes[props.color] || themes.blue}`}
+  >
     {
       props.options.map(e =>
-        <Pill
+        (<Pill
           key={e.value}
           select={props.onChange.bind(null, e.label, e.value)}
-          active={props.active.indexOf(e.value) !== -1 }
+          active={props.active.indexOf(e.value) !== -1}
           value={e.value}
           label={e.label}
-        />
-      )
+        />))
     }
   </div>
-)
+);
 
 Picker.defaultProps = {
-  name: "picker",
+  name: 'picker',
   onChange: (label, value) => console.log(`Picker:active => label: ${label}, value: ${value}`),
   options: [
-    {label: "Uno", value: 1},
-    {label: "Dos", value: 2}
+    { label: 'Uno', value: 1 },
+    { label: 'Dos', value: 2 },
   ],
-  className: "",
-  color: "blue",
-  guimInput: "picker",
-  active: [1]
+  className: '',
+  color: 'blue',
+  guimInput: 'picker',
+  active: [1],
 };
 
 const themes = {
-  blue: "GUIMPickerBlue",
-  gray: "GUIMPickerGray",
-  green: "GUIMPickerGreen"
+  blue: 'GUIMPickerBlue',
+  gray: 'GUIMPickerGray',
+  green: 'GUIMPickerGreen',
 };
 
 export default Picker;

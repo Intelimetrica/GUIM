@@ -16,11 +16,10 @@ describe('<Textbox />', () => {
       () => tree = component.toJSON();
 
     beforeEach(() => {
-      component = renderer.create(
-        <Textbox
-          onChange={(event) => {text = event} }
-          value={text} />
-      );
+      component = renderer.create(<Textbox
+        onChange={(event) => { text = event; }}
+        value={text}
+      />);
       reRender = makeRenderer(component);
       reRender();
     });
@@ -41,24 +40,23 @@ describe('<Textbox />', () => {
   });
 
   describe('dom tests', () => {
-    const event = {target: {name: "test_textbox", value: "test"}};
+    const event = { target: { name: 'test_textbox', value: 'test' } };
     let text = '';
     let component;
-    let update = () => {
-      component = shallow(
-        <Textbox
-          name='test_textbox'
-          onChange={(event) => {text = event.target.value} }
-          value={text} />
-      );
-    }
+    const update = () => {
+      component = shallow(<Textbox
+        name="test_textbox"
+        onChange={(event) => { text = event.target.value; }}
+        value={text}
+      />);
+    };
 
     beforeEach(() => {
       update();
     });
 
     it('renders an input', () => {
-      expect(component.name()).toBe("input");
+      expect(component.name()).toBe('input');
     });
 
     it('name is test_textbox', () => {

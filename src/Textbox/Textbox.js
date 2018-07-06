@@ -1,9 +1,9 @@
-import React from "react";
-import "./styles.scss";
+import React from 'react';
+import './styles.scss';
 
 const Textbox = props => (
   <input
-    className={`GUIMTextbox ${props.className} ${themes[props.color] || themes["blue"]}`}
+    className={`GUIMTextbox ${props.className} ${themes[props.color] || themes.blue}`}
     style={props.styles}
     type="text"
     name={props.name}
@@ -15,21 +15,21 @@ const Textbox = props => (
 );
 
 Textbox.defaultProps = {
-  name: "textbox",
-  onChange: () => console.log("Textbox onChange()"),
-  onBlur: () => console.log("Textbox onBlur()"),
-  onFocus: () => console.log("Textbox onFocus()"),
-  value: "",
+  name: 'textbox',
+  onChange: () => console.log('Textbox onChange()'),
+  onBlur: () => console.log('Textbox onBlur()'),
+  onFocus: () => console.log('Textbox onFocus()'),
+  value: '',
   styles: {},
-  className: "",
-  color: "blue",
-  guimInput: "textbox"
+  className: '',
+  color: 'blue',
+  guimInput: 'textbox',
 };
 
 const themes = {
-  blue: "GUIMTextboxBlue",
-  gray: "GUIMTextboxGray",
-  green: "GUIMTextboxGreen"
+  blue: 'GUIMTextboxBlue',
+  gray: 'GUIMTextboxGray',
+  green: 'GUIMTextboxGreen',
 };
 
 export default Textbox;

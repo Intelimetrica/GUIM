@@ -8,12 +8,12 @@ import Table from './Table';
 import Textbox from './Textbox';
 
 module.exports = {
-  Button: Button,
-  Checkbox: Checkbox,
-  Form: Form,
-  Navbar: Navbar,
-  Picker: Picker,
-  Slider: Slider,
-  Table: Table,
-  Textbox: Textbox
+  Button,
+  Checkbox,
+  Form,
+  Navbar,
+  Picker,
+  Slider,
+  Table,
+  Textbox,
 };

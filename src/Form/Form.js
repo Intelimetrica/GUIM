@@ -1,27 +1,27 @@
 import React, {
   Component,
   Children,
-  isValidElement
-} from "react";
+  isValidElement,
+} from 'react';
 
-const extractContent = child => {
-  let response = {};
+const extractContent = (child) => {
+  const response = {};
   switch (child.props.guimInput) {
-    case "checkbox":
+    case 'checkbox':
       response[child.props.name] = child.props.checked;
       break;
-    case "picker":
+    case 'picker':
       response[child.props.name] = [...child.props.active];
       break;
-    case "slider":
+    case 'slider':
       response[child.props.name] = child.props.selected_range;
       break;
-    case "textbox":
+    case 'textbox':
       response[child.props.name] = child.props.value;
       break;
   }
   return response;
-}
+};
 
 
 class Form extends Component {
@@ -33,16 +33,16 @@ class Form extends Component {
   grabFormData() {
     let formData = {};
 
-    const traverseChildren = childrenTraverse => {
-      Children.forEach(childrenTraverse, childTraverse => {
+    const traverseChildren = (childrenTraverse) => {
+      Children.forEach(childrenTraverse, (childTraverse) => {
         if (isValidElement(childTraverse)) {
           traverseChildren(childTraverse.props.children);
-          if (childTraverse.props.hasOwnProperty("guimInput")) {
-            formData = {...formData, ...extractContent(childTraverse)};
+          if (childTraverse.props.hasOwnProperty('guimInput')) {
+            formData = { ...formData, ...extractContent(childTraverse) };
           }
         }
       });
-    }
+    };
 
     traverseChildren(this.props.children);
     return formData;
@@ -53,7 +53,8 @@ class Form extends Component {
       <div
         className={this.props.className}
         style={this.props.styles}
-        name={this.props.name} >
+        name={this.props.name}
+      >
         {this.props.children}
       </div>
     );
@@ -61,10 +62,10 @@ class Form extends Component {
 }
 
 Form.defaultProps = {
-  className: "GUIMForm",
+  className: 'GUIMForm',
   styles: {},
-  name: "form",
-  guimInput: "form"
-}
+  name: 'form',
+  guimInput: 'form',
+};
 
 export default Form;

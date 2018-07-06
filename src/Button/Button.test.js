@@ -16,11 +16,10 @@ describe('<Button />', () => {
 
 
   beforeEach(() => {
-    component = renderer.create(
-    <Button
-      color='gray'
+    component = renderer.create(<Button
+      color="gray"
       onClick={() => clicked = true}
-    />)
+    />);
     reRender = makeRenderer(component);
     reRender();
   });
@@ -32,5 +31,4 @@ describe('<Button />', () => {
     reRender();
     expect(clicked).toBe(true);
   });
-
 });
