@@ -46,7 +46,7 @@ export class StickyHeader extends Component {
     } : {}
     return (
       <div id="ticky" style={style}>
-        <table className={`GUIMTable`}>
+        <table className={`GUIMTable ${this.props.className}`}>
           <thead>
             <tr className={`theader`} >
               { this.props.headers.map((el, index) => <th key={`header-${index}`}>{el}</th>) }
@@ -61,7 +61,12 @@ const Table = props => {
   const { body, headers } = props;
   const head_id = `head-${Math.round(Math.random() * 10000)}`;
   const sticky_header = (props.sticky_header.active) ? (
-    <StickyHeader id={head_id} headers={headers} top={props.sticky_header.top} />
+    <StickyHeader
+      id={head_id}
+      headers={headers}
+      top={props.sticky_header.top}
+      className={props.className}
+    />
   ) : '';
 
   return (
