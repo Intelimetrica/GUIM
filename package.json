@@ -10,7 +10,7 @@
   },
   "scripts": {
     "test": "jest",
-    "build": "webpack",
+    "build": "npm ci && webpack",
     "watch": "webpack --watch"
   },
   "repository": {
