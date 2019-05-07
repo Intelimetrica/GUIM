@@ -24,6 +24,7 @@ describe('<Table />', () => {
         <Table
           striped={striped}
           sticky_header={ticky}
+          head_id="head_test"
           headers={[
             "Product",
             "Product Name",

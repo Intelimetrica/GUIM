@@ -58,8 +58,7 @@ export class StickyHeader extends Component {
   }
 }
 const Table = props => {
-  const { body, headers } = props;
-  const head_id = `head-${Math.round(Math.random() * 10000)}`;
+  const { body, headers, head_id } = props;
   const sticky_header = (props.sticky_header.active) ? (
     <StickyHeader
       id={head_id}
@@ -102,6 +101,7 @@ Table.defaultProps = {
     active: false,
     top: 0
   },
+  head_id: `head-${Math.round(Math.random() * 10000)}`,
   headers: ["First Name","Last Name","Email", "Actions"],
   body: [
     ["John","Doe","john@doe.com", "View - Edit"],
