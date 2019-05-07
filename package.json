@@ -1,6 +1,6 @@
 {
   "name": "guim",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "React Components for Intelimetrica",
   "main": "./dist/index.js",
   "directories": {
@@ -9,8 +9,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "jest",
-    "build": "npm ci && webpack",
+    "test": "jest --watchAll",
+    "build": "webpack",
     "watch": "webpack --watch"
   },
   "repository": {
