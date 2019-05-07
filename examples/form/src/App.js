@@ -151,7 +151,7 @@ class App extends Component {
                 onChange={this.onChangeSinglePicker}
                 color="gray"
                 options={[
-                  {label: <img src={logo} width="30px"/>, value: 'react'},
+                  {label: <img src={logo} width="30px" alt="logo" />, value: 'react'},
                   {label: "Pill 2", value: 2},
                   {label: "Pill 3", value: 3},
                 ]}
@@ -165,7 +165,7 @@ class App extends Component {
                 onChange={this.onChangeMultiplePicker}
                 color="gray"
                 options={[
-                  {label: <img src={logo} width="30px"/>, value: 'react'},
+                  {label: <img src={logo} width="30px" alt="logo" />, value: 'react'},
                   {label: "Pill 2", value: 2},
                   {label: "Pill 3", value: 3},
                 ]}
