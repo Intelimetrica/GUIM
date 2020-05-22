@@ -20,11 +20,24 @@ class Dropdown extends Component {
   constructor(props) {
     super(props);
     this.activate = this.activate.bind(this);
-    this.state = { dd_className: "dropdown"};
+    this.openSubmenu = this.openSubmenu.bind(this);
+    
+    this.state = { 
+      dd_className: "dropdown",
+      dd_submodule_classname: "submodule_dropdown hide"
+    };
   }
  
   activate(classes) {
     this.setState({dd_className: classes.join(" ")});
+  }
+
+  openSubmenu(open, div) {
+    if (open) {
+      document.querySelector(`.${div}`).classList.remove('hide');
+    } else {
+      document.querySelector(`.${div}`).classList.add('hide');
+    }
   }
 
   render() {
@@ -33,10 +46,27 @@ class Dropdown extends Component {
       <li className={state.dd_className}
         onMouseEnter={this.activate.bind(null, ["dropdown", "active"])}
         onMouseLeave={this.activate.bind(null, ["dropdown"])} >
-        <a href="#">{props.name}</a>
+        <a href={props.to}>{props.name}</a>
         <div className="dd-container">
           <ul className="dd-list">
-            {props.submodules.map((submod) => <Link className="dd-element" key={submod.name} {...submod}/>)}
+            {props.submodules.map((submod, i) => {
+              if (!!submod.submodules) {
+                return (
+                  <li className='sub-dropdown' key={submod.name} 
+                    onMouseLeave={() => this.openSubmenu(false, `${submod.name}_${i}`)} 
+                    onMouseEnter={() => this.openSubmenu(true, `${submod.name}_${i}`)}>
+                    <a href={submod.to}>{submod.name}....</a>
+                    <ul className={`${submod.name}_${i} sub-list hide`}>
+                      {submod.submodules.map((subsubmodule) => {
+                        return <Link className="navbar-element" key={subsubmodule.name} {...subsubmodule}/>
+                      })}
+                    </ul> 
+                  </li>
+                );
+              } else {
+                return <Link className="dd-element" key={submod.name} {...submod}/>
+              }
+            })}
           </ul>
         </div>
       </li>
@@ -122,8 +152,21 @@ Navbar.defaultProps = {
     },
     {
       name: "About us",
-      to: "?about-us=guim",
-      permission: "default"
+      to: "#",
+      permission: "default",
+      submodules: [
+        {
+          name: "History",
+          to: "https://github.com/Intelimetrica/GUIM",
+          permission: "default"
+        },
+        {
+          name: "Policy",
+          to: "http://intelimetrica.com",
+          permission: "default",
+          mobile: true
+        }
+      ]
     },
     {
       name: "Contact",
@@ -133,14 +176,34 @@ Navbar.defaultProps = {
       submodules: [
         {
           name: "GUIMDevTeam",
-          to: "https://github.com/Intelimetrica/GUIM",
-          permission: "default"
+          to: "#",
+          permission: "default",
+          submodules: [
+            {
+              name: "Github IM",
+              to: "https://github.com/Intelimetrica/GUIM",
+              permission: "default"
+            }
+          ]
         },
         {
           name: "Intelimetrica",
-          to: "http://intelimetrica.com",
+          to: "#",
           permission: "default",
-          mobile: true
+          mobile: true,
+          submodules: [
+            {
+              name: "Submodule1",
+              to: "https://github.com/Intelimetrica/GUIM",
+              permission: "default"
+            },
+            {
+              name: "Submodule2",
+              to: "http://intelimetrica.com",
+              permission: "default",
+              mobile: true
+            }
+          ]
         }
       ]
     }

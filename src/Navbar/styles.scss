@@ -98,7 +98,22 @@
       display: block;
     }
   }
+  & .hide{
+    display: none;
+  }
+  & .sub-dropdown{
+    display: block;
+    padding: 10px;
+    width: 90%;
+    & li{
+      margin: 10px 0px;
+    }
+  }
+  & .sub-list {
+    padding: 10px 0;
+  }
 }
+
 
 .GUIMNavigation.GUIMNavbarDark {
   @apply --navbar-dark;
