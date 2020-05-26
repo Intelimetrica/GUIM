@@ -61,6 +61,7 @@
     display: none;
   }
   & .dd-list {
+    background-color: white;
     top: 23px;
     right: 0px;
     display:none;
@@ -104,7 +105,6 @@
   & .sub-dropdown{
     display: block;
     padding: 10px;
-    width: 90%;
     & li{
       margin: 10px 0px;
     }
