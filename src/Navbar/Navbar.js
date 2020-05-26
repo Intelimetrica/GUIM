@@ -55,7 +55,7 @@ class Dropdown extends Component {
                   <li className='sub-dropdown' key={submod.name} 
                     onMouseLeave={() => this.openSubmenu(false, `${submod.name}_${i}`)} 
                     onMouseEnter={() => this.openSubmenu(true, `${submod.name}_${i}`)}>
-                    <a href={submod.to}>{submod.name}....</a>
+                    <a href={submod.to}>{submod.name}</a>
                     <ul className={`${submod.name}_${i} sub-list hide`}>
                       {submod.submodules.map((subsubmodule) => {
                         return <Link className="navbar-element" key={subsubmodule.name} {...subsubmodule}/>
