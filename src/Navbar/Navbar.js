@@ -53,10 +53,10 @@ class Dropdown extends Component {
               if (!!submod.submodules) {
                 return (
                   <li className='sub-dropdown' key={submod.name} 
-                    onMouseLeave={() => this.openSubmenu(false, `${submod.name}_${i}`)} 
-                    onMouseEnter={() => this.openSubmenu(true, `${submod.name}_${i}`)}>
+                    onMouseLeave={() => this.openSubmenu(false, `${submod.name}_${submod.id}`)} 
+                    onMouseEnter={() => this.openSubmenu(true, `${submod.name}_${submod.id}`)}>
                     <a href={submod.to}>{submod.name}</a>
-                    <ul className={`${submod.name}_${i} sub-list hide`}>
+                    <ul className={`${submod.name}_${submod.id} sub-list hide`}>
                       {submod.submodules.map((subsubmodule) => {
                         return <Link className="navbar-element" key={subsubmodule.name} {...subsubmodule}/>
                       })}
@@ -78,11 +78,13 @@ Dropdown.defaultProps = {
   name: "Dropdown",
   submodules: [
     {
+      id: 1,
       name: "GUIMDevTeam",
       to: "https://github.com/Intelimetrica/GUIM",
       permission: "default"
     },
     {
+      id: 2,
       name: "Intelimetrica",
       to: "http://intelimetrica.com",
       permission: "default"
@@ -156,6 +158,7 @@ Navbar.defaultProps = {
       permission: "default",
       submodules: [
         {
+          id: 1,
           name: "History",
           to: "https://github.com/Intelimetrica/GUIM",
           permission: "default"
@@ -175,11 +178,13 @@ Navbar.defaultProps = {
       mobile: false,
       submodules: [
         {
+          id: 2,
           name: "GUIMDevTeam",
           to: "#",
           permission: "default",
           submodules: [
             {
+              id: 3,
               name: "Github IM",
               to: "https://github.com/Intelimetrica/GUIM",
               permission: "default"
@@ -193,6 +198,7 @@ Navbar.defaultProps = {
           mobile: true,
           submodules: [
             {
+              id: 4,
               name: "Submodule1",
               to: "https://github.com/Intelimetrica/GUIM",
               permission: "default"
