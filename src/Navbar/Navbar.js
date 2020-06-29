@@ -21,13 +21,13 @@ class Dropdown extends Component {
     super(props);
     this.activate = this.activate.bind(this);
     this.openSubmenu = this.openSubmenu.bind(this);
-    
-    this.state = { 
+
+    this.state = {
       dd_className: "dropdown",
       dd_submodule_classname: "submodule_dropdown hide"
     };
   }
- 
+
   activate(classes) {
     this.setState({dd_className: classes.join(" ")});
   }
@@ -52,6 +52,7 @@ class Dropdown extends Component {
             {props.submodules.map((submod, i) => {
               if (!!submod.submodules) {
                 return (
+
                   <li className='sub-dropdown' key={submod.name} 
                     onMouseLeave={() => this.openSubmenu(false, `${submod.name}_${submod.id}`)} 
                     onMouseEnter={() => this.openSubmenu(true, `${submod.name}_${submod.id}`)}>
@@ -60,7 +61,7 @@ class Dropdown extends Component {
                       {submod.submodules.map((subsubmodule) => {
                         return <Link className="navbar-element" key={subsubmodule.name} {...subsubmodule}/>
                       })}
-                    </ul> 
+                    </ul>
                   </li>
                 );
               } else {
