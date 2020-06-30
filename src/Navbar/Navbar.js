@@ -1,28 +1,38 @@
 import React, { Component } from 'react'; import "./styles.scss";
 
 const Link = (props) => {
-  return <li className={`${props.className || ""}`}>
-    <a href={props.to}
-      target={props.target}>
-      {props.name}
-    </a>
-  </li>;
+  return (
+    <li
+      className={`${props.className || ""}`}
+      onMouseEnter={() => props.onMouseEnter()}
+      onMouseLeave={() => props.onMouseLeave()}
+      key={props.id}>
+      <a href={props.to}
+        target={props.target}>
+        {props.name}
+      </a>
+      {props.content}
+    </li>
+  );
 };
 
 Link.defaultProps = {
   className: "",
   to: "#",
   target: "_self",
-  name: "Link"
+  name: "Link",
+  onMouseEnter: () => {},
+  onMouseLeave: () => {},
+  id: "",
+  content: ""
 };
-
 
 class Dropdown extends Component {
   constructor(props) {
     super(props);
     this.activate = this.activate.bind(this);
     this.openSubmenu = this.openSubmenu.bind(this);
-    this.state = { 
+    this.state = {
       dd_className: "dropdown",
       dd_submodule_classname: "submodule_dropdown hide"
     };
@@ -42,33 +52,50 @@ class Dropdown extends Component {
   render() {
     let {state, props} = this;
     return (
-      <li className={state.dd_className}
+      <Link
+        key={props.name}
+        id={props.name}
+        className={state.dd_className}
         onMouseEnter={this.activate.bind(null, ["dropdown", "active"])}
-        onMouseLeave={this.activate.bind(null, ["dropdown"])} >
-        <a href={props.to}>{props.name}</a>
-        <div className="dd-container">
-          <ul className="dd-list">
-            {props.submodules.map((submod, i) => {
-              if (!!submod.submodules) {
-                return (
-                  <li className='sub-dropdown' key={`${submod.name}_${props.id}`} 
-                    onMouseLeave={() => this.openSubmenu(false, `${submod.name}_${props.id}`)} 
-                    onMouseEnter={() => this.openSubmenu(true, `${submod.name}_${props.id}`)}>
-                    <a href={submod.to}>{submod.name}</a>
-                    <ul className={`${submod.name}_${props.id} sub-list hide`}>
-                      {submod.submodules.map((subsubmodule, j) => {
-                        return <Link className="navbar-element" key={`${subsubmodule.name}_${props.id}`} {...subsubmodule}/>
-                      })}
-                    </ul> 
-                  </li>
-                );
-              } else {
-                return <Link className="dd-element" key={submod.name} {...submod}/>
-              }
-            })}
-          </ul>
-        </div>
-      </li>
+        onMouseLeave={this.activate.bind(null, ["dropdown"])}
+        to={props.to}
+        name={props.name}
+        content={(
+          <div className="dd-container">
+            <ul className="dd-list">
+              {props.submodules.map((submod, i) => {
+                if (!!submod.submodules) {
+                  return (
+                    <Link
+                      key={`${submod.name}_${i}`}
+                      className={`sub-dropdown`}
+                      id={`${submod.name}_${props.id}`}
+                      to={submod.to}
+                      name={submod.name}
+                      onMouseLeave={() => this.openSubmenu(false, `${submod.name}_${props.id}`)}
+                      onMouseEnter={() => this.openSubmenu(true, `${submod.name}_${props.id}`)}
+                      content={(
+                        <ul className={`${submod.name}_${props.id} sub-list hide`}>
+                          {submod.submodules.map((subsubmodule) => {
+                            return (
+                              <Link
+                                className="navbar-element"
+                                key={`${subsubmodule.name}_${props.id}`} {...subsubmodule}
+                              />
+                            );
+                          })}
+                        </ul>
+                      )}
+                    />
+                  );
+                } else {
+                  return <Link className="dd-element" key={submod.name} {...submod}/>
+                }
+              })}
+            </ul>
+          </div>
+        )}
+      />
     );
   }
 };
