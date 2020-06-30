@@ -11,7 +11,7 @@ const Link = (props) => {
         target={props.target}>
         {props.name}
       </a>
-      {props.content}
+      {props.children}
     </li>
   );
 };
@@ -24,7 +24,7 @@ Link.defaultProps = {
   onMouseEnter: () => {},
   onMouseLeave: () => {},
   id: "",
-  content: ""
+  children: ""
 };
 
 class Dropdown extends Component {
@@ -62,7 +62,7 @@ class Dropdown extends Component {
         onMouseLeave={this.activate.bind(null, ["dropdown"])}
         to={props.to}
         name={props.name}
-        content={(
+        children={(
           <div className="dd-container">
             <ul className="dd-list">
               {props.submodules.map((submod, i) => {
@@ -76,7 +76,7 @@ class Dropdown extends Component {
                       name={submod.name}
                       onMouseLeave={() => this.openSubmenu(false, `${submod.name}_${props.id}`)}
                       onMouseEnter={() => this.openSubmenu(true, `${submod.name}_${props.id}`)}
-                      content={(
+                      children={(
                         <ul className={`${submod.name}_${props.id} sub-list hide`}>
                           {submod.submodules.map((subsubmodule) => {
                             return (
