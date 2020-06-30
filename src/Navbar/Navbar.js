@@ -24,7 +24,6 @@ Link.defaultProps = {
   onMouseEnter: () => {},
   onMouseLeave: () => {},
   id: "",
-  children: ""
 };
 
 class Dropdown extends Component {
@@ -61,43 +60,39 @@ class Dropdown extends Component {
         onMouseEnter={this.activate.bind(null, ["dropdown", "active"])}
         onMouseLeave={this.activate.bind(null, ["dropdown"])}
         to={props.to}
-        name={props.name}
-        children={(
-          <div className="dd-container">
-            <ul className="dd-list">
-              {props.submodules.map((submod, i) => {
-                if (!!submod.submodules) {
-                  return (
-                    <Link
-                      key={`${submod.name}_${i}`}
-                      className={`sub-dropdown`}
-                      id={`${submod.name}_${props.id}`}
-                      to={submod.to}
-                      name={submod.name}
-                      onMouseLeave={() => this.openSubmenu(false, `${submod.name}_${props.id}`)}
-                      onMouseEnter={() => this.openSubmenu(true, `${submod.name}_${props.id}`)}
-                      children={(
-                        <ul className={`${submod.name}_${props.id} sub-list hide`}>
-                          {submod.submodules.map((subsubmodule) => {
-                            return (
-                              <Link
-                                className="navbar-element"
-                                key={`${subsubmodule.name}_${props.id}`} {...subsubmodule}
-                              />
-                            );
-                          })}
-                        </ul>
-                      )}
-                    />
-                  );
-                } else {
-                  return <Link className="dd-element" key={submod.name} {...submod}/>
-                }
-              })}
-            </ul>
-          </div>
-        )}
-      />
+        name={props.name}>
+        <div className="dd-container">
+          <ul className="dd-list">
+            {props.submodules.map((submod, i) => {
+              if (!!submod.submodules) {
+                return (
+                  <Link
+                    key={`${submod.name}_${i}`}
+                    className={`sub-dropdown`}
+                    id={`${submod.name}_${props.id}`}
+                    to={submod.to}
+                    name={submod.name}
+                    onMouseLeave={() => this.openSubmenu(false, `${submod.name}_${props.id}`)}
+                    onMouseEnter={() => this.openSubmenu(true, `${submod.name}_${props.id}`)}>
+                    <ul className={`${submod.name}_${props.id} sub-list hide`}>
+                      {submod.submodules.map((subsubmodule) => {
+                        return (
+                          <Link
+                            className="navbar-element"
+                            key={`${subsubmodule.name}_${props.id}`} {...subsubmodule}
+                          />
+                        );
+                      })}
+                    </ul>
+                  </Link>
+                );
+              } else {
+                return <Link className="dd-element" key={submod.name} {...submod}/>
+              }
+            })}
+          </ul>
+        </div>
+      </Link>
     );
   }
 };

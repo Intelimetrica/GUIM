@@ -31,7 +31,6 @@ exports[`<Navbar /> match dom snapshot 1`] = `
           >
             menu1
           </a>
-          
         </li>
         <li
           className="dropdown"
@@ -61,7 +60,6 @@ exports[`<Navbar /> match dom snapshot 1`] = `
                 >
                   submenu1
                 </a>
-                
               </li>
             </ul>
           </div>
@@ -103,7 +101,6 @@ exports[`<Navbar /> renders navbar with dark theme 1`] = `
           >
             menu1
           </a>
-          
         </li>
         <li
           className="dropdown"
@@ -133,7 +130,6 @@ exports[`<Navbar /> renders navbar with dark theme 1`] = `
                 >
                   submenu1
                 </a>
-                
               </li>
             </ul>
           </div>
@@ -175,7 +171,6 @@ exports[`<Navbar /> toggle display when hover 1`] = `
           >
             menu1
           </a>
-          
         </li>
         <li
           className="dropdown active"
@@ -205,7 +200,6 @@ exports[`<Navbar /> toggle display when hover 1`] = `
                 >
                   submenu1
                 </a>
-                
               </li>
             </ul>
           </div>
@@ -247,7 +241,6 @@ exports[`<Navbar /> toggle display when hover 2`] = `
           >
             menu1
           </a>
-          
         </li>
         <li
           className="dropdown"
@@ -277,7 +270,6 @@ exports[`<Navbar /> toggle display when hover 2`] = `
                 >
                   submenu1
                 </a>
-                
               </li>
             </ul>
           </div>
