@@ -22,6 +22,8 @@ exports[`<Navbar /> match dom snapshot 1`] = `
       >
         <li
           className="navbar-element"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <a
             href="#menu1"
@@ -37,6 +39,7 @@ exports[`<Navbar /> match dom snapshot 1`] = `
         >
           <a
             href="#"
+            target="_self"
           >
             menu2
           </a>
@@ -48,6 +51,8 @@ exports[`<Navbar /> match dom snapshot 1`] = `
             >
               <li
                 className="dd-element"
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
               >
                 <a
                   href="#submenu1"
@@ -87,6 +92,8 @@ exports[`<Navbar /> renders navbar with dark theme 1`] = `
       >
         <li
           className="navbar-element"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <a
             href="#menu1"
@@ -102,6 +109,7 @@ exports[`<Navbar /> renders navbar with dark theme 1`] = `
         >
           <a
             href="#"
+            target="_self"
           >
             menu2
           </a>
@@ -113,6 +121,8 @@ exports[`<Navbar /> renders navbar with dark theme 1`] = `
             >
               <li
                 className="dd-element"
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
               >
                 <a
                   href="#submenu1"
@@ -152,6 +162,8 @@ exports[`<Navbar /> toggle display when hover 1`] = `
       >
         <li
           className="navbar-element"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <a
             href="#menu1"
@@ -167,6 +179,7 @@ exports[`<Navbar /> toggle display when hover 1`] = `
         >
           <a
             href="#"
+            target="_self"
           >
             menu2
           </a>
@@ -178,6 +191,8 @@ exports[`<Navbar /> toggle display when hover 1`] = `
             >
               <li
                 className="dd-element"
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
               >
                 <a
                   href="#submenu1"
@@ -217,6 +232,8 @@ exports[`<Navbar /> toggle display when hover 2`] = `
       >
         <li
           className="navbar-element"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <a
             href="#menu1"
@@ -232,6 +249,7 @@ exports[`<Navbar /> toggle display when hover 2`] = `
         >
           <a
             href="#"
+            target="_self"
           >
             menu2
           </a>
@@ -243,6 +261,8 @@ exports[`<Navbar /> toggle display when hover 2`] = `
             >
               <li
                 className="dd-element"
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
               >
                 <a
                   href="#submenu1"
