@@ -32,11 +32,13 @@ class Dropdown extends Component {
     super(props);
     this.activate = this.activate.bind(this);
     this.openSubmenu = this.openSubmenu.bind(this);
+    
     this.state = {
       dd_className: "dropdown",
       dd_submodule_classname: "submodule_dropdown hide"
     };
   }
+
   activate(classes) {
     this.setState({dd_className: classes.join(" ")});
   }
