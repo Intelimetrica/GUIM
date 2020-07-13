@@ -110,19 +110,15 @@ Table.defaultProps = {
     [
       {
         text: '',
-        rowSpan: 1,
-        colSpan: 1,
         className: 'border'
       },
       {
         text: 'Name',
-        rowSpan: 1,
         colSpan: 2,
         className: 'border'
       },
       {
         text: 'Data',
-        rowSpan: 1,
         colSpan: 2
       }
     ],
@@ -130,36 +126,27 @@ Table.defaultProps = {
       {
         text: 'Number',
         rowSpan: 3,
-        colSpan: 1,
         className: 'border'
       },
       {
         text: 'First Name',
-        rowSpan: 1,
-        colSpan: 1
       },
       {
         text: 'Last Name',
-        rowSpan: 1,
-        colSpan: 1,
         className: 'border'
       },
       {
-        text: 'Email',
-        rowSpan: 1,
-        colSpan: 1
+        text: 'Email'
       },
       {
-        text: 'Actions',
-        rowSpan: 1,
-        colSpan: 1
+        text: 'Actions'
       }
     ]
   ],
   body: [
-    ["John","Doe","john@doe.com", "View - Edit"],
-    ["Jane","Doe","jane@doe.com", "View - Edit"],
-    ["Josue","Doe","josue@doe.com", "View - Edit"]
+    ["1", "John","Doe","john@doe.com", "View - Edit"],
+    ["2", "Jane","Doe","jane@doe.com", "View - Edit"],
+    ["3", "Josue","Doe","josue@doe.com", "View - Edit"]
   ],
   row_mouseEnter: (i) => {},
   row_mouseLeave: (i) => {},
