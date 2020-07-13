@@ -10,12 +10,15 @@
   & .striped tr.trow:nth-child(even) {
     background: var(--light-gray);
   }
-  & tr.theader {
+  & tr.theader:last-child {
     background: var(--white);
     border-bottom: 2px solid var(--dark-gray);
   }
   & tr.highlighted {
     background: var(--light-blue);
+  }
+  & th.border{
+    border-right: 2px solid #8e8e8e;
   }
 }
 
