@@ -48,8 +48,8 @@ export class StickyHeader extends Component {
       <div id="ticky" style={style}>
         <table className={`GUIMTable ${this.props.className}`}>
           <thead>
-            {headers.map((rowHeader, index_row) => (
-              <tr id={head_id} className={`theader `} key={`header-${index_row}`}>
+            {this.props.headers.map((rowHeader, index_row) => (
+              <tr id={`header-${index_row}`} className={`theader `} key={`header-${index_row}`}>
                 {rowHeader.map((colHeader, index_col) => {
                   let options = {};
                   if (colHeader.rowSpan) {
@@ -59,7 +59,7 @@ export class StickyHeader extends Component {
                     options.colSpan = colHeader.colSpan;
                   }
                   return (
-                    <th className={colHeader.className} key={`row-header-${index_col}`} {...options} >{colHeader.text}</th>)
+                    <th className={colHeader.className} key={`row-header-${index_row}-${index_col}`} {...options} >{colHeader.text}</th>)
                 }
                 )
                 }
@@ -88,7 +88,7 @@ const Table = props => {
       <table className={`GUIMTable ${props.className}`}>
         <thead>
           {headers.map((rowHeader, index_row) => (
-            <tr id={head_id} className={`theader `} key={`header-${index_row}`}>
+            <tr id={`header-${index_row}`} className={`theader `} key={`header-${index_row}`}>
               {rowHeader.map((colHeader, index_col) => {
                 let options = {};
                 if (colHeader.rowSpan) {
@@ -98,8 +98,10 @@ const Table = props => {
                   options.colSpan = colHeader.colSpan;
                 }
                 return (
-                  <th className={colHeader.className} key={`row-header-${index_col}`} {...options} >{colHeader.text}</th>)
-              })}
+                  <th className={colHeader.className} key={`row-header-${index_row}-${index_col}`} {...options} >{colHeader.text}</th>)
+              }
+              )
+              }
             </tr>
           ))}
         </thead>

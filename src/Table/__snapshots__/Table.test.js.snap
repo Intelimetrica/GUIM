@@ -6,10 +6,24 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <StickyHeader
     headers={
       Array [
-        "Product",
-        "Product Name",
-        "Product Quality",
-        "Product Quantity",
+        Array [
+          Object {
+            "colSpan": 4,
+            "text": "Products",
+          },
+        ],
+        Array [
+          Object {
+            "className": "border",
+            "colSpan": 2,
+            "text": "Item",
+          },
+          Object {
+            "className": "border",
+            "colSpan": 2,
+            "text": "Description",
+          },
+        ],
       ]
     }
     id="head-id"
@@ -34,19 +48,31 @@ ShallowWrapper {
       >
         <thead>
           <tr
-            className="theader"
+            className="theader "
+            id="header-0"
           >
-            <th>
-              Product
+            <th
+              className={undefined}
+              colSpan={4}
+            >
+              Products
             </th>
-            <th>
-              Product Name
+          </tr>
+          <tr
+            className="theader "
+            id="header-1"
+          >
+            <th
+              className="border"
+              colSpan={2}
+            >
+              Item
             </th>
-            <th>
-              Product Quality
-            </th>
-            <th>
-              Product Quantity
+            <th
+              className="border"
+              colSpan={2}
+            >
+              Description
             </th>
           </tr>
         </thead>
@@ -62,19 +88,31 @@ ShallowWrapper {
       "props": Object {
         "children": <thead>
           <tr
-            className="theader"
+            className="theader "
+            id="header-0"
           >
-            <th>
-              Product
+            <th
+              className={undefined}
+              colSpan={4}
+            >
+              Products
             </th>
-            <th>
-              Product Name
+          </tr>
+          <tr
+            className="theader "
+            id="header-1"
+          >
+            <th
+              className="border"
+              colSpan={2}
+            >
+              Item
             </th>
-            <th>
-              Product Quality
-            </th>
-            <th>
-              Product Quantity
+            <th
+              className="border"
+              colSpan={2}
+            >
+              Description
             </th>
           </tr>
         </thead>,
@@ -86,94 +124,127 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <tr
-            className="theader"
-          >
-            <th>
-              Product
-            </th>
-            <th>
-              Product Name
-            </th>
-            <th>
-              Product Quality
-            </th>
-            <th>
-              Product Quantity
-            </th>
-          </tr>,
+          "children": Array [
+            <tr
+              className="theader "
+              id="header-0"
+            >
+              <th
+                className={undefined}
+                colSpan={4}
+              >
+                Products
+              </th>
+            </tr>,
+            <tr
+              className="theader "
+              id="header-1"
+            >
+              <th
+                className="border"
+                colSpan={2}
+              >
+                Item
+              </th>
+              <th
+                className="border"
+                colSpan={2}
+              >
+                Description
+              </th>
+            </tr>,
+          ],
         },
         "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": Array [
-              <th>
-                Product
-              </th>,
-              <th>
-                Product Name
-              </th>,
-              <th>
-                Product Quality
-              </th>,
-              <th>
-                Product Quantity
-              </th>,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "header-0",
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <th
+                  className={undefined}
+                  colSpan={4}
+                >
+                  Products
+                </th>,
+              ],
+              "className": "theader ",
+              "id": "header-0",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": "row-header-0-0",
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Products",
+                  "className": undefined,
+                  "colSpan": 4,
+                },
+                "ref": null,
+                "rendered": "Products",
+                "type": "th",
+              },
             ],
-            "className": "theader",
+            "type": "tr",
           },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": "header-0",
-              "nodeType": "host",
-              "props": Object {
-                "children": "Product",
-              },
-              "ref": null,
-              "rendered": "Product",
-              "type": "th",
+          Object {
+            "instance": null,
+            "key": "header-1",
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <th
+                  className="border"
+                  colSpan={2}
+                >
+                  Item
+                </th>,
+                <th
+                  className="border"
+                  colSpan={2}
+                >
+                  Description
+                </th>,
+              ],
+              "className": "theader ",
+              "id": "header-1",
             },
-            Object {
-              "instance": null,
-              "key": "header-1",
-              "nodeType": "host",
-              "props": Object {
-                "children": "Product Name",
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": "row-header-1-0",
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Item",
+                  "className": "border",
+                  "colSpan": 2,
+                },
+                "ref": null,
+                "rendered": "Item",
+                "type": "th",
               },
-              "ref": null,
-              "rendered": "Product Name",
-              "type": "th",
-            },
-            Object {
-              "instance": null,
-              "key": "header-2",
-              "nodeType": "host",
-              "props": Object {
-                "children": "Product Quality",
+              Object {
+                "instance": null,
+                "key": "row-header-1-1",
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Description",
+                  "className": "border",
+                  "colSpan": 2,
+                },
+                "ref": null,
+                "rendered": "Description",
+                "type": "th",
               },
-              "ref": null,
-              "rendered": "Product Quality",
-              "type": "th",
-            },
-            Object {
-              "instance": null,
-              "key": "header-3",
-              "nodeType": "host",
-              "props": Object {
-                "children": "Product Quantity",
-              },
-              "ref": null,
-              "rendered": "Product Quantity",
-              "type": "th",
-            },
-          ],
-          "type": "tr",
-        },
+            ],
+            "type": "tr",
+          },
+        ],
         "type": "thead",
       },
       "type": "table",
@@ -191,19 +262,31 @@ ShallowWrapper {
         >
           <thead>
             <tr
-              className="theader"
+              className="theader "
+              id="header-0"
             >
-              <th>
-                Product
+              <th
+                className={undefined}
+                colSpan={4}
+              >
+                Products
               </th>
-              <th>
-                Product Name
+            </tr>
+            <tr
+              className="theader "
+              id="header-1"
+            >
+              <th
+                className="border"
+                colSpan={2}
+              >
+                Item
               </th>
-              <th>
-                Product Quality
-              </th>
-              <th>
-                Product Quantity
+              <th
+                className="border"
+                colSpan={2}
+              >
+                Description
               </th>
             </tr>
           </thead>
@@ -219,19 +302,31 @@ ShallowWrapper {
         "props": Object {
           "children": <thead>
             <tr
-              className="theader"
+              className="theader "
+              id="header-0"
             >
-              <th>
-                Product
+              <th
+                className={undefined}
+                colSpan={4}
+              >
+                Products
               </th>
-              <th>
-                Product Name
+            </tr>
+            <tr
+              className="theader "
+              id="header-1"
+            >
+              <th
+                className="border"
+                colSpan={2}
+              >
+                Item
               </th>
-              <th>
-                Product Quality
-              </th>
-              <th>
-                Product Quantity
+              <th
+                className="border"
+                colSpan={2}
+              >
+                Description
               </th>
             </tr>
           </thead>,
@@ -243,94 +338,127 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <tr
-              className="theader"
-            >
-              <th>
-                Product
-              </th>
-              <th>
-                Product Name
-              </th>
-              <th>
-                Product Quality
-              </th>
-              <th>
-                Product Quantity
-              </th>
-            </tr>,
+            "children": Array [
+              <tr
+                className="theader "
+                id="header-0"
+              >
+                <th
+                  className={undefined}
+                  colSpan={4}
+                >
+                  Products
+                </th>
+              </tr>,
+              <tr
+                className="theader "
+                id="header-1"
+              >
+                <th
+                  className="border"
+                  colSpan={2}
+                >
+                  Item
+                </th>
+                <th
+                  className="border"
+                  colSpan={2}
+                >
+                  Description
+                </th>
+              </tr>,
+            ],
           },
           "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [
-                <th>
-                  Product
-                </th>,
-                <th>
-                  Product Name
-                </th>,
-                <th>
-                  Product Quality
-                </th>,
-                <th>
-                  Product Quantity
-                </th>,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "header-0",
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <th
+                    className={undefined}
+                    colSpan={4}
+                  >
+                    Products
+                  </th>,
+                ],
+                "className": "theader ",
+                "id": "header-0",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": "row-header-0-0",
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Products",
+                    "className": undefined,
+                    "colSpan": 4,
+                  },
+                  "ref": null,
+                  "rendered": "Products",
+                  "type": "th",
+                },
               ],
-              "className": "theader",
+              "type": "tr",
             },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": "header-0",
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Product",
-                },
-                "ref": null,
-                "rendered": "Product",
-                "type": "th",
+            Object {
+              "instance": null,
+              "key": "header-1",
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <th
+                    className="border"
+                    colSpan={2}
+                  >
+                    Item
+                  </th>,
+                  <th
+                    className="border"
+                    colSpan={2}
+                  >
+                    Description
+                  </th>,
+                ],
+                "className": "theader ",
+                "id": "header-1",
               },
-              Object {
-                "instance": null,
-                "key": "header-1",
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Product Name",
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": "row-header-1-0",
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Item",
+                    "className": "border",
+                    "colSpan": 2,
+                  },
+                  "ref": null,
+                  "rendered": "Item",
+                  "type": "th",
                 },
-                "ref": null,
-                "rendered": "Product Name",
-                "type": "th",
-              },
-              Object {
-                "instance": null,
-                "key": "header-2",
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Product Quality",
+                Object {
+                  "instance": null,
+                  "key": "row-header-1-1",
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Description",
+                    "className": "border",
+                    "colSpan": 2,
+                  },
+                  "ref": null,
+                  "rendered": "Description",
+                  "type": "th",
                 },
-                "ref": null,
-                "rendered": "Product Quality",
-                "type": "th",
-              },
-              Object {
-                "instance": null,
-                "key": "header-3",
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Product Quantity",
-                },
-                "ref": null,
-                "rendered": "Product Quantity",
-                "type": "th",
-              },
-            ],
-            "type": "tr",
-          },
+              ],
+              "type": "tr",
+            },
+          ],
           "type": "thead",
         },
         "type": "table",
@@ -374,10 +502,24 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <StickyHeader
     headers={
       Array [
-        "Product",
-        "Product Name",
-        "Product Quality",
-        "Product Quantity",
+        Array [
+          Object {
+            "colSpan": 4,
+            "text": "Products",
+          },
+        ],
+        Array [
+          Object {
+            "className": "border",
+            "colSpan": 2,
+            "text": "Item",
+          },
+          Object {
+            "className": "border",
+            "colSpan": 2,
+            "text": "Description",
+          },
+        ],
       ]
     }
     id="head-id"
@@ -402,19 +544,31 @@ ShallowWrapper {
       >
         <thead>
           <tr
-            className="theader"
+            className="theader "
+            id="header-0"
           >
-            <th>
-              Product
+            <th
+              className={undefined}
+              colSpan={4}
+            >
+              Products
             </th>
-            <th>
-              Product Name
+          </tr>
+          <tr
+            className="theader "
+            id="header-1"
+          >
+            <th
+              className="border"
+              colSpan={2}
+            >
+              Item
             </th>
-            <th>
-              Product Quality
-            </th>
-            <th>
-              Product Quantity
+            <th
+              className="border"
+              colSpan={2}
+            >
+              Description
             </th>
           </tr>
         </thead>
@@ -436,19 +590,31 @@ ShallowWrapper {
       "props": Object {
         "children": <thead>
           <tr
-            className="theader"
+            className="theader "
+            id="header-0"
           >
-            <th>
-              Product
+            <th
+              className={undefined}
+              colSpan={4}
+            >
+              Products
             </th>
-            <th>
-              Product Name
+          </tr>
+          <tr
+            className="theader "
+            id="header-1"
+          >
+            <th
+              className="border"
+              colSpan={2}
+            >
+              Item
             </th>
-            <th>
-              Product Quality
-            </th>
-            <th>
-              Product Quantity
+            <th
+              className="border"
+              colSpan={2}
+            >
+              Description
             </th>
           </tr>
         </thead>,
@@ -460,94 +626,127 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <tr
-            className="theader"
-          >
-            <th>
-              Product
-            </th>
-            <th>
-              Product Name
-            </th>
-            <th>
-              Product Quality
-            </th>
-            <th>
-              Product Quantity
-            </th>
-          </tr>,
+          "children": Array [
+            <tr
+              className="theader "
+              id="header-0"
+            >
+              <th
+                className={undefined}
+                colSpan={4}
+              >
+                Products
+              </th>
+            </tr>,
+            <tr
+              className="theader "
+              id="header-1"
+            >
+              <th
+                className="border"
+                colSpan={2}
+              >
+                Item
+              </th>
+              <th
+                className="border"
+                colSpan={2}
+              >
+                Description
+              </th>
+            </tr>,
+          ],
         },
         "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": Array [
-              <th>
-                Product
-              </th>,
-              <th>
-                Product Name
-              </th>,
-              <th>
-                Product Quality
-              </th>,
-              <th>
-                Product Quantity
-              </th>,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "header-0",
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <th
+                  className={undefined}
+                  colSpan={4}
+                >
+                  Products
+                </th>,
+              ],
+              "className": "theader ",
+              "id": "header-0",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": "row-header-0-0",
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Products",
+                  "className": undefined,
+                  "colSpan": 4,
+                },
+                "ref": null,
+                "rendered": "Products",
+                "type": "th",
+              },
             ],
-            "className": "theader",
+            "type": "tr",
           },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": "header-0",
-              "nodeType": "host",
-              "props": Object {
-                "children": "Product",
-              },
-              "ref": null,
-              "rendered": "Product",
-              "type": "th",
+          Object {
+            "instance": null,
+            "key": "header-1",
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <th
+                  className="border"
+                  colSpan={2}
+                >
+                  Item
+                </th>,
+                <th
+                  className="border"
+                  colSpan={2}
+                >
+                  Description
+                </th>,
+              ],
+              "className": "theader ",
+              "id": "header-1",
             },
-            Object {
-              "instance": null,
-              "key": "header-1",
-              "nodeType": "host",
-              "props": Object {
-                "children": "Product Name",
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": "row-header-1-0",
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Item",
+                  "className": "border",
+                  "colSpan": 2,
+                },
+                "ref": null,
+                "rendered": "Item",
+                "type": "th",
               },
-              "ref": null,
-              "rendered": "Product Name",
-              "type": "th",
-            },
-            Object {
-              "instance": null,
-              "key": "header-2",
-              "nodeType": "host",
-              "props": Object {
-                "children": "Product Quality",
+              Object {
+                "instance": null,
+                "key": "row-header-1-1",
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Description",
+                  "className": "border",
+                  "colSpan": 2,
+                },
+                "ref": null,
+                "rendered": "Description",
+                "type": "th",
               },
-              "ref": null,
-              "rendered": "Product Quality",
-              "type": "th",
-            },
-            Object {
-              "instance": null,
-              "key": "header-3",
-              "nodeType": "host",
-              "props": Object {
-                "children": "Product Quantity",
-              },
-              "ref": null,
-              "rendered": "Product Quantity",
-              "type": "th",
-            },
-          ],
-          "type": "tr",
-        },
+            ],
+            "type": "tr",
+          },
+        ],
         "type": "thead",
       },
       "type": "table",
@@ -565,19 +764,31 @@ ShallowWrapper {
         >
           <thead>
             <tr
-              className="theader"
+              className="theader "
+              id="header-0"
             >
-              <th>
-                Product
+              <th
+                className={undefined}
+                colSpan={4}
+              >
+                Products
               </th>
-              <th>
-                Product Name
+            </tr>
+            <tr
+              className="theader "
+              id="header-1"
+            >
+              <th
+                className="border"
+                colSpan={2}
+              >
+                Item
               </th>
-              <th>
-                Product Quality
-              </th>
-              <th>
-                Product Quantity
+              <th
+                className="border"
+                colSpan={2}
+              >
+                Description
               </th>
             </tr>
           </thead>
@@ -599,19 +810,31 @@ ShallowWrapper {
         "props": Object {
           "children": <thead>
             <tr
-              className="theader"
+              className="theader "
+              id="header-0"
             >
-              <th>
-                Product
+              <th
+                className={undefined}
+                colSpan={4}
+              >
+                Products
               </th>
-              <th>
-                Product Name
+            </tr>
+            <tr
+              className="theader "
+              id="header-1"
+            >
+              <th
+                className="border"
+                colSpan={2}
+              >
+                Item
               </th>
-              <th>
-                Product Quality
-              </th>
-              <th>
-                Product Quantity
+              <th
+                className="border"
+                colSpan={2}
+              >
+                Description
               </th>
             </tr>
           </thead>,
@@ -623,94 +846,127 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <tr
-              className="theader"
-            >
-              <th>
-                Product
-              </th>
-              <th>
-                Product Name
-              </th>
-              <th>
-                Product Quality
-              </th>
-              <th>
-                Product Quantity
-              </th>
-            </tr>,
+            "children": Array [
+              <tr
+                className="theader "
+                id="header-0"
+              >
+                <th
+                  className={undefined}
+                  colSpan={4}
+                >
+                  Products
+                </th>
+              </tr>,
+              <tr
+                className="theader "
+                id="header-1"
+              >
+                <th
+                  className="border"
+                  colSpan={2}
+                >
+                  Item
+                </th>
+                <th
+                  className="border"
+                  colSpan={2}
+                >
+                  Description
+                </th>
+              </tr>,
+            ],
           },
           "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [
-                <th>
-                  Product
-                </th>,
-                <th>
-                  Product Name
-                </th>,
-                <th>
-                  Product Quality
-                </th>,
-                <th>
-                  Product Quantity
-                </th>,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "header-0",
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <th
+                    className={undefined}
+                    colSpan={4}
+                  >
+                    Products
+                  </th>,
+                ],
+                "className": "theader ",
+                "id": "header-0",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": "row-header-0-0",
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Products",
+                    "className": undefined,
+                    "colSpan": 4,
+                  },
+                  "ref": null,
+                  "rendered": "Products",
+                  "type": "th",
+                },
               ],
-              "className": "theader",
+              "type": "tr",
             },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": "header-0",
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Product",
-                },
-                "ref": null,
-                "rendered": "Product",
-                "type": "th",
+            Object {
+              "instance": null,
+              "key": "header-1",
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <th
+                    className="border"
+                    colSpan={2}
+                  >
+                    Item
+                  </th>,
+                  <th
+                    className="border"
+                    colSpan={2}
+                  >
+                    Description
+                  </th>,
+                ],
+                "className": "theader ",
+                "id": "header-1",
               },
-              Object {
-                "instance": null,
-                "key": "header-1",
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Product Name",
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": "row-header-1-0",
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Item",
+                    "className": "border",
+                    "colSpan": 2,
+                  },
+                  "ref": null,
+                  "rendered": "Item",
+                  "type": "th",
                 },
-                "ref": null,
-                "rendered": "Product Name",
-                "type": "th",
-              },
-              Object {
-                "instance": null,
-                "key": "header-2",
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Product Quality",
+                Object {
+                  "instance": null,
+                  "key": "row-header-1-1",
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Description",
+                    "className": "border",
+                    "colSpan": 2,
+                  },
+                  "ref": null,
+                  "rendered": "Description",
+                  "type": "th",
                 },
-                "ref": null,
-                "rendered": "Product Quality",
-                "type": "th",
-              },
-              Object {
-                "instance": null,
-                "key": "header-3",
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Product Quantity",
-                },
-                "ref": null,
-                "rendered": "Product Quantity",
-                "type": "th",
-              },
-            ],
-            "type": "tr",
-          },
+              ],
+              "type": "tr",
+            },
+          ],
           "type": "thead",
         },
         "type": "table",
@@ -757,19 +1013,30 @@ Array [
     <thead>
       <tr
         className="theader "
-        id="head_test"
+        id="header-0"
       >
-        <th>
-          Product
+        <th
+          className={undefined}
+          colSpan={4}
+        >
+          Products
         </th>
-        <th>
-          Product Name
+      </tr>
+      <tr
+        className="theader "
+        id="header-1"
+      >
+        <th
+          className="border"
+          colSpan={2}
+        >
+          Item
         </th>
-        <th>
-          Product Quality
-        </th>
-        <th>
-          Product Quantity
+        <th
+          className="border"
+          colSpan={2}
+        >
+          Description
         </th>
       </tr>
     </thead>
@@ -862,19 +1129,30 @@ Array [
     <thead>
       <tr
         className="theader "
-        id="head_test"
+        id="header-0"
       >
-        <th>
-          Product
+        <th
+          className={undefined}
+          colSpan={4}
+        >
+          Products
         </th>
-        <th>
-          Product Name
+      </tr>
+      <tr
+        className="theader "
+        id="header-1"
+      >
+        <th
+          className="border"
+          colSpan={2}
+        >
+          Item
         </th>
-        <th>
-          Product Quality
-        </th>
-        <th>
-          Product Quantity
+        <th
+          className="border"
+          colSpan={2}
+        >
+          Description
         </th>
       </tr>
     </thead>
@@ -967,19 +1245,30 @@ Array [
     <thead>
       <tr
         className="theader "
-        id="head_test"
+        id="header-0"
       >
-        <th>
-          Product
+        <th
+          className={undefined}
+          colSpan={4}
+        >
+          Products
         </th>
-        <th>
-          Product Name
+      </tr>
+      <tr
+        className="theader "
+        id="header-1"
+      >
+        <th
+          className="border"
+          colSpan={2}
+        >
+          Item
         </th>
-        <th>
-          Product Quality
-        </th>
-        <th>
-          Product Quantity
+        <th
+          className="border"
+          colSpan={2}
+        >
+          Description
         </th>
       </tr>
     </thead>
@@ -1072,19 +1361,30 @@ Array [
     <thead>
       <tr
         className="theader "
-        id="head_test"
+        id="header-0"
       >
-        <th>
-          Product
+        <th
+          className={undefined}
+          colSpan={4}
+        >
+          Products
         </th>
-        <th>
-          Product Name
+      </tr>
+      <tr
+        className="theader "
+        id="header-1"
+      >
+        <th
+          className="border"
+          colSpan={2}
+        >
+          Item
         </th>
-        <th>
-          Product Quality
-        </th>
-        <th>
-          Product Quantity
+        <th
+          className="border"
+          colSpan={2}
+        >
+          Description
         </th>
       </tr>
     </thead>
@@ -1177,19 +1477,30 @@ Array [
     <thead>
       <tr
         className="theader "
-        id="head_test"
+        id="header-0"
       >
-        <th>
-          Product
+        <th
+          className={undefined}
+          colSpan={4}
+        >
+          Products
         </th>
-        <th>
-          Product Name
+      </tr>
+      <tr
+        className="theader "
+        id="header-1"
+      >
+        <th
+          className="border"
+          colSpan={2}
+        >
+          Item
         </th>
-        <th>
-          Product Quality
-        </th>
-        <th>
-          Product Quantity
+        <th
+          className="border"
+          colSpan={2}
+        >
+          Description
         </th>
       </tr>
     </thead>
