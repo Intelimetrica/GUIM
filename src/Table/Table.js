@@ -48,9 +48,9 @@ export class StickyHeader extends Component {
       <div id="ticky" style={style}>
         <table className={`GUIMTable ${this.props.className}`}>
           <thead>
-            {headers.map((rowHeader, index) => (
-              <tr id={head_id} className={`theader `} key={`header-${index}`}>
-                {rowHeader.map((el, index) => <th className={el[3]} key={`row-header-${index}`} rowSpan={el[1]} colSpan={el[2]}>{el[0]}</th>)}
+            {headers.map((rowHeader, index_row) => (
+              <tr id={head_id} className={`theader `} key={`header-${index_row}`}>
+                {rowHeader.map((colHeader, index_col) => <th className={colHeader.className} key={`row-header-${index_col}`} rowSpan={colHeader.rowSpan} colSpan={colHeader.colSpan}>{colHeader.text}</th>)}
               </tr>
             ))}
           </thead>
@@ -75,12 +75,12 @@ const Table = props => {
       {sticky_header}
       <table className={`GUIMTable ${props.className}`}>
         <thead>
-            {headers.map((rowHeader, index) => (
-              <tr id={head_id} className={`theader `} key={`header-${index}`}>
-                {rowHeader.map((el, index) => <th className={el.className} key={`row-header-${index}`} rowSpan={el.rowSpan} colSpan={el.colSpan}>{el.text}</th>)}
-              </tr>
-            ))}
-          </thead>
+          {headers.map((rowHeader, index_row) => (
+            <tr id={head_id} className={`theader `} key={`header-${index_row}`}>
+              {rowHeader.map((colHeader, index_col) => <th className={colHeader.className} key={`row-header-${index_col}`} rowSpan={colHeader.rowSpan} colSpan={colHeader.colSpan}>{colHeader.text}</th>)}
+            </tr>
+          ))}
+        </thead>
         <tbody className={`${props.striped ? "striped" : ""}`}>
           {
             body.map((el, index) => (
