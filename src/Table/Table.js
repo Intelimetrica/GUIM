@@ -77,7 +77,7 @@ const Table = props => {
         <thead>
             {headers.map((rowHeader, index) => (
               <tr id={head_id} className={`theader `} key={`header-${index}`}>
-                {rowHeader.map((el, index) => <th className={el[3]} key={`row-header-${index}`} rowSpan={el[1]} colSpan={el[2]}>{el[0]}</th>)}
+                {rowHeader.map((el, index) => <th className={el.className} key={`row-header-${index}`} rowSpan={el.rowSpan} colSpan={el.colSpan}>{el.text}</th>)}
               </tr>
             ))}
           </thead>
@@ -108,16 +108,52 @@ Table.defaultProps = {
   head_id: `head-${Math.round(Math.random() * 10000)}`,
   headers: [
     [
-      [ '', 1, 1, 'border'],
-      ['Name', 1, 2, 'border'],
-      ['Data', 1, 2]
+      {
+        text: '',
+        rowSpan: 1,
+        colSpan: 1,
+        className: 'border'
+      },
+      {
+        text: 'Name',
+        rowSpan: 1,
+        colSpan: 2,
+        className: 'border'
+      },
+      {
+        text: 'Data',
+        rowSpan: 1,
+        colSpan: 2
+      }
     ],
     [
-      ['Number', 3, 1, 'border'],
-      ['First Name', 1, 1],
-      ['Last Name', 1, 1, 'border'],
-      ['Email', 1, 1],
-      ['Actions', 1, 1]
+      {
+        text: 'Number',
+        rowSpan: 3,
+        colSpan: 1,
+        className: 'border'
+      },
+      {
+        text: 'First Name',
+        rowSpan: 1,
+        colSpan: 1
+      },
+      {
+        text: 'Last Name',
+        rowSpan: 1,
+        colSpan: 1,
+        className: 'border'
+      },
+      {
+        text: 'Email',
+        rowSpan: 1,
+        colSpan: 1
+      },
+      {
+        text: 'Actions',
+        rowSpan: 1,
+        colSpan: 1
+      }
     ]
   ],
   body: [
