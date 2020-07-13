@@ -58,11 +58,8 @@ export class StickyHeader extends Component {
                   if (colHeader.colSpan) {
                     options.colSpan = colHeader.colSpan;
                   }
-                  return (
-                    <th className={colHeader.className} key={`row-header-${index_row}-${index_col}`} {...options} >{colHeader.text}</th>)
-                }
-                )
-                }
+                  return <th className={colHeader.className} key={`row-header-${index_row}-${index_col}`} {...options} >{colHeader.text}</th>;
+                })}
               </tr>
             ))}
           </thead>
@@ -97,11 +94,8 @@ const Table = props => {
                 if (colHeader.colSpan) {
                   options.colSpan = colHeader.colSpan;
                 }
-                return (
-                  <th className={colHeader.className} key={`row-header-${index_row}-${index_col}`} {...options} >{colHeader.text}</th>)
-              }
-              )
-              }
+                return <th className={colHeader.className} key={`row-header-${index_row}-${index_col}`} {...options} >{colHeader.text}</th>;
+              })}
             </tr>
           ))}
         </thead>
