@@ -77,7 +77,7 @@ const Table = props => {
         <thead>
           {headers.map((rowHeader, index_row) => (
             <tr id={head_id} className={`theader `} key={`header-${index_row}`}>
-              {rowHeader.map((colHeader, index_col) => <th className={colHeader.className} key={`row-header-${index_col}`} rowSpan={colHeader.rowSpan} colSpan={colHeader.colSpan}>{colHeader.text}</th>)}
+              {rowHeader.map((colHeader, index_col) => <th className={colHeader.className} key={`row-header-${index_col}`} rowSpan={colHeader.rowSpan === undefined ? 1 :colHeader.rowSpan} colSpan={colHeader.colSpan === undefined ? 1 :colHeader.colSpan}>{colHeader.text}</th>)}
             </tr>
           ))}
         </thead>
