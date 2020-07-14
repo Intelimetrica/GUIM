@@ -122,7 +122,7 @@ const Table = props => {
 Table.defaultProps = {
   striped: false,
   sticky_header: {
-    active: true,
+    active: false,
     top: 0
   },
   head_id: `head-${Math.round(Math.random() * 10000)}`,
