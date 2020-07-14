@@ -26,10 +26,24 @@ describe('<Table />', () => {
           sticky_header={ticky}
           head_id="head_test"
           headers={[
-            "Product",
-            "Product Name",
-            "Product Quality",
-            "Product Quantity"
+            [
+              {
+                text: 'Products',
+                colSpan: 4
+              }
+            ],
+            [
+              {
+                text: 'Item',
+                colSpan: 2,
+                className: 'border'
+              },
+              {
+                text: 'Description',
+                colSpan: 2,
+                className: 'border'
+              }
+            ]
           ]}
           body={[
             [1, "Wheat", "Good", "200 Bags"],
@@ -92,10 +106,24 @@ describe('<Table />', () => {
       <StickyHeader
         id={'head-id'}
         headers={[
-          "Product",
-          "Product Name",
-          "Product Quality",
-          "Product Quantity"
+          [
+            {
+              text: 'Products',
+              colSpan: 4
+            }
+          ],
+          [
+            {
+              text: 'Item',
+              colSpan: 2,
+              className: 'border'
+            },
+            {
+              text: 'Description',
+              colSpan: 2,
+              className: 'border'
+            }
+          ]
         ]}
         top={0}
       />
