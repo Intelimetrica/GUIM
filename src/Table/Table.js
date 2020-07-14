@@ -22,9 +22,7 @@ export class StickyHeader extends Component {
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
-    console.log(this.props.id);
     this.originalHeader = document.getElementById(this.props.id);
-    console.log(this.originalHeader);
     let zIndex = parseInt(this.originalHeader.style.zIndex) || 0;
     zIndex += 1;
 
