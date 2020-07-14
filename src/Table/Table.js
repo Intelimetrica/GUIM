@@ -22,7 +22,9 @@ export class StickyHeader extends Component {
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
+    console.log(this.props.id);
     this.originalHeader = document.getElementById(this.props.id);
+    console.log(this.originalHeader);
     let zIndex = parseInt(this.originalHeader.style.zIndex) || 0;
     zIndex += 1;
 
@@ -49,7 +51,7 @@ export class StickyHeader extends Component {
         <table className={`GUIMTable ${this.props.className}`}>
           <thead>
             {this.props.headers.map((rowHeader, index_row) => (
-              <tr id={`header-${index_row}`} className={`theader `} key={`header-${index_row}`}>
+              <tr className={`theader `} key={`header-${index_row}`}>
                 {rowHeader.map((colHeader, index_col) => {
                   let options = {};
                   if (colHeader.rowSpan) {
@@ -83,9 +85,9 @@ const Table = props => {
     <Fragment>
       {sticky_header}
       <table className={`GUIMTable ${props.className}`}>
-        <thead>
+        <thead id={head_id}>
           {headers.map((rowHeader, index_row) => (
-            <tr id={`header-${index_row}`} className={`theader `} key={`header-${index_row}`}>
+            <tr className={`theader `} key={`header-${index_row}`}>
               {rowHeader.map((colHeader, index_col) => {
                 let options = {};
                 if (colHeader.rowSpan) {
@@ -120,7 +122,7 @@ const Table = props => {
 Table.defaultProps = {
   striped: false,
   sticky_header: {
-    active: false,
+    active: true,
     top: 0
   },
   head_id: `head-${Math.round(Math.random() * 10000)}`,

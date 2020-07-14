@@ -10,8 +10,10 @@
   & .striped tr.trow:nth-child(even) {
     background: var(--light-gray);
   }
-  & tr.theader:last-child {
+  & tr.theader{
     background: var(--white);
+  }
+  & tr.theader:last-child {
     border-bottom: 2px solid var(--dark-gray);
   }
   & tr.highlighted {
