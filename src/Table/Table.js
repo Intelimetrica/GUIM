@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment, useState } from "react";
 import "./styles.scss";
 
 export class StickyHeader extends Component {
@@ -47,18 +47,30 @@ export class StickyHeader extends Component {
     return (
       <div id="ticky" style={style}>
         <table className={`GUIMTable ${this.props.className}`}>
-          <thead>
+
+          <thead >
             {this.props.headers.map((rowHeader, index_row) => (
               <tr className={`theader `} key={`header-${index_row}`}>
                 {rowHeader.map((colHeader, index_col) => {
                   let options = {};
+                  var ordering = null;
                   if (colHeader.rowSpan) {
                     options.rowSpan = colHeader.rowSpan;
                   }
                   if (colHeader.colSpan) {
                     options.colSpan = colHeader.colSpan;
                   }
-                  return <th className={colHeader.className} key={`row-header-${index_row}-${index_col}`} {...options} >{colHeader.text}</th>;
+                  if (colHeader.className) {
+                    options.className = colHeader.className;
+                  }
+                  if (colHeader.allowOrdering !== false) {
+                    ordering = <i className={`arrow desc`}> </i>;
+                    const cell_order = this.props.tableOrder === 'asc' ? 'desc' : 'asc';
+                    options.onClick = () => this.props.handleClickHeader(colHeader.id, this.props.idOrder === colHeader.id ? cell_order : 'asc');
+                    if (this.props.idOrder === colHeader.id)
+                      ordering = <i className={`arrow active-arrow ${this.props.tableOrder} `}> </i>;
+                  }
+                  return <th key={`row-header-${index_row}-${index_col}`} {...options} >{colHeader.text} {ordering}</th>;
                 })}
               </tr>
             ))}
@@ -76,9 +88,11 @@ const Table = props => {
       headers={headers}
       top={props.sticky_header.top}
       className={props.className}
+      tableOrder={props.tableOrder}
+      idOrder={props.idOrder}
+      handleClickHeader={props.handleClickHeader}
     />
   ) : '';
-
   return (
     <Fragment>
       {sticky_header}
@@ -88,13 +102,24 @@ const Table = props => {
             <tr className={`theader `} key={`header-${index_row}`}>
               {rowHeader.map((colHeader, index_col) => {
                 let options = {};
+                var ordering = null;
                 if (colHeader.rowSpan) {
                   options.rowSpan = colHeader.rowSpan;
                 }
                 if (colHeader.colSpan) {
                   options.colSpan = colHeader.colSpan;
                 }
-                return <th className={colHeader.className} key={`row-header-${index_row}-${index_col}`} {...options} >{colHeader.text}</th>;
+                if (colHeader.className) {
+                  options.className = colHeader.className;
+                }
+                if (colHeader.allowOrdering !== false) {
+                  ordering = <i className={`arrow desc`}> </i>;
+                  const cell_order = props.tableOrder === 'asc' ? 'desc' : 'asc';
+                  options.onClick = () => props.handleClickHeader(colHeader.id, props.idOrder === colHeader.id ? cell_order : 'asc');
+                  if (props.idOrder === colHeader.id)
+                    ordering = <i className={`arrow active-arrow ${props.tableOrder} `}> </i>;
+                }
+                return <th key={`row-header-${index_row}-${index_col}`} {...options} >{colHeader.text} {ordering}</th>;
               })}
             </tr>
           ))}
@@ -120,7 +145,7 @@ const Table = props => {
 Table.defaultProps = {
   striped: false,
   sticky_header: {
-    active: false,
+    active: true,
     top: 0
   },
   head_id: `head-${Math.round(Math.random() * 10000)}`,
@@ -128,16 +153,19 @@ Table.defaultProps = {
     [
       {
         text: '',
-        className: 'border'
+        className: 'border',
+        allowOrdering: false
       },
       {
         text: 'Name',
         colSpan: 2,
-        className: 'border'
+        className: 'border',
+        allowOrdering: false
       },
       {
         text: 'Data',
-        colSpan: 2
+        colSpan: 2,
+        allowOrdering: false
       }
     ],
     [
@@ -161,10 +189,11 @@ Table.defaultProps = {
       }
     ]
   ],
+  tableOrder: 'asc',
   body: [
     ["1", "John", "Doe", "john@doe.com", "View - Edit"],
-    ["2", "Jane", "Doe", "jane@doe.com", "View - Edit"],
-    ["3", "Josue", "Doe", "josue@doe.com", "View - Edit"]
+    ["2", "Jane", "Garcia", "jane@doe.com", "View - Edit"],
+    ["3", "Josue", "Corona", "josue@doe.com", "View - Edit"]
   ],
   row_mouseEnter: (i) => { },
   row_mouseLeave: (i) => { },

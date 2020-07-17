@@ -29,8 +29,10 @@ class App extends Component {
         min: 0.25,
         max: 0.75
       },
-      steps: new Array(numberOfSteps).fill().map((e,i) => i * range),
-      textbox: ''
+      steps: new Array(numberOfSteps).fill().map((e, i) => i * range),
+      textbox: '',
+      tableOrder: 'asc',
+      idOrder: 'Number'
     };
     this.clickButton = this.clickButton.bind(this);
     this.onChangeCheckbox1 = this.onChangeCheckbox1.bind(this);
@@ -41,6 +43,7 @@ class App extends Component {
     this.onMouseLeaveRow = this.onMouseLeaveRow.bind(this);
     this.onMouseEnterRow = this.onMouseEnterRow.bind(this);
     this.setSliderHandleChange = this.setSliderHandleChange.bind(this);
+    this.handleClickHeader = this.handleClickHeader.bind(this);
   }
 
   // The functions that are called when change directly
@@ -63,7 +66,7 @@ class App extends Component {
 
   onChangeMultiplePicker(label, value) {
     let actives = this.state.multiple_picker;
-    if(actives.indexOf(value) !== -1) {
+    if (actives.indexOf(value) !== -1) {
       actives.splice(actives.indexOf(value), 1);
     } else {
       actives.push(value);
@@ -88,11 +91,68 @@ class App extends Component {
     this.setState({ selected_range: newSelectedRange });
   }
 
+  getHeader() {
+    return [
+      [
+        {
+          text: '',
+          className: 'border',
+          allowOrdering: false
+        },
+        {
+          text: 'Name',
+          id: 'Name',
+          colSpan: 2,
+          className: 'border',
+          allowOrdering: false
+        },
+        {
+          text: 'Data',
+          id: 'Data',
+          colSpan: 2,
+          allowOrdering: false
+        }
+      ],
+      [
+        {
+          text: 'Number',
+          id: 'Number',
+          rowSpan: 3,
+          className: 'border'
+        },
+        {
+          text: 'First Name',
+          id: 'First_Name'
+        },
+        {
+          text: 'Last Name',
+          id: 'Last_Name',
+          className: 'border'
+        },
+        {
+          text: 'Email',
+          id: 'Email'
+        },
+        {
+          text: 'Actions',
+          id: 'Actions'
+        }
+      ]
+    ];
+  }
+
+  handleClickHeader(id, e) {
+    this.setState({
+      idOrder: id,
+      tableOrder: e
+    });
+  }
+
   render() {
     return (
       <div className="App">
         <Navbar />
-        <div style={{height: "15px"}}></div>
+        <div style={{ height: "15px" }}></div>
         <div className="form">
           <span>{"<Form>"}</span>
           <Form ref={ref => (this.form = ref)} >
@@ -124,9 +184,9 @@ class App extends Component {
                 name="textbox"
                 className='GUIMTextboxSize'
                 onChange={this.onChangeTextbox}
-                onBlur={() => {}}
-                onFocus={() => {}}
-                value={this.state.textbox}/>
+                onBlur={() => { }}
+                onFocus={() => { }}
+                value={this.state.textbox} />
             </div>
             <div>
               <span>Click me to change this checkbox</span>
@@ -151,9 +211,9 @@ class App extends Component {
                 onChange={this.onChangeSinglePicker}
                 color="gray"
                 options={[
-                  {label: <img src={logo} width="30px" alt="logo" />, value: 'react'},
-                  {label: "Pill 2", value: 2},
-                  {label: "Pill 3", value: 3},
+                  { label: <img src={logo} width="30px" alt="logo" />, value: 'react' },
+                  { label: "Pill 2", value: 2 },
+                  { label: "Pill 3", value: 3 },
                 ]}
                 active={this.state.single_picker}
               />
@@ -165,9 +225,9 @@ class App extends Component {
                 onChange={this.onChangeMultiplePicker}
                 color="gray"
                 options={[
-                  {label: <img src={logo} width="30px" alt="logo" />, value: 'react'},
-                  {label: "Pill 2", value: 2},
-                  {label: "Pill 3", value: 3},
+                  { label: <img src={logo} width="30px" alt="logo" />, value: 'react' },
+                  { label: "Pill 2", value: 2 },
+                  { label: "Pill 3", value: 3 },
                 ]}
                 active={this.state.multiple_picker}
               />
@@ -201,6 +261,10 @@ class App extends Component {
             row_mouseEnter={this.onMouseEnterRow}
             row_mouseLeave={this.onMouseLeaveRow}
             row_hovered={this.state.highlighted}
+            headers={this.getHeader()}
+            tableOrder={this.state.tableOrder}
+            idOrder={this.state.idOrder}
+            handleClickHeader={this.handleClickHeader}
           />
         </div>
       </div>

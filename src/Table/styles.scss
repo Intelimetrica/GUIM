@@ -23,6 +23,25 @@
     border-right: 2px solid #8e8e8e;
   }
 }
+.arrow {
+  margin-left: 10px;
+  border: solid;
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 3px;
+}
+.asc {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+.desc {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+.active-arrow{
+  border: solid #0099ff;
+  border-width: 0 1px 1px 0;
+}
 
 #ticky {
   display: none;
