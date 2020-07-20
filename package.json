@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Rantelo/GUIM.git"
+    "url": "git+https://github.com/Intelimetrica/GUIM.git"
   },
   "keywords": [
     "React",
@@ -24,9 +24,9 @@
   "author": "Intelimetrica",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Rantelo/GUIM/issues"
+    "url": "https://github.com/Intelimetrica/GUIM/issues"
   },
-  "homepage": "https://github.com/Rantelo/GUIM#readme",
+  "homepage": "https://github.com/Intelimetrica/GUIM#readme",
   "devDependencies": {
     "autoprefixer": "^7.2.1",
     "babel-core": "^6.26.0",

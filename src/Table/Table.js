@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from "react";
+import isEmpty from 'lodash/isEmpty';
+
 import "./styles.scss";
 
-const mapHeader = (header, handleClickHeader, idOrder, tableOrder) => (
-  header.map((rowHeader, index_row) => (
+const mapHeader = (header, handleClickHeader, idOrder, tableOrder) => header.map((rowHeader, index_row) => (
     <tr className={`theader `} key={`header-${index_row}`}>
       {rowHeader.map((colHeader, index_col) => {
         let options = {};
@@ -16,19 +17,20 @@ const mapHeader = (header, handleClickHeader, idOrder, tableOrder) => (
         if (colHeader.className) {
           options.className = colHeader.className;
         }
-        if (colHeader.sortable && colHeader.id !== undefined) {
-          ordering = <i className={'arrow desc'} />;
-          const cell_order = tableOrder === 'asc' ? 'desc' : 'asc';
-          options.onClick = () => handleClickHeader(colHeader.id, idOrder === colHeader.id ? cell_order : 'asc');
+        if (colHeader.sortable && !isEmpty(colHeader.id)) {
+          let orderClass = 'desc';
+          let newOrder = 'asc';
           if (idOrder === colHeader.id) {
-            ordering = <i className={`arrow active-arrow ${tableOrder} `}> </i>;
+            orderClass = `active-arrow ${tableOrder}`;
+            newOrder = tableOrder === 'asc' ? 'desc' : 'asc';
           }
+          options.onClick = () => handleClickHeader(colHeader.id, newOrder);
+          ordering = <i className={`arrow ${orderClass} `} />;
         }
         return <th key={`row-header-${index_row}-${index_col}`} {...options} >{colHeader.text} {ordering}</th>;
       })}
     </tr>
-  ))
-);
+  ));
 
 export class StickyHeader extends Component {
   constructor(props) {
