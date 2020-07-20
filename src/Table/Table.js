@@ -4,33 +4,33 @@ import isEmpty from 'lodash/isEmpty';
 import "./styles.scss";
 
 const mapHeader = (header, handleClickHeader, idOrder, tableOrder) => header.map((rowHeader, index_row) => (
-    <tr className={`theader `} key={`header-${index_row}`}>
-      {rowHeader.map((colHeader, index_col) => {
-        let options = {};
-        let ordering = null;
-        if (colHeader.rowSpan) {
-          options.rowSpan = colHeader.rowSpan;
+  <tr className={`theader `} key={`header-${index_row}`}>
+    {rowHeader.map((colHeader, index_col) => {
+      let options = {};
+      let ordering = null;
+      if (colHeader.rowSpan) {
+        options.rowSpan = colHeader.rowSpan;
+      }
+      if (colHeader.colSpan) {
+        options.colSpan = colHeader.colSpan;
+      }
+      if (colHeader.className) {
+        options.className = colHeader.className;
+      }
+      if (colHeader.sortable && !isEmpty(colHeader.id)) {
+        let orderClass = 'desc';
+        let newOrder = 'asc';
+        if (idOrder === colHeader.id) {
+          orderClass = `active-arrow ${tableOrder}`;
+          newOrder = tableOrder === 'asc' ? 'desc' : 'asc';
         }
-        if (colHeader.colSpan) {
-          options.colSpan = colHeader.colSpan;
-        }
-        if (colHeader.className) {
-          options.className = colHeader.className;
-        }
-        if (colHeader.sortable && !isEmpty(colHeader.id)) {
-          let orderClass = 'desc';
-          let newOrder = 'asc';
-          if (idOrder === colHeader.id) {
-            orderClass = `active-arrow ${tableOrder}`;
-            newOrder = tableOrder === 'asc' ? 'desc' : 'asc';
-          }
-          options.onClick = () => handleClickHeader(colHeader.id, newOrder);
-          ordering = <i className={`arrow ${orderClass} `} />;
-        }
-        return <th key={`row-header-${index_row}-${index_col}`} {...options} >{colHeader.text} {ordering}</th>;
-      })}
-    </tr>
-  ));
+        options.onClick = () => handleClickHeader(colHeader.id, newOrder);
+        ordering = <i className={`arrow ${orderClass} `} />;
+      }
+      return <th key={`row-header-${index_row}-${index_col}`} {...options} >{colHeader.text} {ordering}</th>;
+    })}
+  </tr>
+));
 
 export class StickyHeader extends Component {
   constructor(props) {

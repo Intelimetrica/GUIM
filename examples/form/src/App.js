@@ -182,8 +182,8 @@ class App extends Component {
                 name="textbox"
                 className='GUIMTextboxSize'
                 onChange={this.onChangeTextbox}
-                onBlur={() => { }}
-                onFocus={() => { }}
+                onBlur={() => {}}
+                onFocus={() => {}}
                 value={this.state.textbox} />
             </div>
             <div>
