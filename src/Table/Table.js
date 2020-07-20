@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from "react";
 import "./styles.scss";
 
-const mapHeader = (header, handleClickHeader, idOrder, tableOrder) => {
-  return header.map((rowHeader, index_row) => (
+const mapHeader = (header, handleClickHeader, idOrder, tableOrder) => (
+  header.map((rowHeader, index_row) => (
     <tr className={`theader `} key={`header-${index_row}`}>
       {rowHeader.map((colHeader, index_col) => {
         let options = {};
@@ -16,7 +16,7 @@ const mapHeader = (header, handleClickHeader, idOrder, tableOrder) => {
         if (colHeader.className) {
           options.className = colHeader.className;
         }
-        if (colHeader.allowOrdering === true) {
+        if (colHeader.allowOrdering && colHeader.id !== undefined) {
           ordering = <i className={'arrow desc'} />;
           const cell_order = tableOrder === 'asc' ? 'desc' : 'asc';
           options.onClick = () => handleClickHeader(colHeader.id, idOrder === colHeader.id ? cell_order : 'asc');
@@ -28,7 +28,7 @@ const mapHeader = (header, handleClickHeader, idOrder, tableOrder) => {
       })}
     </tr>
   ))
-}
+);
 
 export class StickyHeader extends Component {
   constructor(props) {

@@ -23,13 +23,11 @@ const header = [
     },
     {
       text: 'Name',
-      id: 'Name',
       colSpan: 2,
       className: 'border'
     },
     {
       text: 'Data',
-      id: 'Data',
       colSpan: 2
     }
   ],
