@@ -49,30 +49,30 @@ ShallowWrapper {
         <thead>
           <tr
             className="theader "
-            id="header-0"
           >
             <th
-              className={undefined}
               colSpan={4}
             >
               Products
+               
             </th>
           </tr>
           <tr
             className="theader "
-            id="header-1"
           >
             <th
               className="border"
               colSpan={2}
             >
               Item
+               
             </th>
             <th
               className="border"
               colSpan={2}
             >
               Description
+               
             </th>
           </tr>
         </thead>
@@ -89,30 +89,30 @@ ShallowWrapper {
         "children": <thead>
           <tr
             className="theader "
-            id="header-0"
           >
             <th
-              className={undefined}
               colSpan={4}
             >
               Products
+               
             </th>
           </tr>
           <tr
             className="theader "
-            id="header-1"
           >
             <th
               className="border"
               colSpan={2}
             >
               Item
+               
             </th>
             <th
               className="border"
               colSpan={2}
             >
               Description
+               
             </th>
           </tr>
         </thead>,
@@ -127,30 +127,30 @@ ShallowWrapper {
           "children": Array [
             <tr
               className="theader "
-              id="header-0"
             >
               <th
-                className={undefined}
                 colSpan={4}
               >
                 Products
+                 
               </th>
             </tr>,
             <tr
               className="theader "
-              id="header-1"
             >
               <th
                 className="border"
                 colSpan={2}
               >
                 Item
+                 
               </th>
               <th
                 className="border"
                 colSpan={2}
               >
                 Description
+                 
               </th>
             </tr>,
           ],
@@ -164,14 +164,13 @@ ShallowWrapper {
             "props": Object {
               "children": Array [
                 <th
-                  className={undefined}
                   colSpan={4}
                 >
                   Products
+                   
                 </th>,
               ],
               "className": "theader ",
-              "id": "header-0",
             },
             "ref": null,
             "rendered": Array [
@@ -180,12 +179,19 @@ ShallowWrapper {
                 "key": "row-header-0-0",
                 "nodeType": "host",
                 "props": Object {
-                  "children": "Products",
-                  "className": undefined,
+                  "children": Array [
+                    "Products",
+                    " ",
+                    null,
+                  ],
                   "colSpan": 4,
                 },
                 "ref": null,
-                "rendered": "Products",
+                "rendered": Array [
+                  "Products",
+                  " ",
+                  null,
+                ],
                 "type": "th",
               },
             ],
@@ -202,16 +208,17 @@ ShallowWrapper {
                   colSpan={2}
                 >
                   Item
+                   
                 </th>,
                 <th
                   className="border"
                   colSpan={2}
                 >
                   Description
+                   
                 </th>,
               ],
               "className": "theader ",
-              "id": "header-1",
             },
             "ref": null,
             "rendered": Array [
@@ -220,12 +227,20 @@ ShallowWrapper {
                 "key": "row-header-1-0",
                 "nodeType": "host",
                 "props": Object {
-                  "children": "Item",
+                  "children": Array [
+                    "Item",
+                    " ",
+                    null,
+                  ],
                   "className": "border",
                   "colSpan": 2,
                 },
                 "ref": null,
-                "rendered": "Item",
+                "rendered": Array [
+                  "Item",
+                  " ",
+                  null,
+                ],
                 "type": "th",
               },
               Object {
@@ -233,12 +248,20 @@ ShallowWrapper {
                 "key": "row-header-1-1",
                 "nodeType": "host",
                 "props": Object {
-                  "children": "Description",
+                  "children": Array [
+                    "Description",
+                    " ",
+                    null,
+                  ],
                   "className": "border",
                   "colSpan": 2,
                 },
                 "ref": null,
-                "rendered": "Description",
+                "rendered": Array [
+                  "Description",
+                  " ",
+                  null,
+                ],
                 "type": "th",
               },
             ],
@@ -263,30 +286,30 @@ ShallowWrapper {
           <thead>
             <tr
               className="theader "
-              id="header-0"
             >
               <th
-                className={undefined}
                 colSpan={4}
               >
                 Products
+                 
               </th>
             </tr>
             <tr
               className="theader "
-              id="header-1"
             >
               <th
                 className="border"
                 colSpan={2}
               >
                 Item
+                 
               </th>
               <th
                 className="border"
                 colSpan={2}
               >
                 Description
+                 
               </th>
             </tr>
           </thead>
@@ -303,30 +326,30 @@ ShallowWrapper {
           "children": <thead>
             <tr
               className="theader "
-              id="header-0"
             >
               <th
-                className={undefined}
                 colSpan={4}
               >
                 Products
+                 
               </th>
             </tr>
             <tr
               className="theader "
-              id="header-1"
             >
               <th
                 className="border"
                 colSpan={2}
               >
                 Item
+                 
               </th>
               <th
                 className="border"
                 colSpan={2}
               >
                 Description
+                 
               </th>
             </tr>
           </thead>,
@@ -341,30 +364,30 @@ ShallowWrapper {
             "children": Array [
               <tr
                 className="theader "
-                id="header-0"
               >
                 <th
-                  className={undefined}
                   colSpan={4}
                 >
                   Products
+                   
                 </th>
               </tr>,
               <tr
                 className="theader "
-                id="header-1"
               >
                 <th
                   className="border"
                   colSpan={2}
                 >
                   Item
+                   
                 </th>
                 <th
                   className="border"
                   colSpan={2}
                 >
                   Description
+                   
                 </th>
               </tr>,
             ],
@@ -378,14 +401,13 @@ ShallowWrapper {
               "props": Object {
                 "children": Array [
                   <th
-                    className={undefined}
                     colSpan={4}
                   >
                     Products
+                     
                   </th>,
                 ],
                 "className": "theader ",
-                "id": "header-0",
               },
               "ref": null,
               "rendered": Array [
@@ -394,12 +416,19 @@ ShallowWrapper {
                   "key": "row-header-0-0",
                   "nodeType": "host",
                   "props": Object {
-                    "children": "Products",
-                    "className": undefined,
+                    "children": Array [
+                      "Products",
+                      " ",
+                      null,
+                    ],
                     "colSpan": 4,
                   },
                   "ref": null,
-                  "rendered": "Products",
+                  "rendered": Array [
+                    "Products",
+                    " ",
+                    null,
+                  ],
                   "type": "th",
                 },
               ],
@@ -416,16 +445,17 @@ ShallowWrapper {
                     colSpan={2}
                   >
                     Item
+                     
                   </th>,
                   <th
                     className="border"
                     colSpan={2}
                   >
                     Description
+                     
                   </th>,
                 ],
                 "className": "theader ",
-                "id": "header-1",
               },
               "ref": null,
               "rendered": Array [
@@ -434,12 +464,20 @@ ShallowWrapper {
                   "key": "row-header-1-0",
                   "nodeType": "host",
                   "props": Object {
-                    "children": "Item",
+                    "children": Array [
+                      "Item",
+                      " ",
+                      null,
+                    ],
                     "className": "border",
                     "colSpan": 2,
                   },
                   "ref": null,
-                  "rendered": "Item",
+                  "rendered": Array [
+                    "Item",
+                    " ",
+                    null,
+                  ],
                   "type": "th",
                 },
                 Object {
@@ -447,12 +485,20 @@ ShallowWrapper {
                   "key": "row-header-1-1",
                   "nodeType": "host",
                   "props": Object {
-                    "children": "Description",
+                    "children": Array [
+                      "Description",
+                      " ",
+                      null,
+                    ],
                     "className": "border",
                     "colSpan": 2,
                   },
                   "ref": null,
-                  "rendered": "Description",
+                  "rendered": Array [
+                    "Description",
+                    " ",
+                    null,
+                  ],
                   "type": "th",
                 },
               ],
@@ -545,30 +591,30 @@ ShallowWrapper {
         <thead>
           <tr
             className="theader "
-            id="header-0"
           >
             <th
-              className={undefined}
               colSpan={4}
             >
               Products
+               
             </th>
           </tr>
           <tr
             className="theader "
-            id="header-1"
           >
             <th
               className="border"
               colSpan={2}
             >
               Item
+               
             </th>
             <th
               className="border"
               colSpan={2}
             >
               Description
+               
             </th>
           </tr>
         </thead>
@@ -591,30 +637,30 @@ ShallowWrapper {
         "children": <thead>
           <tr
             className="theader "
-            id="header-0"
           >
             <th
-              className={undefined}
               colSpan={4}
             >
               Products
+               
             </th>
           </tr>
           <tr
             className="theader "
-            id="header-1"
           >
             <th
               className="border"
               colSpan={2}
             >
               Item
+               
             </th>
             <th
               className="border"
               colSpan={2}
             >
               Description
+               
             </th>
           </tr>
         </thead>,
@@ -629,30 +675,30 @@ ShallowWrapper {
           "children": Array [
             <tr
               className="theader "
-              id="header-0"
             >
               <th
-                className={undefined}
                 colSpan={4}
               >
                 Products
+                 
               </th>
             </tr>,
             <tr
               className="theader "
-              id="header-1"
             >
               <th
                 className="border"
                 colSpan={2}
               >
                 Item
+                 
               </th>
               <th
                 className="border"
                 colSpan={2}
               >
                 Description
+                 
               </th>
             </tr>,
           ],
@@ -666,14 +712,13 @@ ShallowWrapper {
             "props": Object {
               "children": Array [
                 <th
-                  className={undefined}
                   colSpan={4}
                 >
                   Products
+                   
                 </th>,
               ],
               "className": "theader ",
-              "id": "header-0",
             },
             "ref": null,
             "rendered": Array [
@@ -682,12 +727,19 @@ ShallowWrapper {
                 "key": "row-header-0-0",
                 "nodeType": "host",
                 "props": Object {
-                  "children": "Products",
-                  "className": undefined,
+                  "children": Array [
+                    "Products",
+                    " ",
+                    null,
+                  ],
                   "colSpan": 4,
                 },
                 "ref": null,
-                "rendered": "Products",
+                "rendered": Array [
+                  "Products",
+                  " ",
+                  null,
+                ],
                 "type": "th",
               },
             ],
@@ -704,16 +756,17 @@ ShallowWrapper {
                   colSpan={2}
                 >
                   Item
+                   
                 </th>,
                 <th
                   className="border"
                   colSpan={2}
                 >
                   Description
+                   
                 </th>,
               ],
               "className": "theader ",
-              "id": "header-1",
             },
             "ref": null,
             "rendered": Array [
@@ -722,12 +775,20 @@ ShallowWrapper {
                 "key": "row-header-1-0",
                 "nodeType": "host",
                 "props": Object {
-                  "children": "Item",
+                  "children": Array [
+                    "Item",
+                    " ",
+                    null,
+                  ],
                   "className": "border",
                   "colSpan": 2,
                 },
                 "ref": null,
-                "rendered": "Item",
+                "rendered": Array [
+                  "Item",
+                  " ",
+                  null,
+                ],
                 "type": "th",
               },
               Object {
@@ -735,12 +796,20 @@ ShallowWrapper {
                 "key": "row-header-1-1",
                 "nodeType": "host",
                 "props": Object {
-                  "children": "Description",
+                  "children": Array [
+                    "Description",
+                    " ",
+                    null,
+                  ],
                   "className": "border",
                   "colSpan": 2,
                 },
                 "ref": null,
-                "rendered": "Description",
+                "rendered": Array [
+                  "Description",
+                  " ",
+                  null,
+                ],
                 "type": "th",
               },
             ],
@@ -765,30 +834,30 @@ ShallowWrapper {
           <thead>
             <tr
               className="theader "
-              id="header-0"
             >
               <th
-                className={undefined}
                 colSpan={4}
               >
                 Products
+                 
               </th>
             </tr>
             <tr
               className="theader "
-              id="header-1"
             >
               <th
                 className="border"
                 colSpan={2}
               >
                 Item
+                 
               </th>
               <th
                 className="border"
                 colSpan={2}
               >
                 Description
+                 
               </th>
             </tr>
           </thead>
@@ -811,30 +880,30 @@ ShallowWrapper {
           "children": <thead>
             <tr
               className="theader "
-              id="header-0"
             >
               <th
-                className={undefined}
                 colSpan={4}
               >
                 Products
+                 
               </th>
             </tr>
             <tr
               className="theader "
-              id="header-1"
             >
               <th
                 className="border"
                 colSpan={2}
               >
                 Item
+                 
               </th>
               <th
                 className="border"
                 colSpan={2}
               >
                 Description
+                 
               </th>
             </tr>
           </thead>,
@@ -849,30 +918,30 @@ ShallowWrapper {
             "children": Array [
               <tr
                 className="theader "
-                id="header-0"
               >
                 <th
-                  className={undefined}
                   colSpan={4}
                 >
                   Products
+                   
                 </th>
               </tr>,
               <tr
                 className="theader "
-                id="header-1"
               >
                 <th
                   className="border"
                   colSpan={2}
                 >
                   Item
+                   
                 </th>
                 <th
                   className="border"
                   colSpan={2}
                 >
                   Description
+                   
                 </th>
               </tr>,
             ],
@@ -886,14 +955,13 @@ ShallowWrapper {
               "props": Object {
                 "children": Array [
                   <th
-                    className={undefined}
                     colSpan={4}
                   >
                     Products
+                     
                   </th>,
                 ],
                 "className": "theader ",
-                "id": "header-0",
               },
               "ref": null,
               "rendered": Array [
@@ -902,12 +970,19 @@ ShallowWrapper {
                   "key": "row-header-0-0",
                   "nodeType": "host",
                   "props": Object {
-                    "children": "Products",
-                    "className": undefined,
+                    "children": Array [
+                      "Products",
+                      " ",
+                      null,
+                    ],
                     "colSpan": 4,
                   },
                   "ref": null,
-                  "rendered": "Products",
+                  "rendered": Array [
+                    "Products",
+                    " ",
+                    null,
+                  ],
                   "type": "th",
                 },
               ],
@@ -924,16 +999,17 @@ ShallowWrapper {
                     colSpan={2}
                   >
                     Item
+                     
                   </th>,
                   <th
                     className="border"
                     colSpan={2}
                   >
                     Description
+                     
                   </th>,
                 ],
                 "className": "theader ",
-                "id": "header-1",
               },
               "ref": null,
               "rendered": Array [
@@ -942,12 +1018,20 @@ ShallowWrapper {
                   "key": "row-header-1-0",
                   "nodeType": "host",
                   "props": Object {
-                    "children": "Item",
+                    "children": Array [
+                      "Item",
+                      " ",
+                      null,
+                    ],
                     "className": "border",
                     "colSpan": 2,
                   },
                   "ref": null,
-                  "rendered": "Item",
+                  "rendered": Array [
+                    "Item",
+                    " ",
+                    null,
+                  ],
                   "type": "th",
                 },
                 Object {
@@ -955,12 +1039,20 @@ ShallowWrapper {
                   "key": "row-header-1-1",
                   "nodeType": "host",
                   "props": Object {
-                    "children": "Description",
+                    "children": Array [
+                      "Description",
+                      " ",
+                      null,
+                    ],
                     "className": "border",
                     "colSpan": 2,
                   },
                   "ref": null,
-                  "rendered": "Description",
+                  "rendered": Array [
+                    "Description",
+                    " ",
+                    null,
+                  ],
                   "type": "th",
                 },
               ],
@@ -1010,33 +1102,35 @@ Array [
   <table
     className="GUIMTable "
   >
-    <thead>
+    <thead
+      id="head_test"
+    >
       <tr
         className="theader "
-        id="header-0"
       >
         <th
-          className={undefined}
           colSpan={4}
         >
           Products
+           
         </th>
       </tr>
       <tr
         className="theader "
-        id="header-1"
       >
         <th
           className="border"
           colSpan={2}
         >
           Item
+           
         </th>
         <th
           className="border"
           colSpan={2}
         >
           Description
+           
         </th>
       </tr>
     </thead>
@@ -1126,33 +1220,35 @@ Array [
   <table
     className="GUIMTable "
   >
-    <thead>
+    <thead
+      id="head_test"
+    >
       <tr
         className="theader "
-        id="header-0"
       >
         <th
-          className={undefined}
           colSpan={4}
         >
           Products
+           
         </th>
       </tr>
       <tr
         className="theader "
-        id="header-1"
       >
         <th
           className="border"
           colSpan={2}
         >
           Item
+           
         </th>
         <th
           className="border"
           colSpan={2}
         >
           Description
+           
         </th>
       </tr>
     </thead>
@@ -1242,33 +1338,35 @@ Array [
   <table
     className="GUIMTable "
   >
-    <thead>
+    <thead
+      id="head_test"
+    >
       <tr
         className="theader "
-        id="header-0"
       >
         <th
-          className={undefined}
           colSpan={4}
         >
           Products
+           
         </th>
       </tr>
       <tr
         className="theader "
-        id="header-1"
       >
         <th
           className="border"
           colSpan={2}
         >
           Item
+           
         </th>
         <th
           className="border"
           colSpan={2}
         >
           Description
+           
         </th>
       </tr>
     </thead>
@@ -1358,33 +1456,35 @@ Array [
   <table
     className="GUIMTable "
   >
-    <thead>
+    <thead
+      id="head_test"
+    >
       <tr
         className="theader "
-        id="header-0"
       >
         <th
-          className={undefined}
           colSpan={4}
         >
           Products
+           
         </th>
       </tr>
       <tr
         className="theader "
-        id="header-1"
       >
         <th
           className="border"
           colSpan={2}
         >
           Item
+           
         </th>
         <th
           className="border"
           colSpan={2}
         >
           Description
+           
         </th>
       </tr>
     </thead>
@@ -1474,33 +1574,35 @@ Array [
   <table
     className="GUIMTable "
   >
-    <thead>
+    <thead
+      id="head_test"
+    >
       <tr
         className="theader "
-        id="header-0"
       >
         <th
-          className={undefined}
           colSpan={4}
         >
           Products
+           
         </th>
       </tr>
       <tr
         className="theader "
-        id="header-1"
       >
         <th
           className="border"
           colSpan={2}
         >
           Item
+           
         </th>
         <th
           className="border"
           colSpan={2}
         >
           Description
+           
         </th>
       </tr>
     </thead>

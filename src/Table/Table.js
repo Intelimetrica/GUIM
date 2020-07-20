@@ -1,5 +1,36 @@
 import React, { Component, Fragment } from "react";
+import isEmpty from 'lodash/isEmpty';
+
 import "./styles.scss";
+
+const mapHeader = (header, handleClickHeader, idOrder, tableOrder) => header.map((rowHeader, index_row) => (
+  <tr className={`theader `} key={`header-${index_row}`}>
+    {rowHeader.map((colHeader, index_col) => {
+      let options = {};
+      let ordering = null;
+      if (colHeader.rowSpan) {
+        options.rowSpan = colHeader.rowSpan;
+      }
+      if (colHeader.colSpan) {
+        options.colSpan = colHeader.colSpan;
+      }
+      if (colHeader.className) {
+        options.className = colHeader.className;
+      }
+      if (colHeader.sortable && !isEmpty(colHeader.id)) {
+        let orderClass = 'desc';
+        let newOrder = 'asc';
+        if (idOrder === colHeader.id) {
+          orderClass = `active-arrow ${tableOrder}`;
+          newOrder = tableOrder === 'asc' ? 'desc' : 'asc';
+        }
+        options.onClick = () => handleClickHeader(colHeader.id, newOrder);
+        ordering = <i className={`arrow ${orderClass} `} />;
+      }
+      return <th key={`row-header-${index_row}-${index_col}`} {...options} >{colHeader.text} {ordering}</th>;
+    })}
+  </tr>
+));
 
 export class StickyHeader extends Component {
   constructor(props) {
@@ -47,27 +78,15 @@ export class StickyHeader extends Component {
     return (
       <div id="ticky" style={style}>
         <table className={`GUIMTable ${this.props.className}`}>
-          <thead>
-            {this.props.headers.map((rowHeader, index_row) => (
-              <tr className={`theader `} key={`header-${index_row}`}>
-                {rowHeader.map((colHeader, index_col) => {
-                  let options = {};
-                  if (colHeader.rowSpan) {
-                    options.rowSpan = colHeader.rowSpan;
-                  }
-                  if (colHeader.colSpan) {
-                    options.colSpan = colHeader.colSpan;
-                  }
-                  return <th className={colHeader.className} key={`row-header-${index_row}-${index_col}`} {...options} >{colHeader.text}</th>;
-                })}
-              </tr>
-            ))}
+          <thead >
+            {mapHeader(this.props.headers, this.props.handleClickHeader, this.props.idOrder, this.props.tableOrder)}
           </thead>
         </table>
       </div>
     )
   }
 }
+
 const Table = props => {
   const { body, headers, head_id } = props;
   const sticky_header = (props.sticky_header.active) ? (
@@ -76,28 +95,17 @@ const Table = props => {
       headers={headers}
       top={props.sticky_header.top}
       className={props.className}
+      tableOrder={props.tableOrder}
+      idOrder={props.idOrder}
+      handleClickHeader={props.handleClickHeader}
     />
   ) : '';
-
   return (
     <Fragment>
       {sticky_header}
       <table className={`GUIMTable ${props.className}`}>
         <thead id={head_id}>
-          {headers.map((rowHeader, index_row) => (
-            <tr className={`theader `} key={`header-${index_row}`}>
-              {rowHeader.map((colHeader, index_col) => {
-                let options = {};
-                if (colHeader.rowSpan) {
-                  options.rowSpan = colHeader.rowSpan;
-                }
-                if (colHeader.colSpan) {
-                  options.colSpan = colHeader.colSpan;
-                }
-                return <th className={colHeader.className} key={`row-header-${index_row}-${index_col}`} {...options} >{colHeader.text}</th>;
-              })}
-            </tr>
-          ))}
+          {mapHeader(headers, props.handleClickHeader, props.idOrder, props.tableOrder)}
         </thead>
         <tbody className={`${props.striped ? "striped" : ""}`}>
           {
@@ -147,7 +155,7 @@ Table.defaultProps = {
         className: 'border'
       },
       {
-        text: 'First Name',
+        text: 'First Name'
       },
       {
         text: 'Last Name',
@@ -161,10 +169,11 @@ Table.defaultProps = {
       }
     ]
   ],
+  tableOrder: 'asc',
   body: [
     ["1", "John", "Doe", "john@doe.com", "View - Edit"],
-    ["2", "Jane", "Doe", "jane@doe.com", "View - Edit"],
-    ["3", "Josue", "Doe", "josue@doe.com", "View - Edit"]
+    ["2", "Jane", "Garcia", "jane@doe.com", "View - Edit"],
+    ["3", "Josue", "Corona", "josue@doe.com", "View - Edit"]
   ],
   row_mouseEnter: (i) => { },
   row_mouseLeave: (i) => { },
