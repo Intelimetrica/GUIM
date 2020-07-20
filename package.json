@@ -1,6 +1,6 @@
 {
   "name": "guim",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "React Components for Intelimetrica",
   "main": "./dist/index.js",
   "directories": {

@@ -16,7 +16,7 @@ const mapHeader = (header, handleClickHeader, idOrder, tableOrder) => (
         if (colHeader.className) {
           options.className = colHeader.className;
         }
-        if (colHeader.allowOrdering && colHeader.id !== undefined) {
+        if (colHeader.sortable && colHeader.id !== undefined) {
           ordering = <i className={'arrow desc'} />;
           const cell_order = tableOrder === 'asc' ? 'desc' : 'asc';
           options.onClick = () => handleClickHeader(colHeader.id, idOrder === colHeader.id ? cell_order : 'asc');

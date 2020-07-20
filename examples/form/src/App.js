@@ -37,28 +37,28 @@ const header = [
       id: 'Number',
       rowSpan: 3,
       className: 'border',
-      allowOrdering: true
+      sortable: true
     },
     {
       text: 'First Name',
       id: 'First_Name',
-      allowOrdering: true
+      sortable: true
     },
     {
       text: 'Last Name',
       id: 'Last_Name',
       className: 'border',
-      allowOrdering: true
+      sortable: true
     },
     {
       text: 'Email',
       id: 'Email',
-      allowOrdering: true
+      sortable: true
     },
     {
       text: 'Actions',
       id: 'Actions',
-      allowOrdering: true
+      sortable: true
     }
   ]
 ];
