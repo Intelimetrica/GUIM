@@ -1,6 +1,35 @@
 import React, { Component, Fragment } from "react";
 import "./styles.scss";
 
+const mapHeader = (header, handleClickHeader, idOrder, tableOrder) => {
+  return header.map((rowHeader, index_row) => (
+    <tr className={`theader `} key={`header-${index_row}`}>
+      {rowHeader.map((colHeader, index_col) => {
+        let options = {};
+        let ordering = null;
+        if (colHeader.rowSpan) {
+          options.rowSpan = colHeader.rowSpan;
+        }
+        if (colHeader.colSpan) {
+          options.colSpan = colHeader.colSpan;
+        }
+        if (colHeader.className) {
+          options.className = colHeader.className;
+        }
+        if (colHeader.allowOrdering === true) {
+          ordering = <i className={'arrow desc'} />;
+          const cell_order = tableOrder === 'asc' ? 'desc' : 'asc';
+          options.onClick = () => handleClickHeader(colHeader.id, idOrder === colHeader.id ? cell_order : 'asc');
+          if (idOrder === colHeader.id) {
+            ordering = <i className={`arrow active-arrow ${tableOrder} `}> </i>;
+          }
+        }
+        return <th key={`row-header-${index_row}-${index_col}`} {...options} >{colHeader.text} {ordering}</th>;
+      })}
+    </tr>
+  ))
+}
+
 export class StickyHeader extends Component {
   constructor(props) {
     super(props);
@@ -47,39 +76,15 @@ export class StickyHeader extends Component {
     return (
       <div id="ticky" style={style}>
         <table className={`GUIMTable ${this.props.className}`}>
-
           <thead >
-            {this.props.headers.map((rowHeader, index_row) => (
-              <tr className={`theader `} key={`header-${index_row}`}>
-                {rowHeader.map((colHeader, index_col) => {
-                  let options = {};
-                  var ordering = null;
-                  if (colHeader.rowSpan) {
-                    options.rowSpan = colHeader.rowSpan;
-                  }
-                  if (colHeader.colSpan) {
-                    options.colSpan = colHeader.colSpan;
-                  }
-                  if (colHeader.className) {
-                    options.className = colHeader.className;
-                  }
-                  if (colHeader.allowOrdering !== false) {
-                    ordering = <i className={`arrow desc`}> </i>;
-                    const cell_order = this.props.tableOrder === 'asc' ? 'desc' : 'asc';
-                    options.onClick = () => this.props.handleClickHeader(colHeader.id, this.props.idOrder === colHeader.id ? cell_order : 'asc');
-                    if (this.props.idOrder === colHeader.id)
-                      ordering = <i className={`arrow active-arrow ${this.props.tableOrder} `}> </i>;
-                  }
-                  return <th key={`row-header-${index_row}-${index_col}`} {...options} >{colHeader.text} {ordering}</th>;
-                })}
-              </tr>
-            ))}
+            {mapHeader(this.props.headers, this.props.handleClickHeader, this.props.idOrder, this.props.tableOrder)}
           </thead>
         </table>
       </div>
     )
   }
 }
+
 const Table = props => {
   const { body, headers, head_id } = props;
   const sticky_header = (props.sticky_header.active) ? (
@@ -98,31 +103,7 @@ const Table = props => {
       {sticky_header}
       <table className={`GUIMTable ${props.className}`}>
         <thead id={head_id}>
-          {headers.map((rowHeader, index_row) => (
-            <tr className={`theader `} key={`header-${index_row}`}>
-              {rowHeader.map((colHeader, index_col) => {
-                let options = {};
-                var ordering = null;
-                if (colHeader.rowSpan) {
-                  options.rowSpan = colHeader.rowSpan;
-                }
-                if (colHeader.colSpan) {
-                  options.colSpan = colHeader.colSpan;
-                }
-                if (colHeader.className) {
-                  options.className = colHeader.className;
-                }
-                if (colHeader.allowOrdering !== false) {
-                  ordering = <i className={`arrow desc`}> </i>;
-                  const cell_order = props.tableOrder === 'asc' ? 'desc' : 'asc';
-                  options.onClick = () => props.handleClickHeader(colHeader.id, props.idOrder === colHeader.id ? cell_order : 'asc');
-                  if (props.idOrder === colHeader.id)
-                    ordering = <i className={`arrow active-arrow ${props.tableOrder} `}> </i>;
-                }
-                return <th key={`row-header-${index_row}-${index_col}`} {...options} >{colHeader.text} {ordering}</th>;
-              })}
-            </tr>
-          ))}
+          {mapHeader(headers, props.handleClickHeader, props.idOrder, props.tableOrder)}
         </thead>
         <tbody className={`${props.striped ? "striped" : ""}`}>
           {
@@ -145,7 +126,7 @@ const Table = props => {
 Table.defaultProps = {
   striped: false,
   sticky_header: {
-    active: true,
+    active: false,
     top: 0
   },
   head_id: `head-${Math.round(Math.random() * 10000)}`,
@@ -153,19 +134,16 @@ Table.defaultProps = {
     [
       {
         text: '',
-        className: 'border',
-        allowOrdering: false
+        className: 'border'
       },
       {
         text: 'Name',
         colSpan: 2,
-        className: 'border',
-        allowOrdering: false
+        className: 'border'
       },
       {
         text: 'Data',
-        colSpan: 2,
-        allowOrdering: false
+        colSpan: 2
       }
     ],
     [
@@ -175,7 +153,7 @@ Table.defaultProps = {
         className: 'border'
       },
       {
-        text: 'First Name',
+        text: 'First Name'
       },
       {
         text: 'Last Name',

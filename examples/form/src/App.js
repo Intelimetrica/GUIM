@@ -15,6 +15,56 @@ import logo from './logo.svg';
 const numberOfSteps = 21;
 const range = 0.05;
 
+const header = [
+  [
+    {
+      text: '',
+      className: 'border'
+    },
+    {
+      text: 'Name',
+      id: 'Name',
+      colSpan: 2,
+      className: 'border'
+    },
+    {
+      text: 'Data',
+      id: 'Data',
+      colSpan: 2
+    }
+  ],
+  [
+    {
+      text: 'Number',
+      id: 'Number',
+      rowSpan: 3,
+      className: 'border',
+      allowOrdering: true
+    },
+    {
+      text: 'First Name',
+      id: 'First_Name',
+      allowOrdering: true
+    },
+    {
+      text: 'Last Name',
+      id: 'Last_Name',
+      className: 'border',
+      allowOrdering: true
+    },
+    {
+      text: 'Email',
+      id: 'Email',
+      allowOrdering: true
+    },
+    {
+      text: 'Actions',
+      id: 'Actions',
+      allowOrdering: true
+    }
+  ]
+];
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -91,60 +141,10 @@ class App extends Component {
     this.setState({ selected_range: newSelectedRange });
   }
 
-  getHeader() {
-    return [
-      [
-        {
-          text: '',
-          className: 'border',
-          allowOrdering: false
-        },
-        {
-          text: 'Name',
-          id: 'Name',
-          colSpan: 2,
-          className: 'border',
-          allowOrdering: false
-        },
-        {
-          text: 'Data',
-          id: 'Data',
-          colSpan: 2,
-          allowOrdering: false
-        }
-      ],
-      [
-        {
-          text: 'Number',
-          id: 'Number',
-          rowSpan: 3,
-          className: 'border'
-        },
-        {
-          text: 'First Name',
-          id: 'First_Name'
-        },
-        {
-          text: 'Last Name',
-          id: 'Last_Name',
-          className: 'border'
-        },
-        {
-          text: 'Email',
-          id: 'Email'
-        },
-        {
-          text: 'Actions',
-          id: 'Actions'
-        }
-      ]
-    ];
-  }
-
-  handleClickHeader(id, e) {
+  handleClickHeader(id, orderBy) {
     this.setState({
       idOrder: id,
-      tableOrder: e
+      tableOrder: orderBy
     });
   }
 
@@ -261,7 +261,7 @@ class App extends Component {
             row_mouseEnter={this.onMouseEnterRow}
             row_mouseLeave={this.onMouseLeaveRow}
             row_hovered={this.state.highlighted}
-            headers={this.getHeader()}
+            headers={header}
             tableOrder={this.state.tableOrder}
             idOrder={this.state.idOrder}
             handleClickHeader={this.handleClickHeader}
