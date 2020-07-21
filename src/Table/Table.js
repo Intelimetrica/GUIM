@@ -170,6 +170,8 @@ Table.defaultProps = {
     ]
   ],
   tableOrder: 'asc',
+  idOrder: '',
+  handleClickHeader: (i) => { },
   body: [
     ["1", "John", "Doe", "john@doe.com", "View - Edit"],
     ["2", "Jane", "Garcia", "jane@doe.com", "View - Edit"],
