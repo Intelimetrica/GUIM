@@ -261,7 +261,6 @@ class App extends Component {
             row_hovered={this.state.highlighted}
             headers={header}
             tableOrder={this.state.tableOrder}
-            idOrder={this.state.idOrder}
             handleClickHeader={this.handleClickHeader}
           />
         </div>
