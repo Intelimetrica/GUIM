@@ -1,0 +1,45 @@
+@import "../styles/colors.scss";
+
+.GUIMTable {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  & tr {
+    height: 100%;
+  }
+  & .striped tr.trow:nth-child(even) {
+    background: var(--light-gray);
+  }
+  & tr.theader {
+    background: var(--white);
+  }
+  & tr.theader:last-child {
+    border-bottom: 2px solid var(--dark-gray);
+  }
+  & tr.highlighted {
+    background: var(--light-blue);
+  }
+  & th.border {
+    border-right: 2px solid #8e8e8e;
+  }
+}
+.arrow {
+  margin-left: 10px;
+  border: solid;
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 3px;
+  &.asc {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
+  &.desc {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+}
+
+#ticky {
+  display: none;
+  width: inherit;
+}

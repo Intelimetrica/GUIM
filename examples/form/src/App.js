@@ -8,7 +8,8 @@ import {
   Picker,
   Slider,
   Table,
-  Textbox
+  Textbox,
+  TableCollapse
 } from "guim";
 import logo from './logo.svg';
 
@@ -260,6 +261,16 @@ class App extends Component {
             row_mouseLeave={this.onMouseLeaveRow}
             row_hovered={this.state.highlighted}
             headers={header}
+            tableOrder={this.state.tableOrder}
+            idOrder={this.state.idOrder}
+            handleClickHeader={this.handleClickHeader}
+          />
+        </div>
+        <div className="form">
+          <TableCollapse
+            row_mouseEnter={this.onMouseEnterRow}
+            row_mouseLeave={this.onMouseLeaveRow}
+            row_hovered={this.state.highlighted}
             tableOrder={this.state.tableOrder}
             idOrder={this.state.idOrder}
             handleClickHeader={this.handleClickHeader}
