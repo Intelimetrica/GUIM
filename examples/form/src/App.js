@@ -9,7 +9,7 @@ import {
   Slider,
   Table,
   Textbox,
-  TableCollapse
+  TableTree
 } from "guim";
 import logo from './logo.svg';
 
@@ -267,13 +267,8 @@ class App extends Component {
           />
         </div>
         <div className="form">
-          <TableCollapse
-            row_mouseEnter={this.onMouseEnterRow}
-            row_mouseLeave={this.onMouseLeaveRow}
-            row_hovered={this.state.highlighted}
-            tableOrder={this.state.tableOrder}
-            idOrder={this.state.idOrder}
-            handleClickHeader={this.handleClickHeader}
+          <TableTree
+            striped
           />
         </div>
       </div>

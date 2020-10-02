@@ -6,7 +6,7 @@ import Picker from './Picker';
 import Slider from './Slider';
 import Table from './Table';
 import Textbox from './Textbox';
-import TableCollapse from './TableCollapse';
+import TableTree from './TableTree';
 
 module.exports = {
   Button: Button,
@@ -17,5 +17,5 @@ module.exports = {
   Slider: Slider,
   Table: Table,
   Textbox: Textbox,
-  TableCollapse: TableCollapse
+  TableTree: TableTree
 };
