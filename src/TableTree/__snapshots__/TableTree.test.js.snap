@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TableTree /> 1`] = `
+Array [
+  "",
+  <table
+    className="GUIMTable "
+  >
+    <thead
+      id="head-9353"
+    >
+      <tr
+        className="theader "
+      >
+        <th>
+          1
+           
+        </th>
+        <th>
+          2
+           
+        </th>
+        <th>
+          3
+           
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      className=""
+    >
+      <tr
+        className="trow  "
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <td>
+          <div
+            className="ClickContainer"
+            onClick={[Function]}
+          >
+            <div
+              className="Sign"
+            >
+              +
+            </div>
+            1
+          </div>
+        </td>
+        <td>
+          
+        </td>
+        <td>
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>,
+]
+`;
+
+exports[`<TableTree /> 2`] = `
+Array [
+  "",
+  <table
+    className="GUIMTable "
+  >
+    <thead
+      id="head-9353"
+    >
+      <tr
+        className="theader "
+      >
+        <th>
+          1
+           
+        </th>
+        <th>
+          2
+           
+        </th>
+        <th>
+          3
+           
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      className=""
+    >
+      <tr
+        className="trow  "
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <td>
+          <div
+            className="ClickContainer"
+            onClick={[Function]}
+          >
+            <div
+              className="Sign"
+            >
+              +
+            </div>
+            1
+          </div>
+        </td>
+        <td>
+          
+        </td>
+        <td>
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>,
+]
+`;
+
+exports[`<TableTree /> 3`] = `
+Array [
+  "",
+  <table
+    className="GUIMTable "
+  >
+    <thead
+      id="head-9353"
+    >
+      <tr
+        className="theader "
+      >
+        <th>
+          1
+           
+        </th>
+        <th>
+          2
+           
+        </th>
+        <th>
+          3
+           
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      className=""
+    >
+      <tr
+        className="trow  "
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <td>
+          <div
+            className="ClickContainer"
+            onClick={[Function]}
+          >
+            <div
+              className="Sign"
+            >
+              +
+            </div>
+            1
+          </div>
+        </td>
+        <td>
+          
+        </td>
+        <td>
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>,
+]
+`;
