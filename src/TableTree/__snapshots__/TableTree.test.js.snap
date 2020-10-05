@@ -7,21 +7,21 @@ Array [
     className="GUIMTable "
   >
     <thead
-      id="head-9353"
+      id="head-9230"
     >
       <tr
         className="theader "
       >
         <th>
-          1
+          Root
            
         </th>
         <th>
-          2
+          Branch 1
            
         </th>
         <th>
-          3
+          Branch 2
            
         </th>
       </tr>
@@ -66,21 +66,21 @@ Array [
     className="GUIMTable "
   >
     <thead
-      id="head-9353"
+      id="head-9230"
     >
       <tr
         className="theader "
       >
         <th>
-          1
+          Root
            
         </th>
         <th>
-          2
+          Branch 1
            
         </th>
         <th>
-          3
+          Branch 2
            
         </th>
       </tr>
@@ -125,21 +125,21 @@ Array [
     className="GUIMTable "
   >
     <thead
-      id="head-9353"
+      id="head-9230"
     >
       <tr
         className="theader "
       >
         <th>
-          1
+          Root
            
         </th>
         <th>
-          2
+          Branch 1
            
         </th>
         <th>
-          3
+          Branch 2
            
         </th>
       </tr>

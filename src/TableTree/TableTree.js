@@ -9,10 +9,9 @@ let NEWSTATE = [];
 class TableTree extends Component {
   constructor(props) {
     super(props);
-    const treeSize = this.props.headers[this.props.headers.length-1].length;
-    const body = this.props.body;
+    const treeSize = this.props.header[this.props.header.length-1].length;
     this.state = {
-      data: this._formatDataTable(body, treeSize),
+      data: this._formatDataTable(props.body, treeSize),
       treeSize
     };
     this._formatDataTable = this._formatDataTable.bind(this);
@@ -23,21 +22,21 @@ class TableTree extends Component {
 
   _formatDataTable(body, treeSize) {
     NEWSTATE = [];
-    this._pushDataTable(body[0], 0, NEWSTATE, treeSize);
+    this._pushDataTable(body[0], 0, treeSize);
     return NEWSTATE;
   }
 
-  _pushDataTable(body, index, NEWSTATE, treeSize) {
+  _pushDataTable(body, index, treeSize) {
     const base = new Array(treeSize).fill('');
     if (body.childs.length > 0 ) {
-      base[index] = [<div key={`${body.id}-${index}`} className='ClickContainer' onClick={() => this._expandCollapse(body.id)}><div className='Sign'>{body.expand ? '-' : '+'}</div>{body.text}</div>];
+      base[index] = [<div key={`${body.id}-${index}`} className='ClickContainer' onClick={() => this._expandCollapse(body.id)}><div className='Sign'>{body.expand ? this.props.icons.collapse : this.props.icons.expand}</div>{body.text}</div>];
     }
     else {
       base[index] = body.text;
     }
     NEWSTATE.push(base);
     if (body.childs.length > 0 && body.expand) {
-      body.childs.map((child, i) => this._pushDataTable(child, index+1, NEWSTATE, treeSize));
+      body.childs.map((child, i) => this._pushDataTable(child, index+1, treeSize));
     }
   }
 
@@ -61,7 +60,7 @@ class TableTree extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.body !== prevProps.body) {
-      const treeSize = this.props.headers[this.props.headers.length-1].length;
+      const treeSize = this.props.header[this.props.header.length-1].length;
       const body = this.props.body;
       this.setState({
         data: this._formatDataTable(body, treeSize)
@@ -71,12 +70,16 @@ class TableTree extends Component {
 
 
   render() {
-    return <Table {...this.props} headers={this.props.headers} body={this.state.data} />
+    return <Table {...this.props} headers={this.props.header} body={this.state.data} />
   }
 }
 
 TableTree.defaultProps = {
-  headers: [
+  icons: {
+    expand: '+',
+    collapse: '-'
+  } ,
+  header: [
     [
       {
         text: 'Root'
@@ -86,89 +89,43 @@ TableTree.defaultProps = {
       },
       {
         text: 'Branch 2'
-      },
-      {
-        text: 'Branch'
-      },
-      {
-        text: 'Branch'
       }
     ]
   ],
   body: [
     {
-      id: '654756',
+      id: '1001',
       text: '1',
       childs: [
         {
-          id: '65ert56',
+          id: '2001',
           text: '2',
           childs: [
             {
-              id: '6erger',
-              text: '3',
-              childs: [
-                {
-                  id: '6ergweter',
-                  text: '8',
-                  childs: [
-                    {
-                      text: '9',
-                      childs: []
-                    },
-                    {
-                      text: '10',
-                      childs: []
-                    }
-                  ]
-                },
-                {
-                  text: '11',
-                  childs: []
-                },
-                {
-                  text: '12',
-                  childs: []
-                },
-                {
-                  text: '13',
-                  childs: []
-                }
-              ]
+              id: '3001',
+              text: '4',
+              childs: []
+            },
+            {
+              id: '3002',
+              text: '5',
+              childs: []
             }
           ]
         },
         {
-          id: '656654756',
-          text: '4',
+          id: '2002',
+          text: '3',
           childs: [
             {
-              id: '6ergretgr',
-              text: '5',
-              childs: [
-                {
-                  text: '6',
-                  childs: []
-                },
-                {
-                  text: '7',
-                  childs: []
-                }
-              ]
+              id: '3003',
+              text: '6',
+              childs: []
             },
             {
-              id: '6erttgr',
-              text: '14',
-              childs: [
-                {
-                  text: '15',
-                  childs: []
-                },
-                {
-                  text: '16',
-                  childs: []
-                }
-              ]
+              id: '3004',
+              text: '7',
+              childs: []
             }
           ]
         }
