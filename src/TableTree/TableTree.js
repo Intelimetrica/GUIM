@@ -9,15 +9,16 @@ let NEWSTATE = [];
 class TableTree extends Component {
   constructor(props) {
     super(props);
-    const treeSize = this.props.header[this.props.header.length-1].length;
+    const treeSize = props.header[props.header.length-1].length;
     this.state = {
-      data: this._formatDataTable(props.body, treeSize),
+      dataFormatted: this._formatDataTable(props.body, treeSize),
+      data: JSON.parse(JSON.stringify(props.body)),
       treeSize
     };
     this._formatDataTable = this._formatDataTable.bind(this);
     this._pushDataTable = this._pushDataTable.bind(this);
     this._expandCollapse = this._expandCollapse.bind(this);
-    this._update =this._update.bind(this);
+    this._update = this._update.bind(this);
   }
 
   _formatDataTable(body, treeSize) {
@@ -41,10 +42,10 @@ class TableTree extends Component {
   }
 
   _expandCollapse(id) {
-    const body = this.props.body;
-    this._update(body[0],id);
+    const { data } = this.state;
+    this._update(data[0],id);
     this.setState({
-      data: this._formatDataTable(body, this.state.treeSize)
+      dataFormatted: this._formatDataTable(data, this.state.treeSize)
     })
   }
 
@@ -61,16 +62,16 @@ class TableTree extends Component {
   componentDidUpdate(prevProps) {
     if (this.props.body !== prevProps.body) {
       const treeSize = this.props.header[this.props.header.length-1].length;
-      const body = this.props.body;
       this.setState({
-        data: this._formatDataTable(body, treeSize)
+        dataFormatted: this._formatDataTable(this.props.body, treeSize),
+        data: JSON.parse(JSON.stringify(this.props.body)),
+        treeSize
       });
     }
   }
 
-
   render() {
-    return <Table {...this.props} headers={this.props.header} body={this.state.data} />
+    return <Table {...this.props} headers={this.props.header} body={this.state.dataFormatted} />
   }
 }
 

@@ -10,6 +10,7 @@ configure({ adapter: new Adapter() });
 test('<TableTree />', () => {
   const component = renderer.create(
     <TableTree 
+    head_id='head_tabletree_test'
     headers={[
       [
         {
