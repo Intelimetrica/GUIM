@@ -170,13 +170,15 @@ Table.defaultProps = {
     ]
   ],
   tableOrder: 'asc',
+  idOrder: '',
+  handleClickHeader: (id, newOrder) => {},
   body: [
     ["1", "John", "Doe", "john@doe.com", "View - Edit"],
     ["2", "Jane", "Garcia", "jane@doe.com", "View - Edit"],
     ["3", "Josue", "Corona", "josue@doe.com", "View - Edit"]
   ],
-  row_mouseEnter: (i) => { },
-  row_mouseLeave: (i) => { },
+  row_mouseEnter: (i) => {},
+  row_mouseLeave: (i) => {},
   className: "",
   row_className: "",
   row_hovered: -1, //  This one will set the given row's className to highlighted
