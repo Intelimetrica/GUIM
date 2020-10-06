@@ -78,10 +78,10 @@ const headerTableTree = [
       text: 'Branch 2'
     },
     {
-      text: 'Branch'
+      text: 'Branch 3'
     },
     {
-      text: 'Branch'
+      text: 'Branch 4'
     }
   ]
 ];
