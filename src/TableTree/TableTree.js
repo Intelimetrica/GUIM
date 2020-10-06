@@ -6,21 +6,32 @@ import "./styles.scss";
 
 let NEWSTATE = [];
 
+const cloneArray = data => JSON.parse(JSON.stringify(data));
+
 class TableTree extends Component {
   constructor(props) {
     super(props);
     const treeSize = props.header[props.header.length-1].length;
     const body = JSON.parse(JSON.stringify(props.body));
     this.state = {
-      dataFormatted: this._formatDataTable(body, treeSize),
-      body,
-      treeSize
+      ...this._formatProps()
     };
+    this._formatProps = this._formatProps.bind(this);
     this._formatDataTable = this._formatDataTable.bind(this);
     this._pushDataTable = this._pushDataTable.bind(this);
     this._expandCollapse = this._expandCollapse.bind(this);
     this._update = this._update.bind(this);
   }
+
+  _formatProps() {
+		const treeSize = this.props.header[this.props.header.length-1].length;
+		const body = cloneArray(this.props.body); 
+    return {
+      bodyFormatted: this._formatDataTable(body, treeSize), 
+      body,
+      treeSize
+    };
+	}
 
   _formatDataTable(body, treeSize) {
     NEWSTATE = [];
@@ -46,12 +57,12 @@ class TableTree extends Component {
     const { body } = this.state;
     this._update(body[0],id);
     this.setState({
-      dataFormatted: this._formatDataTable(body, this.state.treeSize)
+      bodyFormatted: this._formatDataTable(body, this.state.treeSize)
     });
   }
 
-  _update(body, id){
-    if (body.id === id){
+  _update(body, id) {
+    if (body.id === id) {
       body.expand = !body.expand;
       return;
     }
@@ -62,18 +73,14 @@ class TableTree extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.body !== prevProps.body) {
-      const treeSize = this.props.header[this.props.header.length-1].length;
-      const body = JSON.parse(JSON.stringify(props.body));
       this.setState({
-        dataFormatted: this._formatDataTable(body, treeSize),
-        body,
-        treeSize
+        ...this._formatProps()
       });
     }
   }
 
   render() {
-    return <Table {...this.props} headers={this.props.header} body={this.state.dataFormatted} />
+    return <Table {...this.props} headers={this.props.header} body={this.state.bodyFormatted} />
   }
 
 }
