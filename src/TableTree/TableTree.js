@@ -22,14 +22,14 @@ class TableTree extends Component {
   }
 
   _formatProps() {
-	  const treeSize = this.props.header[this.props.header.length-1].length;
-		const body = cloneArray(this.props.body); 
+    const treeSize = this.props.header[this.props.header.length-1].length;
+    const body = cloneArray(this.props.body);
     return {
       bodyFormatted: this._formatDataTable(body, treeSize), 
       body,
       treeSize
     };
-	}
+  }
 
   _formatDataTable(body, treeSize) {
     NEWSTATE = [];
