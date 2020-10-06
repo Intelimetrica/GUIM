@@ -11,8 +11,6 @@ const cloneArray = data => JSON.parse(JSON.stringify(data));
 class TableTree extends Component {
   constructor(props) {
     super(props);
-    const treeSize = props.header[props.header.length-1].length;
-    const body = JSON.parse(JSON.stringify(props.body));
     this.state = {
       ...this._formatProps()
     };
@@ -24,7 +22,7 @@ class TableTree extends Component {
   }
 
   _formatProps() {
-		const treeSize = this.props.header[this.props.header.length-1].length;
+	  const treeSize = this.props.header[this.props.header.length-1].length;
 		const body = cloneArray(this.props.body); 
     return {
       bodyFormatted: this._formatDataTable(body, treeSize), 
