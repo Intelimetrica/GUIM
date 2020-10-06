@@ -7,7 +7,7 @@ import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
 
-test('<TableTree />', () => {
+describe('<TableTree />', () => {
   const component = renderer.create(
     <TableTree 
     head_id='head_tabletree_test'
@@ -66,14 +66,8 @@ test('<TableTree />', () => {
     ]}
     />
   );
-  let tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-
-  // re-rendering
-  tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-
-  // re-rendering
-  tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
+  it("match dom snapshot", () => {
+    let tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
