@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TableTree /> match dom snapshot 1`] = `
+Array [
+  "",
+  <table
+    className="GUIMTable "
+  >
+    <thead
+      id="head_tabletree_test"
+    >
+      <tr
+        className="theader "
+      >
+        <th>
+          Root
+           
+        </th>
+        <th>
+          Branch 1
+           
+        </th>
+        <th>
+          Branch 2
+           
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      className=""
+    >
+      <tr
+        className="trow  "
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <td>
+          <div
+            className="ClickContainer"
+            onClick={[Function]}
+          >
+            <div
+              className="Sign"
+            >
+              +
+            </div>
+            1
+          </div>
+        </td>
+        <td>
+          
+        </td>
+        <td>
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>,
+]
+`;

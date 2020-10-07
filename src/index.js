@@ -6,6 +6,7 @@ import Picker from './Picker';
 import Slider from './Slider';
 import Table from './Table';
 import Textbox from './Textbox';
+import TableTree from './TableTree';
 
 module.exports = {
   Button: Button,
@@ -15,5 +16,6 @@ module.exports = {
   Picker: Picker,
   Slider: Slider,
   Table: Table,
-  Textbox: Textbox
+  Textbox: Textbox,
+  TableTree: TableTree
 };

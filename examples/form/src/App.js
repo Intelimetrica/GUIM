@@ -8,9 +8,12 @@ import {
   Picker,
   Slider,
   Table,
-  Textbox
+  Textbox,
+  TableTree
 } from "guim";
 import logo from './logo.svg';
+import mas from './mas.svg';
+import menos from './menos.svg';
 
 const numberOfSteps = 21;
 const range = 0.05;
@@ -61,6 +64,107 @@ const header = [
       sortable: true
     }
   ]
+];
+
+const headerTableTree = [
+  [
+    {
+      text: 'Root'
+    },
+    {
+      text: 'Branch 1'
+    },
+    {
+      text: 'Branch 2'
+    },
+    {
+      text: 'Branch 3'
+    },
+    {
+      text: 'Branch 4'
+    }
+  ]
+];
+
+const bodyTableTree = [
+  {
+    id: '654756',
+    text: '1',
+    childs: [
+      {
+        id: '65ert56',
+        text: '2',
+        childs: [
+          {
+            id: '6erger',
+            text: '3',
+            childs: [
+              {
+                id: '6ergweter',
+                text: '8',
+                childs: [
+                  {
+                    text: '9',
+                    childs: []
+                  },
+                  {
+                    text: '10',
+                    childs: []
+                  }
+                ]
+              },
+              {
+                text: '11',
+                childs: []
+              },
+              {
+                text: '12',
+                childs: []
+              },
+              {
+                text: '13',
+                childs: []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        id: '656654756',
+        text: '4',
+        childs: [
+          {
+            id: '6ergretgr',
+            text: '5',
+            childs: [
+              {
+                text: '6',
+                childs: []
+              },
+              {
+                text: '7',
+                childs: []
+              }
+            ]
+          },
+          {
+            id: '6erttgr',
+            text: '14',
+            childs: [
+              {
+                text: '15',
+                childs: []
+              },
+              {
+                text: '16',
+                childs: []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 ];
 
 class App extends Component {
@@ -263,6 +367,17 @@ class App extends Component {
             tableOrder={this.state.tableOrder}
             idOrder={this.state.idOrder}
             handleClickHeader={this.handleClickHeader}
+          />
+        </div>
+        <div className="form">
+          <TableTree
+            striped
+            header={headerTableTree}
+            body={bodyTableTree}
+            icons={{
+              expand: <img src={mas} width="10px" alt="expand" />,
+              collapse: <img src={menos} width="10px" alt="collapse" />
+            }}
           />
         </div>
       </div>
