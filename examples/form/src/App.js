@@ -307,6 +307,14 @@ class App extends Component {
                 onChange={this.onChangeCheckbox2} />
             </div>
             <div>
+              <span>Disabled checkbox</span>
+              <Checkbox
+                name="checkbox3"
+                color="blue"
+                checked={true}
+                disabled />
+            </div>
+            <div>
               <span>A single picker</span>
               <Picker
                 name="single_picker"
