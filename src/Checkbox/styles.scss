@@ -13,21 +13,25 @@
   height: 16px;
   transition: all 0.5s ease;
   cursor: pointer;
-}
-.GUIMCheckbox:checked{
-  &::before{
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
-    content: "";
-    position: absolute;
-    top: 0px;
-    left: 5px;
-    display: table;
-    width: 2px;
-    height: 10px;
-    border: 2px solid #fff;
-    border-top-width: 0;
-    border-left-width: 0;
+  &:checked{
+    &::before{
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+      content: "";
+      position: absolute;
+      top: 0px;
+      left: 5px;
+      display: table;
+      width: 2px;
+      height: 10px;
+      border: 2px solid #fff;
+      border-top-width: 0;
+      border-left-width: 0;
+    }
+  }
+  &:disabled {
+    cursor: default;
+    opacity: 0.4;
   }
 }
 
