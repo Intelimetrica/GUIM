@@ -44,6 +44,38 @@ describe('<Checkbox />', () => {
     });
   });
 
+  describe('disabled behaviour tests', () => {
+    let checked = false;
+    let component;
+    let tree;
+    let reRender;
+    const makeRenderer = component =>
+      () => tree = component.toJSON();
+
+    beforeEach(() => {
+      component = renderer.create(
+        <Checkbox
+          onChange={_e => checked = !checked}
+          checked={checked}
+          disabled
+        />);
+      reRender = makeRenderer(component);
+      reRender();
+    })
+
+    it('match snapshot', () => {
+      expect(tree).toMatchSnapshot();
+    });
+
+
+    it('still false after a click', () => {
+      tree.props.onChange();
+      reRender();
+      expect(checked).toBe(false);
+    });
+
+  });
+
   describe('dom tests', () => {
     let checked = false;
     let component;
