@@ -16,6 +16,7 @@ exports[`<Form /> match dom snapshot 1`] = `
       checked={false}
       className=""
       color="blue"
+      disabled={false}
       guimInput="checkbox"
       name="checkbox"
       onChange={[Function]}
@@ -24,6 +25,7 @@ exports[`<Form /> match dom snapshot 1`] = `
       <input
         checked={false}
         className="GUIMCheckbox  GUIMCheckboxBlue"
+        disabled={false}
         name="checkbox"
         onChange={[Function]}
         style={Object {}}
