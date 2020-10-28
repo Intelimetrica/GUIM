@@ -7,8 +7,10 @@ const Checkbox = props => (
     style={props.styles}
     type="checkbox"
     name={props.name}
-    onChange={props.onChange}
-    checked={props.checked} />
+    onChange={() => props.disabled ? null : props.onChange()}
+    checked={props.checked}
+    disabled={props.disabled}
+  />
 );
 
 Checkbox.defaultProps = {
@@ -18,7 +20,8 @@ Checkbox.defaultProps = {
   styles: {},
   className: "",
   color: "blue",
-  guimInput: "checkbox"
+  guimInput: "checkbox",
+  disabled: false
 };
 
 const themes = {
