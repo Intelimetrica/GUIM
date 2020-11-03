@@ -303,7 +303,7 @@ class App extends Component {
               <span>Click me to change this checkbox</span>
               <Checkbox
                 name="checkbox2"
-                color="blue"
+                color="orange"
                 checked={this.state.checked2}
                 onChange={this.onChangeCheckbox2} />
             </div>
