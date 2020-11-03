@@ -3,8 +3,9 @@
 exports[`<Checkbox /> behaviour tests is false after two clicks 1`] = `
 <input
   checked={true}
-  className="GUIMCheckbox  GUIMCheckboxBlue"
+  className="GUIMCheckbox   GUIMCheckboxBlue"
   disabled={false}
+  id="switch24.738028129545953"
   name="checkbox"
   onChange={[Function]}
   style={Object {}}
@@ -15,8 +16,9 @@ exports[`<Checkbox /> behaviour tests is false after two clicks 1`] = `
 exports[`<Checkbox /> behaviour tests match snapshot 1`] = `
 <input
   checked={false}
-  className="GUIMCheckbox  GUIMCheckboxBlue"
+  className="GUIMCheckbox   GUIMCheckboxBlue"
   disabled={false}
+  id="switch24.738028129545953"
   name="checkbox"
   onChange={[Function]}
   style={Object {}}
@@ -27,8 +29,9 @@ exports[`<Checkbox /> behaviour tests match snapshot 1`] = `
 exports[`<Checkbox /> disabled behaviour tests match snapshot 1`] = `
 <input
   checked={false}
-  className="GUIMCheckbox  GUIMCheckboxBlue"
+  className="GUIMCheckbox   GUIMCheckboxBlue"
   disabled={true}
+  id="switch24.738028129545953"
   name="checkbox"
   onChange={[Function]}
   style={Object {}}
