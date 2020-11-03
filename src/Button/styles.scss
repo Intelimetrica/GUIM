@@ -1,4 +1,4 @@
-@import '../styles/themes.scss';
+@import "../styles/themes.scss";
 
 .GUIMButton {
   border-radius: 5px;
@@ -10,27 +10,31 @@
   user-select: none;
   text-align: center;
   text-decoration: none;
-  &:hover, &:focus{
+  &:hover,
+  &:focus {
     opacity: 0.75;
-  };
+  }
 }
 
 .GUIMButtonBlue {
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     @apply --blue-theme-hover;
   }
   @apply --blue-theme;
 }
 
 .GUIMButtonGray {
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     @apply --gray-theme-hover;
   }
   @apply --gray-theme;
 }
 
 .GUIMButtonGreen {
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     @apply --green-theme-hover;
   }
   @apply --green-theme;

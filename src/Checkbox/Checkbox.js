@@ -21,13 +21,15 @@ Checkbox.defaultProps = {
   className: "",
   color: "blue",
   guimInput: "checkbox",
-  disabled: false
+  disabled: false,
+  isSwitch: false
 };
 
 const themes = {
   blue: "GUIMCheckboxBlue",
   gray: "GUIMCheckboxGray",
-  green: "GUIMCheckboxGreen"
+  green: "GUIMCheckboxGreen",
+  orange: "GUIMCheckboxOrange"
 };
 
 export default Checkbox;

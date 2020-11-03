@@ -1,5 +1,5 @@
-@import '../styles/colors.scss';
-@import '../styles/themes.scss';
+@import "../styles/colors.scss";
+@import "../styles/themes.scss";
 
 .GUIMCheckbox {
   -webkit-appearance: none;
@@ -13,8 +13,8 @@
   height: 16px;
   transition: all 0.5s ease;
   cursor: pointer;
-  &:checked{
-    &::before{
+  &:checked {
+    &::before {
       -webkit-transform: rotate(45deg);
       transform: rotate(45deg);
       content: "";
@@ -43,4 +43,7 @@
 }
 .GUIMCheckboxGreen:checked {
   @apply --green-theme;
+}
+.GUIMCheckboxOrange:checked {
+  @apply --orange-theme;
 }
