@@ -16,7 +16,7 @@ const Checkbox = props => {
     />
   );
   return props.isSwitch ? (
-    <div className={`GUIMSwitch ${props.checked ? 'Checked' : ''}`}>
+    <div className={`GUIMSwitch ${props.checked ? 'Checked' : ''} ${props.disabled ? 'Disabled' : ''} `}>
       {check}
       <label htmlFor={id}>.</label>
     </div>

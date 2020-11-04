@@ -304,15 +304,15 @@ class App extends Component {
                 isSwitch
                 checked={this.state.checked}
                 onChange={this.onChangeCheckbox1} />
-                <div style={{ display: "flex" }}>
-                  <Checkbox
-                  name="checked"
-                  color="blue"
-                  isSwitch
-                  checked={this.state.checked3}
-                  onChange={this.onChangeCheckbox3} />
-                  <span>Click</span>  
-                </div>
+            </div>
+            <div  style={{ display: "flex", justifyContent:"start" }}>
+              <Checkbox
+              name="checked"
+              color="blue"
+              isSwitch
+              checked={this.state.checked3}
+              onChange={this.onChangeCheckbox3} />
+              <span>Click</span>
             </div>
             <div>
               <span>Click me to change this checkbox</span>

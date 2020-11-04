@@ -38,6 +38,10 @@
   display: flex;
   width: 50px;
   height: 22px;
+  &.Disabled > * {
+    opacity: 0.4;
+    cursor: not-allowed !important;
+  }
 }
 
 .GUIMSwitch label {
