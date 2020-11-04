@@ -20,25 +20,27 @@ describe('<Checkbox />', () => {
         <Checkbox
           onChange={_e => checked = !checked}
           checked={checked}
+          isSwitch
+          id='Switch-1'
         />);
       reRender = makeRenderer(component);
       reRender();
     })
 
-    it('match snapshot', () => {
+    it('match snapshot' , () => {
       expect(tree).toMatchSnapshot();
     });
 
 
     it('is true after a click', () => {
-      tree.props.onChange();
+      tree.children[0].props.onChange();
       reRender();
       expect(checked).toBe(true);
     });
 
     it('is false after two clicks', () => {
-      tree.props.onChange();
-      tree.props.onChange();
+      tree.children[0].props.onChange();
+      tree.children[0].props.onChange();
       reRender();
       expect(tree).toMatchSnapshot();
     });
@@ -58,6 +60,7 @@ describe('<Checkbox />', () => {
           onChange={_e => checked = !checked}
           checked={checked}
           disabled
+          id='Checkbox-1'
         />);
       reRender = makeRenderer(component);
       reRender();
@@ -86,6 +89,7 @@ describe('<Checkbox />', () => {
           name='test_checkbox'
           onChange={_e => checked = !checked}
           checked={checked}
+          id='Checkbox-2'
         />
       );
     })
