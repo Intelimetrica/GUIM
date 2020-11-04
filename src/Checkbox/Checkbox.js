@@ -2,12 +2,10 @@ import React from "react";
 import "./styles.scss";
 
 const Checkbox = props => {
-  let id = null;
-  if (props.id != "notIdSet"){
+  let id = Math.random();
+  if (props.id !== "notIdSet"){
     id = props.id;
-  } else {
-    id = Math.random();
-  }
+  } 
   const check = (
     <input
       id={`switch-${id}`}
@@ -40,7 +38,7 @@ Checkbox.defaultProps = {
   guimInput: "checkbox",
   disabled: false,
   isSwitch: false,
-  id: 'notidset'
+  id: 'notIdSet'
 };
 
 const themes = {
