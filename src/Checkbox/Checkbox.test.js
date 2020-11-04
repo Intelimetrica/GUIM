@@ -21,7 +21,6 @@ describe('<Checkbox />', () => {
           onChange={_e => checked = !checked}
           checked={checked}
           isSwitch
-          id='Switch-1'
         />);
       reRender = makeRenderer(component);
       reRender();
@@ -59,8 +58,8 @@ describe('<Checkbox />', () => {
         <Checkbox
           onChange={_e => checked = !checked}
           checked={checked}
+          id="Checkbox-1"
           disabled
-          id='Checkbox-1'
         />);
       reRender = makeRenderer(component);
       reRender();
@@ -87,9 +86,9 @@ describe('<Checkbox />', () => {
       component = shallow(
         <Checkbox
           name='test_checkbox'
+          id="Checkbox-2"
           onChange={_e => checked = !checked}
           checked={checked}
-          id='Checkbox-2'
         />
       );
     })

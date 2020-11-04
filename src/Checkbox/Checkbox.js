@@ -2,10 +2,16 @@ import React from "react";
 import "./styles.scss";
 
 const Checkbox = props => {
+  let id = null;
+  if (props.id != "notIdSet"){
+    id = props.id;
+  } else {
+    id = Math.random();
+  }
   const check = (
     <input
-      id={`switch${props.id}`}
-      className={`GUIMCheckbox ${props.className} ${themes[props.color] || themes["blue"]}`}
+      id={`switch-${id}`}
+      className={props.isSwitch ?`Switch ${themesSwitch[props.color] || themesSwitch["blue"]}` : `GUIMCheckbox ${props.className} ${themes[props.color] || themes["blue"]}`}
       style={props.styles}
       type="checkbox"
       name={props.name}
@@ -17,9 +23,11 @@ const Checkbox = props => {
   return props.isSwitch ? (
     <div className={`GUIMSwitch ${props.checked ? 'Checked' : ''}`}>
       {check}
-      <label htmlFor={`switch${props.id}`}>.</label>
+      <label htmlFor={`switch-${id}`}>.</label>
     </div>
-    ) : (check)
+    ) : (
+      check
+    )
 };
 
 Checkbox.defaultProps = {
@@ -32,7 +40,7 @@ Checkbox.defaultProps = {
   guimInput: "checkbox",
   disabled: false,
   isSwitch: false,
-  id: Math.random() * 100
+  id: 'notidset'
 };
 
 const themes = {
@@ -40,6 +48,13 @@ const themes = {
   gray: "GUIMCheckboxGray",
   green: "GUIMCheckboxGreen",
   orange: "GUIMCheckboxOrange"
+};
+
+const themesSwitch = {
+  blue: "GUIMSwitchBlue",
+  gray: "GUIMSwitchGray",
+  green: "GUIMSwitchGreen",
+  orange: "GUIMSwitchOrange"
 };
 
 export default Checkbox;

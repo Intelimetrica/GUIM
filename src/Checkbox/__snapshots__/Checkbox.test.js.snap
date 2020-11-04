@@ -6,16 +6,16 @@ exports[`<Checkbox /> behaviour tests is false after two clicks 1`] = `
 >
   <input
     checked={true}
-    className="GUIMCheckbox  GUIMCheckboxBlue"
+    className="Switch GUIMSwitchBlue"
     disabled={false}
-    id="switchSwitch-1"
+    id="switch-notidset"
     name="checkbox"
     onChange={[Function]}
     style={Object {}}
     type="checkbox"
   />
   <label
-    htmlFor="switchSwitch-1"
+    htmlFor="switch-notidset"
   >
     .
   </label>
@@ -28,16 +28,16 @@ exports[`<Checkbox /> behaviour tests match snapshot 1`] = `
 >
   <input
     checked={false}
-    className="GUIMCheckbox  GUIMCheckboxBlue"
+    className="Switch GUIMSwitchBlue"
     disabled={false}
-    id="switchSwitch-1"
+    id="switch-notidset"
     name="checkbox"
     onChange={[Function]}
     style={Object {}}
     type="checkbox"
   />
   <label
-    htmlFor="switchSwitch-1"
+    htmlFor="switch-notidset"
   >
     .
   </label>
@@ -49,7 +49,7 @@ exports[`<Checkbox /> disabled behaviour tests match snapshot 1`] = `
   checked={false}
   className="GUIMCheckbox  GUIMCheckboxBlue"
   disabled={true}
-  id="switchCheckbox-1"
+  id="switch-Checkbox-1"
   name="checkbox"
   onChange={[Function]}
   style={Object {}}

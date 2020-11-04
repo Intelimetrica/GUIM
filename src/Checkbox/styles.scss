@@ -36,6 +36,8 @@
 }
 .GUIMSwitch {
   display: flex;
+  width: 50px;
+  height: 22px;
 }
 
 .GUIMSwitch label {
@@ -92,15 +94,15 @@
 .GUIMCheckboxOrange:checked {
   @apply --orange-theme;
 }
-.GUIMSwitch .GUIMCheckboxOrange:checked + label {
+.GUIMSwitchBlue:checked + label {
   @apply --blue-theme;
 }
-.GUIMSwitch .GUIMCheckboxGray:checked + label {
+.GUIMSwitchGray:checked + label {
   @apply --gray-theme;
 }
-.GUIMSwitch .GUIMCheckboxGreen:checked + label {
+.GUIMSwitchGreen:checked + label {
   @apply --green-theme;
 }
-.GUIMSwitch .GUIMCheckboxOrange:checked + label {
+.GUIMSwitchOrange:checked + label {
   @apply --orange-theme;
 }
