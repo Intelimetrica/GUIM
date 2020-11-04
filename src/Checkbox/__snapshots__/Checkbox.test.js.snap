@@ -1,37 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Checkbox /> behaviour tests is false after two clicks 1`] = `
-<input
-  checked={true}
-  className="GUIMCheckbox   GUIMCheckboxBlue"
-  disabled={false}
-  id="switch24.738028129545953"
-  name="checkbox"
-  onChange={[Function]}
-  style={Object {}}
-  type="checkbox"
-/>
+<div
+  className="GUIMSwitch"
+>
+  <input
+    checked={true}
+    className="GUIMCheckbox  GUIMCheckboxBlue"
+    disabled={false}
+    id="switchSwitch-1"
+    name="checkbox"
+    onChange={[Function]}
+    style={Object {}}
+    type="checkbox"
+  />
+  <label
+    htmlFor="switchSwitch-1"
+  >
+    .
+  </label>
+</div>
 `;
 
 exports[`<Checkbox /> behaviour tests match snapshot 1`] = `
-<input
-  checked={false}
-  className="GUIMCheckbox   GUIMCheckboxBlue"
-  disabled={false}
-  id="switch24.738028129545953"
-  name="checkbox"
-  onChange={[Function]}
-  style={Object {}}
-  type="checkbox"
-/>
+<div
+  className="GUIMSwitch"
+>
+  <input
+    checked={false}
+    className="GUIMCheckbox  GUIMCheckboxBlue"
+    disabled={false}
+    id="switchSwitch-1"
+    name="checkbox"
+    onChange={[Function]}
+    style={Object {}}
+    type="checkbox"
+  />
+  <label
+    htmlFor="switchSwitch-1"
+  >
+    .
+  </label>
+</div>
 `;
 
 exports[`<Checkbox /> disabled behaviour tests match snapshot 1`] = `
 <input
   checked={false}
-  className="GUIMCheckbox   GUIMCheckboxBlue"
+  className="GUIMCheckbox  GUIMCheckboxBlue"
   disabled={true}
-  id="switch24.738028129545953"
+  id="switchCheckbox-1"
   name="checkbox"
   onChange={[Function]}
   style={Object {}}

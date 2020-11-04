@@ -5,7 +5,7 @@ const Checkbox = props => {
   const check = (
     <input
       id={`switch${props.id}`}
-      className={`GUIMCheckbox  ${props.className} ${themes[props.color] || themes["blue"]}`}
+      className={`GUIMCheckbox ${props.className} ${themes[props.color] || themes["blue"]}`}
       style={props.styles}
       type="checkbox"
       name={props.name}
@@ -14,13 +14,12 @@ const Checkbox = props => {
       disabled={props.disabled}
     />
   );
-  return ( props.isSwitch ? (
+  return props.isSwitch ? (
     <div className='GUIMSwitch'>
       {check}
       <label htmlFor={`switch${props.id}`}>.</label>
     </div>
     ) : (check)
-  )
 };
 
 Checkbox.defaultProps = {

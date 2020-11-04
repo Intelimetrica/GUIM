@@ -30,7 +30,8 @@ describe('<Form />', () => {
         <Checkbox
           name="checkbox"
           checked={checked}
-          onChange={() => checked = !checked} />
+          onChange={() => checked = !checked}
+          id='Checkbox-1' />
         <Picker
           onChange={(label, value) => active = [value]}
           options={[
@@ -55,7 +56,8 @@ describe('<Form />', () => {
         <Checkbox
           name="checkbox"
           checked={checked}
-          onChange={() => checked = !checked} />
+          onChange={() => checked = !checked} 
+          id='Checkbox-2'/>
         <Picker
           onChange={(label, value) => active = [value]}
           options={[
