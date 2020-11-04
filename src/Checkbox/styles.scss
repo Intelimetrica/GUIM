@@ -47,7 +47,7 @@
   height: 22px;
   background: #bbbbbb;
   display: block;
-  border-radius: 100px;
+  border-radius: 90px;
   position: relative;
 }
 .GUIMSwitch input[type="checkbox"] {
@@ -64,7 +64,7 @@
   height: 18px;
   background: #fff;
   border-radius: 90px;
-  transition: 0.3s;
+  transition: 0.1s;
 }
 .GUIMSwitch input:not(:checked) + label:after {
   top: 2px;
