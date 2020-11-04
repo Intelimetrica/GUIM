@@ -42,7 +42,7 @@
   cursor: pointer;
   text-indent: -9999px;
   width: 40px;
-  height: 20px;
+  height: 22px;
   background: #bbbbbb;
   display: block;
   border-radius: 100px;
@@ -63,6 +63,14 @@
   background: #fff;
   border-radius: 90px;
   transition: 0.3s;
+}
+.GUIMSwitch input:not(:checked) + label:after {
+  top: 2px;
+  left: 2px;
+}
+.GUIMSwitch.Checked label {
+  height: 20px;
+  width: 38px;
 }
 .GUIMSwitch input:checked + label:after {
   left: calc(100% - 1px);
