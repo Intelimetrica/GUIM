@@ -2,7 +2,7 @@
 
 exports[`<Checkbox /> behaviour tests is false after two clicks 1`] = `
 <div
-  className="GUIMSwitch"
+  className="GUIMSwitch Checked"
 >
   <input
     checked={true}
@@ -24,7 +24,7 @@ exports[`<Checkbox /> behaviour tests is false after two clicks 1`] = `
 
 exports[`<Checkbox /> behaviour tests match snapshot 1`] = `
 <div
-  className="GUIMSwitch"
+  className="GUIMSwitch "
 >
   <input
     checked={false}
