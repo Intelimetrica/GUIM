@@ -2,13 +2,10 @@ import React from "react";
 import "./styles.scss";
 
 const Checkbox = props => {
-  let id = Math.random();
-  if (props.id !== "notIdSet"){
-    id = props.id;
-  } 
+  const id = `switch-${props.id || Math.random()}`;
   const check = (
     <input
-      id={`switch-${id}`}
+      id={id}
       className={props.isSwitch ?`Switch ${themesSwitch[props.color] || themesSwitch["blue"]}` : `GUIMCheckbox ${props.className} ${themes[props.color] || themes["blue"]}`}
       style={props.styles}
       type="checkbox"
@@ -21,7 +18,7 @@ const Checkbox = props => {
   return props.isSwitch ? (
     <div className={`GUIMSwitch ${props.checked ? 'Checked' : ''}`}>
       {check}
-      <label htmlFor={`switch-${id}`}>.</label>
+      <label htmlFor={id}>.</label>
     </div>
     ) : (
       check
@@ -38,7 +35,7 @@ Checkbox.defaultProps = {
   guimInput: "checkbox",
   disabled: false,
   isSwitch: false,
-  id: 'notIdSet'
+  id: null // An unique id is required to work, if isn't set by props, is going to take one randomly
 };
 
 const themes = {
