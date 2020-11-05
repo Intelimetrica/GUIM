@@ -36,6 +36,12 @@
 }
 .GUIMSwitch {
   display: flex;
+  width: 50px;
+  height: 22px;
+  &.Disabled > * {
+    opacity: 0.4;
+    cursor: default !important;
+  }
 }
 
 .GUIMSwitch label {
@@ -45,7 +51,7 @@
   height: 22px;
   background: #bbbbbb;
   display: block;
-  border-radius: 100px;
+  border-radius: 90px;
   position: relative;
 }
 .GUIMSwitch input[type="checkbox"] {
@@ -62,7 +68,7 @@
   height: 18px;
   background: #fff;
   border-radius: 90px;
-  transition: 0.3s;
+  transition: 0.1s;
 }
 .GUIMSwitch input:not(:checked) + label:after {
   top: 2px;
@@ -92,15 +98,15 @@
 .GUIMCheckboxOrange:checked {
   @apply --orange-theme;
 }
-.GUIMSwitch .GUIMCheckboxOrange:checked + label {
+.GUIMSwitchBlue:checked + label {
   @apply --blue-theme;
 }
-.GUIMSwitch .GUIMCheckboxGray:checked + label {
+.GUIMSwitchGray:checked + label {
   @apply --gray-theme;
 }
-.GUIMSwitch .GUIMCheckboxGreen:checked + label {
+.GUIMSwitchGreen:checked + label {
   @apply --green-theme;
 }
-.GUIMSwitch .GUIMCheckboxOrange:checked + label {
+.GUIMSwitchOrange:checked + label {
   @apply --orange-theme;
 }
