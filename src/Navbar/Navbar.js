@@ -65,16 +65,17 @@ class Dropdown extends Component {
           <ul className="dd-list">
             {props.submodules.map((submod, i) => {
               if (!!submod.submodules) {
+                const subName = submod.name.replace(/\s/g, '');
                 return (
                   <Link
-                    key={`${submod.name}_${i}`}
+                    key={`${subName}_${i}`}
                     className={`sub-dropdown`}
                     id={`${submod.name}_${props.id}`}
                     to={submod.to}
                     name={submod.name}
-                    onMouseLeave={() => this.openSubmenu(false, `${submod.name}_${props.id}`)}
-                    onMouseEnter={() => this.openSubmenu(true, `${submod.name}_${props.id}`)}>
-                    <ul className={`${submod.name}_${props.id} sub-list hide`}>
+                    onMouseLeave={() => this.openSubmenu(false, `${subName}_${props.id}`)}
+                    onMouseEnter={() => this.openSubmenu(true, `${subName}_${props.id}`)}>
+                    <ul className={`${subName}_${props.id} sub-list hide`}>
                       {submod.submodules.map((subsubmodule) => {
                         return (
                           <Link
