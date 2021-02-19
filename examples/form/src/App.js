@@ -173,6 +173,7 @@ class App extends Component {
     this.state = {
       checked: false,
       checked2: true,
+      checked3: true,
       formData: {},
       single_picker: [2],
       multiple_picker: [2],
@@ -189,6 +190,7 @@ class App extends Component {
     this.clickButton = this.clickButton.bind(this);
     this.onChangeCheckbox1 = this.onChangeCheckbox1.bind(this);
     this.onChangeCheckbox2 = this.onChangeCheckbox2.bind(this);
+    this.onChangeCheckbox3 = this.onChangeCheckbox3.bind(this);
     this.onChangeTextbox = this.onChangeTextbox.bind(this);
     this.onChangeSinglePicker = this.onChangeSinglePicker.bind(this);
     this.onChangeMultiplePicker = this.onChangeMultiplePicker.bind(this);
@@ -210,6 +212,10 @@ class App extends Component {
 
   onChangeCheckbox2(_event) {
     this.setState({ checked2: !this.state.checked2 });
+  }
+
+  onChangeCheckbox3(_event) {
+    this.setState({ checked3: !this.state.checked3 });
   }
 
   onChangeSinglePicker(label, value) {
@@ -298,6 +304,15 @@ class App extends Component {
                 isSwitch
                 checked={this.state.checked}
                 onChange={this.onChangeCheckbox1} />
+            </div>
+            <div  style={{ display: "flex", justifyContent:"start" }}>
+              <Checkbox
+              name="checked"
+              color="blue"
+              isSwitch
+              checked={this.state.checked3}
+              onChange={this.onChangeCheckbox3} />
+              <span>Click</span>
             </div>
             <div>
               <span>Click me to change this checkbox</span>
