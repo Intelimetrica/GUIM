@@ -1,0 +1,19 @@
+
+@import '../styles/colors.scss';
+
+.GUIMPaginator {
+  width: 60%;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+}
+li {
+  cursor: pointer;
+}
+.Active {
+  background-color: var( --main-blue);
+}
+.Disabled {
+  opacity: 0.7;
+}

@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Paginator /> tests for normal behaviour match snapshot 1`] = `
+<ul
+  className="GUIMPaginator "
+>
+  <li
+    className="Previous Disabled"
+  >
+    <a
+      aria-disabled="true"
+      aria-label="Previous page"
+      className={undefined}
+      href={undefined}
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      rel="prev"
+      role="button"
+      tabIndex="0"
+    >
+      &lt;
+    </a>
+  </li>
+  <li
+    className="Active"
+  >
+    <a
+      aria-current="page"
+      aria-label="Page 1 is your current page"
+      className={undefined}
+      href={undefined}
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      role="button"
+      tabIndex="0"
+    >
+      1
+    </a>
+  </li>
+  <li
+    className="Next Disabled"
+  >
+    <a
+      aria-disabled="true"
+      aria-label="Next page"
+      className={undefined}
+      href={undefined}
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      rel="next"
+      role="button"
+      tabIndex="0"
+    >
+      &gt;
+    </a>
+  </li>
+</ul>
+`;

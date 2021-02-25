@@ -9,7 +9,8 @@ import {
   Slider,
   Table,
   Textbox,
-  TableTree
+  TableTree,
+  Pager
 } from "guim";
 import logo from './logo.svg';
 import mas from './mas.svg';
@@ -185,7 +186,12 @@ class App extends Component {
       steps: new Array(numberOfSteps).fill().map((e, i) => i * range),
       textbox: '',
       tableOrder: 'asc',
-      idOrder: 'Number'
+      idOrder: 'Number',
+      offset:  {
+        limit: 13,
+        offset: 0,
+        total: 130
+      }
     };
     this.clickButton = this.clickButton.bind(this);
     this.onChangeCheckbox1 = this.onChangeCheckbox1.bind(this);
@@ -392,6 +398,14 @@ class App extends Component {
             idOrder={this.state.idOrder}
             handleClickHeader={this.handleClickHeader}
           />
+          <Pager
+            meta={{
+              limit: 13,
+              offset: 0,
+              total: 130
+            }}
+            onUpdate={data => this.setState({ offset: data })}
+            />
         </div>
         <div className="form">
           <TableTree
