@@ -7,6 +7,7 @@ import Slider from './Slider';
 import Table from './Table';
 import Textbox from './Textbox';
 import TableTree from './TableTree';
+import Paginator from './Paginator';
 
 module.exports = {
   Button: Button,
@@ -17,5 +18,6 @@ module.exports = {
   Slider: Slider,
   Table: Table,
   Textbox: Textbox,
-  TableTree: TableTree
+  TableTree: TableTree,
+  Paginator: Paginator
 };
