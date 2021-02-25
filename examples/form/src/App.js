@@ -400,7 +400,7 @@ class App extends Component {
           />
           <Paginator
             meta={this.state.meta}
-            onUpdate={data => this.setState({ offset: data })}
+            onUpdate={data => this.setState({ meta: data })}
             />
         </div>
         <div className="form">
