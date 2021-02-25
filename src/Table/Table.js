@@ -88,7 +88,7 @@ export class StickyHeader extends Component {
 }
 
 const Table = props => {
-  const { body, headers, head_id, withPaginator } = props;
+  const { body, headers, head_id } = props;
   const sticky_header = (props.sticky_header.active) ? (
     <StickyHeader
       id={head_id}
@@ -120,13 +120,6 @@ const Table = props => {
           }
         </tbody>
       </table>
-      {withPaginator && (
-        <div className='paginator'> 
-          <div className='content'>
-            
-          </div>
-        </div>
-      )}
     </Fragment>
   );
 }
@@ -189,8 +182,7 @@ Table.defaultProps = {
   className: "",
   row_className: "",
   row_hovered: -1, //  This one will set the given row's className to highlighted
-  theme: "light",
-  withPaginator: false,
+  theme: "light"
 };
 
 export default Table;

@@ -1,7 +1,3 @@
-
-
-
-
 import React, { Component } from 'react';
 import ReactPaginate from 'react-paginate';
 
