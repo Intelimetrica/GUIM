@@ -10,7 +10,7 @@ import {
   Table,
   Textbox,
   TableTree,
-  Pager
+  Paginator
 } from "guim";
 import logo from './logo.svg';
 import mas from './mas.svg';
@@ -187,7 +187,7 @@ class App extends Component {
       textbox: '',
       tableOrder: 'asc',
       idOrder: 'Number',
-      offset:  {
+      meta:  {
         limit: 13,
         offset: 0,
         total: 130
@@ -398,12 +398,8 @@ class App extends Component {
             idOrder={this.state.idOrder}
             handleClickHeader={this.handleClickHeader}
           />
-          <Pager
-            meta={{
-              limit: 13,
-              offset: 0,
-              total: 130
-            }}
+          <Paginator
+            meta={this.state.meta}
             onUpdate={data => this.setState({ offset: data })}
             />
         </div>

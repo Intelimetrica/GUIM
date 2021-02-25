@@ -8,12 +8,12 @@
   display: flex;
   justify-content: space-around;
 }
-li {
+.GUIMPaginator li {
   cursor: pointer;
 }
-.Active {
+.GUIMPaginator li.Active {
   background-color: var( --main-blue);
 }
-.Disabled {
+.GUIMPaginator li.Disabled {
   opacity: 0.7;
 }

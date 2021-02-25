@@ -19,5 +19,5 @@ module.exports = {
   Table: Table,
   Textbox: Textbox,
   TableTree: TableTree,
-  Pager: Paginator
+  Paginator: Paginator
 };

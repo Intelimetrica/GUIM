@@ -62,7 +62,8 @@ class Paginator extends Component {
         pageRangeDisplayed={pages}
         onPageChange={({ selected }) => this.props.onUpdate({
           offset: selected * limit,
-          limit
+          limit,
+          total
         })}
         containerClassName={`GUIMPaginator ${disabled ? 'Disabled' : ''}`}
         activeClassName='Active'
