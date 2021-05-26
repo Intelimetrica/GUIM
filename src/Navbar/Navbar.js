@@ -1,4 +1,5 @@
 import React, { Component } from 'react'; import "./styles.scss";
+import isArray from 'lodash/isArray';
 
 const Link = (props) => {
   return (
@@ -42,11 +43,13 @@ class Dropdown extends Component {
     this.setState({dd_className: classes.join(" ")});
   }
 
-  openSubmenu(open, div) {
+  openSubmenu(open, div, className) {
     if (open) {
-      document.querySelector(`.${div}`).classList.remove('hide');
+      document.querySelector(`.${div}`).classList.remove(className);
+      document.querySelector(`.${div}_subdropdown`).classList.add('open');
     } else {
-      document.querySelector(`.${div}`).classList.add('hide');
+      document.querySelector(`.${div}`).classList.add(className);
+      document.querySelector(`.${div}_subdropdown`).classList.remove('open');
     }
   }
 
@@ -65,16 +68,16 @@ class Dropdown extends Component {
           <ul className="dd-list">
             {props.submodules.map((submod, i) => {
               if (!!submod.submodules) {
-                const subName = submod.name.replace(/\s/g, '');
+                const subName = isArray(submod.name) ? submod.name[0].replace(/\s/g, '') : submod.name.replace(/\s/g, '');
                 return (
                   <Link
                     key={`${subName}_${i}`}
-                    className={`sub-dropdown`}
+                    className={`sub-dropdown ${subName}_${props.id}_subdropdown`}
                     id={`${submod.name}_${props.id}`}
                     to={submod.to}
                     name={submod.name}
-                    onMouseLeave={() => this.openSubmenu(false, `${subName}_${props.id}`)}
-                    onMouseEnter={() => this.openSubmenu(true, `${subName}_${props.id}`)}>
+                    onMouseLeave={() => this.openSubmenu(false, `${subName}_${props.id}`, 'hide')}
+                    onMouseEnter={() => this.openSubmenu(true, `${subName}_${props.id}`, 'hide')}>
                     <ul className={`${subName}_${props.id} sub-list hide`}>
                       {submod.submodules.map((subsubmodule) => {
                         return (
@@ -134,7 +137,7 @@ class Navbar extends Component {
     return modules.filter((module) => this._havePermission(this.state.permissions, module.permission))
       .filter(module => !module.mobile)
       .map((module, k) => {
-        counter = counter + 1;      
+        counter = counter + 1;
         if ( "submodules" in module ) {
           return <Dropdown key={`${module.name}_${k}`} {...module} id={counter}/>;
         }
@@ -177,7 +180,7 @@ Navbar.defaultProps = {
       permission: "default",
     },
     {
-      name: "About us",
+      name: ["About us", <i className='arrow down' />],
       to: "#",
       permission: "default",
       submodules: [
@@ -195,13 +198,13 @@ Navbar.defaultProps = {
       ]
     },
     {
-      name: "Contact",
+      name: ["Contact", <i className='arrow down' />],
       to: "#",
       permission: "default",
       mobile: false,
       submodules: [
         {
-          name: "GUIMDevTeam1",
+          name: ["GUIMDevTeam1", <i className='arrow down' />],
           to: "#",
           permission: "default",
           submodules: [
@@ -240,7 +243,7 @@ Navbar.defaultProps = {
       mobile: false,
       submodules: [
         {
-          name: "GUIMDevTeam1",
+          name: "GUIMDevTeam2",
           to: "#",
           permission: "default",
           submodules: [
