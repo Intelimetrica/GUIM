@@ -86,6 +86,9 @@
   }
   & .dropdown {
     position: relative;
+    & .arrow{
+      transform: rotate(45deg);
+    }
   }
   & .dropdown.active {
     & a {
@@ -98,6 +101,9 @@
     & .dd-container {
       display: block;
     }
+    & .arrow{
+      transform: rotate(225deg);
+    }
   }
   & .hide{
     display: none;
@@ -107,6 +113,18 @@
     padding: 10px;
     & li{
       margin: 10px 0px;
+    }
+    &.open {
+      & a {
+        float: left;
+        margin-bottom: 4px;
+      }
+      & a .arrow{
+        transform: rotate(225deg) !important;
+      }
+    }
+    & a .arrow{
+      transform: rotate(45deg) !important;
     }
   }
   & .sub-list {
