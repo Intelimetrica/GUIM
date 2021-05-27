@@ -1,5 +1,4 @@
 import React, { Component } from 'react'; import "./styles.scss";
-import isArray from 'lodash/isArray';
 
 const Link = (props) => {
   return (
@@ -68,7 +67,7 @@ class Dropdown extends Component {
           <ul className="dd-list">
             {props.submodules.map((submod, i) => {
               if (!!submod.submodules) {
-                const subName = isArray(submod.name) ? submod.name[0].replace(/\s/g, '') : submod.name.replace(/\s/g, '');
+                const subName = Array.isArray(submod.name) ? submod.name[0].replace(/\s/g, '') : submod.name.replace(/\s/g, '');
                 return (
                   <Link
                     key={`${subName}_${i}`}
