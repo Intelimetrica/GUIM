@@ -1,6 +1,21 @@
 import React, { Component } from 'react'; import "./styles.scss";
 
 const Link = (props) => {
+  if (props.worksOnClick) {
+    return (
+      <li
+        className={`${props.className || ""}`}
+        onClick={() => props.onMouseEnter()}
+        onMouseLeave={() => props.onMouseLeave()}
+        key={props.id}>
+        <a href={props.to}
+          target={props.target}>
+          {props.name}
+        </a>
+        {props.children}
+      </li>
+    );
+  }
   return (
     <li
       className={`${props.className || ""}`}
@@ -24,6 +39,7 @@ Link.defaultProps = {
   onMouseEnter: () => {},
   onMouseLeave: () => {},
   id: "",
+  worksOnClick: false
 };
 
 class Dropdown extends Component {
@@ -77,7 +93,8 @@ class Dropdown extends Component {
                     to={submod.to}
                     name={submod.name}
                     onMouseLeave={() => this.openSubmenu(false, `${subName}_${props.id}`)}
-                    onMouseEnter={() => this.openSubmenu(true, `${subName}_${props.id}`)}>
+                    onMouseEnter={() => this.openSubmenu(true, `${subName}_${props.id}`)}
+                    worksOnClick={submod.worksOnClick && submod.worksOnClick !== undefined}>
                     <ul className={`${subName}_${props.id} sub-list hide`}>
                       {submod.submodules.map((subsubmodule) => {
                         return (
@@ -207,6 +224,7 @@ Navbar.defaultProps = {
           name: ["GUIMDevTeam1", <i className='arrow down' />],
           to: "#",
           permission: "default",
+          worksOnClick: true,
           submodules: [
             {
               name: "Github IM",
@@ -216,10 +234,11 @@ Navbar.defaultProps = {
           ]
         },
         {
-          name: "Intelimetrica",
+          name: ["Intelimetrica", <i className='arrow down' />],
           to: "#",
           permission: "default",
           mobile: true,
+          worksOnClick: true,
           submodules: [
             {
               name: "Submodule1",
