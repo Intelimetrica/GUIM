@@ -1,12 +1,12 @@
 import React, { Component } from 'react'; import "./styles.scss";
 
 const Link = (props) => {
-  if (props.worksOnClick) {
+  if (props.showOnHover) {
     return (
       <li
         className={`${props.className || ""}`}
-        onClick={() => props.onMouseEnter()}
-        onMouseLeave={() => props.onMouseLeave()}
+        onMouseEnter={() => props.onShow()}
+        onMouseLeave={() => props.onHide()}
         key={props.id}>
         <a href={props.to}
           target={props.target}>
@@ -19,8 +19,8 @@ const Link = (props) => {
   return (
     <li
       className={`${props.className || ""}`}
-      onMouseEnter={() => props.onMouseEnter()}
-      onMouseLeave={() => props.onMouseLeave()}
+      onClick={() => props.onShow()}
+      onMouseLeave={() => props.onHide()}
       key={props.id}>
       <a href={props.to}
         target={props.target}>
@@ -36,10 +36,10 @@ Link.defaultProps = {
   to: "#",
   target: "_self",
   name: "Link",
-  onMouseEnter: () => {},
-  onMouseLeave: () => {},
+  onShow: () => {},
+  onHide: () => {},
   id: "",
-  worksOnClick: false
+  showOnHover: true
 };
 
 class Dropdown extends Component {
@@ -76,8 +76,8 @@ class Dropdown extends Component {
         key={props.name}
         id={props.name}
         className={state.dd_className}
-        onMouseEnter={this.activate.bind(null, ["dropdown", "active"])}
-        onMouseLeave={this.activate.bind(null, ["dropdown"])}
+        onShow={this.activate.bind(null, ["dropdown", "active"])}
+        onHide={this.activate.bind(null, ["dropdown"])}
         to={props.to}
         name={props.name}>
         <div className="dd-container">
@@ -92,9 +92,9 @@ class Dropdown extends Component {
                     id={`${submod.name}_${props.id}`}
                     to={submod.to}
                     name={submod.name}
-                    onMouseLeave={() => this.openSubmenu(false, `${subName}_${props.id}`)}
-                    onMouseEnter={() => this.openSubmenu(true, `${subName}_${props.id}`)}
-                    worksOnClick={submod.worksOnClick && submod.worksOnClick !== undefined}>
+                    onHide={() => this.openSubmenu(false, `${subName}_${props.id}`)}
+                    onShow={() => this.openSubmenu(true, `${subName}_${props.id}`)}
+                    showOnHover={submod.showOnHover && submod.showOnHover !== undefined}>
                     <ul className={`${subName}_${props.id} sub-list hide`}>
                       {submod.submodules.map((subsubmodule) => {
                         return (
@@ -224,7 +224,7 @@ Navbar.defaultProps = {
           name: ["GUIMDevTeam1", <i className='arrow down' />],
           to: "#",
           permission: "default",
-          worksOnClick: true,
+          showOnHover: false,
           submodules: [
             {
               name: "Github IM",
@@ -238,7 +238,7 @@ Navbar.defaultProps = {
           to: "#",
           permission: "default",
           mobile: true,
-          worksOnClick: true,
+          showOnHover: false,
           submodules: [
             {
               name: "Submodule1",
