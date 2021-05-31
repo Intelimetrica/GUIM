@@ -45,7 +45,7 @@ class Dropdown extends Component {
   constructor(props) {
     super(props);
     this.activate = this.activate.bind(this);
-    this.openSubmenu = this.openSubmenu.bind(this);
+    this.toggleSubmenu = this.toggleSubmenu.bind(this);
 
     this.state = {
       dd_className: "dropdown",
@@ -57,7 +57,7 @@ class Dropdown extends Component {
     this.setState({dd_className: classes.join(" ")});
   }
 
-  openSubmenu(div) {
+  toggleSubmenu(div) {
     const className = 'hide';
     if (document.querySelector(`.${div}`).classList.contains('hide')) {
       document.querySelector(`.${div}`).classList.remove(className);
@@ -91,8 +91,8 @@ class Dropdown extends Component {
                     id={`${submod.name}_${props.id}`}
                     to={submod.to}
                     name={submod.name}
-                    onShow={() => this.openSubmenu(`${subName}_${props.id}`)}
-                    onHide={() => this.openSubmenu(`${subName}_${props.id}`)}
+                    onShow={() => this.toggleSubmenu(`${subName}_${props.id}`)}
+                    onHide={() => this.toggleSubmenu(`${subName}_${props.id}`)}
                     showOnHover={submod.showOnHover && submod.showOnHover !== undefined}>
                     <ul className={`${subName}_${props.id} sub-list hide`}>
                       {submod.submodules.map((subsubmodule) => {
