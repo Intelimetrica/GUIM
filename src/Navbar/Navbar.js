@@ -20,7 +20,6 @@ const Link = (props) => {
     <li
       className={`${props.className || ""}`}
       onClick={() => props.onShow()}
-      onMouseLeave={() => props.onHide()}
       key={props.id}>
       <a href={props.to}
         target={props.target}>
@@ -58,9 +57,9 @@ class Dropdown extends Component {
     this.setState({dd_className: classes.join(" ")});
   }
 
-  openSubmenu(open, div) {
+  openSubmenu(div) {
     const className = 'hide';
-    if (open) {
+    if (document.querySelector(`.${div}`).classList.contains('hide')) {
       document.querySelector(`.${div}`).classList.remove(className);
       document.querySelector(`.${div}_subdropdown`).classList.add('open');
     } else {
@@ -92,8 +91,8 @@ class Dropdown extends Component {
                     id={`${submod.name}_${props.id}`}
                     to={submod.to}
                     name={submod.name}
-                    onHide={() => this.openSubmenu(false, `${subName}_${props.id}`)}
-                    onShow={() => this.openSubmenu(true, `${subName}_${props.id}`)}
+                    onShow={() => this.openSubmenu(`${subName}_${props.id}`)}
+                    onHide={() => this.openSubmenu(`${subName}_${props.id}`)}
                     showOnHover={submod.showOnHover && submod.showOnHover !== undefined}>
                     <ul className={`${subName}_${props.id} sub-list hide`}>
                       {submod.submodules.map((subsubmodule) => {
