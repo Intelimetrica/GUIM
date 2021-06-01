@@ -6,7 +6,21 @@ const Link = (props) => {
       <li
         className={`${props.className || ""}`}
         onMouseEnter={() => props.onShow()}
-        onMouseLeave={() => props.onHide()}
+        onMouseLeave={() => {props.onHide(); {
+          const Navbar = document.querySelector('.GUIMNavigation');
+          const mustBeHidden = Navbar.getElementsByClassName('sub-list');
+          const mustBeClose = Navbar.getElementsByClassName('sub-dropdown');
+          Object.keys(mustBeHidden).map((classes, i) => {
+            if (!mustBeHidden[classes].classList.contains('hide')) {
+              mustBeHidden[classes].classList.add('hide');
+            }
+          });
+          Object.keys(mustBeClose).map((classes, i) => {
+            if (mustBeClose[classes].classList.contains('open')) {
+              mustBeClose[classes].classList.remove('open');
+            }
+          });
+        }} }
         key={props.id}>
         <a href={props.to}
           target={props.target}>
