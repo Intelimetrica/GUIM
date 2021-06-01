@@ -1,6 +1,6 @@
 import React, { Component } from 'react'; import "./styles.scss";
 
-const closeAllThings = () => {
+const closeSubmodules = () => {
   const navbarDiv = document.querySelector('.GUIMNavigation');
   const mustBeHidden = navbarDiv.getElementsByClassName('sub-list');
   const mustBeClose = navbarDiv.getElementsByClassName('sub-dropdown');
@@ -14,7 +14,7 @@ const closeAllThings = () => {
       mustBeClose[classes].classList.remove('open');
     }
   });
-}
+};
 
 const Link = (props) => {
   if (props.showOnHover) {
@@ -24,7 +24,7 @@ const Link = (props) => {
         onMouseEnter={() => props.onShow()}
         onMouseLeave={() => {
           props.onHide();
-          closeAllThings ();
+          closeSubmodules();
         }}
         key={props.id}>
         <a href={props.to}
