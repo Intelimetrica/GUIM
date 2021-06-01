@@ -2,18 +2,20 @@ import React, { Component } from 'react'; import "./styles.scss";
 
 const closeSubmodules = () => {
   const navbarDiv = document.querySelector('.GUIMNavigation');
-  const mustBeHidden = navbarDiv.getElementsByClassName('sub-list');
-  const mustBeClose = navbarDiv.getElementsByClassName('sub-dropdown');
-  Object.keys(mustBeHidden).map((classes, i) => {
-    if (!mustBeHidden[classes].classList.contains('hide')) {
-      mustBeHidden[classes].classList.add('hide');
-    }
-  });
-  Object.keys(mustBeClose).map((classes, i) => {
-    if (mustBeClose[classes].classList.contains('open')) {
-      mustBeClose[classes].classList.remove('open');
-    }
-  });
+  if (navbarDiv) {
+    const mustBeHidden = navbarDiv.getElementsByClassName('sub-list');
+    const mustBeClose = navbarDiv.getElementsByClassName('sub-dropdown');
+    Object.keys(mustBeHidden).map(classes => {
+      if (!mustBeHidden[classes].classList.contains('hide')) {
+        mustBeHidden[classes].classList.add('hide');
+      }
+    });
+    Object.keys(mustBeClose).map(classes => {
+      if (mustBeClose[classes].classList.contains('open')) {
+        mustBeClose[classes].classList.remove('open');
+      }
+    });
+  }
 };
 
 const Link = (props) => {
@@ -24,7 +26,7 @@ const Link = (props) => {
         onMouseEnter={() => props.onShow()}
         onMouseLeave={() => {
           props.onHide();
-          closeSubmodules();
+          props.isModule ? closeSubmodules() : {};
         }}
         key={props.id}>
         <a href={props.to}
@@ -57,7 +59,8 @@ Link.defaultProps = {
   onShow: () => {},
   onHide: () => {},
   id: "",
-  showOnHover: true
+  showOnHover: true,
+  isModule: false
 };
 
 class Dropdown extends Component {
@@ -96,6 +99,7 @@ class Dropdown extends Component {
         className={state.dd_className}
         onShow={this.activate.bind(null, ["dropdown", "active"])}
         onHide={this.activate.bind(null, ["dropdown"])}
+        isModule
         to={props.to}
         name={props.name}>
         <div className="dd-container">
