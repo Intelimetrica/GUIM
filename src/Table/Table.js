@@ -20,7 +20,9 @@ const mapHeader = (header, handleClickHeader, idOrder, tableOrder) => header.map
       if (colHeader.sortable && !isEmpty(colHeader.id)) {
         let orderClass = 'desc';
         let newOrder = 'asc';
-        if (idOrder === colHeader.id) {
+        if (Array.isArray(idOrder)) {
+          orderClass = idOrder.includes(colHeader.id) ? `active-arrow ${tableOrder}` : orderClass;
+        } else if (idOrder === colHeader.id) {
           orderClass = `active-arrow ${tableOrder}`;
           newOrder = tableOrder === 'asc' ? 'desc' : 'asc';
         }
@@ -170,7 +172,7 @@ Table.defaultProps = {
     ]
   ],
   tableOrder: 'asc',
-  idOrder: '',
+  idOrder: [],
   handleClickHeader: (id, newOrder) => {},
   body: [
     ["1", "John", "Doe", "john@doe.com", "View - Edit"],
