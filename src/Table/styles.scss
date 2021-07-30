@@ -22,24 +22,50 @@
   & th.border{
     border-right: 2px solid #8e8e8e;
   }
-}
-.arrow {
-  margin-left: 10px;
-  border: solid;
-  border-width: 0 1px 1px 0;
-  display: inline-block;
-  padding: 3px;
-  &.asc {
-    transform: rotate(-135deg);
-    -webkit-transform: rotate(-135deg);
-  }
-  &.desc {
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-  }
-}
 
-#ticky {
-  display: none;
-  width: inherit;
+  & #ticky {
+    display: none;
+    width: inherit;
+  }
+  & .arrowContainer {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 11px;
+    & .arrow {
+      margin-left: 10px;
+      border: solid;
+      border-width: 0 1px 1px 0;
+      display: inline-block;
+      padding: 3px;
+      &.asc {
+        transform: rotate(-135deg);
+        -webkit-transform: rotate(-135deg);
+      }
+      &.desc {
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+      }
+    }
+    & .sorter {
+      color: #bfbfbf;
+      display: inline-block;
+      font-style: normal;
+      line-height: 0;
+      text-align: center;
+      text-transform: none;
+      vertical-align: -.125em;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+  }
+  & .sortableColumn {
+    cursor: pointer;
+  }
+  & .sorter {
+    color: #bfbfbf;
+    &.active{
+      color: #1890FF;
+    }
+  }
 }
