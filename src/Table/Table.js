@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import isEmpty from 'lodash/isEmpty';
+import Arrows from './Arrows';
 
 import "./styles.scss";
 
@@ -20,16 +21,19 @@ const mapHeader = (header, handleClickHeader, idOrder, tableOrder) => header.map
       if (colHeader.sortable && !isEmpty(colHeader.id)) {
         let orderClass = 'desc';
         let newOrder = 'asc';
-        if (Array.isArray(idOrder)) {
-          orderClass = idOrder.includes(colHeader.id) ? `active-arrow ${tableOrder}` : orderClass;
-        } else if (idOrder === colHeader.id) {
-          orderClass = `active-arrow ${tableOrder}`;
-          newOrder = tableOrder === 'asc' ? 'desc' : 'asc';
-        }
-        options.onClick = () => handleClickHeader(colHeader.id, newOrder);
-        ordering = <i className={`arrow ${orderClass} `} />;
+        options.className = `${options.className} sortableColumn`
+        const indexOfColumn = idOrder.indexOf(colHeader.id);
+        options.onClick = () => handleClickHeader({id: colHeader.id, index: indexOfColumn});
+        ordering = <Arrows active={idOrder.includes(colHeader.id)} order={tableOrder[indexOfColumn]}/>;
       }
-      return <th key={`row-header-${index_row}-${index_col}`} {...options} >{colHeader.text} {ordering}</th>;
+      return (
+        <th
+          key={`row-header-${index_row}-${index_col}`}
+          {...options} >
+            <span className='Title'>{colHeader.text}</span>
+            <span className='Arrows'>{ordering}</span>
+        </th>
+      );
     })}
   </tr>
 ));
@@ -171,9 +175,9 @@ Table.defaultProps = {
       }
     ]
   ],
-  tableOrder: 'asc',
+  tableOrder: [],
   idOrder: [],
-  handleClickHeader: (id, newOrder) => {},
+  handleClickHeader: () => {},
   body: [
     ["1", "John", "Doe", "john@doe.com", "View - Edit"],
     ["2", "Jane", "Garcia", "jane@doe.com", "View - Edit"],

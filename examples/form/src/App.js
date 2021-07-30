@@ -185,8 +185,8 @@ class App extends Component {
       },
       steps: new Array(numberOfSteps).fill().map((e, i) => i * range),
       textbox: '',
-      tableOrder: 'asc',
-      idOrder: 'Number',
+      tableOrder: [],
+      idOrder: [],
       meta:  {
         limit: 13,
         offset: 0,
@@ -255,10 +255,24 @@ class App extends Component {
     this.setState({ selected_range: newSelectedRange });
   }
 
-  handleClickHeader(id, orderBy) {
+  handleClickHeader(order) {
+    let finalIdOrder = this.state.idOrder;
+    let newOrder = this.state.tableOrder;
+      if (!this.state.idOrder.includes(order.id)) {
+        finalIdOrder.push(order.id);
+        newOrder.push('asc');
+      } else {
+        if (newOrder[order.index] === 'asc') {
+          newOrder[order.index] = 'desc';
+        } else {
+          const removeIndex = this.state.idOrder.indexOf(order.id);
+          finalIdOrder = this.state.idOrder.filter((v) => v !== order.id);
+          newOrder.splice(removeIndex, 1);
+        }
+      }
     this.setState({
-      idOrder: id,
-      tableOrder: orderBy
+      idOrder: finalIdOrder,
+      tableOrder: newOrder
     });
   }
 
@@ -395,7 +409,12 @@ class App extends Component {
             row_hovered={this.state.highlighted}
             headers={header}
             tableOrder={this.state.tableOrder}
-            idOrder={[this.state.idOrder]}
+            idOrder={this.state.idOrder}
+            sortOrder={
+              [
+
+              ]
+            }
             handleClickHeader={this.handleClickHeader}
           />
           <Paginator

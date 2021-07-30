@@ -43,3 +43,29 @@
   display: none;
   width: inherit;
 }
+.arrowContainer {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 11px;
+}
+.sorter {
+  color: #bfbfbf;
+  display: inline-block;
+  font-style: normal;
+  line-height: 0;
+  text-align: center;
+  text-transform: none;
+  vertical-align: -.125em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+.sortableColumn {
+  cursor: pointer;
+}
+.sorter {
+  color: #bfbfbf;
+  &.active{
+    color: #1890FF;
+  }
+}
