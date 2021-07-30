@@ -24,7 +24,7 @@ const mapHeader = (header, handleClickHeader, idOrder, tableOrder) => header.map
         options.className = `${options.className} sortableColumn`
         const indexOfColumn = idOrder.indexOf(colHeader.id);
         options.onClick = () => handleClickHeader({id: colHeader.id, index: indexOfColumn});
-        ordering = <Arrows active={idOrder.includes(colHeader.id)} order={tableOrder[indexOfColumn]}/>;
+        ordering = Arrows(idOrder.includes(colHeader.id), tableOrder[indexOfColumn]);
       }
       return (
         <th

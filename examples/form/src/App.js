@@ -410,11 +410,6 @@ class App extends Component {
             headers={header}
             tableOrder={this.state.tableOrder}
             idOrder={this.state.idOrder}
-            sortOrder={
-              [
-
-              ]
-            }
             handleClickHeader={this.handleClickHeader}
           />
           <Paginator
