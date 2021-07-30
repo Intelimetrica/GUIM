@@ -21,7 +21,7 @@ const mapHeader = (header, handleClickHeader, idOrder, tableOrder) => header.map
       if (colHeader.sortable && !isEmpty(colHeader.id)) {
         let orderClass = 'desc';
         let newOrder = 'asc';
-        options.className = `${options.className} sortableColumn`
+        options.className = `${!isEmpty(options.className) ? options.className : ''} sortableColumn`
         const indexOfColumn = idOrder.indexOf(colHeader.id);
         options.onClick = () => handleClickHeader({id: colHeader.id, index: indexOfColumn});
         ordering = Arrows(idOrder.includes(colHeader.id), tableOrder[indexOfColumn]);
@@ -31,7 +31,7 @@ const mapHeader = (header, handleClickHeader, idOrder, tableOrder) => header.map
           key={`row-header-${index_row}-${index_col}`}
           {...options} >
             <span className='Title'>{colHeader.text}</span>
-            <span className='Arrows'>{ordering}</span>
+            {!isEmpty(ordering) && (<span className='Arrows'>{ordering}</span>)}
         </th>
       );
     })}
