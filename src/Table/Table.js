@@ -24,14 +24,14 @@ const mapHeader = (header, handleClickHeader, idOrder, tableOrder) => header.map
         options.className = `${!isEmpty(options.className) ? options.className : ''} sortableColumn`
         const indexOfColumn = idOrder.indexOf(colHeader.id);
         options.onClick = () => handleClickHeader({id: colHeader.id, index: indexOfColumn});
-        ordering = Arrows(idOrder.includes(colHeader.id), tableOrder[indexOfColumn]);
+        ordering = Arrows(idOrder.includes(colHeader.id) ? tableOrder[indexOfColumn] : '');
       }
       return (
         <th
           key={`row-header-${index_row}-${index_col}`}
           {...options} >
             <span className='Title'>{colHeader.text}</span>
-            {!isEmpty(ordering) && (<span className='Arrows'>{ordering}</span>)}
+            {ordering && (<span className='Arrows'>{ordering}</span>)}
         </th>
       );
     })}
