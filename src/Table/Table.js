@@ -30,8 +30,8 @@ const mapHeader = (header, handleClickHeader, idOrder, tableOrder) => header.map
         <th
           key={`row-header-${index_row}-${index_col}`}
           {...options} >
-            <span className='Title'>{colHeader.text}</span>
-            {ordering && (<span className='Arrows'>{ordering}</span>)}
+            <span className='GUIM_Title'>{colHeader.text}</span>
+            {ordering && (<span className='GUIM_Arrows'>{ordering}</span>)}
         </th>
       );
     })}
