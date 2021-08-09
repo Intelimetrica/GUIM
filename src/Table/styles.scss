@@ -22,11 +22,6 @@
   & th.border{
     border-right: 2px solid #8e8e8e;
   }
-
-  & #ticky {
-    display: none;
-    width: inherit;
-  }
   & .arrowContainer {
     display: inline-flex;
     flex-direction: column;
@@ -68,4 +63,8 @@
       color: #1890FF;
     }
   }
+}
+#ticky {
+  display: none;
+  width: inherit;
 }

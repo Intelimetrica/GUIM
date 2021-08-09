@@ -422,6 +422,10 @@ class App extends Component {
             striped
             header={headerTableTree}
             body={bodyTableTree}
+            sticky_header={{
+              active:true,
+              top:40
+            }}
             icons={{
               expand: <img src={mas} width="10px" alt="expand" />,
               collapse: <img src={menos} width="10px" alt="collapse" />
