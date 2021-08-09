@@ -19,8 +19,6 @@ const mapHeader = (header, handleClickHeader, idOrder, tableOrder) => header.map
         options.className = colHeader.className;
       }
       if (colHeader.sortable && !isEmpty(colHeader.id)) {
-        let orderClass = 'desc';
-        let newOrder = 'asc';
         options.className = `${!isEmpty(options.className) ? options.className : ''} sortableColumn`
         const indexOfColumn = idOrder.indexOf(colHeader.id);
         options.onClick = () => handleClickHeader({id: colHeader.id, index: indexOfColumn});
