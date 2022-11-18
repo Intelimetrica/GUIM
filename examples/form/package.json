@@ -6,7 +6,7 @@
     "guim": "file:../..",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-scripts": "1.0.17"
+    "react-scripts": "5.0.1"
   },
   "scripts": {
     "link_guim": "npm link ../..",
@@ -16,6 +16,6 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "react-scripts": "^1.0.17"
+    "react-scripts": "^5.0.1"
   }
 }
